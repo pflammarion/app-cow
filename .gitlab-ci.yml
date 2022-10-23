@@ -1,8 +1,8 @@
 stages:
-  - publish
+  - build
   - deploy
 
-build-docker-env:
+publish:
   stage: build
   image: docker:latest
   services:

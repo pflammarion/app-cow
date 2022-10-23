@@ -29,15 +29,19 @@ deploy:
 
   script:
     - echo "Deploy path $DEPLOY_PATH"
+    - ssh-add <(echo "$ID_RSA" | base64 -d)
     - umask 0027
-    - git archive HEAD | ssh -i $ID_RSA $SERVER "umask 0027; tar x --no-overwrite-dir --owner=paul --group=www-data -mC $DEPLOY_PATH/"
+    - git archive HEAD | ssh $SERVER "umask 0027; tar x --no-overwrite-dir --owner=paul --group=www-data -mC $DEPLOY_PATH/"
+
 
   environment:
     name: production
     url: https://app-cow.flaminfo.fr
   only:
     - master
-
+/home/paul/IntelliJProjects/app-cow/:
+  gitlab-ci:
+    yml:
 
 
 

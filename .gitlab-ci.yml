@@ -19,7 +19,7 @@ deploy:
   stage: deploy
   variables:
     DEPLOY_PATH: /var/www/flaminfo_fr/app-cow
-    SERVER: gitlab-deployer@flaminfo.fr
+    SERVER: paul@flaminfo.fr
 
   before_script:
     - which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )

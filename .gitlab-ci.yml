@@ -26,8 +26,8 @@ deploy:
 deploy_review:
   stage: deploy
   variables:
-    SERVER: paul@flaminfo.fr
     DEPLOY_PATH: /var/www/flaminfo_fr/app-cow/website_review/$CI_ENVIRONMENT_SLUG
+    SERVER: paul@flaminfo.fr
   before_script:
     - which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )
     - mkdir -p ~/.ssh

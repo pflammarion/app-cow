@@ -33,15 +33,8 @@ deploy:
     - umask 0027
     - git archive HEAD | ssh $SERVER "umask 0027; tar x --no-overwrite-dir --owner=paul --group=www-data -mC $DEPLOY_PATH/"
 
-
   environment:
     name: production
     url: https://app-cow.flaminfo.fr
   only:
     - master
-/home/paul/IntelliJProjects/app-cow/:
-  gitlab-ci:
-    yml:
-
-
-

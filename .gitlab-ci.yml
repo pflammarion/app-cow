@@ -1,19 +1,7 @@
 stages:
-  - build
+  - test
   - deploy
 
-publish:
-  stage: build
-  image: docker:latest
-  services:
-    - docker:dind
-  before_script:
-    - docker login -u "gitlab-ci-token" -p "$CI_JOB_TOKEN" $CI_REGISTRY
-  script:
-    - docker build -t "$CI_REGISTRY_IMAGE/php:8.1" "."
-    - docker push "$CI_REGISTRY_IMAGE/php:8.1"
-  when:
-    manual
 
 deploy:
   stage: deploy
@@ -38,3 +26,50 @@ deploy:
     url: https://app-cow.flaminfo.fr
   only:
     - master
+
+deploy_review:
+  stage: deploy
+  variables:
+    SERVER: paul@flaminfo.fr
+    DEPLOY_PATH: /var/www/flaminfo_fr/app-cow/website_review/$CI_ENVIRONMENT_SLUG
+  before_script:
+    - which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - echo "Deploy path $DEPLOY_PATH"
+    - ssh-add <(echo "$ID_RSA" | base64 -d)
+    - umask 0027
+    - git archive HEAD | ssh $SERVER "umask 0027; tar x --no-overwrite-dir --owner=paul --group=www-data -mC $DEPLOY_PATH/"
+  environment:
+    name: review/$CI_COMMIT_REF_SLUG
+    deployment_tier: development
+    url: https://test.app-cow.flaminfo.fr/$CI_ENVIRONMENT_SLUG
+    on_stop: stop_review
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: never
+    - if: $CI_MERGE_REQUEST_ID
+
+
+stop_review:
+  stage: deploy
+  variables:
+    SERVER: paul@flaminfo.fr
+    DEPLOY_PATH: /var/www/flaminfo_fr/app-cow/website_review/$CI_ENVIRONMENT_SLUG
+  before_script:
+    - which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - echo "Deploy path $DEPLOY_PATH"
+    - ssh-add <(echo "$ID_RSA" | base64 -d)
+    - ssh $SERVER "rm -rf $DEPLOY_PATH/"
+  environment:
+    name: review/$CI_COMMIT_REF_SLUG
+    action: stop
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+      when: manual

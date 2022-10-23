@@ -18,7 +18,8 @@ publish:
 deploy:
   stage: deploy
   variables:
-    DEPLOY_PATH: "/var/www/flaminfo_fr/app-cow"
+    DEPLOY_PATH: /var/www/flaminfo_fr/app-cow
+    SERVER: gitlab-deployer@flaminfo.fr
 
   before_script:
     - which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )
@@ -30,7 +31,7 @@ deploy:
     - echo "Deploy path $DEPLOY_PATH"
     - ssh-add <(echo "$ID_RSA" | base64 -d)
     - umask 0027
-    - git archive HEAD | ssh $SERVER_USER@$SERVER_IP "umask 0027; tar x --no-overwrite-dir --owner=paul --group=www-data -mC $DEPLOY_PATH/"
+    - git archive HEAD | ssh $SERVER "umask 0027; tar x --no-overwrite-dir --owner=paul --group=www-data -mC $DEPLOY_PATH/"
 
   environment:
     name: production

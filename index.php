@@ -1,4 +1,4 @@
 <?php
-echo "<h1>Hello APP</h1>";
-echo "<p>It's WORKING</p>";
+include'view/header.php';
+include 'view/footer.php';
 

@@ -1,3 +1,3 @@
 <?php
-echo "Error 404 bastien";
+echo "<h1>Error 404</h1>";
 

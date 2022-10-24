@@ -7,9 +7,6 @@
     align-items: center;
 }
 .header > img {
-    display: flex;
-    margin-top: auto;
-    margin-bottom: auto;
     margin-left: 60px;
     width: 250px;
     height : 116px;

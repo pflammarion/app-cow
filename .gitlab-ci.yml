@@ -35,7 +35,7 @@ deploy_review:
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   script:
     - echo "Deploy path $DEPLOY_PATH"
-    - echo "$DEPLOY_KEY" | tr -d '\r' | ssh-add -
+    - echo "$DEPLOY_KEY" | ssh-add -
     - umask 0027
     - git archive HEAD | ssh $SERVER "umask 0027; tar x --no-overwrite-dir --owner=paul --group=www-data -mC $DEPLOY_PATH/"
   environment:

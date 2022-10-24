@@ -19,6 +19,6 @@ switch ($function) {
         $message = "Erreur 404 : la page recherchée n'existe pas.";
 }
 
-include ('view/header.php');
-include ('view/' . $view . '.php');
-include ('view/footer.php');
+include 'view/header.php';
+include 'view/' . $view . '.php';
+include 'view/footer.php';

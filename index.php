@@ -1,7 +1,15 @@
 <?php
-include'view/header.php';
-include 'view/footer.php';
-?>
+ini_set('display_errors', 1);
 
-<h1>Waiting to dev</h1>
-<h2>And skills</h2>
+include("./controller/function.php");
+include("./view/function.php");
+
+if(isset($_GET['folder']) && !empty($_GET['folder'])) {
+$url = $_GET['folder'];
+}
+else {
+$url = 'utilisateur';
+}
+
+include('controller/' . $url . '.php');
+

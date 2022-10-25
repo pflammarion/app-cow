@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `Average` (
 
 CREATE TABLE IF NOT EXISTS `Chip` (
   `Chip_Id` int(11) NOT NULL,
-  `Number` int(11) NOT NULL
+  `Code` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `Chip_Cow_User` (

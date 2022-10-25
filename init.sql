@@ -4,6 +4,8 @@ SET time_zone = "+00:00";
 
 CREATE DATABASE IF NOT EXISTS `APP-COW`;
 
+USE `APP-COW`;
+
 CREATE TABLE IF NOT EXISTS `Average` (
   `Average_Id` int(11) NOT NULL,
   `Name` varchar(50) NOT NULL

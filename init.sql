@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `Data_Sensor` (
 
 CREATE TABLE IF NOT EXISTS `FAQ` (
   `FAQ_Id` int(11) NOT NULL,
-  `Tilte` varchar(256) NOT NULL,
+  `Title` varchar(256) NOT NULL,
   `Answer` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

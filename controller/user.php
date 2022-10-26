@@ -1,12 +1,8 @@
 <?php
 
-if (empty($_GET['page'])) {
-    $function = "accueil";
-} else {
-    $function = $_GET['page'];
-}
+$page = getPage("accueil");
 
-switch ($function) {
+switch ($page) {
     case 'accueil':
         $view = "user/home";
         $title = "Accueil";
@@ -17,6 +13,4 @@ switch ($function) {
         $title = "Erreur";
 }
 
-include ('view/header.php');
 include ('view/' . $view . '.php');
-include ('view/footer.php');

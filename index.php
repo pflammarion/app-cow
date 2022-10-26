@@ -6,8 +6,10 @@ include("./view/function.php");
 include __DIR__ . '/view/header.php';
 
 $request = explode('?', $_SERVER['REQUEST_URI']);
+if (str_starts_with($request[0], 'review')) $i = 1;
+else $i = 0;
 
-switch ($request[0]) {
+switch ($request[$i]) {
     case '/user' :
         include __DIR__ . '/controller/user.php';
         break;

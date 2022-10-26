@@ -1,22 +1,20 @@
 <?php
 
-if (empty($_GET['fonction'])) {
+if (empty($_GET['page'])) {
     $function = "accueil";
 } else {
-    $function = $_GET['fonction'];
+    $function = $_GET['page'];
 }
 
 switch ($function) {
-
     case 'accueil':
-        $view = "home";
+        $view = "user/home";
         $title = "Accueil";
         break;
 
     default:
         $view = "error404";
         $title = "Erreur";
-        $message = "Erreur 404 : la page recherchée n'existe pas.";
 }
 
 include ('view/header.php');

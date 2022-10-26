@@ -8,6 +8,7 @@ include __DIR__ . '/view/header.php';
 $request = explode('?', $_SERVER['REQUEST_URI']);
 if (str_starts_with($request[0], 'review')) $i = 1;
 else $i = 0;
+echo $request[$i];
 
 switch ($request[$i]) {
     case '/user' :

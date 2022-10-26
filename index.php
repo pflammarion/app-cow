@@ -3,13 +3,27 @@ ini_set('display_errors', 1);
 
 include("./controller/function.php");
 include("./view/function.php");
+include __DIR__ . '/view/header.php';
 
-if(isset($_GET['folder']) && !empty($_GET['folder'])) {
-$url = $_GET['folder'];
+$request = explode('?', $_SERVER['REQUEST_URI']);
+$request = explode('/', $request[0]);
+if (str_starts_with($request[1], 'review')) $i = 2;
+else $i = 1;
+
+switch ($request[$i]) {
+    case 'user' :
+        include __DIR__ . '/controller/user.php';
+        break;
+    case 'admin' :
+        include __DIR__ . '/controller/admin.php';
+        break;
+    case '' :
+        include __DIR__ . '/controller/login.php';
+        break;
+    default:
+        http_response_code(404);
+        include __DIR__ . '/view/error404.php';
+        break;
 }
-else {
-$url = 'utilisateur';
-}
 
-include('controller/' . $url . '.php');
-
+include __DIR__ . '/view/footer.php';

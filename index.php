@@ -6,18 +6,18 @@ include("./view/function.php");
 include __DIR__ . '/view/header.php';
 
 $request = explode('?', $_SERVER['REQUEST_URI']);
-if (str_starts_with($request[0], 'review')) $i = 1;
-else $i = 0;
-echo $request[$i];
+$request = explode('/', $request[0]);
+if (str_starts_with($request[1], 'review')) $i = 2;
+else $i = 1;
 
 switch ($request[$i]) {
-    case '/user' :
+    case 'user' :
         include __DIR__ . '/controller/user.php';
         break;
-    case '/admin' :
+    case 'admin' :
         include __DIR__ . '/controller/admin.php';
         break;
-    case '/' :
+    case '' :
         include __DIR__ . '/controller/login.php';
         break;
     default:

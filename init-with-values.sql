@@ -108,7 +108,7 @@ DROP TABLE IF EXISTS `Cow`;
 CREATE TABLE `Cow` (
   `Cow_Id` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(100) DEFAULT NULL,
-  `Number` int DEFAULT NULL,
+  `Number` char(10) DEFAULT NULL,
   `img_url` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`Cow_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;

@@ -1,8 +1,62 @@
 @import "header.css";
+@import "login.css";
+@import "button.css";
+@import "input.css";
+
+:root{
+    --dark-blue: #C8EFFE;
+    --light-blue: #DFF6FD;
+    --green: #ADE194;
+    --dark: #000000;
+    --light: #FFFFFF;
+}
 
 body{
     margin : 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
+    font-size: 16px;
+}
+
+h1, h2{
+    font-family: "Arima Madurai", sans-serif;
+}
+
+h1{
+    font-weight: 600;
+    font-size: 20px;
+}
+h2{
+    font-weight: 400;
+    font-size: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+@media screen and (min-width: 800px) {
+    h1{
+        font-size: 36px;
+    }
+    h2{
+        font-size: 24px;
+    }
+    body{
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    h1{
+        font-size: 48px;
+    }
+    h2{
+        font-size: 36px;
+    }
+    body{
+        font-size: 24px;
+    }
 }

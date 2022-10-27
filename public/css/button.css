@@ -1,0 +1,11 @@
+:root{
+    --btn-green: #ADE194
+}
+
+.btn-green{
+    background-color: var(--btn-green);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

@@ -1,0 +1,47 @@
+.login{
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login h1{
+    margin: 32px 0 16px 0;
+    font-size: 24px;
+}
+
+.login label{
+    font-family: "Arima Madurai", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 16px 0;
+}
+
+.login input{
+    width: 287px;
+    padding-left: 8px;
+}
+
+.login .lost-psw-container{
+    font-size: 12px;
+    position: relative;
+    width: 100%;
+}
+
+.login .lost-psw-container a{
+    position: absolute;
+    right: 0;
+    margin-top: -10px;
+}
+
+.login .btn-green{
+    margin-top: 64px;
+    height: 40px;
+    width: 300px;
+}
+
+.login .btn-green img{
+    height: 25px;
+    width: auto;
+}

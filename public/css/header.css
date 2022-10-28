@@ -28,11 +28,10 @@
     justify-content: center;
     margin-right: 32px;
     gap: 10px;
-
-    transition: .3s ease-out;
+    border: solid 2px white;
 }
 .header .btn-exit:hover {
-    border: solid 1px black;
+    border: solid 2px black;
 }
 .header .btn-exit img {
     width: 35px;

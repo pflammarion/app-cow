@@ -11,7 +11,7 @@
 <div class="header">
     <img src="./public/assets/img/LogoCOW.png" alt="Logo Cow">
     <div class = "btn-exit">
-        Déconnexion
+        <p>Déconnexion</p>
         <img src="./public/assets/icon/LogoEXIT.svg" alt="Logo Exit">
 
     </div>

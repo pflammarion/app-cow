@@ -37,7 +37,6 @@
 }
 
 @media screen and (min-width: 800px) {
-    .header,
     .header > img {
         margin-left: 60px;
         margin-bottom: 0px;
@@ -60,12 +59,10 @@
         margin-right: 32px;
         gap: 10px;
     }
-    .header .btn-exit:hover,
-    .header .btn-exit img,
+
 }
 
 @media screen and (min-width: 1200px) {
-    .header,
     .header > img {
         margin-left: 60px;
         width: 250px;
@@ -85,6 +82,4 @@
         margin-right: 32px;
         gap: 10px;
     }
-    .header .btn-exit:hover,
-    .header .btn-exit img,
 }

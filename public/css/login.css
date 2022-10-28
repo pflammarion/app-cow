@@ -8,8 +8,12 @@
     align-items: center;
 }
 
-.login h1,
-.lostpsw h1{
+.login form,
+.lostpsw form{
+    width: 100%;
+}
+
+.login h1{
     margin: 32px 0 16px 0;
     font-size: 24px;
 }

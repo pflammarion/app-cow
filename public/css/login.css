@@ -37,7 +37,10 @@
 
 .login .btn-green{
     height: 40px;
-    width: 300px;
+    width: 368px;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 12px;
 }
 
 .login a{
@@ -60,7 +63,7 @@
     .login .btn-green{
         height: 50px;
         font-size: 20px;
-        width: 350px;
+        width: 318px;
     }
     .login > a{
         margin-top: 80px;

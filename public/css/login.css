@@ -36,12 +36,52 @@
 }
 
 .login .btn-green{
-    margin-top: 64px;
     height: 40px;
     width: 300px;
+}
+
+.login a{
+    margin-top: 64px;
 }
 
 .login .btn-green img{
     height: 25px;
     width: auto;
+}
+
+@media screen and (min-width: 800px) {
+    .login{
+        width: 350px;
+    }
+    .login h1{
+        font-size: 32px;
+        margin: 64px 0 16px 0;
+    }
+    .login .btn-green{
+        height: 50px;
+        font-size: 20px;
+        width: 350px;
+    }
+    .login > a{
+        margin-top: 80px;
+    }
+    .login .btn-green img{
+        height: 30px;
+        width: auto;
+    }
+    .login .lost-psw-container {
+        font-size: 14px;
+    }
+    .login label{
+        font-size: 16px;
+    }
+    .login input{
+        width: 337px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .login h1{
+        font-size: 40px;
+    }
 }

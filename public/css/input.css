@@ -4,3 +4,10 @@ input{
     height: 30px;
     outline: none;
 }
+
+@media screen and (min-width: 800px) {
+    input{
+        height: 40px;
+    }
+}
+

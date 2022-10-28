@@ -1,39 +1,62 @@
-
 .header {
     display : flex;
     width: 100%;
-    height: 171px;
+    height: 110px;
     background-color: #C8EFFE;
     justify-content: space-between;
     align-items: center;
 }
-.header > img {
-    margin-left: 60px;
-    width: 250px;
-    height : 116px;
+.header .btn-exit p{
+    display: none;
 }
-
+.header > img {
+    margin-left: 16px;
+    width: 124px;
+    height :60px;
+}
 .header .btn-exit {
     display: flex;
-    width: 180px;
+    width: 66px;
     height: 54px;
     background-color: #ffffff;
     border-radius: 5px;
 
-    font-size: 18px;
-    font-style: normal;
-    font-weight: bold;
-
     align-items: center;
     justify-content: center;
-    margin-right: 32px;
-    gap: 10px;
+    margin-right: 17px;
+
     border: solid 2px white;
 }
 .header .btn-exit:hover {
     border: solid 2px black;
 }
 .header .btn-exit img {
-    width: 35px;
+    width: auto;
     height: 35px;
+}
+
+@media screen and (min-width: 700px) {
+    .header{
+        height: 170px;
+    }
+    .header > img {
+        margin-left: 60px;
+        width: auto;
+        height : 116px;
+    }
+    .header .btn-exit p{
+        display: block;
+    }
+    .header .btn-exit {
+        width: 180px;
+        height: 54px;
+
+        font-size: 18px;
+        font-style: normal;
+        font-weight: bold;
+
+        margin-right: 32px;
+        gap: 10px;
+    }
+
 }

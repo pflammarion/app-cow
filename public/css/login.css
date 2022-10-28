@@ -40,17 +40,19 @@
 .login .btn-green,
 .lostpsw .btn-green{
     height: 40px;
-    width: 300px;
+    width: 100%;
     justify-content: space-between;
 }
+
 .login .btn-green p,
 .lostpsw .btn-green p{
     margin-left: 20px;
 }
 
-.login a,
-.lostpsw a{
+.login > a,
+.lostpsw > a{
     margin-top: 64px;
+    width: 100%;
 }
 
 .login .btn-green img,
@@ -60,7 +62,8 @@
     margin-right: 12px;
 }
 
-.login .input-container{
+.login .input-container,
+.lostpsw .input-container{
     width: 100%;
     margin: 16px 0;
 }
@@ -80,8 +83,10 @@
         font-size: 20px;
         width: 100%;
     }
-    .login > a{
+    .login > a,
+    .lostpsw > a{
         margin-top: 80px;
+        width: 100%;
     }
     .login .btn-green img,
     .lostpsw .btn-green img{

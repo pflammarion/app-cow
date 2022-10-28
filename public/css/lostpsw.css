@@ -11,14 +11,14 @@
 }
 .lostpsw h1{
     font-size: 20px;
-}
-
-.label-container{
-    width: 320px;
+    white-space: nowrap;
 }
 
 @media screen and (min-width: 800px) {
     .lostpsw {
         width: 350px;
+    }
+    .lostpsw h2{
+        font-size: 24px;
     }
 }

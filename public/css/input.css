@@ -4,6 +4,7 @@ input{
     height: 30px;
     outline: none;
     width: 100%;
+    font: unset;
 }
 
 @media screen and (min-width: 800px) {

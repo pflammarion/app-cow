@@ -2,6 +2,11 @@
     --btn-green: #ADE194
 }
 
+button{
+    all: unset;
+}
+
+
 .btn-green{
     background-color: var(--btn-green);
     border-radius: 5px;

@@ -1,0 +1,108 @@
+@import "lostpsw.css";
+
+.login{
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login form,
+.lostpsw form{
+    width: 100%;
+}
+
+.login h1{
+    margin: 32px 0 16px 0;
+    font-size: 24px;
+}
+
+.login label,
+.lostpsw label{
+    font-family: "Arima Madurai", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.login input,
+.lostpsw input{
+    padding-left: 8px;
+}
+
+.login .lost-psw-container{
+    font-size: 12px;
+    position: relative;
+    width: 100%;
+}
+
+.login .lost-psw-container a{
+    position: absolute;
+    right: 0;
+    margin-top: -10px;
+    width: auto;
+}
+
+.login .btn-green,
+.lostpsw .btn-green{
+    height: 40px;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 64px;
+}
+
+.login .btn-green p,
+.lostpsw .btn-green p{
+    margin-left: 20px;
+}
+
+.login .btn-green img,
+.lostpsw .btn-green img{
+    height: 25px;
+    width: auto;
+    margin-right: 12px;
+}
+
+.login .input-container,
+.lostpsw .input-container{
+    width: 100%;
+    margin: 16px 0;
+}
+
+@media screen and (min-width: 800px) {
+    .login{
+        width: 350px;
+    }
+    .login h1,
+    .lostpsw h1{
+        font-size: 32px;
+        margin: 64px 0 16px 0;
+    }
+    .login .btn-green,
+    .lostpsw .btn-green{
+        height: 50px;
+        font-size: 20px;
+        width: 100%;
+        margin-top: 80px;
+    }
+
+    .login .btn-green img,
+    .lostpsw .btn-green img{
+        height: 30px;
+        width: auto;
+    }
+    .login .lost-psw-container {
+        font-size: 14px;
+    }
+    .login label,
+    .lostpsw label{
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .login h1,
+    .lostpsw h1{
+        font-size: 40px;
+    }
+}

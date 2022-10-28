@@ -17,7 +17,8 @@ switch ($request[$i]) {
     case 'admin' :
         include __DIR__ . '/controller/admin.php';
         break;
-    case '' :
+    case 'login':
+    case '':
         include __DIR__ . '/controller/login.php';
         break;
     default:

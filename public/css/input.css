@@ -3,6 +3,7 @@ input{
     border-radius: 5px;
     height: 30px;
     outline: none;
+    width: 100%;
 }
 
 @media screen and (min-width: 800px) {

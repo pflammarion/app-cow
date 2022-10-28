@@ -1,0 +1,24 @@
+.lostpsw{
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1px red;
+}
+.lostpsw h2{
+    font-size: 16px;
+}
+.lostpsw h1{
+    font-size: 20px;
+}
+
+.label-container{
+    width: 320px;
+}
+
+@media screen and (min-width: 800px) {
+    .lostpsw {
+        width: 350px;
+    }
+}

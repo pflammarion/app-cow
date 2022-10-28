@@ -18,6 +18,9 @@ body{
     font-family: "Inter", sans-serif;
     font-size: 16px;
 }
+input{
+    box-sizing:border-box
+}
 
 h1, h2{
     font-family: "Arima Madurai", sans-serif;

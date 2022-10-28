@@ -8,6 +8,7 @@ include __DIR__ . '/view/header.php';
 $request = explode('?', $_SERVER['REQUEST_URI']);
 $request = explode('/', $request[0]);
 if (str_starts_with($request[1], 'review')) $i = 2;
+elseif (str_starts_with($request[1], 'app-cow')) $i = 2;
 else $i = 1;
 
 switch ($request[$i]) {

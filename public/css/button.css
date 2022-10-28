@@ -4,8 +4,9 @@
 
 button{
     all: unset;
+    cursor: pointer;
+    user-select: none;
 }
-
 
 .btn-green{
     background-color: var(--btn-green);

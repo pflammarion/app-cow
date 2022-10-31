@@ -9,6 +9,9 @@ switch ($page) {
     case 'lostpassword':
         $view = "login/lostPassword";
         break;
+    case 'register' :
+        $view = "login/register";
+        break;
     default:
         $view = "error404";
 }

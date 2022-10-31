@@ -6,9 +6,28 @@ input{
     width: 100%;
 }
 
+
+label{
+    font-family: "Arima Madurai", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input{
+    padding-left: 8px;
+}
+
+.input-container{
+    width: 100%;
+    margin: 16px 0;
+}
+
 @media screen and (min-width: 800px) {
     input{
         height: 40px;
+    }
+    label{
+        font-size: 16px;
     }
 }
 

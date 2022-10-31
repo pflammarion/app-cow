@@ -1,0 +1,27 @@
+.register{
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register .input-container{
+    width: 300px;
+}
+
+@media screen and (min-width: 800px) {
+    .register {
+        width: 700px;
+    }
+    .register form{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0 64px;
+    }
+    .register .btn-green{
+        width: 300px !important;
+    }
+}

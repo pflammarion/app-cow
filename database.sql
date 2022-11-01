@@ -1,15 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.31, for macos12.6 (x86_64)
 --
--- Host: localhost    Database: APP-COW
+-- Host: localhost    Database: APPCOW
 -- ------------------------------------------------------
 -- Server version	8.0.31
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-CREATE DATABASE IF NOT EXISTS `APPCOW` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `APPCOW`;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -22,6 +15,10 @@ USE `APPCOW`;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+DROP DATABASE `APPCOW`;
+CREATE DATABASE IF NOT EXISTS `APPCOW` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `APPCOW`;
+
 --
 -- Table structure for table `Average`
 --
@@ -31,7 +28,7 @@ DROP TABLE IF EXISTS `Average`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Average` (
   `Average_Id` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(50) NOT NULL,
+  `Average_Name` varchar(50) NOT NULL,
   PRIMARY KEY (`Average_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -55,7 +52,7 @@ DROP TABLE IF EXISTS `Chip`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Chip` (
   `Chip_Id` int NOT NULL AUTO_INCREMENT,
-  `Code` char(10) NOT NULL,
+  `Chip_Code` char(10) NOT NULL,
   PRIMARY KEY (`Chip_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -111,9 +108,9 @@ DROP TABLE IF EXISTS `Cow`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Cow` (
   `Cow_Id` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(100) DEFAULT NULL,
-  `Number` char(10) DEFAULT NULL,
-  `img_url` varchar(256) DEFAULT NULL,
+  `Cow_Name` varchar(100) DEFAULT NULL,
+  `Cow_Number` char(10) DEFAULT NULL,
+  `Cow_Img_Url` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`Cow_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -140,7 +137,7 @@ CREATE TABLE `Data_Sensor` (
   `Chip_Id` int NOT NULL,
   `Sensor_Id` int NOT NULL,
   `Average_Id` int NOT NULL,
-  `Value` int NOT NULL,
+  `Data_Sensor_Value` int NOT NULL,
   `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Coef` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`Data_Sensor_Id`),
@@ -171,8 +168,8 @@ DROP TABLE IF EXISTS `Faq`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Faq` (
   `FAQ_Id` int NOT NULL AUTO_INCREMENT,
-  `Title` varchar(256) NOT NULL,
-  `Answer` text NOT NULL,
+  `FAQ_Title` varchar(256) NOT NULL,
+  `FAQ_Answer` text NOT NULL,
   PRIMARY KEY (`FAQ_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -196,7 +193,7 @@ DROP TABLE IF EXISTS `Page`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Page` (
   `Page_Id` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(100) NOT NULL,
+  `Page_Name` varchar(100) NOT NULL,
   PRIMARY KEY (`Page_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -247,7 +244,7 @@ DROP TABLE IF EXISTS `Role`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Role` (
   `Role_Id` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(50) NOT NULL,
+  `Role_Name` varchar(50) NOT NULL,
   PRIMARY KEY (`Role_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -271,7 +268,7 @@ DROP TABLE IF EXISTS `Sensor`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Sensor` (
   `Sensor_Id` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(50) NOT NULL,
+  `Sensor_Name` varchar(50) NOT NULL,
   PRIMARY KEY (`Sensor_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -295,7 +292,7 @@ DROP TABLE IF EXISTS `Status`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Status` (
   `Status_Id` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(50) NOT NULL,
+  `Status_Name` varchar(50) NOT NULL,
   PRIMARY KEY (`Status_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -318,9 +315,9 @@ DROP TABLE IF EXISTS `Tag`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Tag` (
-  `Tad_Id` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(50) NOT NULL,
-  PRIMARY KEY (`Tad_Id`)
+  `Tag_Id` int NOT NULL AUTO_INCREMENT,
+  `Tag_Name` varchar(50) NOT NULL,
+  PRIMARY KEY (`Tag_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -346,14 +343,14 @@ CREATE TABLE `Ticket` (
   `User_Id` int NOT NULL,
   `Tag_Id` int NOT NULL,
   `Status_Id` int NOT NULL,
-  `Content` text NOT NULL,
-  `Date` date NOT NULL,
+  `Ticket_Content` text NOT NULL,
+  `Ticket_Date` date NOT NULL,
   PRIMARY KEY (`Ticket_Id`),
   KEY `FK_User_Id_Ticket_User` (`User_Id`),
   KEY `FK_Tag_Id_Ticket_Tag` (`Tag_Id`),
   KEY `FK_Status_Id_Ticket_Status` (`Status_Id`),
   CONSTRAINT `FK_Status_Id_Ticket_Status` FOREIGN KEY (`Status_Id`) REFERENCES `Status` (`Status_Id`) ON UPDATE CASCADE,
-  CONSTRAINT `FK_Tag_Id_Ticket_Tag` FOREIGN KEY (`Tag_Id`) REFERENCES `Tag` (`Tad_Id`) ON UPDATE CASCADE,
+  CONSTRAINT `FK_Tag_Id_Ticket_Tag` FOREIGN KEY (`Tag_Id`) REFERENCES `Tag` (`Tag_Id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_User_Id_Ticket_User` FOREIGN KEY (`User_Id`) REFERENCES `User` (`User_Id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -378,11 +375,13 @@ DROP TABLE IF EXISTS `User`;
 CREATE TABLE `User` (
   `User_Id` int NOT NULL AUTO_INCREMENT,
   `Role_Id` int NOT NULL,
-  `Email` varchar(120) NOT NULL,
-  `Password` varchar(256) NOT NULL,
-  `Username` varchar(50) DEFAULT NULL,
-  `img_url` varchar(256) DEFAULT NULL,
-  `Ban` tinyint(1) NOT NULL,
+  `User_Email` varchar(120) NOT NULL,
+  `User_Password` varchar(256) NOT NULL,
+  `User_Username` varchar(50) DEFAULT NULL,
+  `User_Img_Url` varchar(256) DEFAULT NULL,
+  `User_Ban` tinyint(1) NOT NULL,
+  `User_FirstName` varchar(50) NOT NULL,
+  `User_LastName` varchar(50) NOT NULL,
   PRIMARY KEY (`User_Id`),
   KEY `FK_Role_Id_User_Role` (`Role_Id`),
   CONSTRAINT `FK_Role_Id_User_Role` FOREIGN KEY (`Role_Id`) REFERENCES `Role` (`Role_Id`) ON UPDATE CASCADE
@@ -395,7 +394,7 @@ CREATE TABLE `User` (
 
 LOCK TABLES `User` WRITE;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (1,1,'johndoe@gmail.com','','jd',NULL,0),(2,1,'jgjk@gmail.com','','lkjlhl',NULL,1),(3,2,'klj@gmail.com','',NULL,NULL,0),(4,3,'lkjm@gmail.com','',NULL,NULL,0),(5,2,'lkjl@gmail.com','',NULL,NULL,0),(6,2,'paul.flammarion@gmail.com','','flamminfou',NULL,1);
+INSERT INTO `User` VALUES (1,1,'johndoe@gmail.com','','jd',NULL,0,'',''),(2,1,'jgjk@gmail.com','','lkjlhl',NULL,1,'',''),(3,2,'klj@gmail.com','',NULL,NULL,0,'',''),(4,3,'lkjm@gmail.com','',NULL,NULL,0,'',''),(5,2,'lkjl@gmail.com','',NULL,NULL,0,'',''),(6,2,'paul.flammarion@gmail.com','','flamminfou',NULL,1,'','');
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -408,4 +407,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-28 15:03:48
+-- Dump completed on 2022-11-01 18:34:03

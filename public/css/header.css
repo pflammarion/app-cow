@@ -26,6 +26,7 @@
     margin-right: 17px;
 
     border: solid 2px white;
+    cursor: pointer;
 }
 .header .btn-exit:hover {
     border: solid 2px black;

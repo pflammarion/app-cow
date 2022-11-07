@@ -2,12 +2,6 @@
     <div class="cgu-title">
         <h1>Condition Générales d'Utilisation</h1>
     </div>
+    <div class="cgu-articles"></div>
 
 </div>
-
-
-
-
-
-<?php
-echo "cgu";

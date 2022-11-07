@@ -13,32 +13,21 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']){
     elseif (str_starts_with($request[1], 'app-cow')) $i = 2;
     else $i = 1;
 
-    switch ($request[$i]) {
-        case 'user' :
-            include __DIR__ . '/controller/user.php';
-            break;
-        case 'admin' :
-            include __DIR__ . '/controller/admin.php';
-            break;
-        case 'all' :
-            include __DIR__ . '/controller/all.php';
-            break;
-        case 'profile' :
-            include __DIR__ . '/controller/profile.php';
-            break;
-        case '' :
-            if($_SESSION['role'] === 1){
-                include __DIR__ . '/controller/user.php';
-            }
-            else{
-                include __DIR__ . '/controller/admin.php';
-            }
-            break;
-        default:
-            http_response_code(404);
-            include __DIR__ . '/view/error404.php';
-            break;
-    }
+switch ($request[$i]) {
+    case 'user' :
+        include __DIR__ . '/controller/user.php';
+        break;
+    case 'admin' :
+        include __DIR__ . '/controller/admin.php';
+        break;
+    case 'login':
+    case '':
+        include __DIR__ . '/controller/login.php';
+        break;
+    default:
+        http_response_code(404);
+        include __DIR__ . '/view/error404.php';
+        break;
 }
 else{
     include __DIR__ . '/controller/login.php';

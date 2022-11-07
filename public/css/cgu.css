@@ -1,0 +1,12 @@
+.cgu {
+    display: flex;
+    width: 310px;
+    height: 100%;
+}
+.cgu .cgu-title {
+    display: flex;
+    width: 230px;
+    height: 80px;
+    align-items: center;
+    margin-top: 8px;
+}

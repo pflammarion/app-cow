@@ -1,21 +1,19 @@
 .cgu {
     display: flex;
-    width: 310px;
+    width: 360px;
     height: 100%;
-    background-color: #82cbb1;
+    border: solid 2px #a2ff00;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 .cgu .cgu-title {
-    display: flex;
     width: 230px;
     height: 80px;
-    align-items: center;
-    background-color: #984b4b;
-    margin-left: 65px;
+    border: solid 2px #00fff7;
 }
-.cgu,
-.cgu-articles {
-    display: flex;
+.cgu .cgu-article {
     width: 310px;
-    height: 575px;
-    background-color: #749f51;
+    height: 574px;
+    margin-top: 50px;
+    border: solid 2px orange;
 }

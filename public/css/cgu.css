@@ -2,13 +2,14 @@
     display: flex;
     width: 310px;
     height: 100%;
+    background-color: #82cbb1;
 }
 .cgu .cgu-title {
     display: flex;
     width: 230px;
     height: 80px;
     align-items: center;
-    background-color: red;
+    background-color: #984b4b;
     margin-left: 65px;
 }
 .cgu,
@@ -16,5 +17,5 @@
     display: flex;
     width: 310px;
     height: 575px;
-    background-color: darkorchid;
+    background-color: #749f51;
 }

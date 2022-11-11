@@ -21,6 +21,7 @@ function login(){
             return 'Bad credentials or ban';
         }
     }
+    else return "Missing username or password";
 }
 
 function logout(){

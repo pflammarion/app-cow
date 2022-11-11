@@ -1,5 +1,11 @@
 <?php
 
+ob_start();
+
+if(!isset($_SESSION)) {
+    session_start();
+}
+
 $db_name = "APPCOW";
 $db_user = "app-user";
 $db_pass = "APP-PSW-2022!";
@@ -14,13 +20,3 @@ catch(Exception $e) {
     echo 'Database connection error.'.$e->getMessage();
     exit();
 }
-
-/*Exemple de fonction :
-
-function getUser(): array {
-    $sql = 'SELECT * FROM User';
-    $query = $GLOBALS['db']->prepare($s);
-    $query->execute();
-return $query -> fetchAll()
-}
-*/

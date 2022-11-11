@@ -3,32 +3,23 @@
 include 'connection.php';
 include 'function.php';
 
-function login(): bool
+function login($value): bool
 {
-    if (isset($_POST['username']) && isset($_POST['password'])) {
-        $sql = "SELECT User.Role_Id, User.User_Ban, User.User_Password FROM `User` WHERE  User.User_Username = :username LIMIT 1";
-        $query = $GLOBALS['db']->prepare($sql);
-        $username = htmlentities($_POST['username']);
-        $password = $_POST['password'];
-        $query->execute(array('username'=>$username, 'password'=>$password));
-        $row = $query->fetch();
-        if ($query->rowCount() === 1 && $row['User_Ban'] === 0  && password_verify($password, $row['password'])) {
-            $_SESSION['username'] = $username;
-            $_SESSION['password'] = $password;
-            $_SESSION['role'] = $row['Role_Id'];
-            return $auth = true;
-        }
-        else {
-            return $auth = false;
-        }
+    $username = htmlentities($value['username']);
+    $password = $value;
+    $sql = "SELECT User.Role_Id, User.User_Ban, User.User_Password FROM `User` WHERE  User.User_Username = :username OR User_Email=:email LIMIT 1";
+    $query = $GLOBALS['db']->prepare($sql);
+    $query->execute(array('username'=>$username, 'email'=> $value['email']));
+    $row = $query->fetch();
+    if ($query->rowCount() === 1 && $row['User_Ban'] === 0  && password_verify($password, $row['password'])) {
+        $_SESSION['username'] = $username;
+        $_SESSION['password'] = $password;
+        $_SESSION['role'] = $row['Role_Id'];
+        return true;
     }
-    else return $auth = false;
-}
-
-function logout(){
-    session_start();
-    session_destroy();
-    header("Location: /login?page=login");
+    else {
+        return false;
+    }
 }
 
 function register($value) : bool
@@ -57,7 +48,7 @@ function register($value) : bool
     }
 
     $user_ban_sql = "SELECT User_Ban FROM User WHERE User_Username = :username OR User_Email = :email";
-    $user_ban_query = $GLOBALS['db']->prepare($user_sql);
+    $user_ban_query = $GLOBALS['db']->prepare($user_ban_sql);
     $user_ban_query->execute(array("username"=> $username, "email"=>$email));
     $user_ban = $user_ban_query->fetch();
     if ($user_ban === 1) {
@@ -77,7 +68,6 @@ function register($value) : bool
                 "lastname"=>htmlentities($lastname),
             ));
 
-        header("Location: /login?page=login");
         return true;
     }
     return false;

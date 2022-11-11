@@ -12,7 +12,7 @@ $db_pass = "APP-PSW-2022!";
 $db_host = "localhost";
 
 try {
-    $GLOBALS['db'] = new PDO("mysql:host='.$db_host.';dbname='.$db_name.'", $db_user, $db_pass);
+    $GLOBALS['db'] = new PDO("mysql:host=". $db_host .";dbname=". $db_name ."", $db_user, $db_pass);
     $GLOBALS['db']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 

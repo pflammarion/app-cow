@@ -1,10 +1,10 @@
 <div class="register">
     <h1>Pas encore de compte ?</h1>
-    <form action="./login">
+    <form action="" method="post">
         <div class="input-container">
             <label for="lastename">
                 Nom
-                <input type="text" name="lastename">
+                <input type="text" name="lastname">
             </label>
         </div>
         <div class="input-container">
@@ -32,9 +32,9 @@
             </label>
         </div>
         <div class="input-container">
-            <label for="password-confirmation">
+            <label for="password_confirm">
                 Confirmation du mot de passe
-                <input type="password" name="password-confirmation">
+                <input type="password" name="password_confirm">
             </label>
         </div>
         <button type="submit" class="btn-green">

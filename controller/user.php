@@ -1,6 +1,6 @@
 <?php
 
-$page = getPage("accueil");
+$page = selectPage("accueil");
 
 switch ($page) {
     case 'accueil':

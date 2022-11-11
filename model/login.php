@@ -1,8 +1,5 @@
 <?php
 
-include 'connection.php';
-include 'function.php';
-
 function login($value): bool
 {
     $username = htmlentities($value['username']);

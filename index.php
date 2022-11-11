@@ -3,6 +3,7 @@ ini_set('display_errors', 1);
 
 include("./controller/function.php");
 include("./view/function.php");
+include __DIR__ . '/model/connection.php';
 include __DIR__ . '/view/header.php';
 
 $request = explode('?', $_SERVER['REQUEST_URI']);

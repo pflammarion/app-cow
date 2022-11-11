@@ -1,5 +1,7 @@
 <?php
 
+include __DIR__ . '/model/login.php';
+
 $page = getPage("login");
 
 switch ($page) {

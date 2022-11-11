@@ -31,25 +31,14 @@ function logout(){
     header("Location: /login?page=login");
 }
 
-function register()
+function register($value) : bool
 {
     $register_errors = [];
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $lastname = $_POST['lastname'];
-    $firstname = $_POST['firstname'];
-    $password = $_POST['password'];
-    $password_confirm = $_POST['password_confirm'];
-    if ($password !== $password_confirm){
-        $register_errors[] = "Passwords don't match";
-    }
-    if (strlen($password) < 8) {
-        $register_errors[] = "Password not long enough! Must be at least 8 characters long";
-    }
-
-    if ($username === $password) {
-        $register_errors[]= "Your name cannot be your password!";
-    }
+    $username = $value['username'];
+    $email = $value['email'];
+    $lastname = $value['lastname'];
+    $firstname = $value['firstname'];
+    $password = $value['password'];
 
     $email_sql = "SELECT count(1) FROM User WHERE User_Email = :email";
     $email_query = $GLOBALS['db']->prepare($email_sql);
@@ -77,8 +66,6 @@ function register()
 
     if (!$register_errors)
     {
-        $password = password_hash($password, PASSWORD_DEFAULT);
-
         $create_account_sql = "INSERT INTO User (User_Username, User_Email, User_FirstName, User_LastName, User_Password ) VALUES (:username, :email, :firstname, :lastname, :password)";
         $create_account_query = $GLOBALS['db']->prepare($create_account_sql);
         $create_account_query->execute(
@@ -91,6 +78,7 @@ function register()
             ));
 
         header("Location: /login?page=login");
-        exit;
+        return true;
     }
+    return false;
 }

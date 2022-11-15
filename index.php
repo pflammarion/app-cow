@@ -24,6 +24,9 @@ switch ($request[$i]) {
     case '':
         include __DIR__ . '/controller/all.php';
         break;
+    case 'ml':
+        include __DIR__ . '/view/mentionslegales.php';
+        break;
     default:
         http_response_code(404);
         include __DIR__ . '/view/error404.php';

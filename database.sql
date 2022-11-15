@@ -15,6 +15,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
 DROP DATABASE `APPCOW`;
 CREATE DATABASE IF NOT EXISTS `APPCOW` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `APPCOW`;
@@ -95,7 +96,6 @@ CREATE TABLE `Chip_Cow_User` (
 
 LOCK TABLES `Chip_Cow_User` WRITE;
 /*!40000 ALTER TABLE `Chip_Cow_User` DISABLE KEYS */;
-INSERT INTO `Chip_Cow_User` VALUES (1,6,1,1),(2,6,3,5),(3,1,2,4),(4,2,4,3),(5,2,5,2),(6,3,9,9),(7,4,6,6),(8,4,8,7),(9,5,7,8);
 /*!40000 ALTER TABLE `Chip_Cow_User` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -340,7 +340,7 @@ DROP TABLE IF EXISTS `Ticket`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Ticket` (
   `Ticket_Id` int NOT NULL AUTO_INCREMENT,
-  `User_Id` int NOT NULL,
+  `User_Id` int DEFAULT NULL,
   `Tag_Id` int NOT NULL,
   `Status_Id` int NOT NULL,
   `Ticket_Content` text NOT NULL,
@@ -351,7 +351,7 @@ CREATE TABLE `Ticket` (
   KEY `FK_Status_Id_Ticket_Status` (`Status_Id`),
   CONSTRAINT `FK_Status_Id_Ticket_Status` FOREIGN KEY (`Status_Id`) REFERENCES `Status` (`Status_Id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_Tag_Id_Ticket_Tag` FOREIGN KEY (`Tag_Id`) REFERENCES `Tag` (`Tag_Id`) ON UPDATE CASCADE,
-  CONSTRAINT `FK_User_Id_Ticket_User` FOREIGN KEY (`User_Id`) REFERENCES `User` (`User_Id`) ON UPDATE CASCADE
+  CONSTRAINT `FK_User_Id_Ticket_User` FOREIGN KEY (`User_Id`) REFERENCES `User` (`User_Id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -361,7 +361,7 @@ CREATE TABLE `Ticket` (
 
 LOCK TABLES `Ticket` WRITE;
 /*!40000 ALTER TABLE `Ticket` DISABLE KEYS */;
-INSERT INTO `Ticket` VALUES (1,6,3,3,'kjlmkjlkj','2022-10-28'),(2,6,1,2,'khljl','2022-09-28'),(3,4,2,1,'mlk','2022-10-27'),(4,3,2,2,'mlkkmjlm','2022-10-27'),(5,3,3,2,'oijpoi','2022-09-26');
+INSERT INTO `Ticket` VALUES (1,NULL,3,3,'kjlmkjlkj','2022-10-28'),(2,NULL,1,2,'khljl','2022-09-28'),(3,NULL,2,1,'mlk','2022-10-27'),(4,NULL,2,2,'mlkkmjlm','2022-10-27'),(5,NULL,3,2,'oijpoi','2022-09-26');
 /*!40000 ALTER TABLE `Ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -374,18 +374,18 @@ DROP TABLE IF EXISTS `User`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `User` (
   `User_Id` int NOT NULL AUTO_INCREMENT,
-  `Role_Id` int NOT NULL,
+  `Role_Id` int NOT NULL DEFAULT '1',
   `User_Email` varchar(120) NOT NULL,
   `User_Password` varchar(256) NOT NULL,
   `User_Username` varchar(50) DEFAULT NULL,
   `User_Img_Url` varchar(256) DEFAULT NULL,
-  `User_Ban` tinyint(1) NOT NULL,
+  `User_Ban` tinyint(1) NOT NULL DEFAULT '0',
   `User_FirstName` varchar(50) NOT NULL,
   `User_LastName` varchar(50) NOT NULL,
   PRIMARY KEY (`User_Id`),
   KEY `FK_Role_Id_User_Role` (`Role_Id`),
   CONSTRAINT `FK_Role_Id_User_Role` FOREIGN KEY (`Role_Id`) REFERENCES `Role` (`Role_Id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -394,7 +394,7 @@ CREATE TABLE `User` (
 
 LOCK TABLES `User` WRITE;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (1,1,'johndoe@gmail.com','','jd',NULL,0,'',''),(2,1,'jgjk@gmail.com','','lkjlhl',NULL,1,'',''),(3,2,'klj@gmail.com','',NULL,NULL,0,'',''),(4,3,'lkjm@gmail.com','',NULL,NULL,0,'',''),(5,2,'lkjl@gmail.com','',NULL,NULL,0,'',''),(6,2,'paul.flammarion@gmail.com','','flamminfou',NULL,1,'','');
+INSERT INTO `User` VALUES (7,1,'paul@flammarion.eu','$2y$10$JM41Tvy9WN/A68M2gbRUVuO0HP0TojvYiW2IDm2BZHwBiEn7N8vIi','pipaul',NULL,0,'Paul','Flammarion');
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -407,4 +407,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-01 18:34:03
+-- Dump completed on 2022-11-15 17:02:59

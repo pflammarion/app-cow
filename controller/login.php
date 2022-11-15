@@ -16,7 +16,7 @@ if(!empty($page)){
                 ];
                 $login = login($values);
                 if ($login){
-                    header("Location: ../user?page=accueil");
+                    header("Location: user?page=accueil");
                     exit();
                 }
             }

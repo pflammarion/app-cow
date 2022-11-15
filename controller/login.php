@@ -16,7 +16,7 @@ if(!empty($page)){
                 ];
                 $login = login($values);
                 if ($login){
-                    header("Location: https://$_SERVER[HTTP_HOST]/user/?page=home");
+                    header("Location: http://$_SERVER[HTTP_HOST]/user?page=accueil");
                     exit();
                 }
             }

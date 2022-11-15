@@ -379,7 +379,7 @@ CREATE TABLE `User` (
   `User_Password` varchar(256) NOT NULL,
   `User_Username` varchar(50) DEFAULT NULL,
   `User_Img_Url` varchar(256) DEFAULT NULL,
-  `User_Ban` tinyint(1) NOT NULL DEFAULT '1',
+  `User_Ban` tinyint(1) NOT NULL DEFAULT '0',
   `User_FirstName` varchar(50) NOT NULL,
   `User_LastName` varchar(50) NOT NULL,
   PRIMARY KEY (`User_Id`),
@@ -394,7 +394,7 @@ CREATE TABLE `User` (
 
 LOCK TABLES `User` WRITE;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (7,1,'paul@flammarion.eu','$2y$10$JM41Tvy9WN/A68M2gbRUVuO0HP0TojvYiW2IDm2BZHwBiEn7N8vIi','pipaul',NULL,1,'Paul','Flammarion');
+INSERT INTO `User` VALUES (7,1,'paul@flammarion.eu','$2y$10$JM41Tvy9WN/A68M2gbRUVuO0HP0TojvYiW2IDm2BZHwBiEn7N8vIi','pipaul',NULL,0,'Paul','Flammarion');
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

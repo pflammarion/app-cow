@@ -12,9 +12,9 @@
 @import "all/faq.css";
 @import "all/legal.css";
 
-@import "profil/delete.css";
-@import "profil/update.css";
-@import "profil/view.css";
+@import "profile/delete.css";
+@import "profile/update.css";
+@import "profile/view.css";
 
 
 :root{

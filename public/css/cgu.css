@@ -4,37 +4,30 @@
     width: 360px;
     flex-direction: column;
     align-items: center;
-}
-
-.cgu h1 {
-    width: 250px;
-    text-align: center;
+    border: solid 1px red;
 }
 
 .cgu .cgu-article {
     width: 310px;
+    border: solid 1px red;
 }
 
 .cgu h2{
-    margin-top: 11px;
-    margin-bottom: -3px;
-    text-align: center;
+    width: auto;
+    border: solid 1px red;
+    margin: auto;
+    padding-bottom: 0px;
+    border-bottom: 3px solid #C8EFFE;
 }
 
 .cgu p{
-    padding: 10px;
-}
-
-.cgu .underline{
-    border-top: 3px solid #C8EFFE;
-    height: 1px;
-    display: block;
+    padding: 11px;
+    border: solid 1px red;
 }
 
 .cgu .separator {
-    margin: 20px auto;
+    margin: 11px auto;
     border-top: 3px solid #ADE194;
     width: 80%;
-    height: 1px;
     display: block;
 }

@@ -8,15 +8,38 @@
 }
 
 .cgu h1 {
-    margin-top: 8px;
-    font-size: 24px;
-    text-align: center;
     border: solid 2px #00fff7;
+    width: 250px;
+    text-align: center;
 }
 
 .cgu .cgu-article {
     width: 310px;
-    height: 574px;
-    margin-top: 5px;
     border: solid 2px orange;
+}
+
+.cgu h2{
+    box-sizing: content-box;
+    margin-top: 11px;
+    margin-bottom: -3px;
+    text-align: center;
+    border: solid 2px #a2ff00;
+}
+
+.cgu p{
+    border: solid 2px #a2ff00;
+    padding: 0 10px;
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+
+.cgu .bordure{
+    margin-bottom: 11px;
+    border-top: 3px solid #C8EFFE;
+}
+
+.cgu .bordure:nth-child(3n+1) {
+    border-top: 3px solid #ADE194;
+    width: 288px;
+    margin-left: 11px;
 }

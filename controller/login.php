@@ -16,7 +16,12 @@ if(!empty($page)){
                 ];
                 $error = login($values);
                 if ($error === ""){
-                    header("Location: user?page=accueil");
+                    if ($_SESSION['role'] === 1){
+                        header("Location: user?page=accueil");
+                    }
+                    else{
+                        header("Location: admin?page=accueil");
+                    }
                     exit();
                 }
                 else{
@@ -56,7 +61,8 @@ if(!empty($page)){
                     $register = register($values);
 
                     if ($register) {
-                        $view = "login/login";
+                        header("Location: login?page=login");
+                        exit();
                     }
                 }
             }

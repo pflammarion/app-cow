@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\NoReturn;
+
 function consoleLog(string $var){
     echo("<script>console.log('PHP: " . $var . "');</script>");
 }
@@ -34,3 +36,10 @@ function showPage(string $view): void
     else include ('view/error404.php');
 }
 
+#[NoReturn] function logout(): void
+{
+    session_start();
+    session_destroy();
+    header("Location: login?page=login");
+    exit();
+}

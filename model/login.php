@@ -1,25 +1,30 @@
 <?php
 
-function login($value): bool
+function login(array $value): string
 {
+    $error_message = array();
     $object = htmlentities($value['username']);
     $password = $value['password'];
     $sql = "SELECT User.Role_Id, User.User_Ban, User.User_Password, User_Username FROM `User` WHERE  User.User_Username = :username OR User_Email=:email LIMIT 1";
     $query = $GLOBALS['db']->prepare($sql);
     $query->execute(array('username'=>$object, 'email'=> $object));
     $row = $query->fetch();
-    if ($query->rowCount() === 1 && $row['User_Ban'] === 0  && password_verify($password, $row['User_Password']) == 1) {
-        $_SESSION['username'] = $object;
-        $_SESSION['password'] = $password;
-        $_SESSION['role'] = $row['Role_Id'];
-        return true;
+    if ($query->rowCount() === 1){
+        if($row['User_Ban'] === 0) {
+            if (password_verify($password, $row['User_Password'])) {
+                $_SESSION['username'] = $object;
+                $_SESSION['password'] = $password;
+                $_SESSION['role'] = $row['Role_Id'];
+                return "";
+            }
+            else return "Le nom d'utisateur ou le mot de passe est invalide";
+        }
+        else return "L'utilisateur a été bani de notre service";
     }
-    else {
-        return false;
-    }
+    else return "Le nom d'utisateur ou le mot de passe est invalide";
 }
 
-function register($value) : bool
+function register(array $value) : bool
 {
     $register_errors = [];
     $username = $value['username'];

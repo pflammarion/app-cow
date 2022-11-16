@@ -14,10 +14,13 @@ if(!empty($page)){
                     'username' => $_POST['username'],
                     'password' => $_POST['password'],
                 ];
-                $login = login($values);
-                if ($login){
+                $error = login($values);
+                if ($error === ""){
                     header("Location: user?page=accueil");
                     exit();
+                }
+                else{
+                    echo('<script>alert("' . $error . '")</script>');
                 }
             }
             break;
@@ -32,7 +35,7 @@ if(!empty($page)){
                 if ($_POST['password'] !== $_POST['password_confirm']){
                     $register_errors[] = "Passwords don't match";
                 }
-                if (strlen($_POST['password']) < 8) {
+                if (strlen($_POST['password']) < 4) {
                     $register_errors[] = "Password not long enough! Must be at least 8 characters long";
                 }
 

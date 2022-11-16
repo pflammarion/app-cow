@@ -1,5 +1,9 @@
 <?php
 
+function consoleLog(string $var){
+    echo("<script>console.log('PHP: " . $var . "');</script>");
+}
+
 function selectPage(string $default) : string
 {
     if (empty($_GET['page'])) {
@@ -22,7 +26,7 @@ function selectAction(string $default) : string
     return $action;
 }
 
-function showPage(string $view)
+function showPage(string $view): void
 {
     if(file_exists('view/' . $view . '.php')){
         include ('view/' . $view . '.php');

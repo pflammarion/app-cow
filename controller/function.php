@@ -1,9 +1,10 @@
 <?php
 
-function getPage($default){
+function selectPage($default){
     if (empty($_GET['page'])) {
         $page = $default;
-    } else {
+    }
+    else {
         $page = $_GET['page'];
     }
     return $page;

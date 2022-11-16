@@ -1,6 +1,6 @@
 <div class="login">
     <h1>Connexion</h1>
-    <form action="./login">
+    <form action="" method="post">
         <div class="input-container">
             <label for="username">
                 Nom d'utilisateur

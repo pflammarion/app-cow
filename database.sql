@@ -395,7 +395,7 @@ CREATE TABLE `User` (
 
 LOCK TABLES `User` WRITE;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (7,1,'paul@flammarion.eu','$2y$10$JM41Tvy9WN/A68M2gbRUVuO0HP0TojvYiW2IDm2BZHwBiEn7N8vIi','pipaul',NULL,0,'Paul','Flammarion'),(8,1,'admin@admin.fr','$2y$10$cit9RGgKP5aOf/lELH5uqeS3.1uyrE341Jb434r32xu7KUOhy6uPy','admin',NULL,0,'Admin','Admin');
+INSERT INTO `User` VALUES (7,1,'paul@flammarion.eu','$2y$10$JM41Tvy9WN/A68M2gbRUVuO0HP0TojvYiW2IDm2BZHwBiEn7N8vIi','pipaul',NULL,0,'Paul','Flammarion'),(8,3,'admin@admin.fr','$2y$10$cit9RGgKP5aOf/lELH5uqeS3.1uyrE341Jb434r32xu7KUOhy6uPy','admin',NULL,0,'Admin','Admin');
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -408,4 +408,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-16 14:47:43
+-- Dump completed on 2022-11-16 14:49:41

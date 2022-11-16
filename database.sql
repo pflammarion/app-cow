@@ -15,7 +15,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
 DROP DATABASE `APPCOW`;
 CREATE DATABASE IF NOT EXISTS `APPCOW` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `APPCOW`;
@@ -195,7 +194,7 @@ CREATE TABLE `Page` (
   `Page_Id` int NOT NULL AUTO_INCREMENT,
   `Page_Name` varchar(100) NOT NULL,
   PRIMARY KEY (`Page_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,6 +203,7 @@ CREATE TABLE `Page` (
 
 LOCK TABLES `Page` WRITE;
 /*!40000 ALTER TABLE `Page` DISABLE KEYS */;
+INSERT INTO `Page` VALUES (5,'user'),(6,'admin/user'),(7,'admin/faq'),(8,'admin/permission');
 /*!40000 ALTER TABLE `Page` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -223,7 +223,7 @@ CREATE TABLE `Permission` (
   KEY `FK_Role_Id_Permission_Role` (`Role_Id`),
   CONSTRAINT `FK_Page_Id_Permission_Page` FOREIGN KEY (`Page_Id`) REFERENCES `Page` (`Page_Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_Role_Id_Permission_Role` FOREIGN KEY (`Role_Id`) REFERENCES `Role` (`Role_Id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -232,6 +232,7 @@ CREATE TABLE `Permission` (
 
 LOCK TABLES `Permission` WRITE;
 /*!40000 ALTER TABLE `Permission` DISABLE KEYS */;
+INSERT INTO `Permission` VALUES (7,5,1),(8,6,2),(9,8,3),(10,7,2);
 /*!40000 ALTER TABLE `Permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -407,4 +408,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-15 17:02:59
+-- Dump completed on 2022-11-16 14:40:04

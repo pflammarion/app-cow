@@ -4,7 +4,7 @@ include __DIR__ . '/../model/permission.php';
 
 $page = selectPage("accueil");
 
-if(pageAuthorization('user')){
+if(pageAuthorization('user') && !empty($page)){
     switch ($page) {
         case 'accueil':
             $view = "user/home";

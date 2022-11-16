@@ -7,7 +7,6 @@ function pageAuthorization(string $page) : bool
             LEFT JOIN Page on Page.Page_Id = Permission.Page_Id
             WHERE  Permission.Role_Id = :role AND Page.Page_Name=:page LIMIT 1";
     $query = $GLOBALS['db']->prepare($sql);
-
     if ($_SESSION['role'] === 3){
         $query->execute(array('page'=>$page, 'role'=> 2));
     }

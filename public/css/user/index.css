@@ -1,0 +1,13 @@
+@import "home.css";
+
+@import "chip/view.css";
+@import "chip/create.css";
+@import "chip/update.css";
+@import "chip/delete.css";
+
+@import "cow/view.css";
+@import "cow/create.css";
+@import "cow/update.css";
+@import "cow/delete.css";
+
+@import "table/view.css";

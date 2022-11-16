@@ -3,12 +3,24 @@
 include __DIR__ . '/../model/permission.php';
 
 $page = selectPage("accueil");
+$action = selectAction("view");
 
-if(pageAuthorization('user') && !empty($page)){
+if(pageAuthorization('user') && !empty($page) && !empty($action)){
     switch ($page) {
         case 'accueil':
             $view = "user/home";
             $title = "Accueil";
+            break;
+        case 'boitier':
+            $view = "user/chip/". $action;
+            break;
+
+        case 'vache':
+            $view = "user/cow/". $action;
+            break;
+
+        case 'tableau':
+            $view = "user/table/" . $action;
             break;
 
         default:
@@ -16,7 +28,7 @@ if(pageAuthorization('user') && !empty($page)){
             $title = "Erreur";
     }
 
-    include ('view/' . $view . '.php');
+    showPage($view);
 }
 else{
     echo('<script>alert("Vous n\'avez pas la permission d\'accéder à cette page")</script>');

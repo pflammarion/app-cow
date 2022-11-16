@@ -20,6 +20,14 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']){
         case 'admin' :
             include __DIR__ . '/controller/admin.php';
             break;
+        case '' :
+            if($_SESSION['role'] === 1){
+                include __DIR__ . '/controller/user.php';
+            }
+            else{
+                include __DIR__ . '/controller/admin.php';
+            }
+            break;
         default:
             http_response_code(404);
             include __DIR__ . '/view/error404.php';

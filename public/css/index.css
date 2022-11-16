@@ -3,6 +3,7 @@
 @import "button.css";
 @import "input.css";
 @import "cgu.css";
+@import "mentionslegales.css";
 
 :root{
     --dark-blue: #C8EFFE;

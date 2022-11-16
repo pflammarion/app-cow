@@ -22,16 +22,30 @@
 <body>
 <div class="header">
     <img src="./public/assets/img/LogoCOW.png" alt="Logo Cow">
-    <div class = "btn-exit">
-        <?php
-        if (isset($_SESSION['auth']) && $_SESSION['auth']) {
-            echo '<p>Déconnexion</p>';
-            echo '<img src="./public/assets/icon/LogoEXIT.svg" alt="Logo Exit">';
-        }
-        else{
-            echo '<p>Connexion</p>';
-            echo '<img src="./public/assets/icon/LogoEXIT.svg" alt="Logo In">';
-        }
-        ?>
+    <div class="choice">
+            <?php
+            if (isset($_SESSION['auth']) && $_SESSION['auth']) {
+                ?>
+                <a href="all?page=logout">
+                    <div class="button">
+                        Déconnexion
+                        <img src="./public/assets/icon/LogoEXIT.svg" alt="Logo Exit">
+                    </div>
+                </a>
+            <?php
+            }
+            else{
+                ?>
+                <a href="login?page=login">
+                    Connexion
+                </a>
+                <a href="login?page=register">
+                    <div class="button">
+                    Incription
+                    </div>
+                </a>
+            <?php
+            }
+            ?>
     </div>
 </div>

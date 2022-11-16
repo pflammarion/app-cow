@@ -20,6 +20,9 @@ if(!empty($page) && $page !== ""){
             $view = "all/legal";
             break;
 
+        case 'logout':
+            logout();
+
         default:
             $view = "error404";
     }

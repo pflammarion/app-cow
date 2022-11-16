@@ -11,6 +11,7 @@ function login(array $value): string
     if ($query->rowCount() === 1){
         if($row['User_Ban'] === 0) {
             if (password_verify($password, $row['User_Password'])) {
+                $_SESSION['auth'] = true;
                 $_SESSION['username'] = $object;
                 $_SESSION['password'] = $password;
                 $_SESSION['role'] = $row['Role_Id'];

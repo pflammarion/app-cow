@@ -20,6 +20,12 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']){
         case 'admin' :
             include __DIR__ . '/controller/admin.php';
             break;
+        case 'all' :
+            include __DIR__ . '/controller/all.php';
+            break;
+        case 'profile' :
+            include __DIR__ . '/controller/profile.php';
+            break;
         case '' :
             if($_SESSION['role'] === 1){
                 include __DIR__ . '/controller/user.php';

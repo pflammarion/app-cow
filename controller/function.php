@@ -1,6 +1,7 @@
 <?php
 
-function selectPage($default){
+function selectPage(string $default) : string
+{
     if (empty($_GET['page'])) {
         $page = $default;
     }
@@ -8,4 +9,15 @@ function selectPage($default){
         $page = $_GET['page'];
     }
     return $page;
+}
+
+function selectAction(string $default) : string
+{
+    if (empty($_GET['action'])) {
+        $action = $default;
+    }
+    else {
+        $action = $_GET['action'];
+    }
+    return $action;
 }

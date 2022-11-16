@@ -1,9 +1,10 @@
 <?php
+include __DIR__ . '/../model/permission.php';
 
 $page = selectPage("accueil");
 
 switch ($page) {
-    case 'accueil':
+    case 'accueil' && pageAuthorization('admin/user'):
         $view = "admin/home";
         $title = "Accueil";
         break;

@@ -1,4 +1,5 @@
 <?php
+include __DIR__ . '/../model/permission.php';
 
 $page = selectPage("accueil");
 

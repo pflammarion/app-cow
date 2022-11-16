@@ -1,25 +1,19 @@
-<bande_blanche>
+<div class="bande_blanche">
 
-</bande_blanche>
+</div>
 <footer>
 
-    <logo_C>
-        <p>©</p>
 
-    </logo_C>
-    <CGU>
-        <p>CGU</p>
-    </CGU>
+        <p class="logo-c">©</p>
 
-    <Mentions_légales>
-        <p>Mentions légales</p>
-    </Mentions_légales>
-    <Contact>
-        <p>Contact</p>
-    </Contact>
-    <FAQ>
-        <p>FAQ</p>
-    </FAQ>
+
+    <div class="link">
+        <a>CGU</a>
+        <a>Mentions légales</a>
+        <a>Contact</a>
+        <a>FAQ</a>
+    </div>
+
 </footer>
 
 </body>

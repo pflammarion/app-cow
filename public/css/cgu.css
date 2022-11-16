@@ -1,6 +1,5 @@
 .cgu {
     display: flex;
-    border: solid 2px #a2ff00;
     margin: 0 auto;
     width: 360px;
     flex-direction: column;
@@ -8,38 +7,34 @@
 }
 
 .cgu h1 {
-    border: solid 2px #00fff7;
     width: 250px;
     text-align: center;
 }
 
 .cgu .cgu-article {
     width: 310px;
-    border: solid 2px orange;
 }
 
 .cgu h2{
-    box-sizing: content-box;
     margin-top: 11px;
     margin-bottom: -3px;
     text-align: center;
-    border: solid 2px #a2ff00;
 }
 
 .cgu p{
-    border: solid 2px #a2ff00;
-    padding: 0 10px;
-    margin-top: 11px;
-    margin-bottom: 11px;
+    padding: 10px;
 }
 
-.cgu .bordure{
-    margin-bottom: 11px;
+.cgu .underline{
     border-top: 3px solid #C8EFFE;
+    height: 1px;
+    display: block;
 }
 
-.cgu .bordure:nth-child(3n+1) {
+.cgu .separator {
+    margin: 20px auto;
     border-top: 3px solid #ADE194;
-    width: 288px;
-    margin-left: 11px;
+    width: 80%;
+    height: 1px;
+    display: block;
 }

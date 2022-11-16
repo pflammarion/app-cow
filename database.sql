@@ -203,7 +203,7 @@ CREATE TABLE `Page` (
 
 LOCK TABLES `Page` WRITE;
 /*!40000 ALTER TABLE `Page` DISABLE KEYS */;
-INSERT INTO `Page` VALUES (5,'user'),(6,'admin/user'),(7,'admin/faq'),(8,'admin/permission');
+INSERT INTO `Page` VALUES (5,'user.css'),(6,'admin/user.css'),(7,'admin/faq'),(8,'admin/permission');
 /*!40000 ALTER TABLE `Page` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -1,7 +1,21 @@
-@import "header.css";
-@import "login.css";
+@import "alert.css";
 @import "button.css";
+@import "error404.css";
+@import "header.css";
 @import "input.css";
+@import "sidebar.css";
+
+@import "login/login.css";
+
+@import "all/cgu.css";
+@import "all/contact.css";
+@import "all/faq.css";
+@import "all/legal.css";
+
+@import "profil/delete.css";
+@import "profil/update.css";
+@import "profil/view.css";
+
 
 :root{
     --dark-blue: #C8EFFE;

@@ -1,0 +1,16 @@
+@import "faq/view.css";
+@import "faq/create.css";
+@import "faq/update.css";
+@import "faq/delete.css";
+
+@import "perm/view.css";
+@import "perm/create.css";
+@import "perm/update.css";
+@import "perm/delete.css";
+
+@import "user/view.css";
+@import "user/create.css";
+@import "user/update.css";
+@import "user/delete.css";
+
+@import "home.css";

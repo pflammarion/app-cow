@@ -2,7 +2,6 @@
 
 function login(array $value): string
 {
-    $error_message = array();
     $object = htmlentities($value['username']);
     $password = $value['password'];
     $sql = "SELECT User.Role_Id, User.User_Ban, User.User_Password, User_Username FROM `User` WHERE  User.User_Username = :username OR User_Email=:email LIMIT 1";

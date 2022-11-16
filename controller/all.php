@@ -7,6 +7,10 @@ switch ($page) {
         $view = "cgu";
         $title = "CGU";
         break;
+    case 'mentionslegales':
+        $view = "mentionslegales";
+        $title = "mentionslegales";
+        break;
 
     default:
         $view = "error404";

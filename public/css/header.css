@@ -29,10 +29,15 @@
     align-items: center;
     justify-content: center;
     border: solid 2px white;
+    gap: 10px;
 }
 
 .header .button:hover {
     border: solid 2px black;
+}
+
+.header .button span{
+    display: none;
 }
 
 .header .button img {
@@ -61,6 +66,8 @@
     .header .button {
         padding: 16px;
     }
-
+    .header .button span{
+        display: block;
+    }
 
 }

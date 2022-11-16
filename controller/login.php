@@ -71,6 +71,4 @@ if(!empty($page)){
             $view = "error404";
     }
 }
-
-
-include ('view/' . $view . '.php');
+showPage($view);

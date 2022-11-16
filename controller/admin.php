@@ -5,6 +5,8 @@ include __DIR__ . '/../model/permission.php';
 $page = selectPage("accueil");
 $action = selectAction("view");
 
+
+
 switch ($page) {
     case 'accueil':
         $view = "admin/home";

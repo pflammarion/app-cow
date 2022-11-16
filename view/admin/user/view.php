@@ -1,3 +1,3 @@
 <?php
 
-echo '<h1>User view</h1>';
+echo '<h1>Admin User view</h1>';

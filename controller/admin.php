@@ -7,8 +7,7 @@ $action = selectAction("view");
 
 if(!empty($page) && !empty($action)){
     switch ($page) {
-        case 'accueil':
-            //TODO faire ajouter dans la table page ('admin') et checkauth
+        case 'accueil' && pageAuthorization('admin'):
             $view = "admin/home";
             break;
 

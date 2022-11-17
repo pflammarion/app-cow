@@ -6,13 +6,13 @@ include("./view/function.php");
 include __DIR__ . '/model/connection.php';
 include __DIR__ . '/view/header.php';
 
-if (isset($_SESSION['auth']) && $_SESSION['auth']){
-    $request = explode('?', $_SERVER['REQUEST_URI']);
-    $request = explode('/', $request[0]);
-    if (str_starts_with($request[1], 'review')) $i = 2;
-    elseif (str_starts_with($request[1], 'app-cow')) $i = 2;
-    else $i = 1;
+$request = explode('?', $_SERVER['REQUEST_URI']);
+$request = explode('/', $request[0]);
+if (str_starts_with($request[1], 'review')) $i = 2;
+elseif (str_starts_with($request[1], 'app-cow')) $i = 2;
+else $i = 1;
 
+if (isset($_SESSION['auth']) && $_SESSION['auth']){
     switch ($request[$i]) {
         case 'user' :
             include __DIR__ . '/controller/user.php';
@@ -41,7 +41,8 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']){
     }
 }
 else{
-    include __DIR__ . '/controller/login.php';
+    if ($request[$i] === 'all') include __DIR__ . '/controller/all.php';
+    else include __DIR__ . '/controller/login.php';
 }
 
 include __DIR__ . '/view/footer.php';

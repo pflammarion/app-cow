@@ -13,7 +13,7 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']){
     elseif (str_starts_with($request[1], 'app-cow')) $i = 2;
     else $i = 1;
 
-switch ($request[$i]) {
+    switch ($request[$i]) {
     case 'user' :
         include __DIR__ . '/controller/user.php';
         break;
@@ -30,6 +30,7 @@ switch ($request[$i]) {
         http_response_code(404);
         include __DIR__ . '/view/error404.php';
         break;
+    }
 }
 else{
     include __DIR__ . '/controller/login.php';

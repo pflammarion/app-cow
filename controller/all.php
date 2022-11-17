@@ -27,4 +27,4 @@ if(!empty($page) && $page !== ""){
             $view = "error404";
     }
     showPage($view);
- }
+}

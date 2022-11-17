@@ -1,27 +1,16 @@
 <?php
 
-$page = selectPage("");
+$page = getPage("cgu");
 
-if(!empty($page) && $page !== ""){
-    switch ($page) {
-        case 'cgu':
-            $view = "all/cgu";
-            break;
+switch ($page) {
+    case 'cgu':
+        $view = "cgu";
+        $title = "CGU";
+        break;
 
-        case 'contact':
-            $view = "all/contact";
-            break;
-
-        case 'faq':
-            $view = "all/faq";
-            break;
-
-        case 'legal':
-            $view = "all/legal";
-            break;
-
-        default:
-            $view = "error404";
-    }
-    showPage($view);
+    default:
+        $view = "error404";
+        $title = "Erreur";
 }
+
+include ('view/' . $view . '.php');

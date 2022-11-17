@@ -21,8 +21,10 @@ switch ($request[$i]) {
         include __DIR__ . '/controller/admin.php';
         break;
     case 'login':
-    case '':
         include __DIR__ . '/controller/login.php';
+        break;
+    case '':
+        include __DIR__ . '/controller/all.php';
         break;
     default:
         http_response_code(404);

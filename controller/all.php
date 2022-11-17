@@ -28,5 +28,3 @@ if(!empty($page) && $page !== ""){
     }
     showPage($view);
 }
-
-include ('view/' . $view . '.php');

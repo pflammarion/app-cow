@@ -16,7 +16,7 @@
 }
 .ml .ml-article {
     width: 310px;
-    height: 574px;
+    height: 100%;
     margin-top: 50px;
     border: solid 3px #C8EFFE;
     border-radius: 5px;
@@ -28,7 +28,7 @@
     display: block;
 }
 .ml h2 {
-    width: 150px;
+    width: 200px;
     margin : 11px auto;
     text-align: center;
     padding-bottom: 5px;

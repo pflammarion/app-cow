@@ -15,7 +15,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
 DROP DATABASE `APPCOW`;
 CREATE DATABASE IF NOT EXISTS `APPCOW` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `APPCOW`;
@@ -195,7 +194,7 @@ CREATE TABLE `Page` (
   `Page_Id` int NOT NULL AUTO_INCREMENT,
   `Page_Name` varchar(100) NOT NULL,
   PRIMARY KEY (`Page_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,6 +203,7 @@ CREATE TABLE `Page` (
 
 LOCK TABLES `Page` WRITE;
 /*!40000 ALTER TABLE `Page` DISABLE KEYS */;
+INSERT INTO `Page` VALUES (5,'user'),(6,'admin/user'),(7,'admin/faq'),(8,'admin/permission'),(9,'admin');
 /*!40000 ALTER TABLE `Page` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -223,7 +223,7 @@ CREATE TABLE `Permission` (
   KEY `FK_Role_Id_Permission_Role` (`Role_Id`),
   CONSTRAINT `FK_Page_Id_Permission_Page` FOREIGN KEY (`Page_Id`) REFERENCES `Page` (`Page_Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_Role_Id_Permission_Role` FOREIGN KEY (`Role_Id`) REFERENCES `Role` (`Role_Id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -232,6 +232,7 @@ CREATE TABLE `Permission` (
 
 LOCK TABLES `Permission` WRITE;
 /*!40000 ALTER TABLE `Permission` DISABLE KEYS */;
+INSERT INTO `Permission` VALUES (7,5,1),(8,6,2),(9,8,3),(10,7,2),(11,9,2);
 /*!40000 ALTER TABLE `Permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -385,7 +386,7 @@ CREATE TABLE `User` (
   PRIMARY KEY (`User_Id`),
   KEY `FK_Role_Id_User_Role` (`Role_Id`),
   CONSTRAINT `FK_Role_Id_User_Role` FOREIGN KEY (`Role_Id`) REFERENCES `Role` (`Role_Id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -394,7 +395,7 @@ CREATE TABLE `User` (
 
 LOCK TABLES `User` WRITE;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (7,1,'paul@flammarion.eu','$2y$10$JM41Tvy9WN/A68M2gbRUVuO0HP0TojvYiW2IDm2BZHwBiEn7N8vIi','pipaul',NULL,0,'Paul','Flammarion');
+INSERT INTO `User` VALUES (7,1,'paul@flammarion.eu','$2y$10$JM41Tvy9WN/A68M2gbRUVuO0HP0TojvYiW2IDm2BZHwBiEn7N8vIi','pipaul',NULL,0,'Paul','Flammarion'),(8,3,'admin@admin.fr','$2y$10$cit9RGgKP5aOf/lELH5uqeS3.1uyrE341Jb434r32xu7KUOhy6uPy','admin',NULL,0,'Admin','Admin'),(9,1,'user@user.fr','$2y$10$552s3Y.mEfhPRW2cH4ckC.Qoehlb.Hb1dTDYOqavY5hr7S3Lr9J82','user',NULL,0,'User','User');
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -407,4 +408,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-15 17:02:59
+-- Dump completed on 2022-11-17  9:28:55

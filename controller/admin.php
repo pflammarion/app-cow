@@ -1,16 +1,31 @@
 <?php
 
-$page = getPage("accueil");
+include __DIR__ . '/../model/permission.php';
 
-switch ($page) {
-    case 'accueil':
-        $view = "admin/home";
-        $title = "Accueil";
-        break;
+$page = selectPage("accueil");
+$action = selectAction("view");
 
-    default:
-        $view = "error404";
-        $title = "Erreur";
+if(!empty($page) && !empty($action)){
+    switch ($page) {
+        case 'accueil' && pageAuthorization('admin'):
+            $view = "admin/home";
+            break;
+
+        case 'user' && pageAuthorization('admin/faq'):
+            $view = "admin/faq/" . $action;
+            break;
+
+        case 'user' && pageAuthorization('admin/permission'):
+            $view = "admin/permission" . $action;
+            break;
+
+        case 'user' && pageAuthorization('admin/user'):
+            $view = "admin/user" . $action;
+            break;
+
+        default:
+            $view = "error404";
+    }
+    showPage($view);
 }
 
-include ('view/' . $view . '.php');

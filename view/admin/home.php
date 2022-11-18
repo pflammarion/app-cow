@@ -1,2 +1,2 @@
 <?php
-echo "<h1>admin page</h1>";
+echo "<h1>Admin home</h1>";

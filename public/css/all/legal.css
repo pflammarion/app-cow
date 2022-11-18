@@ -23,7 +23,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: solid 1px #C8EFFE;
+    border: solid 3px #C8EFFE;
     border-radius: 5px;
 }
 .ml .separator {

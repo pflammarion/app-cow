@@ -1,5 +1,6 @@
 .ml {
     display: flex;
+    margin: 0 auto;
     width: 360px;
     height: 100%;
     border: solid 2px #a2ff00;

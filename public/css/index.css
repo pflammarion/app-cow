@@ -3,6 +3,7 @@
 @import "error404.css";
 @import "header.css";
 @import "input.css";
+@import "footer.css";
 @import "sidebar.css";
 
 @import "login/login.css";
@@ -58,6 +59,12 @@ a{
     color: inherit;
 }
 
+.super-section{
+    min-height: -webkit-calc(100vh - 110px - 25px);
+    min-height: -moz-calc(100vh - 110px - 25px);
+    min-height: calc(100vh - 110px - 25px);
+}
+
 @media screen and (min-width: 800px) {
     h1{
         font-size: 36px;
@@ -67,6 +74,11 @@ a{
     }
     body{
         font-size: 20px;
+    }
+    .super-section{
+        min-height: -webkit-calc(100vh - 170px - 128px);
+        min-height: -moz-calc(100vh - 170px - 128px);
+        min-height: calc(100vh - 170px - 128px);
     }
 }
 

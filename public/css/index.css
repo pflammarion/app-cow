@@ -59,6 +59,13 @@ a{
     color: inherit;
 }
 
+.super-section{
+    padding-bottom: 20px;
+    min-height: -webkit-calc(100vh - 110px - 25px);
+    min-height: -moz-calc(100vh - 110px - 25px);
+    min-height: calc(100vh - 110px - 25px);
+}
+
 @media screen and (min-width: 800px) {
     h1{
         font-size: 36px;
@@ -68,6 +75,12 @@ a{
     }
     body{
         font-size: 20px;
+    }
+    .super-section{
+        padding-bottom: 40px;
+        min-height: -webkit-calc(100vh - 170px - 128px);
+        min-height: -moz-calc(100vh - 170px - 128px);
+        min-height: calc(100vh - 170px - 128px);
     }
 }
 

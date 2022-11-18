@@ -1,3 +1,4 @@
+</div>
 <footer>
     <p>©</p>
     <div class="link">

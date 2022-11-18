@@ -60,9 +60,9 @@ a{
 }
 
 .super-section{
-    min-height: -webkit-calc(100vh - 110px - 25px);
-    min-height: -moz-calc(100vh - 110px - 25px);
-    min-height: calc(100vh - 110px - 25px);
+    min-height: -webkit-calc(100vh - 110px - 25px - 20px);
+    min-height: -moz-calc(100vh - 110px - 25px - 20px);
+    min-height: calc(100vh - 110px - 25px - 20px);
 }
 
 @media screen and (min-width: 800px) {
@@ -76,9 +76,9 @@ a{
         font-size: 20px;
     }
     .super-section{
-        min-height: -webkit-calc(100vh - 170px - 128px);
-        min-height: -moz-calc(100vh - 170px - 128px);
-        min-height: calc(100vh - 170px - 128px);
+        min-height: -webkit-calc(100vh - 170px - 128px - 50px);
+        min-height: -moz-calc(100vh - 170px - 128px - 50px);
+        min-height: calc(100vh - 170px - 128px - 50px);
     }
 }
 

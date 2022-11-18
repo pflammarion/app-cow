@@ -11,11 +11,11 @@ if(!empty($page) && !empty($action)){
             $view = "admin/home";
             break;
 
-        case 'user' && pageAuthorization('admin/faq'):
+        case 'faq' && pageAuthorization('admin/faq'):
             $view = "admin/faq/" . $action;
             break;
 
-        case 'user' && pageAuthorization('admin/permission'):
+        case 'permission' && pageAuthorization('admin/permission'):
             $view = "admin/permission" . $action;
             break;
 

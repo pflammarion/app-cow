@@ -1,7 +1,7 @@
 .ml {
     display: flex;
     margin: 0 auto;
-    width: 360px;
+    width: 80%;
     height: 100%;
     border: solid 2px var(--green);
     align-items: center;
@@ -11,6 +11,7 @@
     margin: 11px auto 14px;
 }
 .ml .ml-title {
+    margin: auto auto 56px;
     width: 182px;
     height: 39px;
     margin-left: 40px;

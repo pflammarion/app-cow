@@ -1,19 +1,11 @@
-<div class="bande_blanche">
-
-</div>
 <footer>
-
-
-        <p class="logo-c">©</p>
-
-
+    <p class="logo-c">©</p>
     <div class="link">
         <a>CGU</a>
         <a>Mentions légales</a>
         <a>Contact</a>
         <a>FAQ</a>
     </div>
-
 </footer>
 
 </body>

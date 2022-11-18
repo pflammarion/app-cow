@@ -3,9 +3,12 @@
     margin: 0 auto;
     width: 360px;
     height: 100%;
-    border: solid 2px #a2ff00;
+    border: solid 2px var(--green);
     align-items: center;
     flex-direction: column;
+}
+.ml h1 {
+    margin: 11px auto 14px;
 }
 .ml .ml-title {
     width: 182px;
@@ -16,25 +19,24 @@
 
 }
 .ml .ml-article {
-    width: 310px;
-    height: 100%;
-    margin-top: 50px;
-    border: solid 3px #C8EFFE;
+    margin: auto auto 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1px #C8EFFE;
     border-radius: 5px;
 }
-.cgu .separator {
-    margin: 10px auto;
+.ml .separator {
+    margin: 0 auto;
     border-top: 3px solid #ADE194;
-    width: 80%;
+    width: 90%;
     display: block;
 }
-.ml h2 {
-    width: 200px;
-    margin : 11px auto;
-    text-align: center;
-    padding-bottom: 5px;
+.ml .ml-article h2 {
+    margin: 11px auto;
     border-bottom: 3px solid #C8EFFE;
 }
-.ml p {
-    padding: 10px;
+.ml .ml-article p {
+    margin: 0 auto 11px;
+    padding: 0 11px;
 }

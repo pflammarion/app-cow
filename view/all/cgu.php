@@ -11,10 +11,11 @@
                 se doit de renoncer à l'accès des services proposés par le site.</p>
            <p> - COW se réserve le droit de modifier unilatéralement et à tout moment le contenu des présentes conditions générales d'utilisation.</p>
         <span class="separator"></span>
-        <h2><a href="https://www.wikipedia.org/">Article 2 | Mentions légales</a></h2>
+        <h2>Article 2 | Mentions légales</h2>
+        <p>Pour consulter les mentions légales, vous pouvez vous rendre <a href="all?page=legal"><u>ici</u></a></p>
         <span class="separator"></span>
         <h2>Article 3 | Définitions</h2>
-        <p>La présente clause a pour objet de définir les différentes clause d'un contrat :</p>
+        <p>La présente clause a pour objet de définir les différentes clauses d'un contrat :</p>
         <ul>
             <li>Utilisateur : ce terme désigne toute personne qui utilise le site ou l'un des services proposés par le site.</li>
             <li>Contenu utilisateur : ce sont les données transmises par l'utilisateur au sein du site.</li>

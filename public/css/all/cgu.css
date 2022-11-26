@@ -25,7 +25,8 @@
     border-bottom: 3px solid #C8EFFE;
 }
 
-.cgu .cgu-article p{
+.cgu .cgu-article p,
+.cgu .cgu-article ul{
     margin: 0 auto 11px;
     padding: 0 11px;
 }
@@ -37,8 +38,13 @@
     display: block;
 }
 
-.cgu ul {
+.cgu .cgu-article ul {
     list-style-type: "-";
+}
+
+.cgu .cgu-article ul li{
+    margin-top: 15px;
+    padding-left: 10px;
 }
 
 @media screen and (min-width: 800px) {
@@ -55,7 +61,8 @@
     .cgu .cgu-article h2 {
         margin: 22px auto;
     }
-    .cgu .cgu-article p {
+    .cgu .cgu-article p,
+    .cgu .cgu-article ul{
         margin: 0 auto 22px;
         padding: 0 34px;
     }
@@ -75,7 +82,8 @@
     .cgu .cgu-article h2 {
         margin: 25px auto;
     }
-    .cgu .cgu-article p {
+    .cgu .cgu-article p,
+    .cgu .cgu-article ul{
         margin: 0 auto 25px;
         padding: 0 84px;
     }

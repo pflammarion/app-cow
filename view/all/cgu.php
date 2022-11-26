@@ -7,9 +7,10 @@
             Les conditions générales d'utilisation doivent être acceptées par tout utilisateur souhaitant accéder au site.
             Elles constituent le contrat entre le site et l'utilisateur. L'accès au site par l'utilisateur signifie son acceptation
             par présentes conditions générales d'utilisation.</p>
-        <p>- En cas de non-acceptation des conditions générales d'utilisation stipulées dans le présent contrat, l'utilisateur
-                se doit de renoncer à l'accès des services proposés par le site.</p>
-           <p> - COW se réserve le droit de modifier unilatéralement et à tout moment le contenu des présentes conditions générales d'utilisation.</p>
+        <ul>
+            <li>En cas de non-acceptation des conditions générales d'utilisation stipulées dans le présent contrat, l'utilisateur se doit de renoncer à l'accès des services proposés par le site.</li>
+            <li>COW se réserve le droit de modifier unilatéralement et à tout moment le contenu des présentes conditions générales d'utilisation.</li>
+        </ul>
         <span class="separator"></span>
         <h2>Article 2 | Mentions légales</h2>
         <p>Pour consulter les mentions légales, vous pouvez vous rendre <a href="all?page=legal"><u>ici</u></a></p>

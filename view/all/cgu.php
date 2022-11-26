@@ -1,5 +1,4 @@
 <div class="cgu">
-    <link rel="stylesheet" href="./public/css/cgu.css/">
     <h1>Condition Générales d'Utilisation</h1>
     <div class="cgu-article">
         <h2>Article 1 | Objet</h2>
@@ -15,13 +14,15 @@
         <h2><a href="https://www.wikipedia.org/">Article 2 | Mentions légales</a></h2>
         <span class="separator"></span>
         <h2>Article 3 | Définitions</h2>
-        <p>La présente clause a pour objet de définir les différents clause d'un contrat :<br><br>
-            - Utilisateur : ce terme désigne toute personne qui utilise le site ou l'un des services proposés<br>par le site.<br><br>
-            - Contenu utilisateur : ce sont les données transmises par l'utilisateur au sein du site.<br><br>
-            - Membre : l'utilisateur devient membre lorsqu'il est identifié sur le site.<br><br>
-            - Identifiant et mot de passe : c'est l'ensemble des informations nécessaires à l'identification d'un utilisateur
-            sur le site. L'identifiant et le mot de passe permettent à l'utilisateur d'accéder à des services réservés aux membres du site.
-            Le mote de passe est confidentiel.</p>
+        <p>La présente clause a pour objet de définir les différentes clause d'un contrat :</p>
+        <ul>
+            <li>Utilisateur : ce terme désigne toute personne qui utilise le site ou l'un des services proposés par le site.</li>
+            <li>Contenu utilisateur : ce sont les données transmises par l'utilisateur au sein du site.</li>
+            <li>Membre : l'utilisateur devient membre lorsqu'il est identifié sur le site.</li>
+            <li>Identifiant et mot de passe : c'est l'ensemble des informations nécessaires à l'identification d'un utilisateur
+                sur le site. L'identifiant et le mot de passe permettent à l'utilisateur d'accéder à des services réservés aux membres du site.
+                Le mote de passe est confidentiel.</li>
+        </ul>
     </div>
 </div>
 

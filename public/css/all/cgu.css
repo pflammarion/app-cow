@@ -37,6 +37,10 @@
     display: block;
 }
 
+.cgu ul {
+    list-style-type: "-";
+}
+
 @media screen and (min-width: 800px) {
     .cgu {
         width: 834px;

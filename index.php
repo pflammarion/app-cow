@@ -4,7 +4,10 @@ ini_set('display_errors', 1);
 include("./controller/function.php");
 include("./view/function.php");
 include __DIR__ . '/model/connection.php';
-include __DIR__ . '/view/header.php';
+
+if (!isset($_GET['js'])){
+    include __DIR__ . '/view/header.php';
+}
 
 $request = explode('?', $_SERVER['REQUEST_URI']);
 $request = explode('/', $request[0]);
@@ -45,4 +48,7 @@ else{
     else include __DIR__ . '/controller/login.php';
 }
 
-include __DIR__ . '/view/footer.php';
+if (!isset($_GET['js'])) {
+    include __DIR__ . '/view/footer.php';
+}
+

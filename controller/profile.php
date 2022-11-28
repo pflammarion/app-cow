@@ -8,7 +8,6 @@ if(!empty($action)){
     $content = [];
     if (isset($_SESSION['user'])){
         $content = getUserProfile($_SESSION['user']);
-        print_r($content);
     }
     $view = "profile/" . $action;
     if(file_exists('view/' . $view . '.php')){

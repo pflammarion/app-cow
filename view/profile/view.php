@@ -4,7 +4,7 @@
         <img class="profil-img" id="img">
         <p id="username"></p>
         <div class="profil-mail">
-            <img src="../../public/assets/icon/sendMail.svg" alt="email">
+            <img src="./public/assets/icon/sendMail.svg" alt="email">
             <p id="email"></p>
         </div>
         <button>Modifier</button>

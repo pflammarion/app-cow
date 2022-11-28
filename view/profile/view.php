@@ -8,6 +8,7 @@
         async function printData() {
             const data = await getDataFromController('profile');
             /*début du remplissage de la page*/
+
         }
         printData();
     });

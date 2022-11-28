@@ -4,7 +4,7 @@ function login(array $value): string
 {
     $object = htmlentities($value['username']);
     $password = $value['password'];
-    $sql = "SELECT User.Role_Id, User.User_Ban, User.User_Password, User.User_Id FROM `User` WHERE  User.User_Username = :username OR User_Email=:email LIMIT 1";
+    $sql = "SELECT Role_Id, User_Ban, User_Password, User_Id FROM User WHERE  User.User_Username = :username OR User_Email=:email LIMIT 1";
     $query = $GLOBALS['db']->prepare($sql);
     $query->execute(array('username'=>$object, 'email'=> $object));
     $row = $query->fetch();
@@ -12,7 +12,7 @@ function login(array $value): string
         if($row['User_Ban'] === 0) {
             if (password_verify($password, $row['User_Password'])) {
                 $_SESSION['auth'] = true;
-                $_SESSION['username'] = $row['User_Id'];
+                $_SESSION['user'] = $row['User_Id'];
                 $_SESSION['role'] = $row['Role_Id'];
                 return "";
             }
@@ -73,3 +73,4 @@ function register(array $value) : bool
     }
     return false;
 }
+

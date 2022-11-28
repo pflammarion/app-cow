@@ -6,8 +6,8 @@
     <title>N o W</title>
     <link rel="stylesheet" href="./public/css/index.css">
     <link href='https://fonts.googleapis.com/css?family=Arima Madurai' rel='stylesheet'>
-    <script src="../public/js/jquery-3.6.1.min.js"></script>
-    <script src="../public/js/index.js"></script>
+    <script src="./public/js/jquery-3.6.1.min.js"></script>
+    <script src="./public/js/index.js"></script>
 
     <?php
     if (isset($_SESSION['auth']) && $_SESSION['auth']){

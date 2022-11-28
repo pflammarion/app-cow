@@ -8,9 +8,10 @@ if(!empty($action)){
     $content = [];
     if (isset($_SESSION['user'])){
         $content = getUserProfile($_SESSION['user']);
-        print_r($content);
     }
     $view = "profile/" . $action;
-    showPage($view);
-    return json_encode($content);
+    if (isset($_GET['js']) && isset($_SESSION['auth'])){
+        echo json_encode($content);
+    }
+    else showPage($view);
 }

@@ -1,6 +1,6 @@
 <?php
-
-echo '<h1>Profile view</h1>';
+$data = "<script>getDataFromController('profile');</script>";
+print_r($data);
 ?>
 
-<script src="../../public/js/profile.js"></script>
+<p>Je m'appelle</p>

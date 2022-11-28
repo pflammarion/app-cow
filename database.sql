@@ -286,6 +286,7 @@ CREATE TABLE `ticket` (
   `Ticket_Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
 --
 -- Déchargement des données de la table `ticket`
 --

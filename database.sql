@@ -22,6 +22,7 @@ DROP DATABASE `APPCOW`;
 CREATE DATABASE IF NOT EXISTS `APPCOW` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `APPCOW`;
 
+
 --
 -- Base de données : `appcow`
 --

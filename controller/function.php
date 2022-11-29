@@ -6,7 +6,7 @@ function consoleLog(string $var){
     echo("<script>console.log('PHP: " . $var . "');</script>");
 }
 
-function selectPage(string $default) : string
+function selectPage(string $default): string
 {
     if (empty($_GET['page'])) {
         $page = $default;
@@ -17,7 +17,7 @@ function selectPage(string $default) : string
     return $page;
 }
 
-function selectAction(string $default) : string
+function selectAction(string $default): string
 {
     if (empty($_GET['action'])) {
         $action = $default;
@@ -34,4 +34,9 @@ function selectAction(string $default) : string
     session_destroy();
     header("Location: login?page=login");
     exit();
+}
+
+function showPage($view): string
+{
+    return (file_exists('view/' . $view . '.php')) ? 'view/' . $view . '.php' : 'view/error404.php';
 }

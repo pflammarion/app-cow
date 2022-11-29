@@ -26,5 +26,8 @@ if(!empty($page) && $page !== ""){
         default:
             $view = "error404";
     }
-    showPage($view);
+    if(file_exists('view/' . $view . '.php')){
+        include ('view/' . $view . '.php');
+    }
+    else include ('view/error404.php');
 }

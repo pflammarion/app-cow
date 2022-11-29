@@ -28,14 +28,6 @@ function selectAction(string $default) : string
     return $action;
 }
 
-function showPage(string $view): void
-{
-    if(file_exists('view/' . $view . '.php')){
-        include ('view/' . $view . '.php');
-    }
-    else include ('view/error404.php');
-}
-
 #[NoReturn] function logout(): void
 {
     session_start();

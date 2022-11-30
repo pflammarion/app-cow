@@ -1,0 +1,118 @@
+.contact {
+    display: flex;
+    margin: 0 auto;
+    width: 360px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact h1{
+    margin: 11px auto 14px;
+}
+
+.contact .contact-article {
+    margin: auto auto 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 310px;
+    border: solid 1px #C8EFFE;
+    border-radius: 10px;
+}
+
+.contact .contact-article .contacter h2 {
+    margin: 11px auto;
+}
+
+.contact .contact-article .contacter{
+    margin: auto auto 11px;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px red;
+    align-items: start;
+}
+
+.contact .contact-article .contacter select,
+.contact .contact-article .contacter input{
+    margin: auto;
+    padding: 0 11px;
+    width: 288px;
+    height: 33px;
+    border : 0;
+    border-radius: 5px;
+    color: black;
+    overflow: auto;
+}
+
+.contact .contact-article .contacter textarea{
+    margin: auto;
+    overflow: auto;
+    text-align: start;
+    height: 171px;
+    border-radius: 5px;
+    color: black;
+}
+
+.contact .contact-article p,
+.contact .contact-article ul{
+    margin: 0 auto 11px;
+    padding: 0 11px;
+}
+
+.contact .contact-article .separator {
+    margin: 0 auto;
+    border-top: 3px solid #ADE194;
+    width: 90%;
+    display: block;
+}
+
+.contact .contact-article ul {
+    list-style-type: "-";
+}
+
+.contact .contact-article ul li{
+    margin-top: 15px;
+    padding-left: 10px;
+}
+
+@media screen and (min-width: 800px) {
+    .contact {
+        width: 834px;
+    }
+    .contact h1{
+        margin: 16px auto 20px;
+    }
+    .contact .contact-article {
+        margin: auto auto 87px;
+        width: 634px;
+    }
+    .contact .contact-article h2 {
+        margin: 22px auto;
+    }
+    .contact .contact-article p,
+    .contact .contact-article ul{
+        margin: 0 auto 22px;
+        padding: 0 34px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .contact {
+        width: 1440px;
+    }
+    .contact h1{
+        margin: 16px auto 20px;
+    }
+    .contact .contact-article {
+        margin: auto auto 40px;
+        width: 1240px;
+    }
+    .contact .contact-article h2 {
+        margin: 25px auto;
+    }
+    .contact .contact-article p,
+    .contact .contact-article ul{
+        margin: 0 auto 25px;
+        padding: 0 84px;
+    }
+}

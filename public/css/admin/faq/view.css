@@ -1,3 +1,20 @@
-
+.view {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+}
+.view .btn-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 135px;
+}
+.view .btn-container button:nth-child(1) {
+    margin-top: 110px;
+    margin-bottom: 110px;
+}
+.view .btn-container button:nth-child(2) {
+    margin-bottom: 30px;
+}
 
 

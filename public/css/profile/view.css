@@ -9,9 +9,11 @@
     border-radius: 10px;
     width: 275px;
     margin: 0 auto;
+    padding-bottom: 20px;
 }
 
-.profil .profil-img{
+.profil .profil-img,
+.profil .profil-round{
     border-radius: 50%;
     width: 100px;
     height: 100px;
@@ -21,7 +23,8 @@
 .profil .profil-mail{
     display: flex;
     width: 90%;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20px;
     align-items: center;
 }
 
@@ -44,4 +47,5 @@
 
 .profil .btn-edit{
     padding: 15px 20px;
+    margin: 20px 0;
 }

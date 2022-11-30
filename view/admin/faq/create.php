@@ -4,35 +4,29 @@
         <div class="question">
             <label for="question">
                 Question
-                <input type="text" >
+                <input type="text" name="question">
             </label>
         </div>
-        <div class="reponse">
-            <label for="reponse">
+        <div class="response">
+            <label for="response">
                 Réponse<br>
-                <textarea></textarea>
+                <textarea name="response"></textarea>
             </label>
+        </div>
+        <div>
+            <button type="submit" class="btn-valider">
+                    Valider
+                </button>
         </div>
     </form>
 </div>
-<div class="btn-container">
-    <div>
-        <a href="admin?page=faq">
-        <button type="submit" class="btn-return">
-                <img src="./public/assets/icon/retour.svg">
-                Retour
-        </button>
-        </a>
 
-    <div>
+<div>
     <a href="admin?page=faq">
-            <button type="submit" class="btn-valider">
-                Valider
-            </button>
-        </a>
-    </div>
+        <button type="submit" class="btn-return">
+        <img src="./public/assets/icon/retour.svg">
+        Retour
+        </button>
+    </a>
 </div>
 
-<?php
-
-echo '<h1>FAQ create</h1>';

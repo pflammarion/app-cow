@@ -18,15 +18,16 @@
                     Valider
             </button>
         </div>
-        <div>
-            <a href="admin?page=faq">
-                <button type="submit" class="btn-return">
-                    <img src="./public/assets/icon/retour.svg">
-                    Retour
-                </button>
-            </a>
-        </div>
+
     </form>
+    <div>
+        <a href="admin?page=faq">
+            <button type="submit" class="btn-return">
+                <img src="./public/assets/icon/retour.svg">
+                Retour
+            </button>
+        </a>
+    </div>
 </div>
 
 

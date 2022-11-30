@@ -38,6 +38,10 @@
     font-size: 10px;
 }
 
-.profil > button{
+.profil .btn-delete{
+    padding: 5px;
+}
 
+.profil .btn-edit{
+    padding: 15px 20px;
 }

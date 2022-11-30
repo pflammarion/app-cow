@@ -15,3 +15,23 @@ button{
     justify-content: center;
     align-items: center;
 }
+
+.btn-edit{
+    background-color: var(--grey);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 700;
+}
+
+.btn-delete{
+    background-color: var(--red);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: white;
+}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 25 nov. 2022 à 16:54
+-- Généré le : mer. 30 nov. 2022 à 11:53
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.1.10
 
@@ -17,15 +17,55 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
-CREATE DATABASE IF NOT EXISTS `APPCOW`;
-DROP DATABASE `APPCOW`;
-CREATE DATABASE IF NOT EXISTS `APPCOW` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `APPCOW`;
-
-
 --
 -- Base de données : `appcow`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `alert`
+--
+
+CREATE TABLE `alert` (
+  `Alert_id` int(11) NOT NULL,
+  `Alert_type_id` int(11) DEFAULT NULL,
+  `Alert_message` varchar(256) DEFAULT NULL,
+  `Status` tinyint(1) DEFAULT NULL,
+  `Sensor_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `alert`
+--
+
+INSERT INTO `alert` (`Alert_id`, `Alert_type_id`, `Alert_message`, `Status`, `Sensor_id`) VALUES
+(1, 2, 'heart frequency sensor', 0, NULL),
+(2, 4, 'sound sensor', 1, NULL),
+(3, 1, 'jklm', 0, NULL),
+(4, 1, 'abcd', 0, NULL),
+(5, 3, 'feur', 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `alert_type`
+--
+
+CREATE TABLE `alert_type` (
+  `Alert_type_id` int(11) NOT NULL,
+  `Alert_type_name` varchar(256) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `alert_type`
+--
+
+INSERT INTO `alert_type` (`Alert_type_id`, `Alert_type_name`) VALUES
+(1, 'nothing'),
+(2, 'low'),
+(3, 'moderate'),
+(4, 'raised');
 
 -- --------------------------------------------------------
 
@@ -54,27 +94,29 @@ INSERT INTO `average` (`Average_Id`, `Average_Name`) VALUES
 --
 
 CREATE TABLE `chip` (
-  `Chip_Id` int(11) NOT NULL,
+  `Chip_id` int(11) NOT NULL,
   `Chip_Number` char(10) NOT NULL,
   `Low_Level` int(11) DEFAULT NULL,
   `Mid_Level` int(11) DEFAULT NULL,
-  `High_Level` int(11) DEFAULT NULL
+  `High_Level` int(11) DEFAULT NULL,
+  `Sensor_id` int(11) DEFAULT NULL,
+  `battery` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `chip`
 --
 
-INSERT INTO `chip` (`Chip_Id`, `Chip_Number`, `Low_Level`, `Mid_Level`, `High_Level`) VALUES
-(1, 'ABCDEF1234', NULL, NULL, NULL),
-(2, '1234ABCDEF', NULL, NULL, NULL),
-(3, 'A1BCDEF234', NULL, NULL, NULL),
-(4, 'AB1CDEF234', NULL, NULL, NULL),
-(5, 'ABC1DEF234', NULL, NULL, NULL),
-(6, 'ABCD1EF234', NULL, NULL, NULL),
-(7, 'ABCDE1F234', NULL, NULL, NULL),
-(8, 'ABCDEF4321', NULL, NULL, NULL),
-(9, 'HUGOTUMETB', NULL, NULL, NULL);
+INSERT INTO `chip` (`Chip_id`, `Chip_Number`, `Low_Level`, `Mid_Level`, `High_Level`, `Sensor_id`, `battery`) VALUES
+(1, 'ABCDEF1234', NULL, NULL, NULL, NULL, NULL),
+(2, '1234ABCDEF', NULL, NULL, NULL, NULL, NULL),
+(3, 'A1BCDEF234', NULL, NULL, NULL, NULL, NULL),
+(4, 'AB1CDEF234', NULL, NULL, NULL, NULL, NULL),
+(5, 'ABC1DEF234', NULL, NULL, NULL, NULL, NULL),
+(6, 'ABCD1EF234', NULL, NULL, NULL, NULL, NULL),
+(7, 'ABCDE1F234', NULL, NULL, NULL, NULL, NULL),
+(8, 'ABCDEF4321', NULL, NULL, NULL, NULL, NULL),
+(9, 'HUGOTUMETB', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -88,21 +130,6 @@ CREATE TABLE `chip_cow_user` (
   `Cow_Id` int(11) DEFAULT NULL,
   `Chip_Id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `chip_cow_user`
---
-
-INSERT INTO `chip_cow_user` (`Chip_Cow_User_Id`, `User_Id`, `Cow_Id`, `Chip_Id`) VALUES
-(1, 6, 1, 1),
-(2, 6, 3, 5),
-(3, 1, 2, 4),
-(4, 2, 4, 3),
-(5, 2, 5, 2),
-(6, 3, 9, 9),
-(7, 4, 6, 6),
-(8, 4, 8, 7),
-(9, 5, 7, 8);
 
 -- --------------------------------------------------------
 
@@ -142,7 +169,7 @@ CREATE TABLE `data_sensor` (
   `Data_Sensor_Id` int(11) NOT NULL,
   `Chip_Id` int(11) NOT NULL,
   `Average_Id` int(11) NOT NULL,
-  `Data_Sensor_Value` int(11) NOT NULL,
+  `Value` int(11) NOT NULL,
   `Date` timestamp NOT NULL DEFAULT current_timestamp(),
   `Coef` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -179,6 +206,17 @@ CREATE TABLE `page` (
   `Page_Name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `page`
+--
+
+INSERT INTO `page` (`Page_Id`, `Page_Name`) VALUES
+(5, 'user'),
+(6, 'admin/user'),
+(7, 'admin/faq'),
+(8, 'admin/permission'),
+(9, 'admin');
+
 -- --------------------------------------------------------
 
 --
@@ -190,6 +228,17 @@ CREATE TABLE `permission` (
   `Page_Id` int(11) NOT NULL,
   `Role_Id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `permission`
+--
+
+INSERT INTO `permission` (`Permission_Id`, `Page_Id`, `Role_Id`) VALUES
+(7, 5, 1),
+(8, 6, 2),
+(9, 8, 3),
+(10, 7, 2),
+(11, 9, 2);
 
 -- --------------------------------------------------------
 
@@ -279,24 +328,23 @@ INSERT INTO `tag` (`Tag_Id`, `Tag_Name`) VALUES
 
 CREATE TABLE `ticket` (
   `Ticket_Id` int(11) NOT NULL,
-  `User_Id` int(11) NOT NULL,
+  `User_Id` int(11) DEFAULT NULL,
   `Tag_Id` int(11) NOT NULL,
   `Status_Id` int(11) NOT NULL,
   `Ticket_Content` text NOT NULL,
   `Ticket_Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
 --
 -- Déchargement des données de la table `ticket`
 --
 
 INSERT INTO `ticket` (`Ticket_Id`, `User_Id`, `Tag_Id`, `Status_Id`, `Ticket_Content`, `Ticket_Date`) VALUES
-(1, 6, 3, 3, 'kjlmkjlkj', '2022-10-28'),
-(2, 6, 1, 2, 'khljl', '2022-09-28'),
-(3, 4, 2, 1, 'mlk', '2022-10-27'),
-(4, 3, 2, 2, 'mlkkmjlm', '2022-10-27'),
-(5, 3, 3, 2, 'oijpoi', '2022-09-26');
+(1, NULL, 3, 3, 'kjlmkjlkj', '2022-10-28'),
+(2, NULL, 1, 2, 'khljl', '2022-09-28'),
+(3, NULL, 2, 1, 'mlk', '2022-10-27'),
+(4, NULL, 2, 2, 'mlkkmjlm', '2022-10-27'),
+(5, NULL, 3, 2, 'oijpoi', '2022-09-26');
 
 -- --------------------------------------------------------
 
@@ -306,12 +354,12 @@ INSERT INTO `ticket` (`Ticket_Id`, `User_Id`, `Tag_Id`, `Status_Id`, `Ticket_Con
 
 CREATE TABLE `user` (
   `User_Id` int(11) NOT NULL,
-  `Role_Id` int(11) NOT NULL,
+  `Role_Id` int(11) NOT NULL DEFAULT 1,
   `User_Email` varchar(120) NOT NULL,
   `User_Password` varchar(256) NOT NULL,
   `User_Username` varchar(50) DEFAULT NULL,
   `User_Img_Url` varchar(256) DEFAULT NULL,
-  `User_Ban` tinyint(1) NOT NULL,
+  `User_Ban` tinyint(1) NOT NULL DEFAULT 0,
   `User_FirstName` varchar(50) NOT NULL,
   `User_LastName` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -321,16 +369,27 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`User_Id`, `Role_Id`, `User_Email`, `User_Password`, `User_Username`, `User_Img_Url`, `User_Ban`, `User_FirstName`, `User_LastName`) VALUES
-(1, 1, 'johndoe@gmail.com', '', 'jd', NULL, 0, '', ''),
-(2, 1, 'jgjk@gmail.com', '', 'lkjlhl', NULL, 1, '', ''),
-(3, 2, 'klj@gmail.com', '', NULL, NULL, 0, '', ''),
-(4, 3, 'lkjm@gmail.com', '', NULL, NULL, 0, '', ''),
-(5, 2, 'lkjl@gmail.com', '', NULL, NULL, 0, '', ''),
-(6, 2, 'paul.flammarion@gmail.com', '', 'flamminfou', NULL, 1, '', '');
+(7, 1, 'paul@flammarion.eu', '$2y$10$JM41Tvy9WN/A68M2gbRUVuO0HP0TojvYiW2IDm2BZHwBiEn7N8vIi', 'pipaul', NULL, 0, 'Paul', 'Flammarion'),
+(8, 3, 'admin@admin.fr', '$2y$10$cit9RGgKP5aOf/lELH5uqeS3.1uyrE341Jb434r32xu7KUOhy6uPy', 'admin', NULL, 0, 'Admin', 'Admin'),
+(9, 1, 'user@user.fr', '$2y$10$552s3Y.mEfhPRW2cH4ckC.Qoehlb.Hb1dTDYOqavY5hr7S3Lr9J82', 'user', NULL, 0, 'User', 'User');
 
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `alert`
+--
+ALTER TABLE `alert`
+  ADD PRIMARY KEY (`Alert_id`),
+  ADD KEY `Alert_alert_type_null_fk` (`Alert_type_id`),
+  ADD KEY `alert_sensor_null_fk` (`Sensor_id`);
+
+--
+-- Index pour la table `alert_type`
+--
+ALTER TABLE `alert_type`
+  ADD PRIMARY KEY (`Alert_type_id`);
 
 --
 -- Index pour la table `average`
@@ -342,7 +401,7 @@ ALTER TABLE `average`
 -- Index pour la table `chip`
 --
 ALTER TABLE `chip`
-  ADD PRIMARY KEY (`Chip_Id`);
+  ADD PRIMARY KEY (`Chip_id`);
 
 --
 -- Index pour la table `chip_cow_user`
@@ -441,7 +500,7 @@ ALTER TABLE `average`
 -- AUTO_INCREMENT pour la table `chip`
 --
 ALTER TABLE `chip`
-  MODIFY `Chip_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Chip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `chip_cow_user`
@@ -471,13 +530,13 @@ ALTER TABLE `faq`
 -- AUTO_INCREMENT pour la table `page`
 --
 ALTER TABLE `page`
-  MODIFY `Page_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Page_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `permission`
 --
 ALTER TABLE `permission`
-  MODIFY `Permission_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Permission_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `role`
@@ -513,17 +572,24 @@ ALTER TABLE `ticket`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `User_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `User_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
+-- Contraintes pour la table `alert`
+--
+ALTER TABLE `alert`
+  ADD CONSTRAINT `Alert_alert_type_null_fk` FOREIGN KEY (`Alert_type_id`) REFERENCES `alert_type` (`Alert_type_id`),
+  ADD CONSTRAINT `alert_sensor_null_fk` FOREIGN KEY (`Sensor_id`) REFERENCES `sensor` (`Sensor_Id`);
+
+--
 -- Contraintes pour la table `chip_cow_user`
 --
 ALTER TABLE `chip_cow_user`
-  ADD CONSTRAINT `FK_Chip_Id_CCU_Chip` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (`Chip_Id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_Chip_Id_CCU_Chip` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (`Chip_id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_Cow_Id_CCU_Cow` FOREIGN KEY (`Cow_Id`) REFERENCES `cow` (`Cow_Id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_User_Id_CCU_User` FOREIGN KEY (`User_Id`) REFERENCES `user` (`User_Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
@@ -532,7 +598,7 @@ ALTER TABLE `chip_cow_user`
 --
 ALTER TABLE `data_sensor`
   ADD CONSTRAINT `FK_Average_Id_Data_Sensor_Average` FOREIGN KEY (`Average_Id`) REFERENCES `average` (`Average_Id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_Chip_Id_Data_Sensor_Chip` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (`Chip_Id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_Chip_Id_Data_Sensor_Chip` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (`Chip_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `permission`
@@ -547,7 +613,7 @@ ALTER TABLE `permission`
 ALTER TABLE `ticket`
   ADD CONSTRAINT `FK_Status_Id_Ticket_Status` FOREIGN KEY (`Status_Id`) REFERENCES `status` (`Status_Id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_Tag_Id_Ticket_Tag` FOREIGN KEY (`Tag_Id`) REFERENCES `tag` (`Tag_Id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_User_Id_Ticket_User` FOREIGN KEY (`User_Id`) REFERENCES `user` (`User_Id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_User_Id_Ticket_User` FOREIGN KEY (`User_Id`) REFERENCES `user` (`User_Id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `user`

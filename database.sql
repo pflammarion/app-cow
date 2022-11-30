@@ -22,6 +22,10 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+CREATE DATABASE IF NOT EXISTS `APPCOW`;
+DROP DATABASE `APPCOW`;
+CREATE DATABASE IF NOT EXISTS `APPCOW` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `APPCOW`;
 
 --
 -- Structure de la table `alert`
@@ -39,7 +43,7 @@ CREATE TABLE `alert` (
 -- Déchargement des données de la table `alert`
 --
 
-INSERT INTO `alert` (`Alert_id`, `Alert_type_id`, `Alert_message`, `Status`, `Sensor_id`) VALUES
+INSERT INTO `alert` (Alert_Id, Alert_Type_Id, Alert_Message, Alert_Status, Sensor_Id) VALUES
 (1, 2, 'heart frequency sensor', 0, NULL),
 (2, 4, 'sound sensor', 1, NULL),
 (3, 1, 'jklm', 0, NULL),
@@ -61,7 +65,7 @@ CREATE TABLE `alert_type` (
 -- Déchargement des données de la table `alert_type`
 --
 
-INSERT INTO `alert_type` (`Alert_type_id`, `Alert_type_name`) VALUES
+INSERT INTO `alert_type` (Alert_Type_Id, Alert_Type_Name) VALUES
 (1, 'nothing'),
 (2, 'low'),
 (3, 'moderate'),
@@ -107,7 +111,7 @@ CREATE TABLE `chip` (
 -- Déchargement des données de la table `chip`
 --
 
-INSERT INTO `chip` (`Chip_id`, `Chip_Number`, `Low_Level`, `Mid_Level`, `High_Level`, `Sensor_id`, `battery`) VALUES
+INSERT INTO `chip` (Chip_Id, `Chip_Number`, `Low_Level`, `Mid_Level`, `High_Level`, Sensor_Id, Chip_Battery) VALUES
 (1, 'ABCDEF1234', NULL, NULL, NULL, NULL, NULL),
 (2, '1234ABCDEF', NULL, NULL, NULL, NULL, NULL),
 (3, 'A1BCDEF234', NULL, NULL, NULL, NULL, NULL),
@@ -381,15 +385,15 @@ INSERT INTO `user` (`User_Id`, `Role_Id`, `User_Email`, `User_Password`, `User_U
 -- Index pour la table `alert`
 --
 ALTER TABLE `alert`
-  ADD PRIMARY KEY (`Alert_id`),
-  ADD KEY `Alert_alert_type_null_fk` (`Alert_type_id`),
-  ADD KEY `alert_sensor_null_fk` (`Sensor_id`);
+  ADD PRIMARY KEY (Alert_Id),
+  ADD KEY `Alert_alert_type_null_fk` (Alert_Type_Id),
+  ADD KEY `alert_sensor_null_fk` (Sensor_Id);
 
 --
 -- Index pour la table `alert_type`
 --
 ALTER TABLE `alert_type`
-  ADD PRIMARY KEY (`Alert_type_id`);
+  ADD PRIMARY KEY (Alert_Type_Id);
 
 --
 -- Index pour la table `average`
@@ -401,7 +405,7 @@ ALTER TABLE `average`
 -- Index pour la table `chip`
 --
 ALTER TABLE `chip`
-  ADD PRIMARY KEY (`Chip_id`);
+  ADD PRIMARY KEY (Chip_Id);
 
 --
 -- Index pour la table `chip_cow_user`
@@ -500,7 +504,7 @@ ALTER TABLE `average`
 -- AUTO_INCREMENT pour la table `chip`
 --
 ALTER TABLE `chip`
-  MODIFY `Chip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY Chip_Id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `chip_cow_user`
@@ -582,14 +586,14 @@ ALTER TABLE `user`
 -- Contraintes pour la table `alert`
 --
 ALTER TABLE `alert`
-  ADD CONSTRAINT `Alert_alert_type_null_fk` FOREIGN KEY (`Alert_type_id`) REFERENCES `alert_type` (`Alert_type_id`),
-  ADD CONSTRAINT `alert_sensor_null_fk` FOREIGN KEY (`Sensor_id`) REFERENCES `sensor` (`Sensor_Id`);
+  ADD CONSTRAINT `Alert_alert_type_null_fk` FOREIGN KEY (Alert_Type_Id) REFERENCES `alert_type` (Alert_Type_Id),
+  ADD CONSTRAINT `alert_sensor_null_fk` FOREIGN KEY (Sensor_Id) REFERENCES `sensor` (`Sensor_Id`);
 
 --
 -- Contraintes pour la table `chip_cow_user`
 --
 ALTER TABLE `chip_cow_user`
-  ADD CONSTRAINT `FK_Chip_Id_CCU_Chip` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (`Chip_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_Chip_Id_CCU_Chip` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (Chip_Id) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_Cow_Id_CCU_Cow` FOREIGN KEY (`Cow_Id`) REFERENCES `cow` (`Cow_Id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_User_Id_CCU_User` FOREIGN KEY (`User_Id`) REFERENCES `user` (`User_Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
@@ -598,7 +602,7 @@ ALTER TABLE `chip_cow_user`
 --
 ALTER TABLE `data_sensor`
   ADD CONSTRAINT `FK_Average_Id_Data_Sensor_Average` FOREIGN KEY (`Average_Id`) REFERENCES `average` (`Average_Id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_Chip_Id_Data_Sensor_Chip` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (`Chip_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_Chip_Id_Data_Sensor_Chip` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (Chip_Id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `permission`

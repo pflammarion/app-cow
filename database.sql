@@ -113,7 +113,6 @@ CREATE TABLE `chip` (
                         `Mid_Level` int DEFAULT NULL,
                         `High_Level` int DEFAULT NULL,
                         `Sensor_Id` int DEFAULT NULL,
-                        `Chip_Battery` int DEFAULT NULL,
                         PRIMARY KEY (`Chip_Id`),
                         KEY `FK_Sensor_ID_Chip_Sensor_Id` (`Sensor_Id`),
                         CONSTRAINT `FK_Sensor_ID_Chip_Sensor_Id` FOREIGN KEY (`Sensor_Id`) REFERENCES `sensor` (`Sensor_Id`)
@@ -340,7 +339,7 @@ CREATE TABLE `sensor` (
 
 LOCK TABLES `sensor` WRITE;
 /*!40000 ALTER TABLE `sensor` DISABLE KEYS */;
-INSERT INTO `sensor` VALUES (1,'Cardiaque'),(2,'Monoxyde de carbone'),(3,'Sonore');
+INSERT INTO `sensor` VALUES (1,'Cardiaque'),(2,'Monoxyde de carbone'),(3,'Sonore'),(4,'Batterie');
 /*!40000 ALTER TABLE `sensor` ENABLE KEYS */;
 UNLOCK TABLES;
 

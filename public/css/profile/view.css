@@ -12,6 +12,10 @@
     padding-bottom: 20px;
 }
 
+.profil h2{
+    font-weight: bold;
+}
+
 .profil .profil-img,
 .profil .profil-round{
     border-radius: 50%;

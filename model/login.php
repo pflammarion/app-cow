@@ -12,7 +12,7 @@ function login(array $value): string
         if($row['User_Ban'] === 0) {
             if (password_verify($password, $row['User_Password'])) {
                 $_SESSION['auth'] = true;
-                $_SESSION['username'] = $row['User_Id'];
+                $_SESSION['user'] = $row['User_Id'];
                 $_SESSION['role'] = $row['Role_Id'];
                 return "";
             }

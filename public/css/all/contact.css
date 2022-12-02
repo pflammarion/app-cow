@@ -21,40 +21,38 @@
 }
 
 .contact .contact-article .contacter h2 {
-    margin: 11px auto;
+    margin: 11px auto 11px;
 }
 
 .contact .contact-article .contacter{
-    margin: auto auto 11px;
+    margin: auto;
     display: flex;
     flex-direction: column;
     border: solid 1px red;
-    align-items: start;
 }
+
 
 .contact .contact-article .contacter select,
 .contact .contact-article .contacter input{
-    margin: auto;
     padding: 0 11px;
     width: 288px;
     height: 33px;
-    border : 0;
+    border: 0;
     border-radius: 5px;
     color: black;
     overflow: auto;
 }
 
 .contact .contact-article .contacter textarea{
-    margin: auto;
-    overflow: auto;
-    text-align: start;
+    width: 284px;
     height: 171px;
+    border: 0;
     border-radius: 5px;
     color: black;
+    resize : none;
 }
 
-.contact .contact-article p,
-.contact .contact-article ul{
+.contact .contact-article p{
     margin: 0 auto 11px;
     padding: 0 11px;
 }
@@ -64,15 +62,6 @@
     border-top: 3px solid #ADE194;
     width: 90%;
     display: block;
-}
-
-.contact .contact-article ul {
-    list-style-type: "-";
-}
-
-.contact .contact-article ul li{
-    margin-top: 15px;
-    padding-left: 10px;
 }
 
 @media screen and (min-width: 800px) {

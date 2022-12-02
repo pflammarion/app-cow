@@ -1,0 +1,12 @@
+.box-question {
+    display: flex;
+    justify-content: flex-end;
+}
+.btn-box {
+    margin-top: 32px;
+    margin-left: 0;
+    margin-right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap : 32px;
+}

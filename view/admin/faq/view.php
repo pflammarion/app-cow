@@ -1,4 +1,11 @@
+<?php $data = $content ??  []; ?>
+<?php print_r($data); ?>
+
 <div class="view">
+    <fieldset>
+        <legend>Rechercher un article</legend>
+        <input>
+    </fieldset>
     <div class="btn-container">
         <button type="submit" class="btn-blue">
             <a href="admin?page=faq&action=create" >

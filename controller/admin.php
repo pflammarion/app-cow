@@ -6,8 +6,10 @@ $page = selectPage("accueil");
 $action = selectAction("view");
 
 $view = "error404";
+$content=[];
 if(!empty($page) && !empty($action)){
     if($page == 'accueil' && pageAuthorization('admin')) {
+        $content = getfaq();
         $view = "admin/home";
     }
     elseif($page == 'faq' && pageAuthorization('admin/faq')){

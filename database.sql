@@ -48,7 +48,7 @@ CREATE TABLE `alert` (
 
 LOCK TABLES `alert` WRITE;
 /*!40000 ALTER TABLE `alert` DISABLE KEYS */;
-INSERT INTO `alert` VALUES (1,2,'heart frequency sensor',0,12),(2,4,'sound sensor',1,12),(3,1,'jklm',0,12,(4,1,'abcd',0,13),(5,3,'feur',1,14);
+INSERT INTO `alert` VALUES (1,2,'heart frequency sensor',0,12),(2,4,'sound sensor',1,12),(3,1,'jklm',0,12),(4,1,'abcd',0,13),(5,3,'feur',1,14);
 /*!40000 ALTER TABLE `alert` ENABLE KEYS */;
 UNLOCK TABLES;
 

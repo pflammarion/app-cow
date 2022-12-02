@@ -39,7 +39,7 @@ CREATE TABLE `alert` (
   KEY `alert_sensor_null_fk` (`Sensor_Id`),
   CONSTRAINT `Alert_alert_type_null_fk` FOREIGN KEY (`Alert_Type_Id`) REFERENCES `alert_type` (`Alert_Type_Id`),
   CONSTRAINT `alert_sensor_null_fk` FOREIGN KEY (`Sensor_Id`) REFERENCES `sensor` (`Sensor_Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

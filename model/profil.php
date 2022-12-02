@@ -2,6 +2,7 @@
 
 function getUserProfile(int $id): array
 {
+    print_r("ok");
     $sql = "SELECT User_Email, User_Username, User_Img_Url, User_FirstName, User_LastName, Role_Name  
             FROM user 
             LEFT JOIN role on user.Role_Id = role.Role_Id
@@ -9,7 +10,6 @@ function getUserProfile(int $id): array
     $query = $GLOBALS['db']->prepare($sql);
     $query->execute(array('id'=>$id));
     $row = $query->fetch();
-    print_r("ok");
     if ($query->rowCount() === 1){
         return array(
             'username' => $row['User_Username'],

@@ -1,0 +1,81 @@
+.profil {
+    padding-top: 50px;
+}
+.profil .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 2px #C8EFFE;
+    border-radius: 10px;
+    width: 275px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+.profil h2{
+    font-weight: bold;
+}
+
+.profil .profil-img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+}
+
+.profil .profil-mail{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+.profil .profil-mail img{
+    height: 30px;
+    width: auto;
+}
+
+.profil .profil-footer{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+}
+
+.profil .btn-delete{
+    padding: 5px;
+}
+
+.profil .btn-edit{
+    padding: 15px 20px;
+}
+.profil .btn-edit-margin{
+    margin: 20px 0;
+}
+
+@media screen and (min-width: 800px) {
+    .profil .profil-footer{
+        font-size: 18px;
+    }
+    .profil .btn-delete{
+        padding: 8px 20px;
+    }
+
+    .profil .btn-edit{
+        padding: 20px 48px;
+        font-size: 24px;
+    }
+    .profil .btn-edit-margin{
+        margin: 40px 0;
+    }
+    .profil .container {
+        width: 500px;
+    }
+
+    .profil .profil-img{
+        height: 150px;
+        width: 150px;
+    }
+}

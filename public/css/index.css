@@ -23,6 +23,8 @@
     --light-blue: #DFF6FD;
     --green: #ADE194;
     --dark: #000000;
+    --grey: #8388A4;
+    --red: #ED5E68;
     --light: #FFFFFF;
 }
 html{
@@ -41,7 +43,7 @@ input{
     box-sizing:border-box
 }
 
-h1, h2{
+h1, h2, .font-arima{
     font-family: "Arima Madurai", sans-serif;
 }
 

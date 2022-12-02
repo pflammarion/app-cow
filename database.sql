@@ -18,7 +18,7 @@
 
 CREATE DATABASE IF NOT EXISTS `APPCOW`;
 DROP DATABASE `APPCOW`;
-CREATE DATABASE IF NOT EXISTS `APPCOW` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE IF NOT EXISTS `APPCOW` DEFAULT CHARACTER SET utf8mb4;
 USE `APPCOW`;
 
 --
@@ -109,7 +109,7 @@ DROP TABLE IF EXISTS `chip`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `chip` (
   `Chip_Id` int NOT NULL AUTO_INCREMENT,
-  `Chip_Number` char(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `Chip_Number` char(10) NOT NULL,
   PRIMARY KEY (`Chip_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;

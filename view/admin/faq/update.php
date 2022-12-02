@@ -16,7 +16,7 @@
             </div>
         </form>
     </div>
-    <div class="btn-box">
+    <div class="btn-box-update">
         <div>
             <button type="submit" class="btn-valider">
                 Valider

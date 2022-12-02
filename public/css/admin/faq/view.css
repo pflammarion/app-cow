@@ -1,9 +1,26 @@
-.view {
+.view-faq-admin {
     display: flex;
     width: 100%;
     height: 100%;
-    justify-content: flex-end;
+    flex-direction: column;
 }
+.view-faq-header {
+    display: flex;
+    width: 100%;
+    height: 212px;
+}
+.faq-box {
+
+}
+.view-faq-admin .container {
+    display: block;
+    height: 250px;
+    width: 1000px;
+    border-radius: 10px;
+    border : solid 3px var(--dark-blue);
+    gap : 0;
+}
+
 fieldset {
     border-radius: 100px;
     border: solid 3px var(--dark-blue);
@@ -13,18 +30,6 @@ fieldset {
     height: 50px;
     left: 420px;
     top: 273px;
-}
-.view .btn-container {
-    display: flex;
-    flex-direction: column;
-    margin-right: 135px;
-}
-.view .btn-container button:nth-child(1) {
-    margin-top: 110px;
-    margin-bottom: 110px;
-}
-.view .btn-container button:nth-child(2) {
-    margin-bottom: 30px;
 }
 
 

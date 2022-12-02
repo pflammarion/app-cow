@@ -1,8 +1,12 @@
+.box-question {
+    display: flex;
+    justify-content: flex-end;
+}
 .addquestion{
     display: flex;
-    margin: 0 auto;
+    margin-right: 100px;
     width: 800px;
-    height: 500px;
+    height: 600px;
     flex-direction: column;
     align-items: center;
 }
@@ -16,5 +20,13 @@ textarea {
     border: solid 2px var(--dark-blue);
     border-radius: 5px;
     resize : none;
+}
+.btn-box {
+    margin-top: 32px;
+    margin-left: 0;
+    margin-right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap : 32px;
 }
 

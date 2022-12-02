@@ -30,7 +30,7 @@ function getfaq(): array
                 "title"=>$row["FAQ_Title"],
                 "answer"=>$row["FAQ_Answer"],
             );
-            print_r($values);
+
         }
     }
     return $values;

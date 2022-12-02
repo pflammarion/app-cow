@@ -2,10 +2,21 @@
     display: flex;
     justify-content: flex-end;
 }
+form {
+    width: 1500px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.form-create-box {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+    margin-left: 320px;
+}
 .addquestion{
     display: flex;
-    margin-right: 100px;
-    width: 800px;
+    width: 100%;
     height: 600px;
     flex-direction: column;
     align-items: center;
@@ -21,10 +32,7 @@ textarea {
     border-radius: 5px;
     resize : none;
 }
-.btn-box {
-    margin-top: 32px;
-    margin-left: 0;
-    margin-right: 16px;
+.btn-box-create {
     display: flex;
     flex-direction: column;
     gap : 32px;

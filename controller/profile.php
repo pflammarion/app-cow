@@ -6,6 +6,7 @@ include __DIR__ . '/../model/profil.php';
 
 if(!empty($action)){
     $content = [];
+    echo $_SESSION['user'];
     if (isset($_SESSION['user'])){
         $content = getUserProfile($_SESSION['user']);
     }

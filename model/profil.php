@@ -2,8 +2,8 @@
 
 function getUserProfile(int $id) : array {
     $sql = "SELECT User_Email, User_Username, User_Img_Url, User_FirstName, User_LastName, Role_Name  
-            FROM User 
-            LEFT JOIN Role on User.Role_Id = Role.Role_Id
+            FROM user 
+            LEFT JOIN role on user.Role_Id = role.Role_Id
             WHERE User_Id = :id";
     $query = $GLOBALS['db']->prepare($sql);
     $query->execute(array('id'=>$id));

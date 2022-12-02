@@ -6,7 +6,7 @@
             if(!is_null($data['img_url'])){
                 echo '<img src="' . $data['img_url'] . '" class="profil-img">';
             }
-            else echo '<img src="./view/profile/images/test.png" class="profil-img">'
+            else echo '<div class="profil-img"></div>'
         ?>
         <p class="font-arima"><?php echo $data['username'];?></p>
         <div class="profil-mail">

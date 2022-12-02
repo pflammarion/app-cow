@@ -18,7 +18,7 @@ function createFaq(array $values): bool
 }
 function getfaq(): array
 {
-    $get_faq_sql = "SELECT FAQ_Id,FAQ_Title,FAQ_Answer FROM FAQ DESC";
+    $get_faq_sql = "SELECT FAQ_Id,FAQ_Title,FAQ_Answer FROM faq;";
     $get_faq_query = $GLOBALS['db']-> prepare($get_faq_sql);
     $get_faq_query->execute();
     $rows = $get_faq_query->fetchAll();
@@ -30,6 +30,7 @@ function getfaq(): array
                 "title"=>$row["FAQ_Title"],
                 "answer"=>$row["FAQ_Answer"],
             );
+            print_r($values);
         }
     }
     return $values;

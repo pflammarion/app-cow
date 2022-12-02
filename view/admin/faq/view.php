@@ -4,7 +4,6 @@
 <div class="view">
     <fieldset>
         <legend>Rechercher un article</legend>
-        <input>
     </fieldset>
     <div class="btn-container">
         <button type="submit" class="btn-blue">
@@ -14,11 +13,11 @@
             </a>
         </button>
         <button type="submit" class="btn-blue">
-            <a href="" ><img src="./public/assets/icon/modifier.svg"></a>
+            <a href="admin?page=faq&action=update" ><img src="./public/assets/icon/modifier.svg"></a>
         </button>
 
         <button type="submit" class="btn-blue">
-            <a href="" ><img src="./public/assets/icon/delete.svg"></a>
+            <a href="admin?page=faq&action=delete" ><img src="./public/assets/icon/delete.svg"></a>
         </button>
     </div>
 </div>

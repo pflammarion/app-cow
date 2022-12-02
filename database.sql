@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.31, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.31, for macos12.6 (x86_64)
 --
 -- Host: localhost    Database: APPCOW
 -- ------------------------------------------------------
--- Server version	8.0.31-0ubuntu0.22.04.1
+-- Server version	8.0.31
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -33,12 +33,12 @@ CREATE TABLE `alert` (
   `Alert_Type_Id` int DEFAULT NULL,
   `Alert_Message` varchar(256) DEFAULT NULL,
   `Alert_Status` tinyint(1) DEFAULT NULL,
-  `Sensor_Id` int DEFAULT NULL,
+  `Chip_Level_Id` int DEFAULT NULL,
   PRIMARY KEY (`Alert_Id`),
   KEY `Alert_alert_type_null_fk` (`Alert_Type_Id`),
-  KEY `alert_sensor_null_fk` (`Sensor_Id`),
+  KEY `alert_sensor_null_fk` (`Chip_Level_Id`),
   CONSTRAINT `Alert_alert_type_null_fk` FOREIGN KEY (`Alert_Type_Id`) REFERENCES `alert_type` (`Alert_Type_Id`),
-  CONSTRAINT `alert_sensor_null_fk` FOREIGN KEY (`Sensor_Id`) REFERENCES `sensor` (`Sensor_Id`)
+  CONSTRAINT `alert_sensor_null_fk` FOREIGN KEY (`Chip_Level_Id`) REFERENCES `chip_level` (`Chip_Level_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -496,4 +496,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-02 11:39:33
+-- Dump completed on 2022-12-02 14:57:59

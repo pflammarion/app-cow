@@ -4,7 +4,7 @@ function login(array $value): string
 {
     $object = htmlentities($value['username']);
     $password = $value['password'];
-    $sql = "SELECT User.Role_Id, User.User_Ban, User.User_Password, User.User_Id FROM `User` WHERE  User.User_Username = :username OR User_Email=:email LIMIT 1";
+    $sql = "SELECT user.Role_Id, user.User_Ban, user.User_Password, user.User_Id FROM `user` WHERE  user.User_Username = :username OR User_Email=:email LIMIT 1";
     $query = $GLOBALS['db']->prepare($sql);
     $query->execute(array('username'=>$object, 'email'=> $object));
     $row = $query->fetch();
@@ -32,7 +32,7 @@ function register(array $value) : bool
     $firstname = $value['firstname'];
     $password = $value['password'];
 
-    $email_sql = "SELECT count(1) FROM User WHERE User_Email = :email";
+    $email_sql = "SELECT count(1) FROM user WHERE User_Email = :email";
     $email_query = $GLOBALS['db']->prepare($email_sql);
     $email_query->execute(array("email"=> $email));
     $email_found = $email_query->fetchColumn();
@@ -40,7 +40,7 @@ function register(array $value) : bool
         $register_errors[] = "Your email address is associated with another account.";
     }
 
-    $user_sql = "SELECT count(1) FROM User WHERE User_Username = :username";
+    $user_sql = "SELECT count(1) FROM user WHERE User_Username = :username";
     $user_query = $GLOBALS['db']->prepare($user_sql);
     $user_query->execute(array("username"=> $username));
     $user_found = $user_query->fetchColumn();
@@ -48,7 +48,7 @@ function register(array $value) : bool
         $register_errors[] = "Your username is already used.";
     }
 
-    $user_ban_sql = "SELECT User_Ban FROM User WHERE User_Username = :username OR User_Email = :email";
+    $user_ban_sql = "SELECT User_Ban FROM user WHERE User_Username = :username OR User_Email = :email";
     $user_ban_query = $GLOBALS['db']->prepare($user_ban_sql);
     $user_ban_query->execute(array("username"=> $username, "email"=>$email));
     $user_ban = $user_ban_query->fetch();
@@ -58,7 +58,7 @@ function register(array $value) : bool
 
     if (!$register_errors)
     {
-        $create_account_sql = "INSERT INTO User (User_Username, User_Email, User_FirstName, User_LastName, User_Password ) VALUES (:username, :email, :firstname, :lastname, :password)";
+        $create_account_sql = "INSERT INTO user (User_Username, User_Email, User_FirstName, User_LastName, User_Password ) VALUES (:username, :email, :firstname, :lastname, :password)";
         $create_account_query = $GLOBALS['db']->prepare($create_account_sql);
         $create_account_query->execute(
             array(

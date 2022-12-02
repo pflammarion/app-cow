@@ -32,7 +32,6 @@
                     </a>
                 </div>
             </div>
-            <input type="text" value="create" name="action" style="display: none">
 
         </form>
     </div>

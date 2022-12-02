@@ -4,6 +4,16 @@
     height: 100%;
     justify-content: flex-end;
 }
+fieldset {
+    border-radius: 100px;
+    border: solid 3px var(--dark-blue);
+    box-sizing: border-box;
+    position: absolute;
+    width: 600px;
+    height: 50px;
+    left: 420px;
+    top: 273px;
+}
 .view .btn-container {
     display: flex;
     flex-direction: column;

@@ -29,7 +29,7 @@ DROP TABLE IF EXISTS `alert`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `alert` (
-  `Alert_Id` int NOT NULL,
+  `Alert_Id` int NOT NULL AUTO_INCREMENT,
   `Alert_Type_Id` int DEFAULT NULL,
   `Alert_Message` varchar(256) DEFAULT NULL,
   `Alert_Status` tinyint(1) DEFAULT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE `alert` (
   KEY `alert_sensor_null_fk` (`Chip_Level_Id`),
   CONSTRAINT `Alert_alert_type_null_fk` FOREIGN KEY (`Alert_Type_Id`) REFERENCES `alert_type` (`Alert_Type_Id`),
   CONSTRAINT `alert_sensor_null_fk` FOREIGN KEY (`Chip_Level_Id`) REFERENCES `chip_level` (`Chip_Level_Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,10 +60,10 @@ DROP TABLE IF EXISTS `alert_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `alert_type` (
-  `Alert_Type_Id` int NOT NULL,
+  `Alert_Type_Id` int NOT NULL AUTO_INCREMENT,
   `Alert_Type_Name` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`Alert_Type_Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

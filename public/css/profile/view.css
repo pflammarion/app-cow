@@ -50,6 +50,8 @@
 
 .profil .btn-edit{
     padding: 15px 20px;
+}
+.profil .btn-edit-margin{
     margin: 20px 0;
 }
 
@@ -64,6 +66,8 @@
     .profil .btn-edit{
         padding: 20px 48px;
         font-size: 24px;
+    }
+    .profil .btn-edit-margin{
         margin: 40px 0;
     }
     .profil .container {

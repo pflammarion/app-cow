@@ -13,9 +13,13 @@
             <img src="./public/assets/icon/mail.svg" alt="email">
             <p><?php echo $data['email'];?></p>
         </div>
-        <button class="btn-edit">Modifier</button>
+        <a href="profile?action=update" class="btn-edit-margin">
+            <div class="btn-edit">
+                Modifier
+            </div>
+        </a>
         <div class="profil-footer">
-            <button class="btn-delete">Supprimer</button>
+            <a href="profile?action=delete"><div class="btn-delete">Supprimer</div></a>
             <p>Rôle : <?php echo $data['role'];?></p>
         </div>
     </div>

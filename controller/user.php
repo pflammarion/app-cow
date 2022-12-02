@@ -9,7 +9,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
     switch ($page) {
         case 'accueil':
             $view = "user/home";
-            $title = "Accueil";
+            $cows = getCows();
             break;
         case 'boitier':
             $view = "user/chip/". $action;

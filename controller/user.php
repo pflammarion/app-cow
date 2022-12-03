@@ -10,7 +10,19 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
     switch ($page) {
         case 'accueil':
             $view = "user/home";
-            $cows = getCows();
+            if (isset($_GET['cow'])){
+                $sensors = array(
+                    'heart' => getSensorValueByCowBySensor($_GET['cow'],1),
+                    'air' => getSensorValueByCowBySensor($_GET['cow'],2),
+                    'sound' => getSensorValueByCowBySensor($_GET['cow'],3),
+                    'battery' => getSensorValueByCowBySensor($_GET['cow'],4),
+                );
+            }
+            else{
+                $cowId = getCowsNonViewedAlert();
+                header("Location: user?page=accueil&cow=" . $cowId);
+                exit();
+            }
             break;
         case 'boitier':
             $view = "user/chip/". $action;

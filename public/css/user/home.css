@@ -1,0 +1,77 @@
+.home{
+
+}
+
+.home .box{
+    border: solid 3px var(--dark-blue);
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.home .sensor-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+}
+
+.home .sensor{
+    height: 65px;
+    width: 65px;
+    margin: 0 auto;
+    border: solid 2px black;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home .sensor-box .low{
+    background-color: var(--alert-green);
+    border: 2px solid var(--alert-green);
+}
+.home .sensor-box .mid{
+    background-color: var(--alert-orange);
+    border: 2px solid var(--alert-orange);
+}
+.home .sensor-box .high{
+    background-color: var(--alert-red);
+    border: 2px solid var(--alert-red);
+}
+
+.home .sensor img{
+    height: auto;
+    width: 20px;
+    margin-top: 12px;
+}
+
+.home .sensor span{
+    margin-bottom: 10px;
+}
+
+.home .selected-cow{
+    display: flex;
+}
+
+.home .cow-info{
+    padding: 0 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    border-top: 3px solid var(--dark-blue);
+    border-bottom: 3px solid var(--dark-blue);
+    border-right: 3px solid var(--dark-blue);
+}
+
+.home .cow-info .cow-img{
+    height: 70px;
+    width: 70px;
+    border-radius: 5px;
+    background-color: gray;
+}

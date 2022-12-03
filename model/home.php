@@ -45,3 +45,22 @@ function getSensorValueByCowBySensor(int $cow, int $sensor): array
     }
     return [];
 }
+
+function getCow(int $id): array
+{
+    $sql_get_cow = "SELECT cow.Cow_Number, cow.Cow_Img_Url, cow.Cow_Name 
+                    FROM cow 
+                    WHERE cow.Cow_Id =:id;";
+
+    $query_get_cow = $GLOBALS['db']->prepare($sql_get_cow);
+    $query_get_cow->execute(array('id'=>$id));
+    $row = $query_get_cow->fetch();
+    if ($query_get_cow->rowcount() === 1){
+        return array(
+            'number' => $row['Cow_Number'],
+            'img' => $row['Cow_Img_Url'],
+            'name' => $row['Cow_Name'],
+        );
+    }
+    return [];
+}

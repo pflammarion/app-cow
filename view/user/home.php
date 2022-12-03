@@ -1,7 +1,7 @@
 <?php
 $sensors = $sensors ?? [];
 $cow= $cow ?? [];
-
+$cow_alerts = $cow_alerts ?? [];
 ?>
 <div class="home">
     <div class="box">
@@ -53,7 +53,15 @@ $cow= $cow ?? [];
                 ?>
                 <p class="font-arima">N° <?php echo $cow['number']?></p>
             </div>
-            <div class="alert"></div>
+            <div class="alert-box">
+                <?php
+                foreach ($cow_alerts as $cow_alert){
+                    echo '<div class="alert '. $cow_alert['type'] . '">';
+                    if ($cow_alert['status'] != 0) echo '<img src="./public/assets/icon/alert' . $cow_alert['type'] . '.svg" alt="alert">';
+                    echo '<span>'.$cow_alert['message'].'</span></div>';
+                }
+                ?>
+            </div>
         </div>
         <div class="cows">
             <h2>Mes Vaches</h2>

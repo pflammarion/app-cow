@@ -64,3 +64,27 @@ function getCow(int $id): array
     }
     return [];
 }
+
+function getAlertByCow(int $id): array
+{
+    $sql_get_alert="SELECT alert.Alert_message,alert.Alert_Status, alert.Alert_Type_Id
+                    FROM alert
+                    left join chip_level on chip_level.Chip_Level_Id = alert.Chip_Level_Id
+                    left join chip_cow_user on chip_cow_user.Chip_Id = chip_level.Chip_Id
+                    left join cow on cow.Cow_Id = chip_cow_user.Cow_Id
+                    WHERE cow.Cow_Id =:id
+                    ORDER BY Alert_Status DESC , Alert_Id DESC;
+    ";
+    $query_get_alert = $GLOBALS['db']->prepare($sql_get_alert);
+    $query_get_alert->execute(array('id'=>$id));
+    $rows = $query_get_alert->fetchAll();
+    $result = [];
+    foreach ($rows as $row){
+        $result[] = array(
+            'message'=>$row['Alert_message'],
+            'status'=>$row['Alert_Status'],
+            'type'=>$row['Alert_Type_Id'],
+        );
+    }
+    return $result;
+}

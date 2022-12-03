@@ -61,7 +61,7 @@
     padding: 0 5px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     justify-content: center;
     align-items: center;
     border-top: 3px solid var(--dark-blue);
@@ -69,9 +69,22 @@
     border-right: 3px solid var(--dark-blue);
 }
 
+.home .cow-info h2{
+    font-size: 16px;
+}
+
+.home .cow-info p{
+    font-size: 14px;
+}
+
 .home .cow-info .cow-img{
     height: 70px;
     width: 70px;
     border-radius: 5px;
     background-color: gray;
+}
+
+.home .cow-info{
+    border-top: 3px solid var(--dark-blue);
+    border-bottom: 3px solid var(--dark-blue);
 }

@@ -151,3 +151,12 @@
     background-color: var(--alert-red);
     border: 2px solid var(--alert-red);
 }
+
+.home .alert span{
+    font-size: 12px;
+}
+
+.home .alert img{
+    height: 14px;
+    width: auto;
+}

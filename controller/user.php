@@ -17,6 +17,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                     'sound' => getSensorValueByCowBySensor($_GET['cow'],3),
                     'battery' => getSensorValueByCowBySensor($_GET['cow'],4),
                 );
+                $cow = getCow($_GET['cow']);
             }
             else{
                 $cowId = getCowsNonViewedAlert();

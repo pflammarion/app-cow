@@ -84,7 +84,32 @@
     background-color: gray;
 }
 
-.home .cow-info{
+.home .alert-box{
+    width: 100%;
     border-top: 3px solid var(--dark-blue);
     border-bottom: 3px solid var(--dark-blue);
+}
+
+.home .alert{
+    display: flex;
+    align-items: flex-start;
+    margin: 3px;
+    gap: 5px;
+    border-radius: 5px;
+    padding: 3px;
+    border: solid 2px black;
+}
+
+.home .alert2{
+    background-color: var(--alert-green);
+    border: 2px solid var(--alert-green);
+}
+
+.home .alert3{
+    background-color: var(--alert-orange);
+    border: 2px solid var(--alert-orange);
+}
+.home .alert4{
+    background-color: var(--alert-red);
+    border: 2px solid var(--alert-red);
 }

@@ -56,7 +56,7 @@ $cow_alerts = $cow_alerts ?? [];
             <div class="alert-box">
                 <?php
                 foreach ($cow_alerts as $cow_alert){
-                    echo '<div class="alert '. $cow_alert['type'] . '">';
+                    echo '<div class="alert alert'. $cow_alert['type'] . '">';
                     if ($cow_alert['status'] != 0) echo '<img src="./public/assets/icon/alert' . $cow_alert['type'] . '.svg" alt="alert">';
                     echo '<span>'.$cow_alert['message'].'</span></div>';
                 }

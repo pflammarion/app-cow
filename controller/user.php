@@ -11,13 +11,15 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
         case 'accueil':
             $view = "user/home";
             if (isset($_GET['cow'])){
+                $cowId = $_GET['cow'];
                 $sensors = array(
-                    'heart' => getSensorValueByCowBySensor($_GET['cow'],1),
-                    'air' => getSensorValueByCowBySensor($_GET['cow'],2),
-                    'sound' => getSensorValueByCowBySensor($_GET['cow'],3),
-                    'battery' => getSensorValueByCowBySensor($_GET['cow'],4),
+                    'heart' => getSensorValueByCowBySensor($cowId,1),
+                    'air' => getSensorValueByCowBySensor($cowId,2),
+                    'sound' => getSensorValueByCowBySensor($cowId,3),
+                    'battery' => getSensorValueByCowBySensor($cowId,4),
                 );
-                $cow = getCow($_GET['cow']);
+                $cow = getCow($cowId);
+                $cow_alerts = getAlertByCow($cowId);
             }
             else{
                 $cowId = getCowsNonViewedAlert();

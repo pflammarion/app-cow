@@ -6,8 +6,9 @@ $herd = $herd ?? [];
 ?>
 <div class="home">
     <div class="box">
-        <div class="sensor-box">
-            <?php
+        <div class="show-cow">
+            <div class="sensor-box">
+                <?php
                 foreach ($sensors as $key => $sensor){
                     $class = '';
                     $type = '';
@@ -69,34 +70,35 @@ $herd = $herd ?? [];
                     if ($img_url != '') echo '<img src="' . $img_url . '" alt="sensor">';
                     echo '<span>'.$sensor['value'] . " " . $type . '</span></div>';
                 }
-            ?>
-        </div>
-        <div class="selected-cow">
-            <div class="cow-info">
-                <h2><?php echo $cow['name']?></h2>
-                <?php
+                ?>
+            </div>
+            <div class="selected-cow">
+                <div class="cow-info">
+                    <h2><?php echo $cow['name']?></h2>
+                    <?php
                     if(!is_null($cow['img'])){
                         echo '<img src="' . $cow['img'] . '" class="cow-img">';
                     }
                     else echo '<div class="cow-img"></div>'
-                ?>
-                <p class="font-arima">N° <?php echo $cow['number']?></p>
-            </div>
-            <div class="alert-box">
-                <?php
-                foreach ($cow_alerts as $cow_alert){
-                    $date = new DateTime($cow_alert['date']);
-                    $diff = $date->diff(new DateTime());
-                    $hours = $diff->h;
-                    $days = $diff->days;
-                    echo '<div class="alert alert'. $cow_alert['type'] . '">';
-                    echo '<span class="alert-date">' . $days . 'j ' . $hours . 'h</span>';
-                    echo '<div class="alert-content">';
-                    if ($cow_alert['status'] != 0) echo '<img src="./public/assets/icon/alert' . $cow_alert['type'] . '.svg" alt="alert">';
-                    echo '<span class="alert-message">'.$cow_alert['message'].'</span></div>';
-                    echo '</div>';
-                }
-                ?>
+                    ?>
+                    <p class="font-arima">N° <?php echo $cow['number']?></p>
+                </div>
+                <div class="alert-box">
+                    <?php
+                    foreach ($cow_alerts as $cow_alert){
+                        $date = new DateTime($cow_alert['date']);
+                        $diff = $date->diff(new DateTime());
+                        $hours = $diff->h;
+                        $days = $diff->days;
+                        echo '<div class="alert alert'. $cow_alert['type'] . '">';
+                        echo '<span class="alert-date">' . $days . 'j ' . $hours . 'h</span>';
+                        echo '<div class="alert-content">';
+                        if ($cow_alert['status'] != 0) echo '<img src="./public/assets/icon/alert' . $cow_alert['type'] . '.svg" alt="alert">';
+                        echo '<span class="alert-message">'.$cow_alert['message'].'</span></div>';
+                        echo '</div>';
+                    }
+                    ?>
+                </div>
             </div>
         </div>
         <div class="cows">

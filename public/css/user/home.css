@@ -181,3 +181,84 @@
     overflow-y: scroll;
     height: 100px;
 }
+
+
+@media screen and (min-width: 800px) {
+    .home .box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        border: none;
+    }
+    .home .cows,
+    .home .show-cow{
+        border: solid 3px var(--dark-blue);
+        border-radius: 10px;
+        display: flex;
+        width: 350px;
+    }
+    .home .show-cow{
+        position: relative;
+        height: 500px;
+        width: 350px;
+    }
+    .home .show-cow .sensor-box{
+        flex-direction: column;
+        width: 175px;
+        height: 250px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .home .show-cow .selected-cow{
+        display: block;
+    }
+    .home .show-cow .cow-info{
+        width: 175px;
+        height: 250px;
+        border-top: none;
+        border-right: none;
+        border-bottom: none;
+        border-left: solid 3px var(--dark-blue);
+        position: absolute;
+        top:0;
+        right: 0;
+    }
+
+    .home .alert-box{
+        position: absolute;
+        bottom: 0;
+        width: 350px;
+        height: 248px;
+        border-bottom: none;
+    }
+
+    .home .sensor{
+        flex-direction: row;
+        align-items: center;
+        width: 130px;
+        height: 40px;
+        justify-content: unset;
+    }
+    .home .sensor img{
+        margin: 0 20px;
+    }
+
+    .home .sensor span{
+        margin: 0;
+    }
+
+    .home .sensor-box{
+        gap: 15px;
+    }
+
+    .home .alert-box .alert{
+        margin: 10px;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+
+}

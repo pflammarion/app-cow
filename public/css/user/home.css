@@ -278,8 +278,76 @@
         width: 100px;
     }
 
+    .home .cows .herd-name{
+        font-size: 16px;
+    }
+
 }
 
 @media screen and (min-width: 1200px) {
+    .home .box{
+        flex-direction: column;
+    }
+    .home .cows{
+        width: 500px;
+        height: 250px;
+    }
+    .home .cow-scroller{
+        height: 190px;
+    }
+    .home .show-cow{
+        display: flex;
+        border: none;
+        height: 250px;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .home .sensor-box{
+        position: static !important;
+        border: solid 3px var(--dark-blue);
+        border-radius: 10px;
+        width: 500px !important;
+        flex-direction: row !important;
+        flex-wrap: wrap;
+    }
+
+    .home .sensor-box .sensor{
+        height: 100px;
+        width: 200px;
+        font-size: 24px;
+        justify-content: center;
+    }
+    .home .sensor-box .sensor img{
+        width: 35px;
+    }
+
+    .home .selected-cow{
+        border: solid 3px var(--dark-blue);
+        border-radius: 10px;
+        height: 100%;
+        width: 500px;
+        display: flex !important;
+    }
+
+    .home .cow-info{
+        position: static !important;
+        border-left: none !important;
+        border-right: solid 3px var(--dark-blue) !important;
+    }
+
+    .home .alert-box{
+        position: static !important;
+        border-top: none !important;
+        height: 250px;
+    }
+    .home .cow-info h2 {
+        font-size: 24px;
+    }
+
+    .home .cow-info .cow-img{
+        height: 125px;
+        width: 125px;
+    }
+
 
 }

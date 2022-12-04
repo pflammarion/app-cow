@@ -11,30 +11,58 @@ $cow_alerts = $cow_alerts ?? [];
                     $class = '';
                     $type = '';
                     $img_url = '';
-                    if ($sensor['value'] > $sensor['low']){
-                        $class = 'low';
-                    }
-                    if ($sensor['value'] > $sensor['mid']){
-                        $class = 'mid';
-                    }
-                    if ($sensor['value'] > $sensor['high']){
-                        $class = 'high';
-                    }
+
                     if($key === 'heart'){
                         $type = 'BPM';
                         $img_url = './public/assets/icon/heart.svg';
+                        if ($sensor['value'] > $sensor['low']){
+                            $class = 'low';
+                        }
+                        if ($sensor['value'] > $sensor['mid']){
+                            $class = 'mid';
+                        }
+                        if ($sensor['value'] > $sensor['high']){
+                            $class = 'high';
+                        }
                     }
                     if($key === 'sound'){
                         $type = 'dB';
                         $img_url = './public/assets/icon/sound.svg';
+                        if ($sensor['value'] > $sensor['low']){
+                            $class = 'low';
+                        }
+                        if ($sensor['value'] > $sensor['mid']){
+                            $class = 'mid';
+                        }
+                        if ($sensor['value'] > $sensor['high']){
+                            $class = 'high';
+                        }
                     }
                     if($key === 'air'){
                         $type = '%';
                         $img_url = './public/assets/icon/air.svg';
+                        if ($sensor['value'] < $sensor['low']){
+                            $class = 'low';
+                        }
+                        if ($sensor['value'] < $sensor['mid']){
+                            $class = 'mid';
+                        }
+                        if ($sensor['value'] < $sensor['high']){
+                            $class = 'high';
+                        }
                     }
                     if($key === 'battery'){
                         $type = '%';
                         $img_url = './public/assets/icon/battery.svg';
+                        if ($sensor['value'] < $sensor['low']){
+                            $class = 'low';
+                        }
+                        if ($sensor['value'] < $sensor['mid']){
+                            $class = 'mid';
+                        }
+                        if ($sensor['value'] < $sensor['high']){
+                            $class = 'high';
+                        }
                     }
                     echo '<div class="sensor '. $class . '">';
                     if ($img_url != '') echo '<img src="' . $img_url . '" alt="sensor">';
@@ -56,9 +84,16 @@ $cow_alerts = $cow_alerts ?? [];
             <div class="alert-box">
                 <?php
                 foreach ($cow_alerts as $cow_alert){
+                    $date = new DateTime($cow_alert['date']);
+                    $diff = $date->diff(new DateTime());
+                    $hours = $diff->h;
+                    $days = $diff->days;
                     echo '<div class="alert alert'. $cow_alert['type'] . '">';
+                    echo '<span class="alert-date">' . $days . 'j ' . $hours . 'h</span>';
+                    echo '<div class="alert-content">';
                     if ($cow_alert['status'] != 0) echo '<img src="./public/assets/icon/alert' . $cow_alert['type'] . '.svg" alt="alert">';
-                    echo '<span>'.$cow_alert['message'].'</span></div>';
+                    echo '<span class="alert-message">'.$cow_alert['message'].'</span></div>';
+                    echo '</div>';
                 }
                 ?>
             </div>

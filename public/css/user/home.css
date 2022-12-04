@@ -1,7 +1,3 @@
-.home{
-
-}
-
 .home .box{
     border: solid 3px var(--dark-blue);
     border-radius: 10px;
@@ -139,4 +135,29 @@
 .home .alert img{
     height: 14px;
     width: auto;
+}
+
+.home .herd{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    margin: 5px;
+}
+
+.home .herd .herd-name{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.home .herd img{
+    height: 20px;
+    width:auto;
+}
+
+.home .cows h2{
+    font-size: 16px;
+    font-weight: 700;
+    margin: 10px;
 }

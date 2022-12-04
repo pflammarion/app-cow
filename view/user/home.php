@@ -1,7 +1,8 @@
 <?php
 $sensors = $sensors ?? [];
-$cow= $cow ?? [];
+$cow = $cow ?? [];
 $cow_alerts = $cow_alerts ?? [];
+$herd = $herd ?? [];
 ?>
 <div class="home">
     <div class="box">
@@ -100,6 +101,11 @@ $cow_alerts = $cow_alerts ?? [];
         </div>
         <div class="cows">
             <h2>Mes Vaches</h2>
+            <?php
+                foreach ($herd as $cow){
+                    if ($cow['id'] != $_GET['cow']) echo '<div class="herd alert alert' . $cow['level'] .'"><div class="herd-name"><img src="./public/assets/icon/cow.svg" alt="cow">' . $cow['name'] . '</div><img src="./public/assets/icon/alert' . $cow['level'] . '.svg" alt="alert"></div>';
+                }
+            ?>
         </div>
     </div>
 </div>

@@ -20,6 +20,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 );
                 $cow = getCow($cowId);
                 $cow_alerts = getAlertByCow($cowId);
+                $herd = getAllCowAlert();
             }
             else{
                 $cowId = getCowsNonViewedAlert();

@@ -6,11 +6,18 @@ from collections import defaultdict
 if __name__ == '__main__':
     fake = Faker()
     fake_data = defaultdict(list)
+
     ##mettre le chip_level_id, c'est pour prendre en compte les différents capteurs
-    chip = '15'
+    chip = '14'
+
     min = 20
     max = 100
-    with open("batterycow1.sql", "w") as f:
+    min_number_value_hour = 2
+    max_number_value_hour = 4
+
+    ####Mettre le bon fichier ici
+    with open("../soundcow1.sql", "w") as f:
+
         f.write('USE APPCOW;')
         f.write("\n")
         f.write('-- Annual data')
@@ -19,7 +26,8 @@ if __name__ == '__main__':
             value = str(fake.pyint(min, max))
             month = [3, 5, 7, 9, 11]
             date = str(datetime.datetime(2022, month[i], 1, 0, 0, 0))
-            query = "INSERT INTO data_sensor (Value, Date, Chip_Level_Id, Average_Id) VALUES (" + value + ", '" + date + "', " + chip + ", 3);"
+            coef = str(fake.pyint(min_number_value_hour * 5040, max_number_value_hour * 5040))
+            query = "INSERT INTO data_sensor (Value, Date, Chip_Level_Id, Average_Id, Coef) VALUES (" + value + ", '" + date + "', " + chip + ", 3 ," + coef + ");"
             f.write(query)
             f.write("\n")
         f.write('-- Week data')
@@ -28,7 +36,8 @@ if __name__ == '__main__':
             value = str(fake.pyint(min, max))
             jour = i + 1
             date = str(datetime.datetime(2022, 1, jour, 0, 0, 0))
-            query = "INSERT INTO data_sensor (Value, Date, Chip_Level_Id, Average_Id) VALUES (" + value + ", '" + date + "', " + chip + ", 2);"
+            coef = str(fake.pyint(min_number_value_hour * 24, max_number_value_hour * 24))
+            query = "INSERT INTO data_sensor (Value, Date, Chip_Level_Id, Average_Id, Coef) VALUES (" + value + ", '" + date + "', " + chip + ", 2 ," + coef + ");"
             f.write(query)
             f.write("\n")
 
@@ -38,7 +47,8 @@ if __name__ == '__main__':
             value = str(fake.pyint(min, max))
             hour = i * 4
             date = str(datetime.datetime(2022, 1, 1, hour, 0, 0))
-            query = "INSERT INTO data_sensor (Value, Date, Chip_Level_Id, Average_Id) VALUES (" + value + ", '" + date + "', " + chip + ", 1);"
+            coef = str(fake.pyint(min_number_value_hour * 3, max_number_value_hour * 3))
+            query = "INSERT INTO data_sensor (Value, Date, Chip_Level_Id, Average_Id, Coef) VALUES (" + value + ", '" + date + "', " + chip + ", 1 ," + coef + ");"
             f.write(query)
             f.write("\n")
 
@@ -46,8 +56,8 @@ if __name__ == '__main__':
         f.write("\n")
         for _ in range(10):
             value = str(fake.pyint(min, max))
-            date = str(fake.date_time_ad(None, datetime.datetime(2022, 12, 4, 16, 0, 0),
-                                         datetime.datetime(2022, 12, 4, 0, 0, 0)))
-            query = "INSERT INTO data_sensor (Value, Date, Chip_Level_Id) VALUES (" + value + ", '" + date + "', " + chip + ");"
+            date = str(fake.date_time_ad(None, datetime.datetime(2022, 12, 4, 16, 0, 0),datetime.datetime(2022, 12, 4, 0, 0, 0)))
+            coef = '1'
+            query = "INSERT INTO data_sensor (Value, Date, Chip_Level_Id, Average_Id, Coef) VALUES (" + value + ", '" + date + "', " + chip + ", 4 ," + coef + ");"
             f.write(query)
             f.write("\n")

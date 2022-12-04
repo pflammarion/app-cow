@@ -100,8 +100,8 @@ function getAllCowAlert(): array
                 left join chip_cow_user on chip_cow_user.Chip_Id = chip_level.Chip_Id
                 left join cow on cow.Cow_Id = chip_cow_user.Cow_Id
                 WHERE chip_cow_user.User_Id =:user AND alert.Alert_Status = 1
-                GROUP BY cow.Cow_Name, cow.Cow_Id HAVING max(alert.Alert_Type_Id);
-
+                GROUP BY cow.Cow_Name, cow.Cow_Id HAVING max(alert.Alert_Type_Id)
+                ORDER BY level DESC;
     ";
     $query_get_all_cow_alert = $GLOBALS['db']->prepare($sql_get_all_cow_alert);
     $query_get_all_cow_alert->execute(array('user'=>$user));
@@ -112,6 +112,29 @@ function getAllCowAlert(): array
             'id'=>$row['Cow_Id'],
             'name'=>$row['Cow_Name'],
             'level'=>$row['level'],
+        );
+    }
+    return $result;
+}
+
+function getAllCowNoAlert(): array
+{
+    $user = $_SESSION['user'];
+    $sql_get_all_cow="
+                SELECT cow.Cow_Name, cow.Cow_Id
+                FROM cow
+                left join chip_cow_user on cow.Cow_Id = chip_cow_user.Cow_Id
+                WHERE chip_cow_user.User_Id =:user
+                ORDER BY Cow_Name;
+    ";
+    $query_get_all_cow = $GLOBALS['db']->prepare($sql_get_all_cow);
+    $query_get_all_cow->execute(array('user'=>$user));
+    $rows = $query_get_all_cow->fetchAll();
+    $result = [];
+    foreach ($rows as $row){
+        $result[] = array(
+            'id'=>$row['Cow_Id'],
+            'name'=>$row['Cow_Name'],
         );
     }
     return $result;

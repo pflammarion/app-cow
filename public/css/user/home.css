@@ -1,8 +1,10 @@
 .home .box{
     border: solid 3px var(--dark-blue);
     border-radius: 10px;
-    margin: 20px;
+    margin: 0 20px;
 }
+
+.home{padding-top: 20px}
 
 .home .sensor-box{
     display: flex;
@@ -160,4 +162,10 @@
     font-size: 16px;
     font-weight: 700;
     margin: 10px;
+}
+
+.home .cow-scroller{
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 100px;
 }

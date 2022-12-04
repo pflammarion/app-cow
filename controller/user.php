@@ -20,7 +20,19 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 );
                 $cow = getCow($cowId);
                 $cow_alerts = getAlertByCow($cowId);
+                $no_alert_heard = getAllCowNoAlert();
                 $herd = getAllCowAlert();
+                foreach ($no_alert_heard as $noh){
+                    $exist = False;
+                    foreach ($herd as $h){
+                        if($h['id'] === $noh['id']){
+                            $exist = True;
+                        }
+                    }
+                    if(!$exist){
+                        $herd[] = $noh;
+                    }
+                }
             }
             else{
                 $cowId = getCowsNonViewedAlert();

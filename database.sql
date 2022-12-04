@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.31, for macos12.6 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.31, for Linux (x86_64)
 --
 -- Host: localhost    Database: APPCOW
 -- ------------------------------------------------------
--- Server version	8.0.31
+-- Server version	8.0.31-0ubuntu0.22.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -15,15 +15,14 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+--
+-- Table structure for table `alert`
+--
 
 CREATE DATABASE IF NOT EXISTS `APPCOW`;
 DROP DATABASE `APPCOW`;
 CREATE DATABASE IF NOT EXISTS `APPCOW` DEFAULT CHARACTER SET utf8mb4;
 USE `APPCOW`;
-
---
--- Table structure for table `alert`
---
 
 DROP TABLE IF EXISTS `alert`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -34,12 +33,13 @@ CREATE TABLE `alert` (
   `Alert_Message` varchar(256) DEFAULT NULL,
   `Alert_Status` tinyint(1) DEFAULT NULL,
   `Chip_Level_Id` int DEFAULT NULL,
+  `Alert_Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Alert_Id`),
   KEY `Alert_alert_type_null_fk` (`Alert_Type_Id`),
   KEY `alert_sensor_null_fk` (`Chip_Level_Id`),
   CONSTRAINT `Alert_alert_type_null_fk` FOREIGN KEY (`Alert_Type_Id`) REFERENCES `alert_type` (`Alert_Type_Id`),
   CONSTRAINT `alert_sensor_null_fk` FOREIGN KEY (`Chip_Level_Id`) REFERENCES `chip_level` (`Chip_Level_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +48,7 @@ CREATE TABLE `alert` (
 
 LOCK TABLES `alert` WRITE;
 /*!40000 ALTER TABLE `alert` DISABLE KEYS */;
-INSERT INTO `alert` VALUES (1,2,'heart frequency sensor',0,12),(2,4,'sound sensor',1,12),(3,1,'jklm',0,12),(4,1,'abcd',0,13),(5,3,'feur',1,14);
+INSERT INTO `alert` VALUES (1,2,'Niveau cardiaque trop élevé',0,12,'2022-10-31 23:00:00'),(2,4,'Niveau cardiaque a atteint le niveau critique',1,12,'2022-11-12 23:00:00'),(3,1,'Niveau cardiaque normal',0,12,'2022-11-13 23:00:00'),(4,1,'Air non polluée',0,13,'2022-11-14 23:00:00'),(5,3,'Le niveau sonore a dépassé le seuil moyen',1,14,'2022-11-16 23:00:00'),(6,3,'Niveau faible de batterie',1,16,'2022-11-30 23:00:00'),(7,4,'Batterie à plat',0,16,'2022-12-03 23:00:00'),(8,3,'Fréquence cardiaque élevée',1,17,'2022-12-03 23:00:00');
 /*!40000 ALTER TABLE `alert` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,7 +175,7 @@ CREATE TABLE `chip_level` (
   KEY `chip_level_chip_Chip_Id_fk` (`Chip_Id`),
   CONSTRAINT `chip_level_chip_Chip_Id_fk` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (`Chip_Id`),
   CONSTRAINT `FK_Sensor_ID_Chip_Sensor_Id` FOREIGN KEY (`Sensor_Id`) REFERENCES `sensor` (`Sensor_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +184,7 @@ CREATE TABLE `chip_level` (
 
 LOCK TABLES `chip_level` WRITE;
 /*!40000 ALTER TABLE `chip_level` DISABLE KEYS */;
-INSERT INTO `chip_level` VALUES (12,1,60,70,80,1),(13,1,60,70,80,2),(14,1,60,70,80,3),(15,1,75,50,25,4);
+INSERT INTO `chip_level` VALUES (12,1,60,70,80,1),(13,1,60,70,80,2),(14,1,60,70,80,3),(15,1,75,50,25,4),(16,2,45,45,45,1),(17,2,60,70,80,2),(18,2,60,70,80,3),(19,2,75,50,25,4);
 /*!40000 ALTER TABLE `chip_level` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -224,7 +224,7 @@ DROP TABLE IF EXISTS `data_sensor`;
 CREATE TABLE `data_sensor` (
   `Data_Sensor_Id` int NOT NULL AUTO_INCREMENT,
   `Chip_Level_Id` int NOT NULL,
-  `Average_Id` int NOT NULL,
+  `Average_Id` int NOT NULL DEFAULT '4',
   `Value` int NOT NULL,
   `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Coef` int NOT NULL DEFAULT '1',
@@ -496,4 +496,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-02 14:57:59
+-- Dump completed on 2022-12-04 14:46:28

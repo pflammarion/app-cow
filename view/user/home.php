@@ -66,9 +66,12 @@ $herd = $herd ?? [];
                             $class = 'high';
                         }
                     }
+
+                    if($key!== 'battery') echo '<a href="user?page=tableau&type=' . $key  . '">';
                     echo '<div class="sensor '. $class . '">';
                     if ($img_url != '') echo '<img src="' . $img_url . '" alt="sensor">';
                     echo '<span>'.$sensor['value'] . " " . $type . '</span></div>';
+                    if($key!== 'battery') echo '</a>';
                 }
                 ?>
             </div>

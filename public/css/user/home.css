@@ -1,22 +1,24 @@
 .home .box{
     border: solid 3px var(--dark-blue);
     border-radius: 10px;
-    margin: 0 20px;
+    margin: 0 auto;
+    max-width: 400px;
 }
 
-.home{padding-top: 20px}
+.home{
+    padding: 20px 10px;
+}
 
 .home .sensor-box{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     height: 80px;
 }
 
 .home .sensor{
     height: 65px;
     width: 65px;
-    margin: 0 auto;
     border: solid 2px black;
     border-radius: 5px;
     text-align: center;
@@ -178,18 +180,18 @@
         justify-content: center;
         gap: 50px;
         border: none;
+        max-width: unset;
     }
     .home .cows,
     .home .show-cow{
         border: solid 3px var(--dark-blue);
         border-radius: 10px;
-        display: flex;
+        display: block;
+        height: 500px;
         width: 350px;
     }
     .home .show-cow{
         position: relative;
-        height: 500px;
-        width: 350px;
     }
     .home .show-cow .sensor-box{
         flex-direction: column;
@@ -238,11 +240,42 @@
     }
 
     .home .sensor-box{
+        justify-content: center;
         gap: 15px;
     }
 
     .home .alert-box .alert{
         margin: 10px;
+    }
+    .home .cows .herd{
+        margin: 10px;
+    }
+    .home .cows h2{
+        font-size: 24px;
+        margin: 20px 0 0 20px;
+    }
+
+    .home .cow-scroller{
+        height: 440px;
+    }
+
+    .home .cow-scroller .alert img{
+        height: 24px;
+        width: auto;
+    }
+
+    .home .cow-info h2{
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .home .cow-info p{
+        font-size: 16px;
+    }
+
+    .home .cow-info .cow-img{
+        height: 100px;
+        width: 100px;
     }
 
 }

@@ -49,7 +49,8 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             break;
 
         case 'tableau':
-            $view = "user/table/" . $action;
+            $type = $_GET['type'];
+            $view = "user/table";
             break;
 
         default:

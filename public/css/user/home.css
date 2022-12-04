@@ -20,6 +20,14 @@
     height: 80px;
 }
 
+.home .sensor-box h2{
+    display: none;
+}
+
+.home .selected-cow > h2{
+    display: none;
+}
+
 .home .sensor{
     height: 65px;
     width: 65px;
@@ -310,7 +318,7 @@
     .home .show-cow{
         display: flex;
         border: none;
-        height: 250px;
+        height: 320px;
         width: 100%;
         justify-content: space-around;
     }
@@ -319,8 +327,11 @@
         border: solid 3px var(--dark-blue);
         border-radius: 10px;
         width: 500px !important;
+        height: 100% !important;
         flex-direction: row !important;
         flex-wrap: wrap;
+        justify-content: center;
+        align-items: unset;
     }
 
     .home .sensor-box .sensor{
@@ -339,18 +350,25 @@
         height: 100%;
         width: 500px;
         display: flex !important;
+        flex-wrap: wrap;
     }
 
     .home .cow-info{
         position: static !important;
         border-left: none !important;
         border-right: solid 3px var(--dark-blue) !important;
+        width: 180px!important;
+        height: 270px!important;
+    }
+    .home .cow-info h2{
+        margin: 5px 0;
     }
 
     .home .alert-box{
         position: static !important;
         border-top: none !important;
-        height: 250px;
+        height: 270px;
+        width: 300px;
     }
     .home .cow-info h2 {
         font-size: 24px;
@@ -359,6 +377,25 @@
     .home .cow-info .cow-img{
         height: 125px;
         width: 125px;
+    }
+
+    .home .sensor-box h2{
+        display: block;
+        margin: 20px 0 -10px 40px;
+        padding: 0;
+        font-size: 24px;
+        font-weight: 700;
+        width: 100%;
+    }
+
+    .home .selected-cow > h2{
+        display: block;
+        margin: 10px 0 0 0;
+        padding-left: 30px;
+        font-size: 24px;
+        font-weight: 700;
+        width: 100%;
+        border-bottom: solid 3px var(--dark-blue);
     }
 
 

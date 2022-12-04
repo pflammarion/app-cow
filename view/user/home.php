@@ -8,6 +8,7 @@ $herd = $herd ?? [];
     <div class="box">
         <div class="show-cow">
             <div class="sensor-box">
+                <h2>Dernières données</h2>
                 <?php
                 foreach ($sensors as $key => $sensor){
                     $class = '';
@@ -76,6 +77,7 @@ $herd = $herd ?? [];
                 ?>
             </div>
             <div class="selected-cow">
+                <h2>Vache sélectionnée</h2>
                 <div class="cow-info">
                     <h2><?php echo $cow['name']?></h2>
                     <?php

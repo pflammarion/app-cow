@@ -96,13 +96,11 @@
 }
 
 .home .alert{
-    display: flex;
-    align-items: flex-start;
-    margin: 3px;
-    gap: 5px;
     border-radius: 5px;
     padding: 3px;
     border: solid 2px black;
+    margin: 3px;
+    position: relative;
 }
 
 .home .alert2{
@@ -119,8 +117,23 @@
     border: 2px solid var(--alert-red);
 }
 
-.home .alert span{
+.home .alert .alert-message{
     font-size: 12px;
+}
+
+.home .alert .alert-date{
+    font-size: 8px;
+    color: black;
+    position: absolute;
+    right: 3px;
+    top: 2px;
+}
+
+.home .alert .alert-content{
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    margin-top: 10px;
 }
 
 .home .alert img{

@@ -67,7 +67,7 @@ function getCow(int $id): array
 
 function getAlertByCow(int $id): array
 {
-    $sql_get_alert="SELECT alert.Alert_message,alert.Alert_Status, alert.Alert_Type_Id
+    $sql_get_alert="SELECT alert.Alert_message,alert.Alert_Status, alert.Alert_Type_Id, alert.Alert_Date
                     FROM alert
                     left join chip_level on chip_level.Chip_Level_Id = alert.Chip_Level_Id
                     left join chip_cow_user on chip_cow_user.Chip_Id = chip_level.Chip_Id
@@ -84,6 +84,7 @@ function getAlertByCow(int $id): array
             'message'=>$row['Alert_message'],
             'status'=>$row['Alert_Status'],
             'type'=>$row['Alert_Type_Id'],
+            'date'=>$row['Alert_Date'],
         );
     }
     return $result;

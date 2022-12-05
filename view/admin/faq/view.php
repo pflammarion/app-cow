@@ -23,7 +23,7 @@
                 <a href="admin?page=faq&action=update&id='.$box["id"].'" ><img src="./public/assets/icon/modifier.svg"></a>
               </button>
               <button type="submit" class="btn-blue">
-                <a href="admin?page=faq&action=delete" ><img src="./public/assets/icon/delete.svg"></a>
+                <a href="admin?page=faq&action=delete&id='.$box["id"].'" ><img src="./public/assets/icon/delete.svg"></a>
               </button>';
         echo '</div>';
     }

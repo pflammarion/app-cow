@@ -1,7 +1,3 @@
-.home{
-
-}
-
 .home .box{
     border: solid 3px var(--dark-blue);
     border-radius: 10px;
@@ -153,37 +149,29 @@
     width: auto;
 }
 
-.home .alert{
+.home .herd{
     display: flex;
-    align-items: flex-start;
-    margin: 3px;
-    gap: 5px;
-    border-radius: 5px;
-    padding: 3px;
-    border: solid 2px black;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    margin: 5px;
 }
 
-.home .alert2{
-    background-color: var(--alert-green);
-    border: 2px solid var(--alert-green);
+.home .herd .herd-name{
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.home .alert3{
-    background-color: var(--alert-orange);
-    border: 2px solid var(--alert-orange);
-}
-.home .alert4{
-    background-color: var(--alert-red);
-    border: 2px solid var(--alert-red);
+.home .herd img{
+    height: 20px;
+    width:auto;
 }
 
-.home .alert span{
-    font-size: 12px;
-}
-
-.home .alert img{
-    height: 14px;
-    width: auto;
+.home .cows h2{
+    font-size: 16px;
+    font-weight: 700;
+    margin: 10px;
 }
 
 .home .cow-scroller{

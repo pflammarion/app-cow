@@ -177,6 +177,13 @@
     height: 100px;
 }
 
+.home .empty-center{
+    justify-content: center;
+}
+
+.home .empty-center span{
+    margin-bottom: 0;
+}
 
 @media screen and (min-width: 800px) {
     .home .box{
@@ -292,7 +299,9 @@
     .home .alert-content{
         margin-top: 0 !important;
     }
-
+    .home .empty-center{
+        justify-content: center;
+    }
 }
 
 @media screen and (min-width: 1200px) {

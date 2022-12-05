@@ -11,67 +11,71 @@ $herd = $herd ?? [];
                 <h2>Dernières données</h2>
                 <?php
                 foreach ($sensors as $key => $sensor){
-                    $class = '';
-                    $type = '';
+                    $class = 'empty-center';
+                    $type = 'Vide';
                     $img_url = '';
+                    $val = '';
+                    if (isset($sensor['value'])){
+                        $val = $sensor['value'];
+                        if($key === 'heart'){
+                            $type = 'BPM';
+                            $img_url = './public/assets/icon/heart.svg';
+                            if ($sensor['value'] > $sensor['low']){
+                                $class = 'low';
+                            }
+                            if ($sensor['value'] > $sensor['mid']){
+                                $class = 'mid';
+                            }
+                            if ($sensor['value'] > $sensor['high']){
+                                $class = 'high';
+                            }
+                        }
+                        if($key === 'sound'){
+                            $type = 'dB';
+                            $img_url = './public/assets/icon/sound.svg';
+                            if ($sensor['value'] > $sensor['low']){
+                                $class = 'low';
+                            }
+                            if ($sensor['value'] > $sensor['mid']){
+                                $class = 'mid';
+                            }
+                            if ($sensor['value'] > $sensor['high']){
+                                $class = 'high';
+                            }
+                        }
+                        if($key === 'air'){
+                            $type = '%';
+                            $img_url = './public/assets/icon/air.svg';
+                            if ($sensor['value'] < $sensor['low']){
+                                $class = 'low';
+                            }
+                            if ($sensor['value'] < $sensor['mid']){
+                                $class = 'mid';
+                            }
+                            if ($sensor['value'] < $sensor['high']){
+                                $class = 'high';
+                            }
+                        }
+                        if($key === 'battery'){
+                            $type = '%';
+                            $img_url = './public/assets/icon/battery.svg';
+                            if ($sensor['value'] < $sensor['low']){
+                                $class = 'low';
+                            }
+                            if ($sensor['value'] < $sensor['mid']){
+                                $class = 'mid';
+                            }
+                            if ($sensor['value'] < $sensor['high']){
+                                $class = 'high';
+                            }
+                        }
+                    }
 
-                    if($key === 'heart'){
-                        $type = 'BPM';
-                        $img_url = './public/assets/icon/heart.svg';
-                        if ($sensor['value'] > $sensor['low']){
-                            $class = 'low';
-                        }
-                        if ($sensor['value'] > $sensor['mid']){
-                            $class = 'mid';
-                        }
-                        if ($sensor['value'] > $sensor['high']){
-                            $class = 'high';
-                        }
-                    }
-                    if($key === 'sound'){
-                        $type = 'dB';
-                        $img_url = './public/assets/icon/sound.svg';
-                        if ($sensor['value'] > $sensor['low']){
-                            $class = 'low';
-                        }
-                        if ($sensor['value'] > $sensor['mid']){
-                            $class = 'mid';
-                        }
-                        if ($sensor['value'] > $sensor['high']){
-                            $class = 'high';
-                        }
-                    }
-                    if($key === 'air'){
-                        $type = '%';
-                        $img_url = './public/assets/icon/air.svg';
-                        if ($sensor['value'] < $sensor['low']){
-                            $class = 'low';
-                        }
-                        if ($sensor['value'] < $sensor['mid']){
-                            $class = 'mid';
-                        }
-                        if ($sensor['value'] < $sensor['high']){
-                            $class = 'high';
-                        }
-                    }
-                    if($key === 'battery'){
-                        $type = '%';
-                        $img_url = './public/assets/icon/battery.svg';
-                        if ($sensor['value'] < $sensor['low']){
-                            $class = 'low';
-                        }
-                        if ($sensor['value'] < $sensor['mid']){
-                            $class = 'mid';
-                        }
-                        if ($sensor['value'] < $sensor['high']){
-                            $class = 'high';
-                        }
-                    }
 
                     if($key!== 'battery') echo '<a href="user?page=tableau&type=' . $key  . '">';
                     echo '<div class="sensor '. $class . '">';
                     if ($img_url != '') echo '<img src="' . $img_url . '" alt="sensor">';
-                    echo '<span>'.$sensor['value'] . " " . $type . '</span></div>';
+                    echo '<span>'. $val . " " . $type . '</span></div>';
                     if($key!== 'battery') echo '</a>';
                 }
                 ?>

@@ -38,5 +38,5 @@ function selectAction(string $default): string
 
 function showPage($view): string
 {
-    return (file_exists('view/' . $view . '.php')) ? 'view/' . $view . '.php' : 'view/error404.php';
+    return (file_exists(__DIR__ .'/../view/' . $view . '.php')) ? 'view/' . $view . '.php' : 'view/error404.php';
 }

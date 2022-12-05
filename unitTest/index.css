@@ -1,0 +1,11 @@
+.failed{
+    color: red;
+}
+
+.passed{
+    color: green;
+}
+
+div{
+    margin: 5px 0;
+}

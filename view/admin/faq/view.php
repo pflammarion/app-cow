@@ -20,7 +20,7 @@
         echo '<p>'.$box["answer"].'</p>';
         echo '</div>';
         echo '<button type="submit" class="btn-blue">
-                <a href="admin?page=faq&action=update" ><img src="./public/assets/icon/modifier.svg"></a>
+                <a href="admin?page=faq&action=update&id='.$box["id"].'" ><img src="./public/assets/icon/modifier.svg"></a>
               </button>
               <button type="submit" class="btn-blue">
                 <a href="admin?page=faq&action=delete" ><img src="./public/assets/icon/delete.svg"></a>

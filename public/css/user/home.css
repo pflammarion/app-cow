@@ -112,16 +112,13 @@
 }
 
 .home .alert2{
-    background-color: var(--alert-green);
     border: 2px solid var(--alert-green);
 }
 
 .home .alert3{
-    background-color: var(--alert-orange);
     border: 2px solid var(--alert-orange);
 }
 .home .alert4{
-    background-color: var(--alert-red);
     border: 2px solid var(--alert-red);
 }
 
@@ -289,6 +286,12 @@
     .home .cows .herd-name{
         font-size: 16px;
     }
+    .home .alert-date{
+        margin-top: -13px;
+    }
+    .home .alert-content{
+        margin-top: 0 !important;
+    }
 
 }
 
@@ -384,6 +387,15 @@
         font-weight: 700;
         width: 100%;
         border-bottom: solid 3px var(--dark-blue);
+    }
+    .home .alert-date{
+        font-size: 10px !important;
+    }
+    .home .alert-content .alert-message{
+        font-size: 14px !important;
+    }
+    .home .alert-box .alert{
+        margin : 13px;
     }
 
 

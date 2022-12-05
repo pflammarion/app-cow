@@ -14,13 +14,25 @@ if(!empty($page) && !empty($action)){
     }
     elseif($page == 'faq' && pageAuthorization('admin/faq')){
         $content = getfaq();
-        if(isset($_POST['question'])){
-            $values = array(
-                "question" => $_POST['question'],
-                "response" => $_POST['response'],
-            );
-            $success = createFaq($values);
+        if(isset($_POST['question']) && isset($_POST['action']) ){
+            $success = False;
+            if ($_POST['action'] == 'create'){
+                $values = array(
+                    "question" => $_POST['question'],
+                    "response" => $_POST['response'],
+                );
+                $success = createFaq($values);
+            }
+            if($_POST['action'] == 'update'){
+                $values = array(
+                    "question" => $_POST['question'],
+                    "response" => $_POST['response'],
+                    "id" => $_POST['id'],
+                );
 
+                $success = updateFaq($values);
+
+            }
             if ($success) {
                 header("Location: admin?page=faq&action=view");
                 exit();

@@ -6,6 +6,28 @@
     color: green;
 }
 
-div{
-    margin: 5px 0;
+.flex > div{
+    margin: 20px 10px;
+    display: block;
+    background-color: #ADE194;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+*{
+    font-family: "Arima Madurai", sans-serif;
+}
+
+.button{
+    all: unset;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+     background-color: black;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.flex{
+    display: flex;
 }

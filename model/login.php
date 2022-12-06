@@ -64,7 +64,7 @@ function register(array $value) : bool
             array(
                 "username"=> htmlentities($username),
                 "email"=>htmlentities($email),
-                "password"=>htmlentities($password),
+                "password"=>$password,
                 "firstname"=>htmlentities($firstname),
                 "lastname"=>htmlentities($lastname),
             ));

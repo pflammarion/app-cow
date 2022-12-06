@@ -21,8 +21,6 @@ if(!empty($page) && !empty($action)){
     }
     else {
         echo '<script>alert("Vous n\'avez pas accès à cette page")</script>';
-        header("Location: ");
-        exit();
     }
 }
 include (showPage($view));

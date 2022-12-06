@@ -1,7 +1,7 @@
 <?php
 
-include __DIR__ . '/../model/permission.php';
-include __DIR__ . '/../model/home.php';
+require __DIR__ . '/../model/permission.php';
+require __DIR__ . '/../model/home.php';
 
 $page = selectPage("accueil");
 $action = selectAction("view");
@@ -55,7 +55,6 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
 
         default:
             $view = "error404";
-            $title = "Erreur";
     }
     include (showPage($view));
 }

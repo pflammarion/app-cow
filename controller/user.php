@@ -60,6 +60,8 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
 }
 else{
     echo('<script>alert("Vous n\'avez pas la permission d\'accéder à cette page")</script>');
+    header("Location: ");
+    exit();
 }
 
 

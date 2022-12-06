@@ -19,6 +19,10 @@ if(!empty($page) && !empty($action)){
     elseif($page =='user' && pageAuthorization('admin/user')){
         $view = "admin/user" . $action;
     }
-    else echo '<script>alert("Vous n\'avez pas accès à cette page")</script>';
+    else {
+        echo '<script>alert("Vous n\'avez pas accès à cette page")</script>';
+        header("Location: ");
+        exit();
+    }
 }
 include (showPage($view));

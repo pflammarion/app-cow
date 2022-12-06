@@ -2,7 +2,7 @@
 
 $action = selectAction("view");
 
-include __DIR__ . '/../model/profil.php';
+require __DIR__ . '/../model/profil.php';
 
 if(!empty($action)){
     $content = [];

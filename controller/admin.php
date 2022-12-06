@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../model/permission.php';
+require __DIR__ . '/../model/permission.php';
 
 $page = selectPage("accueil");
 $action = selectAction("view");

@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../model/permission.php';
+require __DIR__ . '/../model/permission.php';
 
 $page = selectPage("accueil");
 $action = selectAction("view");
@@ -19,6 +19,8 @@ if(!empty($page) && !empty($action)){
     elseif($page =='user' && pageAuthorization('admin/user')){
         $view = "admin/user" . $action;
     }
-    else echo '<script>alert("Vous n\'avez pas accès à cette page")</script>';
+    else {
+        echo '<script>alert("Vous n\'avez pas accès à cette page")</script>';
+    }
 }
 include (showPage($view));

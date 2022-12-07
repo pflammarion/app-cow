@@ -32,30 +32,17 @@ function register(array $value) : bool
     $firstname = $value['firstname'];
     $password = $value['password'];
 
-    $email_sql = "SELECT count(1) FROM user WHERE User_Email = :email";
-    $email_query = $GLOBALS['db']->prepare($email_sql);
-    $email_query->execute(array("email"=> $email));
-    $email_found = $email_query->fetchColumn();
-    if ($email_found) {
+    if (checkEmail($email)) {
         $register_errors[] = "Your email address is associated with another account.";
     }
 
-    $user_sql = "SELECT count(1) FROM user WHERE User_Username = :username";
-    $user_query = $GLOBALS['db']->prepare($user_sql);
-    $user_query->execute(array("username"=> $username));
-    $user_found = $user_query->fetchColumn();
-    if ($user_found) {
+    if (checkUser($username)) {
         $register_errors[] = "Your username is already used.";
     }
 
-    $user_ban_sql = "SELECT User_Ban FROM user WHERE User_Username = :username OR User_Email = :email";
-    $user_ban_query = $GLOBALS['db']->prepare($user_ban_sql);
-    $user_ban_query->execute(array("username"=> $username, "email"=>$email));
-    $user_ban = $user_ban_query->fetch();
-    if ($user_ban === 1) {
+    if (checkBan($username, $email)) {
         $register_errors[] = "You were banned from our plateforme";
     }
-
     if (!$register_errors)
     {
         $create_account_sql = "INSERT INTO user (User_Username, User_Email, User_FirstName, User_LastName, User_Password ) VALUES (:username, :email, :firstname, :lastname, :password)";

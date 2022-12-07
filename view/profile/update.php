@@ -21,8 +21,12 @@
                     }
                     else echo '<div class="crop-img"><img src="./public/assets/icon/profile.svg" id="profil-img"></div>'
                     ?>
-                    <input id="upload" type="file" name="file" style="all: unset">
-                    <p>*.png, *.jpg, *.jpeg, max 5Mb</p>
+
+                    <input id="upload" type="file" name="file">
+                    <div class="file">
+                        <img id="hidden-file-input" src="./public/assets/icon/upload.svg" alt="upload">
+                        <p>*.png, *.jpg, *.jpeg, max 5Mb</p>
+                    </div>
                 </label>
 
                 <?php
@@ -59,6 +63,10 @@
                 };
                 reader.readAsDataURL(file);
             }
+        });
+        $('#hidden-file-input').on('click', function(e) {
+            e.preventDefault();
+            $('#upload').trigger('click');
         });
     });
 </script>

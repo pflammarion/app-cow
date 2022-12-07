@@ -20,7 +20,9 @@
     border-radius: 50%;
     width: 100px;
     height: 100px;
-    background-color: gray;
+}
+.profil .img-link{
+    border-radius: 50%;
 }
 
 .profil .profil-mail{

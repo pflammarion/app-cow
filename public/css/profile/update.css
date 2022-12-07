@@ -78,6 +78,9 @@
     .profil-update .container {
         width: 350px;
     }
+    .profil-update label{
+        font-size: 18px;
+    }
 }
 
 @media screen and (min-width: 1200px) {

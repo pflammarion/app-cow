@@ -7,11 +7,24 @@
     align-items: center;
 }
 
-.header > img {
+.header a > img {
     margin-left: 16px;
     width: 124px;
     height :60px;
 }
+.img-header {
+    display: block;
+}
+.img-header-santa {
+    display: none;
+}
+.header a:hover .img-header-santa{
+    display: block;
+}
+.header a:hover .img-header{
+    display: none;
+}
+
 .header .choice{
     display: flex;
     gap: 20px;
@@ -49,9 +62,9 @@
     .header{
         height: 170px;
     }
-    .header > img {
+    .header a > img{
         margin-left: 60px;
-        width: auto;
+        width: 250px;
         height : 116px;
     }
     .header .btn-exit p{

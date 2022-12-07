@@ -21,3 +21,43 @@ function getUserProfile(int $id): array
     }
     else return [];
 }
+
+function updateProfile(array $value): bool
+{
+    $errors = [];
+    $username = $value['username'];
+    $email = $value['email'];
+    $lastname = $value['lastname'];
+    $firstname = $value['firstname'];
+    $user = $_SESSION['user'];
+
+    if (checkEmail($email, $user)) {
+        $errors[] = "Your email address is associated with another account.";
+    }
+
+    if (checkUser($username, $user)) {
+        $errors[] = "Your username is already used.";
+    }
+
+    if (checkBan($username, $email, $user)) {
+        $errors[] = "You were banned from our plateforme";
+    }
+
+    if (!$errors)
+    {
+        $update_account_sql = "UPDATE user SET User_Username = :username, User_Email = :email, User_FirstName = :firstname, User_LastName = :lastname WHERE user.User_Id = :user";
+        $update_account_query = $GLOBALS['db']->prepare($update_account_sql);
+        $update_account_query->execute(
+            array(
+                "username"=> htmlentities($username),
+                "email"=>htmlentities($email),
+                "firstname"=>htmlentities($firstname),
+                "lastname"=>htmlentities($lastname),
+                "user"=>$user,
+            ));
+
+        return true;
+    }
+    return false;
+}
+

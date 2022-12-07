@@ -19,7 +19,7 @@
     margin: 0 auto;
 }
 
-.profil-update .profil-img{
+.profil-update #profil-img{
     width: 100%;
     height: 100%;
     object-fit: cover;

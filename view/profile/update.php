@@ -17,20 +17,18 @@
                 <label for="image">
                     <?php
                     if(!is_null($data['img_url'])){
-                        echo '<div class="crop-img"><img src="' . $data['img_url'] . '" class="profil-img"></div>';
+                        echo '<div class="crop-img"><img src="' . $data['img_url'] . '" id="profil-img"></div>';
                     }
-                    else echo '<div class="crop-img"><img src="./public/assets/icon/profile.svg" class="profil-img"></div>'
+                    else echo '<div class="crop-img"><img src="./public/assets/icon/profile.svg" id="profil-img"></div>'
                     ?>
-                    <input type="file" name="file" style="all: unset">
+                    <input id="upload" type="file" name="file" style="all: unset">
                     <p>*.png, *.jpg, *.jpeg, max 5Mb</p>
                 </label>
-            <label for="delete-img">
-                Supprimer ma photo
+
                 <?php
                 if(!is_null($data['img_url'])){
-                    echo '<input type="checkbox" name="delete-img">';
+                    echo '<label for="delete-img">Supprimer ma photo<input type="checkbox" name="delete-img"></label>';
                 }?>
-            </label>
 
             <div class="input-container">
                 <label for="username">
@@ -49,3 +47,18 @@
         </form>
     </div>
 </div>
+
+<script>
+    $(document).ready(() => {
+        $('#upload').change(function () {
+            const file = this.files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function (event) {
+                    $("#profil-img").attr("src", event.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+</script>

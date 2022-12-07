@@ -141,9 +141,32 @@
     margin-top: 10px;
 }
 
+.home .alert.not-viewed:hover{
+    cursor: pointer;
+}
+
+.home .alert2.not-viewed:hover,
+.home .herd.alert2:hover{
+    background-color: var(--alert-green);
+}
+
+.home .alert3.not-viewed:hover,
+.home .herd.alert3:hover{
+    background-color: var(--alert-orange);
+}
+
+.home .alert4.not-viewed:hover,
+.home .herd.alert4:hover{
+    background-color: var(--alert-red);
+}
+
 .home .alert img{
     height: 14px;
     width: auto;
+}
+
+.home .img-anim{
+    animation: 2s rotate ease infinite;
 }
 
 .home .herd{
@@ -399,7 +422,7 @@
     }
     .home .alert-date{
         font-size: 10px !important;
-        margin-top: -16px !important;
+        margin-top: -15px !important;
     }
     .home .alert-content .alert-message{
         font-size: 14px !important;
@@ -407,4 +430,12 @@
     .home .alert-box .alert{
         margin : 13px;
     }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(-20deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+    100%   { transform: rotate(-20deg); }
 }

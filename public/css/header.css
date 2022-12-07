@@ -25,12 +25,13 @@
     width: 124px;
     height :60px;
 }
-.img-header:hover {
-    display: none;
-}
-.img-header-santa:hover {
+.header a:hover .img-header-santa{
     display: block;
 }
+.header a:hover .img-header{
+    display: none;
+}
+
 .header .choice{
     display: flex;
     gap: 20px;

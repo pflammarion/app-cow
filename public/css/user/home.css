@@ -146,6 +146,10 @@
     width: auto;
 }
 
+.home .img-anim{
+    animation: 2s rotate ease infinite;
+}
+
 .home .herd{
     display: flex;
     align-items: center;
@@ -407,4 +411,12 @@
     .home .alert-box .alert{
         margin : 13px;
     }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(-20deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+    100%   { transform: rotate(-20deg); }
 }

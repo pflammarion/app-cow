@@ -141,6 +141,22 @@
     margin-top: 10px;
 }
 
+.home .alert.not-viewed:hover{
+    cursor: pointer;
+}
+
+.home .alert2.not-viewed:hover{
+    background-color: var(--alert-green);
+}
+
+.home .alert3.not-viewed:hover{
+    background-color: var(--alert-orange);
+}
+
+.home .alert4.not-viewed:hover{
+    background-color: var(--alert-red);
+}
+
 .home .alert img{
     height: 14px;
     width: auto;

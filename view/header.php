@@ -26,7 +26,7 @@
 <script>0</script>
 <!--end-->
 <div class="header">
-    <a href="/">
+    <a href="root">
         <img class="img-header" src="./public/assets/img/LogoCOW.png" alt="Logo Cow">
         <img class="img-header-santa" src="./public/assets/img/LogoCOWSanta.svg" alt="Logo Cow Santa">
     </a>

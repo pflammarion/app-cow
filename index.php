@@ -24,6 +24,7 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']){
             include __DIR__ . '/controller/profile.php';
             break;
         case '' :
+        case 'root' :
         case 'user' :
         case'admin':
             if($_SESSION['role'] === 1){

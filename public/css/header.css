@@ -7,8 +7,7 @@
     align-items: center;
 }
 
-.header > img {
-    display: block;
+.header a img {
     margin-left: 16px;
     width: 124px;
     height :60px;
@@ -21,9 +20,6 @@
 }
 .img-header-santa {
     display: none;
-    margin-left: 16px;
-    width: 124px;
-    height :60px;
 }
 .header a:hover .img-header-santa{
     display: block;
@@ -69,7 +65,7 @@
     .header{
         height: 170px;
     }
-    .header a img {
+    .header a img{
         margin-left: 60px;
         width: auto;
         height : 116px;

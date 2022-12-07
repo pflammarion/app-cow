@@ -26,8 +26,11 @@
 <script>0</script>
 <!--end-->
 <div class="header">
-    <img class="img-header" src="./public/assets/img/LogoCOW.png" alt="Logo Cow">
-    <img class="img-header-santa" src="./public/assets/img/LogoCOWSanta.svg" alt="Logo Cow Santa">
+    <a href="/">
+        <img class="img-header" src="./public/assets/img/LogoCOW.png" alt="Logo Cow">
+        <img class="img-header-santa" src="./public/assets/img/LogoCOWSanta.svg" alt="Logo Cow Santa">
+    </a>
+
 
     <div class="choice">
             <?php

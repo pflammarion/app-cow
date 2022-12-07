@@ -145,15 +145,18 @@
     cursor: pointer;
 }
 
-.home .alert2.not-viewed:hover{
+.home .alert2.not-viewed:hover,
+.home .herd.alert2:hover{
     background-color: var(--alert-green);
 }
 
-.home .alert3.not-viewed:hover{
+.home .alert3.not-viewed:hover,
+.home .herd.alert3:hover{
     background-color: var(--alert-orange);
 }
 
-.home .alert4.not-viewed:hover{
+.home .alert4.not-viewed:hover,
+.home .herd.alert4:hover{
     background-color: var(--alert-red);
 }
 

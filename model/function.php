@@ -47,3 +47,21 @@ function checkBan(string $username, string $email, int $id = null): bool
     $user_ban_query->execute(array("username"=> $username, "email"=>$email, "id"=>$id));
     return $user_ban_query->fetchColumn();
 }
+function removeImage(string $table, int $id): bool
+{
+    switch ($table) {
+        case 'user' :
+            $update_img_sql = "UPDATE user SET user.User_Img_Url=null WHERE user.User_Id = :id";
+            break;
+        case 'cow' :
+            $update_img_sql = "UPDATE cow SET cow.Cow_Img_Url=null WHERE cow.Cow_Id = :id";
+            break;
+    }
+    $update_img_query = $GLOBALS['db']->prepare($update_img_sql);
+    $update_img_query->execute(
+        array(
+            "id" => $id,
+        )
+    );
+    return true;
+}

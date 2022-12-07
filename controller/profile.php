@@ -22,6 +22,10 @@ if(!empty($action)){
             ];
             $update = updateProfile($values);
 
+            if(isset($_POST['delete-img'])){
+                $update = removeImage('user', $_SESSION['user']);
+            }
+
             if (isset($_FILES) && $update){
                 $filename   = uniqid() . "-" . time();
                 $extension  = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION );

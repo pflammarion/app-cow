@@ -24,6 +24,13 @@
                     <input type="file" name="file" style="all: unset">
                     <p>*.png, *.jpg, *.jpeg, max 5Mb</p>
                 </label>
+            <label for="delete-img">
+                Supprimer ma photo
+                <?php
+                if(!is_null($data['img_url'])){
+                    echo '<input type="checkbox" name="delete-img">';
+                }?>
+            </label>
 
             <div class="input-container">
                 <label for="username">

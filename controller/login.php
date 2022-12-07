@@ -1,6 +1,7 @@
 <?php
 
 require __DIR__ . '/../model/login.php';
+require __DIR__ . '/../model/function.php';
 
 $page = selectPage("login");
 $view = "";

@@ -22,3 +22,19 @@
     cursor: pointer;
 }
 
+
+@media screen and (min-width: 800px) {
+    .profil-delete{
+        width: 100%;
+    }
+
+    .profil-delete form{
+        margin-top: 100px;
+        gap: 120px;
+    }
+
+    .profil-delete form .btn{
+        padding: 20px 40px;
+        cursor: pointer;
+    }
+}

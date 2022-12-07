@@ -12,6 +12,13 @@ if(!empty($action)){
     }
     $view = "profile/" . $action;
 
+    if (isset($_POST['delete']) && $action === 'delete'){
+        $delete = deleteProfile();
+        if ($delete){
+            logout();
+        }
+    }
+
     if(isset($_POST['update']) && $_POST['update'] == 1){
         if (isset($_POST['username']) and isset($_POST['firstname']) and isset($_POST['lastname']) and isset($_POST['email'])) {
             $values = [

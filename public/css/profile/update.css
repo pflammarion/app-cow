@@ -24,3 +24,8 @@
     width: 100px;
     height: 100px;
 }
+
+.profil-update input[type=checkbox]{
+    height: 15px;
+    width: 15px;
+}

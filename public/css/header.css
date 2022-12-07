@@ -14,7 +14,6 @@
     height :60px;
 }
 .img-header {
-    display: block;
     margin-left: 16px;
     width: 124px;
     height :60px;
@@ -28,9 +27,11 @@
 .img-header:hover {
     display: none;
 }
+
 .img-header-santa:hover {
     display: block;
 }
+
 .header .choice{
     display: flex;
     gap: 20px;

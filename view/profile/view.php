@@ -4,9 +4,9 @@
         <h2><?php echo $data['firstname'] . " " . $data['lastname'];?></h2>
         <?php
             if(!is_null($data['img_url'])){
-                echo '<img src="' . $data['img_url'] . '" class="profil-img">';
+                echo '<div class="crop-img"><img src="' . $data['img_url'] . '" class="profil-img"></div>';
             }
-            else echo '<a href="profil?action=update" class="img-link"><img src="./public/assets/icon/profile.svg" class="profil-img"></a>'
+            else echo '<a href="profil?action=update" class="img-link"><div class="crop-img"><img src="./public/assets/icon/profile.svg" class="profil-img"></div></a>'
         ?>
         <p class="font-arima"><?php echo $data['username'];?></p>
         <div class="profil-mail">

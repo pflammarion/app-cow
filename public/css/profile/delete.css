@@ -1,0 +1,40 @@
+.profil-delete{
+    padding-top: 50px;
+    text-align: center;
+    width: 300px;
+    margin: 0 auto;
+}
+.profil-delete p{
+    font-weight: bold;
+    margin: 50px 0;
+}
+.profil-delete form{
+    display: flex;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    gap: 20px;
+    justify-content: center;
+}
+
+.profil-delete form .btn{
+   padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+@media screen and (min-width: 800px) {
+    .profil-delete{
+        width: 100%;
+    }
+
+    .profil-delete form{
+        margin-top: 100px;
+        gap: 120px;
+    }
+
+    .profil-delete form .btn{
+        padding: 20px 40px;
+        cursor: pointer;
+    }
+}

@@ -61,3 +61,14 @@ function updateProfile(array $value): bool
     return false;
 }
 
+function deleteProfile(): bool
+{
+    $delete_account_sql = "DELETE FROM user WHERE User_Id = :user;";
+    $delete_account_query = $GLOBALS['db']->prepare($delete_account_sql);
+    $delete_account_query->execute(
+        array(
+            "user"=> $_SESSION['user'],
+        ));
+    return true;
+}
+

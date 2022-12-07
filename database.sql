@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.31, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.31, for macos12.6 (x86_64)
 --
 -- Host: localhost    Database: APPCOW
 -- ------------------------------------------------------
--- Server version	8.0.31-0ubuntu0.22.04.1
+-- Server version	8.0.31
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -416,7 +416,7 @@ CREATE TABLE `tag` (
 
 LOCK TABLES `tag` WRITE;
 /*!40000 ALTER TABLE `tag` DISABLE KEYS */;
-INSERT INTO `tag` VALUES (1,'bug informatique'),(2,'problème materiel'),(3,'demande d\'informations');
+INSERT INTO `tag` VALUES (1,'Bug informatique'),(2,'Problème matériel'),(3,'Demande d\'informations');
 /*!40000 ALTER TABLE `tag` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -433,7 +433,9 @@ CREATE TABLE `ticket` (
   `Tag_Id` int NOT NULL,
   `Status_Id` int NOT NULL,
   `Ticket_Content` text NOT NULL,
-  `Ticket_Date` date NOT NULL,
+  `Ticket_Date_Creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Ticket_Email` varchar(100) NOT NULL,
+  `Ticket_Date_Modif` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`Ticket_Id`),
   KEY `FK_User_Id_Ticket_User` (`User_Id`),
   KEY `FK_Tag_Id_Ticket_Tag` (`Tag_Id`),
@@ -450,7 +452,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (1,NULL,3,3,'kjlmkjlkj','2022-10-28'),(2,NULL,1,2,'khljl','2022-09-28'),(3,NULL,2,1,'mlk','2022-10-27'),(4,NULL,2,2,'mlkkmjlm','2022-10-27'),(5,NULL,3,2,'oijpoi','2022-09-26');
+INSERT INTO `ticket` VALUES (1,9,3,3,'Allez vous ajouter une nouvelle fonctionnalité','2022-10-27 22:00:00','user@user.com','2022-12-01 23:00:00'),(2,9,1,2,'Mon identifiant ne fonctionne plus...','2022-09-27 22:00:00','user@user.com','2022-12-06 23:00:00'),(3,9,2,1,'Mon capteur je fonctionne plus','2022-10-26 22:00:00','user@user.com',NULL),(4,NULL,2,2,'Mon capteur je fonctionne plus','2022-10-26 22:00:00','ext@cow.com','2022-11-08 23:00:00'),(5,NULL,3,2,'Allez vous ajouter une nouvelle fonctionnalité','2022-09-25 22:00:00','ext2@cow.com','2022-12-05 23:00:00');
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -496,4 +498,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-04 14:46:28
+-- Dump completed on 2022-12-07 12:25:01

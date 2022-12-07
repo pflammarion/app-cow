@@ -13,19 +13,16 @@
     height :60px;
 }
 .img-header {
-    margin-left: 16px;
-    width: 124px;
-    height :60px;
+    display: block;
 }
 .img-header-santa {
     display: none;
 }
-.img-header:hover {
-    display: none;
-}
-
-.img-header-santa:hover {
+.header a:hover .img-header-santa{
     display: block;
+}
+.header a:hover .img-header{
+    display: none;
 }
 
 .header .choice{
@@ -67,7 +64,7 @@
     }
     .header a > img{
         margin-left: 60px;
-        width: auto;
+        width: 250px;
         height : 116px;
     }
     .header .btn-exit p{

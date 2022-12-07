@@ -20,6 +20,7 @@ deploy:
     - ssh $SERVER "chgrp -R www-data $DEPLOY_PATH/"
     - ssh $SERVER "chmod -R 750 $DEPLOY_PATH/"
     - ssh $SERVER "chmod g+s $DEPLOY_PATH/"
+    - ssh $SERVER "chmod g+sw $DEPLOY_PATH/uploads"
   environment:
     name: production
     url: https://app-cow.flaminfo.fr
@@ -43,6 +44,7 @@ deploy_review:
     - umask 0027
     - ssh $SERVER "mkdir -p $DEPLOY_PATH/"
     - git archive HEAD | ssh $SERVER "umask 0027; tar x --no-overwrite-dir --owner=paul --group=www-data -mC $DEPLOY_PATH/"
+    - ssh $SERVER "chmod g+sw $DEPLOY_PATH/uploads"
   environment:
     name: review/$CI_COMMIT_REF_SLUG
     deployment_tier: development

@@ -17,9 +17,9 @@
                 <label for="image">
                     <?php
                     if(!is_null($data['img_url'])){
-                        echo '<img src="' . $data['img_url'] . '" class="profil-img">';
+                        echo '<div class="crop-img"><img src="' . $data['img_url'] . '" class="profil-img"></div>';
                     }
-                    else echo '<img src="./public/assets/icon/profile.svg" class="profil-img">'
+                    else echo '<div class="crop-img"><img src="./public/assets/icon/profile.svg" class="profil-img"></div>'
                     ?>
                     <input type="file" name="file" style="all: unset">
                     <p>*.png, *.jpg, *.jpeg, max 5Mb</p>

@@ -17,19 +17,15 @@ else $i = 1;
 
 if (isset($_SESSION['auth']) && $_SESSION['auth']){
     switch ($request[$i]) {
-        case 'user' :
-            include __DIR__ . '/controller/user.php';
-            break;
-        case 'admin' :
-            include __DIR__ . '/controller/admin.php';
-            break;
         case 'all' :
             include __DIR__ . '/controller/all.php';
             break;
-        case 'profile' :
+        case 'profil' :
             include __DIR__ . '/controller/profile.php';
             break;
         case '' :
+        case 'user' :
+        case'admin':
             if($_SESSION['role'] === 1){
                 include __DIR__ . '/controller/user.php';
             }

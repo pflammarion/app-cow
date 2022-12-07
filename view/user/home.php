@@ -104,7 +104,7 @@ $herd = $herd ?? [];
                         else echo '<div class="alert alert'. $cow_alert['type'] . '">';
                         echo '<span class="alert-date">' . $days . 'j ' . $hours . 'h</span>';
                         echo '<div class="alert-content">';
-                        if ($cow_alert['status'] != 0) echo '<img src="./public/assets/icon/alert' . $cow_alert['type'] . '.svg" alt="alert" class="img-anim">';
+                        if ($cow_alert['status'] != 0) echo '<img id="imgAlert" src="./public/assets/icon/alert' . $cow_alert['type'] . '.svg" alt="alert" class="img-anim">';
                         echo '<span class="alert-message">'.$cow_alert['message'].'</span></div>';
                         echo '</div>';
                     }
@@ -127,3 +127,9 @@ $herd = $herd ?? [];
         </div>
     </div>
 </div>
+<script>
+    $( ".not-viewed" ).click(function() {
+        $(this).removeClass('not-viewed');
+        $(this).find('img').css('display', 'none');
+    });
+</script>

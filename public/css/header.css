@@ -14,9 +14,6 @@
 }
 .img-header {
     display: block;
-    margin-left: 16px;
-    width: 124px;
-    height :60px;
 }
 .img-header-santa {
     display: none;
@@ -67,7 +64,7 @@
     }
     .header a img{
         margin-left: 60px;
-        width: auto;
+        width: 250px;
         height : 116px;
     }
     .header .btn-exit p{

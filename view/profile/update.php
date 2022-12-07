@@ -2,18 +2,19 @@
 <div class="profil-update">
     <div class="container">
         <form action="" method="post" enctype="multipart/form-data" id="form">
-            <div class="input-container">
-                <label for="lastename">
-                    Nom
-                    <input value="<?php echo $data['lastname']?>" type="text" name="lastname">
-                </label>
-            </div>
-            <div class="input-container">
-                <label for="firstname">
-                    Prénom
-                    <input value="<?php echo $data['firstname']?>" type="text" name="firstname">
-                </label>
-            </div>
+            <div>
+                <div class="input-container">
+                    <label for="lastename">
+                        Nom
+                        <input value="<?php echo $data['lastname']?>" type="text" name="lastname">
+                    </label>
+                </div>
+                <div class="input-container">
+                    <label for="firstname">
+                        Prénom
+                        <input value="<?php echo $data['firstname']?>" type="text" name="firstname">
+                    </label>
+                </div>
                 <label for="image">
                     <?php
                     if((!is_null($data['img_url']) && file_exists($data['img_url']))){
@@ -33,21 +34,26 @@
                 if(!is_null($data['img_url'])){
                     echo '<label for="delete-img">Supprimer ma photo<input type="checkbox" name="delete-img"></label>';
                 }?>
-
-            <div class="input-container">
-                <label for="username">
-                    Nom d'utilisateur
-                    <input value="<?php echo $data['username']?>" type="text" name="username">
-                </label>
             </div>
-            <div class="input-container">
-                <label for="email">
-                    Adresse email
-                    <input value="<?php echo $data['email']?>" type="email" name="email">
-                </label>
+            <div>
+                <div class="input-container">
+                    <label for="username">
+                        Nom d'utilisateur
+                        <input value="<?php echo $data['username']?>" type="text" name="username">
+                    </label>
+                </div>
+                <div class="input-container">
+                    <label for="email">
+                        Adresse email
+                        <input value="<?php echo $data['email']?>" type="email" name="email">
+                    </label>
+                </div>
+                <input type="text" name="update" value="1" style="display: none">
+                <div class="card-footer">
+                    <a class="btn-edit" href="profil?action=view">Retour</a>
+                    <button id="button" type="submit" class="btn-green">Enregistrer</button>
+                </div>
             </div>
-            <input type="text" name="update" value="1" style="display: none">
-            <button id="button" type="submit" class="btn-green">Enregistrer</button>
         </form>
     </div>
 </div>
@@ -71,6 +77,13 @@
                 };
                 reader.readAsDataURL(file);
             }
+        });
+
+        $('input[name="delete-img"]').change(function () {
+            if($('input[name="delete-img"]').prop("checked")){
+                $("#profil-img").css('opacity', '0.3')
+            }
+            else $("#profil-img").css('opacity', '1')
         });
         $('#hidden-file-input').on('click', function(e) {
             e.preventDefault();

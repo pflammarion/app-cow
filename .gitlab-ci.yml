@@ -17,10 +17,12 @@ deploy:
     - ssh-add <(echo "$ID_RSA" | base64 -d)
     - umask 0027
     - git archive HEAD | ssh $SERVER "umask 0027; tar x --no-overwrite-dir --owner=paul --group=www-data -mC $DEPLOY_PATH/"
-    - ssh $SERVER "chgrp -R -f www-data $DEPLOY_PATH/"
-    - ssh $SERVER "chmod -R -f 750 $DEPLOY_PATH/"
+    - ssh $SERVER "chgrp -R www-data $DEPLOY_PATH/"
+    - ssh $SERVER "chmod -R 750 $DEPLOY_PATH/"
     - ssh $SERVER "chmod -R g+s $DEPLOY_PATH/"
-    - ssh $SERVER "chmod g+w $DEPLOY_PATH/uploads"
+    - ssh $SERVER "rm -r $DEPLOY_PATH/uploads"
+    - ssh $SERVER "mkdir $DEPLOY_PATH/uploads"
+    - ssh $SERVER "chmod g+sw $DEPLOY_PATH/uploads"
   environment:
     name: production
     url: https://app-cow.flaminfo.fr

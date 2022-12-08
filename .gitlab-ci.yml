@@ -20,7 +20,7 @@ deploy:
     - ssh $SERVER "chgrp -R -f www-data $DEPLOY_PATH/  || true"
     - ssh $SERVER "chmod -R -f 750 $DEPLOY_PATH/  || true"
     - ssh $SERVER "chmod -R g+s $DEPLOY_PATH/ || true"
-    - ssh $SERVER "chmod g+w $DEPLOY_PATH/uploads || true"
+    - ssh $SERVER "chmod g+w $DEPLOY_PATH/uploads"
   environment:
     name: production
     url: https://app-cow.flaminfo.fr

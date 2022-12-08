@@ -39,7 +39,7 @@
                 <div class="input-container">
                     <label for="username">
                         Nom d'utilisateur
-                        <input value="<?php echo $data['username']?>" type="text" name="username">
+                        <input value="<?php echo $data['username']?>" type="text" name="username" autocapitalize="off">
                     </label>
                 </div>
                 <div class="input-container">

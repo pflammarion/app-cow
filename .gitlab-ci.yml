@@ -19,8 +19,8 @@ deploy:
     - git archive HEAD | ssh $SERVER "umask 0027; tar x --no-overwrite-dir --owner=paul --group=www-data -mC $DEPLOY_PATH/"
     - ssh $SERVER "chgrp -R -f www-data $DEPLOY_PATH/  || true"
     - ssh $SERVER "chmod -R -f 750 $DEPLOY_PATH/  || true"
-    - ssh $SERVER "chmod -R g+s $DEPLOY_PATH/"
-    - ssh $SERVER "chmod g+w $DEPLOY_PATH/uploads"
+    - ssh $SERVER "chmod -R g+s $DEPLOY_PATH/ || true"
+    - ssh $SERVER "chmod g+w $DEPLOY_PATH/uploads || true"
   environment:
     name: production
     url: https://app-cow.flaminfo.fr

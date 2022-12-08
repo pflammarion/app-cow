@@ -16,7 +16,7 @@
         <div class="input-container">
             <label for="username">
                 Nom d'utilisateur
-                <input type="text" name="username">
+                <input type="text" name="username" autocapitalize="off">
             </label>
         </div>
         <div class="input-container">

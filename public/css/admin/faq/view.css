@@ -30,6 +30,18 @@
     flex-direction: column;
     gap : 35px;
 }
+.faq-box h2 {
+    margin: 24px;
+}
+.faq-box p {
+    margin: 24px;
+}
+.faq-box p1 {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+    margin-right: 16px;
+}
 
 .view-faq-admin .container {
     display: block;

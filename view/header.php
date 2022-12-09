@@ -26,7 +26,7 @@
 <script>0</script>
 <!--end-->
 <div class="header">
-    <a href="root">
+    <a href="root" class="logo-link">
         <img class="img-header" src="./public/assets/img/LogoCOW.png" alt="Logo Cow">
         <?php
         if(date('i') % 2 == 0){

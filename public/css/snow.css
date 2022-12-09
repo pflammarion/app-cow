@@ -19,7 +19,7 @@ body {
         transform: translate(57.9903vw, 34.585vh) scale(0.1606);
     }
     to {
-        transform: translate(57.29195vw, 100vh) scale(0.1606);
+        transform: translate(57.29195vw, 98vh) scale(0.1606);
     }
 }
 .snow:nth-child(2) {
@@ -32,7 +32,7 @@ body {
         transform: translate(37.0175vw, 70.443vh) scale(0.3982);
     }
     to {
-        transform: translate(37.81405vw, 100vh) scale(0.3982);
+        transform: translate(37.81405vw, 90vh) scale(0.3982);
     }
 }
 .snow:nth-child(3) {
@@ -45,7 +45,7 @@ body {
         transform: translate(22.1161vw, 71.78vh) scale(0.9984);
     }
     to {
-        transform: translate(20.1307vw, 100vh) scale(0.9984);
+        transform: translate(20.1307vw, 98vh) scale(0.9984);
     }
 }
 .snow:nth-child(4) {
@@ -58,7 +58,7 @@ body {
         transform: translate(51.3509vw, 73vh) scale(0.0443);
     }
     to {
-        transform: translate(55.54175vw, 100vh) scale(0.0443);
+        transform: translate(55.54175vw, 98vh) scale(0.0443);
     }
 }
 .snow:nth-child(5) {
@@ -71,7 +71,7 @@ body {
         transform: translate(42.8013vw, 38.705vh) scale(0.0922);
     }
     to {
-        transform: translate(45.07505vw, 100vh) scale(0.0922);
+        transform: translate(45.07505vw, 98vh) scale(0.0922);
     }
 }
 .snow:nth-child(6) {
@@ -84,7 +84,7 @@ body {
         transform: translate(83.8295vw, 57.687vh) scale(0.2105);
     }
     to {
-        transform: translate(82.96315vw, 100vh) scale(0.2105);
+        transform: translate(82.96315vw, 98vh) scale(0.2105);
     }
 }
 .snow:nth-child(7) {
@@ -97,7 +97,7 @@ body {
         transform: translate(22.2786vw, 32.969vh) scale(0.633);
     }
     to {
-        transform: translate(26.46095vw, 100vh) scale(0.633);
+        transform: translate(26.46095vw, 98vh) scale(0.633);
     }
 }
 .snow:nth-child(8) {
@@ -110,7 +110,7 @@ body {
         transform: translate(6.2107vw, 50.353vh) scale(0.9446);
     }
     to {
-        transform: translate(9.09105vw, 100vh) scale(0.9446);
+        transform: translate(9.09105vw, 98vh) scale(0.9446);
     }
 }
 .snow:nth-child(9) {
@@ -123,7 +123,7 @@ body {
         transform: translate(74.2251vw, 57.565vh) scale(0.0775);
     }
     to {
-        transform: translate(77.9601vw, 100vh) scale(0.0775);
+        transform: translate(77.9601vw, 98vh) scale(0.0775);
     }
 }
 .snow:nth-child(10) {
@@ -136,7 +136,7 @@ body {
         transform: translate(31.8345vw, 51.74vh) scale(0.9998);
     }
     to {
-        transform: translate(28.8101vw, 100vh) scale(0.9998);
+        transform: translate(28.8101vw, 98vh) scale(0.9998);
     }
 }
 .snow:nth-child(11) {
@@ -149,7 +149,7 @@ body {
         transform: translate(99.7436vw, 36.667vh) scale(0.0578);
     }
     to {
-        transform: translate(96.0536vw, 100vh) scale(0.0578);
+        transform: translate(96.0536vw, 98vh) scale(0.0578);
     }
 }
 .snow:nth-child(12) {
@@ -162,7 +162,7 @@ body {
         transform: translate(54.1785vw, 78.832vh) scale(0.8844);
     }
     to {
-        transform: translate(51.60995vw, 100vh) scale(0.8844);
+        transform: translate(51.60995vw, 98vh) scale(0.8844);
     }
 }
 .snow:nth-child(13) {
@@ -175,7 +175,7 @@ body {
         transform: translate(66.2703vw, 75.387vh) scale(0.1702);
     }
     to {
-        transform: translate(68.00535vw, 100vh) scale(0.1702);
+        transform: translate(68.00535vw, 98vh) scale(0.1702);
     }
 }
 .snow:nth-child(14) {
@@ -188,7 +188,7 @@ body {
         transform: translate(77.4161vw, 50.833vh) scale(0.2558);
     }
     to {
-        transform: translate(77.83295vw, 100vh) scale(0.2558);
+        transform: translate(77.83295vw, 98vh) scale(0.2558);
     }
 }
 .snow:nth-child(15) {
@@ -201,7 +201,7 @@ body {
         transform: translate(29.8375vw, 68.342vh) scale(0.971);
     }
     to {
-        transform: translate(31.65855vw, 100vh) scale(0.971);
+        transform: translate(31.65855vw, 98vh) scale(0.971);
     }
 }
 .snow:nth-child(16) {
@@ -214,7 +214,7 @@ body {
         transform: translate(73.4595vw, 54.051vh) scale(0.4834);
     }
     to {
-        transform: translate(77.83995vw, 100vh) scale(0.4834);
+        transform: translate(77.83995vw, 98vh) scale(0.4834);
     }
 }
 .snow:nth-child(17) {
@@ -227,7 +227,7 @@ body {
         transform: translate(67.0833vw, 59.314vh) scale(0.2669);
     }
     to {
-        transform: translate(65.398vw, 100vh) scale(0.2669);
+        transform: translate(65.398vw, 98vh) scale(0.2669);
     }
 }
 .snow:nth-child(18) {
@@ -240,7 +240,7 @@ body {
         transform: translate(48.9808vw, 66.43vh) scale(0.5879);
     }
     to {
-        transform: translate(50.6941vw, 100vh) scale(0.5879);
+        transform: translate(50.6941vw, 98vh) scale(0.5879);
     }
 }
 .snow:nth-child(19) {
@@ -253,7 +253,7 @@ body {
         transform: translate(15.8105vw, 69.544vh) scale(0.4305);
     }
     to {
-        transform: translate(11.1227vw, 100vh) scale(0.4305);
+        transform: translate(11.1227vw, 98vh) scale(0.4305);
     }
 }
 .snow:nth-child(20) {
@@ -266,7 +266,7 @@ body {
         transform: translate(30.7754vw, 68.355vh) scale(0.3203);
     }
     to {
-        transform: translate(28.0227vw, 100vh) scale(0.3203);
+        transform: translate(28.0227vw, 98vh) scale(0.3203);
     }
 }
 .snow:nth-child(21) {
@@ -279,7 +279,7 @@ body {
         transform: translate(56.1966vw, 43.906vh) scale(0.4046);
     }
     to {
-        transform: translate(51.73985vw, 100vh) scale(0.4046);
+        transform: translate(51.73985vw, 98vh) scale(0.4046);
     }
 }
 .snow:nth-child(22) {
@@ -292,7 +292,7 @@ body {
         transform: translate(38.1079vw, 79.61vh) scale(0.453);
     }
     to {
-        transform: translate(40.08095vw, 100vh) scale(0.453);
+        transform: translate(40.08095vw, 98vh) scale(0.453);
     }
 }
 .snow:nth-child(23) {
@@ -305,7 +305,7 @@ body {
         transform: translate(102.4486vw, 37.825vh) scale(0.2761);
     }
     to {
-        transform: translate(98.3662vw, 100vh) scale(0.2761);
+        transform: translate(98.3662vw, 98vh) scale(0.2761);
     }
 }
 .snow:nth-child(24) {
@@ -318,7 +318,7 @@ body {
         transform: translate(38.537vw, 61.656vh) scale(0.9023);
     }
     to {
-        transform: translate(38.7737vw, 100vh) scale(0.9023);
+        transform: translate(38.7737vw, 98vh) scale(0.9023);
     }
 }
 .snow:nth-child(25) {
@@ -331,7 +331,7 @@ body {
         transform: translate(28.6667vw, 44.41vh) scale(0.0122);
     }
     to {
-        transform: translate(24.8784vw, 100vh) scale(0.0122);
+        transform: translate(24.8784vw, 98vh) scale(0.0122);
     }
 }
 .snow:nth-child(26) {
@@ -344,7 +344,7 @@ body {
         transform: translate(26.7582vw, 48.391vh) scale(0.4968);
     }
     to {
-        transform: translate(27.28765vw, 100vh) scale(0.4968);
+        transform: translate(27.28765vw, 98vh) scale(0.4968);
     }
 }
 .snow:nth-child(27) {
@@ -357,7 +357,7 @@ body {
         transform: translate(40.2169vw, 37.526vh) scale(0.055);
     }
     to {
-        transform: translate(43.2138vw, 100vh) scale(0.055);
+        transform: translate(43.2138vw, 98vh) scale(0.055);
     }
 }
 .snow:nth-child(28) {
@@ -370,7 +370,7 @@ body {
         transform: translate(80.9578vw, 67.938vh) scale(0.4175);
     }
     to {
-        transform: translate(81.58625vw, 100vh) scale(0.4175);
+        transform: translate(81.58625vw, 98vh) scale(0.4175);
     }
 }
 .snow:nth-child(29) {
@@ -383,7 +383,7 @@ body {
         transform: translate(90.5724vw, 54.599vh) scale(0.1361);
     }
     to {
-        transform: translate(87.89335vw, 100vh) scale(0.1361);
+        transform: translate(87.89335vw, 98vh) scale(0.1361);
     }
 }
 .snow:nth-child(30) {
@@ -396,7 +396,7 @@ body {
         transform: translate(38.2824vw, 32.248vh) scale(0.8939);
     }
     to {
-        transform: translate(39.21645vw, 100vh) scale(0.8939);
+        transform: translate(39.21645vw, 98vh) scale(0.8939);
     }
 }
 .snow:nth-child(31) {
@@ -409,7 +409,7 @@ body {
         transform: translate(87.1581vw, 74.255vh) scale(0.1224);
     }
     to {
-        transform: translate(83.68685vw, 100vh) scale(0.1224);
+        transform: translate(83.68685vw, 98vh) scale(0.1224);
     }
 }
 .snow:nth-child(32) {
@@ -422,7 +422,7 @@ body {
         transform: translate(90.9293vw, 72.907vh) scale(0.8212);
     }
     to {
-        transform: translate(87.6662vw, 100vh) scale(0.8212);
+        transform: translate(87.6662vw, 98vh) scale(0.8212);
     }
 }
 .snow:nth-child(33) {
@@ -435,7 +435,7 @@ body {
         transform: translate(8.9221vw, 55.111vh) scale(0.5607);
     }
     to {
-        transform: translate(7.7501vw, 100vh) scale(0.5607);
+        transform: translate(7.7501vw, 98vh) scale(0.5607);
     }
 }
 .snow:nth-child(34) {
@@ -448,7 +448,7 @@ body {
         transform: translate(14.8032vw, 31.071vh) scale(0.5248);
     }
     to {
-        transform: translate(17.9912vw, 100vh) scale(0.5248);
+        transform: translate(17.9912vw, 98vh) scale(0.5248);
     }
 }
 .snow:nth-child(35) {
@@ -461,7 +461,7 @@ body {
         transform: translate(71.7128vw, 75.576vh) scale(0.464);
     }
     to {
-        transform: translate(68.6849vw, 100vh) scale(0.464);
+        transform: translate(68.6849vw, 98vh) scale(0.464);
     }
 }
 .snow:nth-child(36) {
@@ -474,7 +474,7 @@ body {
         transform: translate(49.2227vw, 46.226vh) scale(0.559);
     }
     to {
-        transform: translate(47.1431vw, 100vh) scale(0.559);
+        transform: translate(47.1431vw, 98vh) scale(0.559);
     }
 }
 .snow:nth-child(37) {
@@ -487,7 +487,7 @@ body {
         transform: translate(19.0636vw, 70.658vh) scale(0.8743);
     }
     to {
-        transform: translate(23.01415vw, 100vh) scale(0.8743);
+        transform: translate(23.01415vw, 98vh) scale(0.8743);
     }
 }
 .snow:nth-child(38) {
@@ -500,7 +500,7 @@ body {
         transform: translate(29.0733vw, 50.331vh) scale(0.4045);
     }
     to {
-        transform: translate(32.82995vw, 100vh) scale(0.4045);
+        transform: translate(32.82995vw, 98vh) scale(0.4045);
     }
 }
 .snow:nth-child(39) {
@@ -513,7 +513,7 @@ body {
         transform: translate(59.2672vw, 44.464vh) scale(0.9079);
     }
     to {
-        transform: translate(64.09355vw, 100vh) scale(0.9079);
+        transform: translate(64.09355vw, 98vh) scale(0.9079);
     }
 }
 .snow:nth-child(40) {
@@ -526,7 +526,7 @@ body {
         transform: translate(40.8262vw, 36.71vh) scale(0.2563);
     }
     to {
-        transform: translate(41.2033vw, 100vh) scale(0.2563);
+        transform: translate(41.2033vw, 98vh) scale(0.2563);
     }
 }
 .snow:nth-child(41) {
@@ -539,7 +539,7 @@ body {
         transform: translate(30.6245vw, 77.492vh) scale(0.5648);
     }
     to {
-        transform: translate(27.09035vw, 100vh) scale(0.5648);
+        transform: translate(27.09035vw, 98vh) scale(0.5648);
     }
 }
 .snow:nth-child(42) {
@@ -552,7 +552,7 @@ body {
         transform: translate(58.7125vw, 58.099vh) scale(0.2912);
     }
     to {
-        transform: translate(59.61445vw, 100vh) scale(0.2912);
+        transform: translate(59.61445vw, 98vh) scale(0.2912);
     }
 }
 .snow:nth-child(43) {
@@ -565,7 +565,7 @@ body {
         transform: translate(66.6631vw, 46.714vh) scale(0.4002);
     }
     to {
-        transform: translate(66.60235vw, 100vh) scale(0.4002);
+        transform: translate(66.60235vw, 98vh) scale(0.4002);
     }
 }
 .snow:nth-child(44) {
@@ -578,7 +578,7 @@ body {
         transform: translate(73.9236vw, 43.05vh) scale(0.4522);
     }
     to {
-        transform: translate(78.24645vw, 100vh) scale(0.4522);
+        transform: translate(78.24645vw, 98vh) scale(0.4522);
     }
 }
 .snow:nth-child(45) {
@@ -591,7 +591,7 @@ body {
         transform: translate(60.4165vw, 75.74vh) scale(0.1823);
     }
     to {
-        transform: translate(63.2551vw, 100vh) scale(0.1823);
+        transform: translate(63.2551vw, 98vh) scale(0.1823);
     }
 }
 .snow:nth-child(46) {
@@ -604,7 +604,7 @@ body {
         transform: translate(10.7416vw, 54.824vh) scale(0.2919);
     }
     to {
-        transform: translate(9.36765vw, 100vh) scale(0.2919);
+        transform: translate(9.36765vw, 98vh) scale(0.2919);
     }
 }
 .snow:nth-child(47) {
@@ -617,7 +617,7 @@ body {
         transform: translate(22.4189vw, 32.897vh) scale(0.9467);
     }
     to {
-        transform: translate(22.3262vw, 100vh) scale(0.9467);
+        transform: translate(22.3262vw, 98vh) scale(0.9467);
     }
 }
 .snow:nth-child(48) {
@@ -630,7 +630,7 @@ body {
         transform: translate(80.6264vw, 50.195vh) scale(0.131);
     }
     to {
-        transform: translate(82.7706vw, 100vh) scale(0.131);
+        transform: translate(82.7706vw, 98vh) scale(0.131);
     }
 }
 .snow:nth-child(49) {
@@ -643,7 +643,7 @@ body {
         transform: translate(37.7114vw, 32.707vh) scale(0.3518);
     }
     to {
-        transform: translate(37.6034vw, 100vh) scale(0.3518);
+        transform: translate(37.6034vw, 98vh) scale(0.3518);
     }
 }
 .snow:nth-child(50) {
@@ -656,7 +656,7 @@ body {
         transform: translate(24.5436vw, 76.161vh) scale(0.5617);
     }
     to {
-        transform: translate(24.2402vw, 100vh) scale(0.5617);
+        transform: translate(24.2402vw, 98vh) scale(0.5617);
     }
 }
 .snow:nth-child(51) {
@@ -669,7 +669,7 @@ body {
         transform: translate(93.2119vw, 78.217vh) scale(0.2213);
     }
     to {
-        transform: translate(93.99055vw, 100vh) scale(0.2213);
+        transform: translate(93.99055vw, 98vh) scale(0.2213);
     }
 }
 .snow:nth-child(52) {
@@ -682,7 +682,7 @@ body {
         transform: translate(89.7822vw, 62.641vh) scale(0.1553);
     }
     to {
-        transform: translate(90.8744vw, 100vh) scale(0.1553);
+        transform: translate(90.8744vw, 98vh) scale(0.1553);
     }
 }
 .snow:nth-child(53) {
@@ -695,7 +695,7 @@ body {
         transform: translate(40.0317vw, 58.894vh) scale(0.5644);
     }
     to {
-        transform: translate(37.87665vw, 100vh) scale(0.5644);
+        transform: translate(37.87665vw, 98vh) scale(0.5644);
     }
 }
 .snow:nth-child(54) {
@@ -708,7 +708,7 @@ body {
         transform: translate(33.1553vw, 77.281vh) scale(0.4455);
     }
     to {
-        transform: translate(36.68135vw, 100vh) scale(0.4455);
+        transform: translate(36.68135vw, 98vh) scale(0.4455);
     }
 }
 .snow:nth-child(55) {
@@ -721,7 +721,7 @@ body {
         transform: translate(95.8822vw, 73.436vh) scale(0.8975);
     }
     to {
-        transform: translate(93.48515vw, 100vh) scale(0.8975);
+        transform: translate(93.48515vw, 98vh) scale(0.8975);
     }
 }
 .snow:nth-child(56) {
@@ -734,7 +734,7 @@ body {
         transform: translate(71.3727vw, 43.998vh) scale(0.2446);
     }
     to {
-        transform: translate(75.25375vw, 100vh) scale(0.2446);
+        transform: translate(75.25375vw, 98vh) scale(0.2446);
     }
 }
 .snow:nth-child(57) {
@@ -747,7 +747,7 @@ body {
         transform: translate(57.3603vw, 44.422vh) scale(0.0504);
     }
     to {
-        transform: translate(54.1166vw, 100vh) scale(0.0504);
+        transform: translate(54.1166vw, 98vh) scale(0.0504);
     }
 }
 .snow:nth-child(58) {
@@ -760,7 +760,7 @@ body {
         transform: translate(73.2332vw, 62.841vh) scale(0.5649);
     }
     to {
-        transform: translate(68.4203vw, 100vh) scale(0.5649);
+        transform: translate(68.4203vw, 98vh) scale(0.5649);
     }
 }
 .snow:nth-child(59) {
@@ -773,7 +773,7 @@ body {
         transform: translate(84.7611vw, 43.061vh) scale(0.2561);
     }
     to {
-        transform: translate(81.5634vw, 100vh) scale(0.2561);
+        transform: translate(81.5634vw, 98vh) scale(0.2561);
     }
 }
 .snow:nth-child(60) {
@@ -786,7 +786,7 @@ body {
         transform: translate(31.7602vw, 74.842vh) scale(0.1058);
     }
     to {
-        transform: translate(33.31645vw, 100vh) scale(0.1058);
+        transform: translate(33.31645vw, 98vh) scale(0.1058);
     }
 }
 .snow:nth-child(61) {
@@ -799,7 +799,7 @@ body {
         transform: translate(-1.029vw, 38.158vh) scale(0.6346);
     }
     to {
-        transform: translate(1.123vw, 100vh) scale(0.6346);
+        transform: translate(1.123vw, 98vh) scale(0.6346);
     }
 }
 .snow:nth-child(62) {
@@ -812,7 +812,7 @@ body {
         transform: translate(33.6984vw, 62.332vh) scale(0.1344);
     }
     to {
-        transform: translate(34.9071vw, 100vh) scale(0.1344);
+        transform: translate(34.9071vw, 98vh) scale(0.1344);
     }
 }
 .snow:nth-child(63) {
@@ -825,7 +825,7 @@ body {
         transform: translate(43.0982vw, 37.64vh) scale(0.0632);
     }
     to {
-        transform: translate(38.23265vw, 100vh) scale(0.0632);
+        transform: translate(38.23265vw, 98vh) scale(0.0632);
     }
 }
 .snow:nth-child(64) {
@@ -838,7 +838,7 @@ body {
         transform: translate(18.5666vw, 68.776vh) scale(0.3789);
     }
     to {
-        transform: translate(20.98515vw, 100vh) scale(0.3789);
+        transform: translate(20.98515vw, 98vh) scale(0.3789);
     }
 }
 .snow:nth-child(65) {
@@ -851,7 +851,7 @@ body {
         transform: translate(11.1482vw, 79.243vh) scale(0.348);
     }
     to {
-        transform: translate(14.7705vw, 100vh) scale(0.348);
+        transform: translate(14.7705vw, 98vh) scale(0.348);
     }
 }
 .snow:nth-child(66) {
@@ -864,7 +864,7 @@ body {
         transform: translate(13.5305vw, 70.921vh) scale(0.4969);
     }
     to {
-        transform: translate(18.4896vw, 100vh) scale(0.4969);
+        transform: translate(18.4896vw, 98vh) scale(0.4969);
     }
 }
 .snow:nth-child(67) {
@@ -877,7 +877,7 @@ body {
         transform: translate(4.6277vw, 41.042vh) scale(0.8008);
     }
     to {
-        transform: translate(6.45975vw, 100vh) scale(0.8008);
+        transform: translate(6.45975vw, 98vh) scale(0.8008);
     }
 }
 .snow:nth-child(68) {
@@ -890,7 +890,7 @@ body {
         transform: translate(13.092vw, 30.449vh) scale(0.4319);
     }
     to {
-        transform: translate(8.7471vw, 100vh) scale(0.4319);
+        transform: translate(8.7471vw, 98vh) scale(0.4319);
     }
 }
 .snow:nth-child(69) {
@@ -903,7 +903,7 @@ body {
         transform: translate(65.1352vw, 65.383vh) scale(0.4155);
     }
     to {
-        transform: translate(64.1375vw, 100vh) scale(0.4155);
+        transform: translate(64.1375vw, 98vh) scale(0.4155);
     }
 }
 .snow:nth-child(70) {
@@ -916,7 +916,7 @@ body {
         transform: translate(17.8633vw, 43.648vh) scale(0.8146);
     }
     to {
-        transform: translate(20.65385vw, 100vh) scale(0.8146);
+        transform: translate(20.65385vw, 98vh) scale(0.8146);
     }
 }
 .snow:nth-child(71) {
@@ -929,7 +929,7 @@ body {
         transform: translate(98.2016vw, 58.277vh) scale(0.7588);
     }
     to {
-        transform: translate(94.5821vw, 100vh) scale(0.7588);
+        transform: translate(94.5821vw, 98vh) scale(0.7588);
     }
 }
 .snow:nth-child(72) {
@@ -942,7 +942,7 @@ body {
         transform: translate(72.7816vw, 52.181vh) scale(0.9993);
     }
     to {
-        transform: translate(73.0769vw, 100vh) scale(0.9993);
+        transform: translate(73.0769vw, 98vh) scale(0.9993);
     }
 }
 .snow:nth-child(73) {
@@ -955,7 +955,7 @@ body {
         transform: translate(81.0418vw, 58.651vh) scale(0.6813);
     }
     to {
-        transform: translate(80.29365vw, 100vh) scale(0.6813);
+        transform: translate(80.29365vw, 98vh) scale(0.6813);
     }
 }
 .snow:nth-child(74) {
@@ -968,7 +968,7 @@ body {
         transform: translate(-2.6132vw, 73.29vh) scale(0.8054);
     }
     to {
-        transform: translate(-0.9024vw, 100vh) scale(0.8054);
+        transform: translate(-0.9024vw, 98vh) scale(0.8054);
     }
 }
 .snow:nth-child(75) {
@@ -981,7 +981,7 @@ body {
         transform: translate(75.9106vw, 71.691vh) scale(0.4911);
     }
     to {
-        transform: translate(80.178vw, 100vh) scale(0.4911);
+        transform: translate(80.178vw, 98vh) scale(0.4911);
     }
 }
 .snow:nth-child(76) {
@@ -994,7 +994,7 @@ body {
         transform: translate(71.1344vw, 40.999vh) scale(0.6467);
     }
     to {
-        transform: translate(70.17265vw, 100vh) scale(0.6467);
+        transform: translate(70.17265vw, 98vh) scale(0.6467);
     }
 }
 .snow:nth-child(77) {
@@ -1007,7 +1007,7 @@ body {
         transform: translate(45.8938vw, 47.127vh) scale(0.4618);
     }
     to {
-        transform: translate(43.7435vw, 100vh) scale(0.4618);
+        transform: translate(43.7435vw, 98vh) scale(0.4618);
     }
 }
 .snow:nth-child(78) {
@@ -1020,7 +1020,7 @@ body {
         transform: translate(36.1319vw, 69.153vh) scale(0.7018);
     }
     to {
-        transform: translate(34.66155vw, 100vh) scale(0.7018);
+        transform: translate(34.66155vw, 98vh) scale(0.7018);
     }
 }
 .snow:nth-child(79) {
@@ -1033,7 +1033,7 @@ body {
         transform: translate(48.3592vw, 62.477vh) scale(0.1223);
     }
     to {
-        transform: translate(50.47635vw, 100vh) scale(0.1223);
+        transform: translate(50.47635vw, 98vh) scale(0.1223);
     }
 }
 .snow:nth-child(80) {
@@ -1046,7 +1046,7 @@ body {
         transform: translate(21.354vw, 75.757vh) scale(0.2645);
     }
     to {
-        transform: translate(20.2848vw, 100vh) scale(0.2645);
+        transform: translate(20.2848vw, 98vh) scale(0.2645);
     }
 }
 .snow:nth-child(81) {
@@ -1059,7 +1059,7 @@ body {
         transform: translate(-5.1028vw, 47.696vh) scale(0.6898);
     }
     to {
-        transform: translate(-1.03435vw, 100vh) scale(0.6898);
+        transform: translate(-1.03435vw, 98vh) scale(0.6898);
     }
 }
 .snow:nth-child(82) {
@@ -1072,7 +1072,7 @@ body {
         transform: translate(84.9244vw, 51.907vh) scale(0.0889);
     }
     to {
-        transform: translate(81.99875vw, 100vh) scale(0.0889);
+        transform: translate(81.99875vw, 98vh) scale(0.0889);
     }
 }
 .snow:nth-child(83) {
@@ -1085,7 +1085,7 @@ body {
         transform: translate(80.1411vw, 45.475vh) scale(0.4153);
     }
     to {
-        transform: translate(78.855vw, 100vh) scale(0.4153);
+        transform: translate(78.855vw, 98vh) scale(0.4153);
     }
 }
 .snow:nth-child(84) {
@@ -1098,7 +1098,7 @@ body {
         transform: translate(40.3118vw, 63.595vh) scale(0.1744);
     }
     to {
-        transform: translate(39.28545vw, 100vh) scale(0.1744);
+        transform: translate(39.28545vw, 98vh) scale(0.1744);
     }
 }
 .snow:nth-child(85) {
@@ -1111,7 +1111,7 @@ body {
         transform: translate(39.9986vw, 52.47vh) scale(0.7761);
     }
     to {
-        transform: translate(41.83925vw, 100vh) scale(0.7761);
+        transform: translate(41.83925vw, 98vh) scale(0.7761);
     }
 }
 .snow:nth-child(86) {
@@ -1124,7 +1124,7 @@ body {
         transform: translate(9.4196vw, 37.162vh) scale(0.4738);
     }
     to {
-        transform: translate(10.6329vw, 100vh) scale(0.4738);
+        transform: translate(10.6329vw, 98vh) scale(0.4738);
     }
 }
 .snow:nth-child(87) {
@@ -1137,7 +1137,7 @@ body {
         transform: translate(59.3551vw, 50.915vh) scale(0.3326);
     }
     to {
-        transform: translate(63.77695vw, 100vh) scale(0.3326);
+        transform: translate(63.77695vw, 98vh) scale(0.3326);
     }
 }
 .snow:nth-child(88) {
@@ -1150,7 +1150,7 @@ body {
         transform: translate(76.7838vw, 60.645vh) scale(0.143);
     }
     to {
-        transform: translate(71.79095vw, 100vh) scale(0.143);
+        transform: translate(71.79095vw, 98vh) scale(0.143);
     }
 }
 .snow:nth-child(89) {
@@ -1163,7 +1163,7 @@ body {
         transform: translate(87.4105vw, 70.519vh) scale(0.7175);
     }
     to {
-        transform: translate(88.7277vw, 100vh) scale(0.7175);
+        transform: translate(88.7277vw, 98vh) scale(0.7175);
     }
 }
 .snow:nth-child(90) {
@@ -1176,7 +1176,7 @@ body {
         transform: translate(73.5897vw, 66.779vh) scale(0.954);
     }
     to {
-        transform: translate(77.30375vw, 100vh) scale(0.954);
+        transform: translate(77.30375vw, 98vh) scale(0.954);
     }
 }
 .snow:nth-child(91) {
@@ -1189,7 +1189,7 @@ body {
         transform: translate(87.7748vw, 36.443vh) scale(0.8606);
     }
     to {
-        transform: translate(92.40185vw, 100vh) scale(0.8606);
+        transform: translate(92.40185vw, 98vh) scale(0.8606);
     }
 }
 .snow:nth-child(92) {
@@ -1202,7 +1202,7 @@ body {
         transform: translate(4.015vw, 61.957vh) scale(0.5513);
     }
     to {
-        transform: translate(4.68405vw, 100vh) scale(0.5513);
+        transform: translate(4.68405vw, 98vh) scale(0.5513);
     }
 }
 .snow:nth-child(93) {
@@ -1215,7 +1215,7 @@ body {
         transform: translate(91.9757vw, 46.183vh) scale(0.6726);
     }
     to {
-        transform: translate(93.73035vw, 100vh) scale(0.6726);
+        transform: translate(93.73035vw, 98vh) scale(0.6726);
     }
 }
 .snow:nth-child(94) {
@@ -1228,7 +1228,7 @@ body {
         transform: translate(41.6502vw, 47.313vh) scale(0.3889);
     }
     to {
-        transform: translate(42.22865vw, 100vh) scale(0.3889);
+        transform: translate(42.22865vw, 98vh) scale(0.3889);
     }
 }
 .snow:nth-child(95) {
@@ -1241,7 +1241,7 @@ body {
         transform: translate(73.5698vw, 49.198vh) scale(0.2408);
     }
     to {
-        transform: translate(72.9336vw, 100vh) scale(0.2408);
+        transform: translate(72.9336vw, 98vh) scale(0.2408);
     }
 }
 .snow:nth-child(96) {
@@ -1254,7 +1254,7 @@ body {
         transform: translate(85.7483vw, 77.485vh) scale(0.7145);
     }
     to {
-        transform: translate(82.8436vw, 100vh) scale(0.7145);
+        transform: translate(82.8436vw, 98vh) scale(0.7145);
     }
 }
 .snow:nth-child(97) {
@@ -1267,7 +1267,7 @@ body {
         transform: translate(44.7713vw, 43.029vh) scale(0.6583);
     }
     to {
-        transform: translate(39.79385vw, 100vh) scale(0.6583);
+        transform: translate(39.79385vw, 98vh) scale(0.6583);
     }
 }
 .snow:nth-child(98) {
@@ -1280,7 +1280,7 @@ body {
         transform: translate(27.3045vw, 52.02vh) scale(0.7688);
     }
     to {
-        transform: translate(27.64375vw, 100vh) scale(0.7688);
+        transform: translate(27.64375vw, 98vh) scale(0.7688);
     }
 }
 .snow:nth-child(99) {
@@ -1293,7 +1293,7 @@ body {
         transform: translate(21.8648vw, 58.215vh) scale(0.0425);
     }
     to {
-        transform: translate(18.40525vw, 100vh) scale(0.0425);
+        transform: translate(18.40525vw, 98vh) scale(0.0425);
     }
 }
 .snow:nth-child(100) {
@@ -1306,7 +1306,7 @@ body {
         transform: translate(-1.5017vw, 64.887vh) scale(0.6985);
     }
     to {
-        transform: translate(1.40515vw, 100vh) scale(0.6985);
+        transform: translate(1.40515vw, 98vh) scale(0.6985);
     }
 }
 .snow:nth-child(101) {
@@ -1319,7 +1319,7 @@ body {
         transform: translate(4.9562vw, 38.315vh) scale(0.2117);
     }
     to {
-        transform: translate(7.43345vw, 100vh) scale(0.2117);
+        transform: translate(7.43345vw, 98vh) scale(0.2117);
     }
 }
 .snow:nth-child(102) {
@@ -1332,7 +1332,7 @@ body {
         transform: translate(31.9013vw, 40.935vh) scale(0.0677);
     }
     to {
-        transform: translate(33.8501vw, 100vh) scale(0.0677);
+        transform: translate(33.8501vw, 98vh) scale(0.0677);
     }
 }
 .snow:nth-child(103) {
@@ -1345,7 +1345,7 @@ body {
         transform: translate(20.624vw, 47.967vh) scale(0.9221);
     }
     to {
-        transform: translate(18.5067vw, 100vh) scale(0.9221);
+        transform: translate(18.5067vw, 98vh) scale(0.9221);
     }
 }
 .snow:nth-child(104) {
@@ -1358,7 +1358,7 @@ body {
         transform: translate(42.974vw, 33.038vh) scale(0.8623);
     }
     to {
-        transform: translate(41.569vw, 100vh) scale(0.8623);
+        transform: translate(41.569vw, 98vh) scale(0.8623);
     }
 }
 .snow:nth-child(105) {
@@ -1371,7 +1371,7 @@ body {
         transform: translate(67.1893vw, 30.243vh) scale(0.889);
     }
     to {
-        transform: translate(69.87795vw, 100vh) scale(0.889);
+        transform: translate(69.87795vw, 98vh) scale(0.889);
     }
 }
 .snow:nth-child(106) {
@@ -1384,7 +1384,7 @@ body {
         transform: translate(10.957vw, 48.778vh) scale(0.9838);
     }
     to {
-        transform: translate(6.9297vw, 100vh) scale(0.9838);
+        transform: translate(6.9297vw, 98vh) scale(0.9838);
     }
 }
 .snow:nth-child(107) {
@@ -1397,7 +1397,7 @@ body {
         transform: translate(87.3362vw, 47.771vh) scale(0.1176);
     }
     to {
-        transform: translate(86.00325vw, 100vh) scale(0.1176);
+        transform: translate(86.00325vw, 98vh) scale(0.1176);
     }
 }
 .snow:nth-child(108) {
@@ -1410,7 +1410,7 @@ body {
         transform: translate(48.0652vw, 37.796vh) scale(0.7076);
     }
     to {
-        transform: translate(51.08785vw, 100vh) scale(0.7076);
+        transform: translate(51.08785vw, 98vh) scale(0.7076);
     }
 }
 .snow:nth-child(109) {
@@ -1423,7 +1423,7 @@ body {
         transform: translate(66.6319vw, 71.703vh) scale(0.2164);
     }
     to {
-        transform: translate(63.62095vw, 100vh) scale(0.2164);
+        transform: translate(63.62095vw, 98vh) scale(0.2164);
     }
 }
 .snow:nth-child(110) {
@@ -1436,7 +1436,7 @@ body {
         transform: translate(18.0408vw, 54.433vh) scale(0.0995);
     }
     to {
-        transform: translate(21.1384vw, 100vh) scale(0.0995);
+        transform: translate(21.1384vw, 98vh) scale(0.0995);
     }
 }
 .snow:nth-child(111) {
@@ -1449,7 +1449,7 @@ body {
         transform: translate(20.8533vw, 32.457vh) scale(0.4807);
     }
     to {
-        transform: translate(18.9155vw, 100vh) scale(0.4807);
+        transform: translate(18.9155vw, 98vh) scale(0.4807);
     }
 }
 .snow:nth-child(112) {
@@ -1462,7 +1462,7 @@ body {
         transform: translate(10.5542vw, 52.456vh) scale(0.133);
     }
     to {
-        transform: translate(13.411vw, 100vh) scale(0.133);
+        transform: translate(13.411vw, 98vh) scale(0.133);
     }
 }
 .snow:nth-child(113) {
@@ -1475,7 +1475,7 @@ body {
         transform: translate(7.0474vw, 49.923vh) scale(0.8338);
     }
     to {
-        transform: translate(5.002vw, 100vh) scale(0.8338);
+        transform: translate(5.002vw, 98vh) scale(0.8338);
     }
 }
 .snow:nth-child(114) {
@@ -1488,7 +1488,7 @@ body {
         transform: translate(12.1948vw, 49.147vh) scale(0.2383);
     }
     to {
-        transform: translate(13.5924vw, 100vh) scale(0.2383);
+        transform: translate(13.5924vw, 98vh) scale(0.2383);
     }
 }
 .snow:nth-child(115) {
@@ -1501,7 +1501,7 @@ body {
         transform: translate(89.9588vw, 48.929vh) scale(0.4367);
     }
     to {
-        transform: translate(91.58095vw, 100vh) scale(0.4367);
+        transform: translate(91.58095vw, 98vh) scale(0.4367);
     }
 }
 .snow:nth-child(116) {
@@ -1514,7 +1514,7 @@ body {
         transform: translate(51.9764vw, 42.988vh) scale(0.265);
     }
     to {
-        transform: translate(53.37065vw, 100vh) scale(0.265);
+        transform: translate(53.37065vw, 98vh) scale(0.265);
     }
 }
 .snow:nth-child(117) {
@@ -1527,7 +1527,7 @@ body {
         transform: translate(46.642vw, 33.44vh) scale(0.2666);
     }
     to {
-        transform: translate(43.9068vw, 100vh) scale(0.2666);
+        transform: translate(43.9068vw, 98vh) scale(0.2666);
     }
 }
 .snow:nth-child(118) {
@@ -1540,7 +1540,7 @@ body {
         transform: translate(95.757vw, 71.277vh) scale(0.2669);
     }
     to {
-        transform: translate(91.5604vw, 100vh) scale(0.2669);
+        transform: translate(91.5604vw, 98vh) scale(0.2669);
     }
 }
 .snow:nth-child(119) {
@@ -1553,7 +1553,7 @@ body {
         transform: translate(-3.2082vw, 50.39vh) scale(0.7521);
     }
     to {
-        transform: translate(-0.5308vw, 100vh) scale(0.7521);
+        transform: translate(-0.5308vw, 98vh) scale(0.7521);
     }
 }
 .snow:nth-child(120) {
@@ -1566,7 +1566,7 @@ body {
         transform: translate(54.8831vw, 39.333vh) scale(0.353);
     }
     to {
-        transform: translate(53.4064vw, 100vh) scale(0.353);
+        transform: translate(53.4064vw, 98vh) scale(0.353);
     }
 }
 .snow:nth-child(121) {
@@ -1579,7 +1579,7 @@ body {
         transform: translate(72.5459vw, 46.836vh) scale(0.3649);
     }
     to {
-        transform: translate(75.829vw, 100vh) scale(0.3649);
+        transform: translate(75.829vw, 98vh) scale(0.3649);
     }
 }
 .snow:nth-child(122) {
@@ -1592,7 +1592,7 @@ body {
         transform: translate(93.1391vw, 35.435vh) scale(0.9917);
     }
     to {
-        transform: translate(90.45035vw, 100vh) scale(0.9917);
+        transform: translate(90.45035vw, 98vh) scale(0.9917);
     }
 }
 .snow:nth-child(123) {
@@ -1605,7 +1605,7 @@ body {
         transform: translate(23.2683vw, 66.58vh) scale(0.6616);
     }
     to {
-        transform: translate(21.20675vw, 100vh) scale(0.6616);
+        transform: translate(21.20675vw, 98vh) scale(0.6616);
     }
 }
 .snow:nth-child(124) {
@@ -1618,7 +1618,7 @@ body {
         transform: translate(84.2255vw, 52.105vh) scale(0.0787);
     }
     to {
-        transform: translate(80.0973vw, 100vh) scale(0.0787);
+        transform: translate(80.0973vw, 98vh) scale(0.0787);
     }
 }
 .snow:nth-child(125) {
@@ -1631,7 +1631,7 @@ body {
         transform: translate(103.8323vw, 37.426vh) scale(0.8839);
     }
     to {
-        transform: translate(101.77955vw, 100vh) scale(0.8839);
+        transform: translate(101.77955vw, 98vh) scale(0.8839);
     }
 }
 .snow:nth-child(126) {
@@ -1644,7 +1644,7 @@ body {
         transform: translate(43.6995vw, 73.349vh) scale(0.7555);
     }
     to {
-        transform: translate(40.93625vw, 100vh) scale(0.7555);
+        transform: translate(40.93625vw, 98vh) scale(0.7555);
     }
 }
 .snow:nth-child(127) {
@@ -1657,7 +1657,7 @@ body {
         transform: translate(6.0099vw, 66.931vh) scale(0.6722);
     }
     to {
-        transform: translate(7.51845vw, 100vh) scale(0.6722);
+        transform: translate(7.51845vw, 98vh) scale(0.6722);
     }
 }
 .snow:nth-child(128) {
@@ -1670,7 +1670,7 @@ body {
         transform: translate(50.3104vw, 61.567vh) scale(0.3891);
     }
     to {
-        transform: translate(48.1567vw, 100vh) scale(0.3891);
+        transform: translate(48.1567vw, 98vh) scale(0.3891);
     }
 }
 .snow:nth-child(129) {
@@ -1683,7 +1683,7 @@ body {
         transform: translate(67.1801vw, 42.384vh) scale(0.1522);
     }
     to {
-        transform: translate(68.95455vw, 100vh) scale(0.1522);
+        transform: translate(68.95455vw, 98vh) scale(0.1522);
     }
 }
 .snow:nth-child(130) {
@@ -1696,7 +1696,7 @@ body {
         transform: translate(6.5223vw, 56.322vh) scale(0.5732);
     }
     to {
-        transform: translate(3.3731vw, 100vh) scale(0.5732);
+        transform: translate(3.3731vw, 98vh) scale(0.5732);
     }
 }
 .snow:nth-child(131) {
@@ -1709,7 +1709,7 @@ body {
         transform: translate(14.4009vw, 60.491vh) scale(0.2998);
     }
     to {
-        transform: translate(15.2535vw, 100vh) scale(0.2998);
+        transform: translate(15.2535vw, 98vh) scale(0.2998);
     }
 }
 .snow:nth-child(132) {
@@ -1722,7 +1722,7 @@ body {
         transform: translate(78.1664vw, 47.914vh) scale(0.1103);
     }
     to {
-        transform: translate(75.888vw, 100vh) scale(0.1103);
+        transform: translate(75.888vw, 98vh) scale(0.1103);
     }
 }
 .snow:nth-child(133) {
@@ -1735,7 +1735,7 @@ body {
         transform: translate(8.1118vw, 45.35vh) scale(0.5924);
     }
     to {
-        transform: translate(11.0685vw, 100vh) scale(0.5924);
+        transform: translate(11.0685vw, 98vh) scale(0.5924);
     }
 }
 .snow:nth-child(134) {
@@ -1748,7 +1748,7 @@ body {
         transform: translate(79.1341vw, 35.68vh) scale(0.3832);
     }
     to {
-        transform: translate(75.7668vw, 100vh) scale(0.3832);
+        transform: translate(75.7668vw, 98vh) scale(0.3832);
     }
 }
 .snow:nth-child(135) {
@@ -1761,7 +1761,7 @@ body {
         transform: translate(93.8397vw, 34.363vh) scale(0.7527);
     }
     to {
-        transform: translate(91.6932vw, 100vh) scale(0.7527);
+        transform: translate(91.6932vw, 98vh) scale(0.7527);
     }
 }
 .snow:nth-child(136) {
@@ -1774,7 +1774,7 @@ body {
         transform: translate(66.5063vw, 42.415vh) scale(0.9316);
     }
     to {
-        transform: translate(61.91955vw, 100vh) scale(0.9316);
+        transform: translate(61.91955vw, 98vh) scale(0.9316);
     }
 }
 .snow:nth-child(137) {
@@ -1787,7 +1787,7 @@ body {
         transform: translate(70.6699vw, 30.252vh) scale(0.1934);
     }
     to {
-        transform: translate(74.2836vw, 100vh) scale(0.1934);
+        transform: translate(74.2836vw, 98vh) scale(0.1934);
     }
 }
 .snow:nth-child(138) {
@@ -1800,7 +1800,7 @@ body {
         transform: translate(68.9816vw, 60.866vh) scale(0.2754);
     }
     to {
-        transform: translate(66.1726vw, 100vh) scale(0.2754);
+        transform: translate(66.1726vw, 98vh) scale(0.2754);
     }
 }
 .snow:nth-child(139) {
@@ -1813,7 +1813,7 @@ body {
         transform: translate(39.7115vw, 79.87vh) scale(0.8847);
     }
     to {
-        transform: translate(37.0559vw, 100vh) scale(0.8847);
+        transform: translate(37.0559vw, 98vh) scale(0.8847);
     }
 }
 .snow:nth-child(140) {
@@ -1826,7 +1826,7 @@ body {
         transform: translate(34.2255vw, 68.485vh) scale(0.7586);
     }
     to {
-        transform: translate(32.37755vw, 100vh) scale(0.7586);
+        transform: translate(32.37755vw, 98vh) scale(0.7586);
     }
 }
 .snow:nth-child(141) {
@@ -1839,7 +1839,7 @@ body {
         transform: translate(41.0599vw, 59.098vh) scale(0.9827);
     }
     to {
-        transform: translate(39.21855vw, 100vh) scale(0.9827);
+        transform: translate(39.21855vw, 98vh) scale(0.9827);
     }
 }
 .snow:nth-child(142) {
@@ -1852,7 +1852,7 @@ body {
         transform: translate(54.7343vw, 60.633vh) scale(0.0532);
     }
     to {
-        transform: translate(55.17695vw, 100vh) scale(0.0532);
+        transform: translate(55.17695vw, 98vh) scale(0.0532);
     }
 }
 .snow:nth-child(143) {
@@ -1865,7 +1865,7 @@ body {
         transform: translate(65.6851vw, 33.254vh) scale(0.9424);
     }
     to {
-        transform: translate(63.25015vw, 100vh) scale(0.9424);
+        transform: translate(63.25015vw, 98vh) scale(0.9424);
     }
 }
 .snow:nth-child(144) {
@@ -1878,7 +1878,7 @@ body {
         transform: translate(91.3511vw, 30.391vh) scale(0.1001);
     }
     to {
-        transform: translate(90.5947vw, 100vh) scale(0.1001);
+        transform: translate(90.5947vw, 98vh) scale(0.1001);
     }
 }
 .snow:nth-child(145) {
@@ -1891,7 +1891,7 @@ body {
         transform: translate(55.3838vw, 59.345vh) scale(0.3599);
     }
     to {
-        transform: translate(51.95945vw, 100vh) scale(0.3599);
+        transform: translate(51.95945vw, 98vh) scale(0.3599);
     }
 }
 .snow:nth-child(146) {
@@ -1904,7 +1904,7 @@ body {
         transform: translate(25.5637vw, 66.551vh) scale(0.4453);
     }
     to {
-        transform: translate(30.4449vw, 100vh) scale(0.4453);
+        transform: translate(30.4449vw, 98vh) scale(0.4453);
     }
 }
 .snow:nth-child(147) {
@@ -1917,7 +1917,7 @@ body {
         transform: translate(89.2414vw, 76.874vh) scale(0.7885);
     }
     to {
-        transform: translate(94.0856vw, 100vh) scale(0.7885);
+        transform: translate(94.0856vw, 98vh) scale(0.7885);
     }
 }
 .snow:nth-child(148) {
@@ -1930,7 +1930,7 @@ body {
         transform: translate(73.2848vw, 53.319vh) scale(0.7863);
     }
     to {
-        transform: translate(76.78795vw, 100vh) scale(0.7863);
+        transform: translate(76.78795vw, 98vh) scale(0.7863);
     }
 }
 .snow:nth-child(149) {
@@ -1943,7 +1943,7 @@ body {
         transform: translate(44.3407vw, 78.633vh) scale(0.7314);
     }
     to {
-        transform: translate(41.20455vw, 100vh) scale(0.7314);
+        transform: translate(41.20455vw, 98vh) scale(0.7314);
     }
 }
 .snow:nth-child(150) {
@@ -1956,7 +1956,7 @@ body {
         transform: translate(43.7078vw, 31.113vh) scale(0.1504);
     }
     to {
-        transform: translate(40.50475vw, 100vh) scale(0.1504);
+        transform: translate(40.50475vw, 98vh) scale(0.1504);
     }
 }
 .snow:nth-child(151) {
@@ -1969,7 +1969,7 @@ body {
         transform: translate(91.116vw, 43.603vh) scale(0.0044);
     }
     to {
-        transform: translate(91.5278vw, 100vh) scale(0.0044);
+        transform: translate(91.5278vw, 98vh) scale(0.0044);
     }
 }
 .snow:nth-child(152) {
@@ -1982,7 +1982,7 @@ body {
         transform: translate(25.0569vw, 75.713vh) scale(0.6684);
     }
     to {
-        transform: translate(22.4754vw, 100vh) scale(0.6684);
+        transform: translate(22.4754vw, 98vh) scale(0.6684);
     }
 }
 .snow:nth-child(153) {
@@ -1995,7 +1995,7 @@ body {
         transform: translate(41.7506vw, 58.616vh) scale(0.798);
     }
     to {
-        transform: translate(44.0608vw, 100vh) scale(0.798);
+        transform: translate(44.0608vw, 98vh) scale(0.798);
     }
 }
 .snow:nth-child(154) {
@@ -2008,7 +2008,7 @@ body {
         transform: translate(75.5014vw, 57.744vh) scale(0.6719);
     }
     to {
-        transform: translate(73.7077vw, 100vh) scale(0.6719);
+        transform: translate(73.7077vw, 98vh) scale(0.6719);
     }
 }
 .snow:nth-child(155) {
@@ -2021,7 +2021,7 @@ body {
         transform: translate(7.87vw, 34.019vh) scale(0.1465);
     }
     to {
-        transform: translate(7.2437vw, 100vh) scale(0.1465);
+        transform: translate(7.2437vw, 98vh) scale(0.1465);
     }
 }
 .snow:nth-child(156) {
@@ -2034,7 +2034,7 @@ body {
         transform: translate(79.7376vw, 69.189vh) scale(0.252);
     }
     to {
-        transform: translate(82.34465vw, 100vh) scale(0.252);
+        transform: translate(82.34465vw, 98vh) scale(0.252);
     }
 }
 .snow:nth-child(157) {
@@ -2047,7 +2047,7 @@ body {
         transform: translate(81.4995vw, 60.542vh) scale(0.1445);
     }
     to {
-        transform: translate(81.59265vw, 100vh) scale(0.1445);
+        transform: translate(81.59265vw, 98vh) scale(0.1445);
     }
 }
 .snow:nth-child(158) {
@@ -2060,7 +2060,7 @@ body {
         transform: translate(35.907vw, 55.26vh) scale(0.2678);
     }
     to {
-        transform: translate(32.2391vw, 100vh) scale(0.2678);
+        transform: translate(32.2391vw, 98vh) scale(0.2678);
     }
 }
 .snow:nth-child(159) {
@@ -2073,7 +2073,7 @@ body {
         transform: translate(63.9282vw, 35.35vh) scale(0.4085);
     }
     to {
-        transform: translate(65.6195vw, 100vh) scale(0.4085);
+        transform: translate(65.6195vw, 98vh) scale(0.4085);
     }
 }
 .snow:nth-child(160) {
@@ -2086,7 +2086,7 @@ body {
         transform: translate(34.5235vw, 34.17vh) scale(0.3773);
     }
     to {
-        transform: translate(29.69405vw, 100vh) scale(0.3773);
+        transform: translate(29.69405vw, 98vh) scale(0.3773);
     }
 }
 .snow:nth-child(161) {
@@ -2099,7 +2099,7 @@ body {
         transform: translate(61.5842vw, 60.909vh) scale(0.2408);
     }
     to {
-        transform: translate(63.77535vw, 100vh) scale(0.2408);
+        transform: translate(63.77535vw, 98vh) scale(0.2408);
     }
 }
 .snow:nth-child(162) {
@@ -2112,7 +2112,7 @@ body {
         transform: translate(61.3539vw, 64.274vh) scale(0.1306);
     }
     to {
-        transform: translate(58.81635vw, 100vh) scale(0.1306);
+        transform: translate(58.81635vw, 98vh) scale(0.1306);
     }
 }
 .snow:nth-child(163) {
@@ -2125,7 +2125,7 @@ body {
         transform: translate(59.5785vw, 39.53vh) scale(0.6597);
     }
     to {
-        transform: translate(61.32405vw, 100vh) scale(0.6597);
+        transform: translate(61.32405vw, 98vh) scale(0.6597);
     }
 }
 .snow:nth-child(164) {
@@ -2138,7 +2138,7 @@ body {
         transform: translate(-3.9735vw, 79.762vh) scale(0.0717);
     }
     to {
-        transform: translate(0.1545vw, 100vh) scale(0.0717);
+        transform: translate(0.1545vw, 98vh) scale(0.0717);
     }
 }
 .snow:nth-child(165) {
@@ -2151,7 +2151,7 @@ body {
         transform: translate(105.6757vw, 39.387vh) scale(0.3269);
     }
     to {
-        transform: translate(102.58575vw, 100vh) scale(0.3269);
+        transform: translate(102.58575vw, 98vh) scale(0.3269);
     }
 }
 .snow:nth-child(166) {
@@ -2164,7 +2164,7 @@ body {
         transform: translate(62.7074vw, 70.631vh) scale(0.3657);
     }
     to {
-        transform: translate(57.86565vw, 100vh) scale(0.3657);
+        transform: translate(57.86565vw, 98vh) scale(0.3657);
     }
 }
 .snow:nth-child(167) {
@@ -2177,7 +2177,7 @@ body {
         transform: translate(72.7296vw, 46.51vh) scale(0.4085);
     }
     to {
-        transform: translate(76.0004vw, 100vh) scale(0.4085);
+        transform: translate(76.0004vw, 98vh) scale(0.4085);
     }
 }
 .snow:nth-child(168) {
@@ -2190,7 +2190,7 @@ body {
         transform: translate(33.3566vw, 76.242vh) scale(0.1466);
     }
     to {
-        transform: translate(34.7859vw, 100vh) scale(0.1466);
+        transform: translate(34.7859vw, 98vh) scale(0.1466);
     }
 }
 .snow:nth-child(169) {
@@ -2203,7 +2203,7 @@ body {
         transform: translate(59.2684vw, 75.926vh) scale(0.1451);
     }
     to {
-        transform: translate(59.3971vw, 100vh) scale(0.1451);
+        transform: translate(59.3971vw, 98vh) scale(0.1451);
     }
 }
 .snow:nth-child(170) {
@@ -2216,7 +2216,7 @@ body {
         transform: translate(74.4212vw, 48.217vh) scale(0.6129);
     }
     to {
-        transform: translate(72.12565vw, 100vh) scale(0.6129);
+        transform: translate(72.12565vw, 98vh) scale(0.6129);
     }
 }
 .snow:nth-child(171) {
@@ -2229,7 +2229,7 @@ body {
         transform: translate(48.4211vw, 44.117vh) scale(0.0332);
     }
     to {
-        transform: translate(43.56995vw, 100vh) scale(0.0332);
+        transform: translate(43.56995vw, 98vh) scale(0.0332);
     }
 }
 .snow:nth-child(172) {
@@ -2242,7 +2242,7 @@ body {
         transform: translate(57.8666vw, 36.243vh) scale(0.3339);
     }
     to {
-        transform: translate(55.1303vw, 100vh) scale(0.3339);
+        transform: translate(55.1303vw, 98vh) scale(0.3339);
     }
 }
 .snow:nth-child(173) {
@@ -2255,7 +2255,7 @@ body {
         transform: translate(31.2186vw, 46.597vh) scale(0.9866);
     }
     to {
-        transform: translate(34.1277vw, 100vh) scale(0.9866);
+        transform: translate(34.1277vw, 98vh) scale(0.9866);
     }
 }
 .snow:nth-child(174) {
@@ -2268,7 +2268,7 @@ body {
         transform: translate(9.5348vw, 58.418vh) scale(0.0138);
     }
     to {
-        transform: translate(10.87015vw, 100vh) scale(0.0138);
+        transform: translate(10.87015vw, 98vh) scale(0.0138);
     }
 }
 .snow:nth-child(175) {
@@ -2281,7 +2281,7 @@ body {
         transform: translate(89.5932vw, 75.752vh) scale(0.4803);
     }
     to {
-        transform: translate(87.8466vw, 100vh) scale(0.4803);
+        transform: translate(87.8466vw, 98vh) scale(0.4803);
     }
 }
 .snow:nth-child(176) {
@@ -2294,7 +2294,7 @@ body {
         transform: translate(41.4468vw, 36.014vh) scale(0.805);
     }
     to {
-        transform: translate(38.9103vw, 100vh) scale(0.805);
+        transform: translate(38.9103vw, 98vh) scale(0.805);
     }
 }
 .snow:nth-child(177) {
@@ -2307,7 +2307,7 @@ body {
         transform: translate(42.3207vw, 47.345vh) scale(0.4928);
     }
     to {
-        transform: translate(44.69765vw, 100vh) scale(0.4928);
+        transform: translate(44.69765vw, 98vh) scale(0.4928);
     }
 }
 .snow:nth-child(178) {
@@ -2320,7 +2320,7 @@ body {
         transform: translate(90.5529vw, 48.536vh) scale(0.2999);
     }
     to {
-        transform: translate(94.93825vw, 100vh) scale(0.2999);
+        transform: translate(94.93825vw, 98vh) scale(0.2999);
     }
 }
 .snow:nth-child(179) {
@@ -2333,7 +2333,7 @@ body {
         transform: translate(18.9399vw, 30.132vh) scale(0.7856);
     }
     to {
-        transform: translate(17.3606vw, 100vh) scale(0.7856);
+        transform: translate(17.3606vw, 98vh) scale(0.7856);
     }
 }
 .snow:nth-child(180) {
@@ -2346,7 +2346,7 @@ body {
         transform: translate(9.1547vw, 36.703vh) scale(0.7916);
     }
     to {
-        transform: translate(10.0569vw, 100vh) scale(0.7916);
+        transform: translate(10.0569vw, 98vh) scale(0.7916);
     }
 }
 .snow:nth-child(181) {
@@ -2359,7 +2359,7 @@ body {
         transform: translate(59.4317vw, 50.387vh) scale(0.8013);
     }
     to {
-        transform: translate(56.2889vw, 100vh) scale(0.8013);
+        transform: translate(56.2889vw, 98vh) scale(0.8013);
     }
 }
 .snow:nth-child(182) {
@@ -2372,7 +2372,7 @@ body {
         transform: translate(62.9471vw, 75.531vh) scale(0.0388);
     }
     to {
-        transform: translate(60.58095vw, 100vh) scale(0.0388);
+        transform: translate(60.58095vw, 98vh) scale(0.0388);
     }
 }
 .snow:nth-child(183) {
@@ -2385,7 +2385,7 @@ body {
         transform: translate(76.427vw, 31.738vh) scale(0.485);
     }
     to {
-        transform: translate(79.24115vw, 100vh) scale(0.485);
+        transform: translate(79.24115vw, 98vh) scale(0.485);
     }
 }
 .snow:nth-child(184) {
@@ -2398,7 +2398,7 @@ body {
         transform: translate(-4.1316vw, 48.022vh) scale(0.6482);
     }
     to {
-        transform: translate(-1.59605vw, 100vh) scale(0.6482);
+        transform: translate(-1.59605vw, 98vh) scale(0.6482);
     }
 }
 .snow:nth-child(185) {
@@ -2411,7 +2411,7 @@ body {
         transform: translate(71.9023vw, 31.231vh) scale(0.9771);
     }
     to {
-        transform: translate(72.7811vw, 100vh) scale(0.9771);
+        transform: translate(72.7811vw, 98vh) scale(0.9771);
     }
 }
 .snow:nth-child(186) {
@@ -2424,7 +2424,7 @@ body {
         transform: translate(21.7857vw, 48.965vh) scale(0.482);
     }
     to {
-        transform: translate(19.84375vw, 100vh) scale(0.482);
+        transform: translate(19.84375vw, 98vh) scale(0.482);
     }
 }
 .snow:nth-child(187) {
@@ -2437,7 +2437,7 @@ body {
         transform: translate(87.3109vw, 57.741vh) scale(0.022);
     }
     to {
-        transform: translate(83.28265vw, 100vh) scale(0.022);
+        transform: translate(83.28265vw, 98vh) scale(0.022);
     }
 }
 .snow:nth-child(188) {
@@ -2450,7 +2450,7 @@ body {
         transform: translate(59.5396vw, 73.241vh) scale(0.7017);
     }
     to {
-        transform: translate(57.0459vw, 100vh) scale(0.7017);
+        transform: translate(57.0459vw, 98vh) scale(0.7017);
     }
 }
 .snow:nth-child(189) {
@@ -2463,7 +2463,7 @@ body {
         transform: translate(70.0908vw, 35.731vh) scale(0.6914);
     }
     to {
-        transform: translate(73.0051vw, 100vh) scale(0.6914);
+        transform: translate(73.0051vw, 98vh) scale(0.6914);
     }
 }
 .snow:nth-child(190) {
@@ -2476,7 +2476,7 @@ body {
         transform: translate(9.0326vw, 62.843vh) scale(0.0739);
     }
     to {
-        transform: translate(8.86905vw, 100vh) scale(0.0739);
+        transform: translate(8.86905vw, 98vh) scale(0.0739);
     }
 }
 .snow:nth-child(191) {
@@ -2489,7 +2489,7 @@ body {
         transform: translate(27.6373vw, 63.759vh) scale(0.1503);
     }
     to {
-        transform: translate(24.62935vw, 100vh) scale(0.1503);
+        transform: translate(24.62935vw, 98vh) scale(0.1503);
     }
 }
 .snow:nth-child(192) {
@@ -2502,7 +2502,7 @@ body {
         transform: translate(65.2812vw, 72.208vh) scale(0.9739);
     }
     to {
-        transform: translate(67.03535vw, 100vh) scale(0.9739);
+        transform: translate(67.03535vw, 98vh) scale(0.9739);
     }
 }
 .snow:nth-child(193) {
@@ -2515,7 +2515,7 @@ body {
         transform: translate(48.9203vw, 38.177vh) scale(0.5618);
     }
     to {
-        transform: translate(47.35845vw, 100vh) scale(0.5618);
+        transform: translate(47.35845vw, 98vh) scale(0.5618);
     }
 }
 .snow:nth-child(194) {
@@ -2528,7 +2528,7 @@ body {
         transform: translate(56.8028vw, 65.705vh) scale(0.8306);
     }
     to {
-        transform: translate(53.32155vw, 100vh) scale(0.8306);
+        transform: translate(53.32155vw, 98vh) scale(0.8306);
     }
 }
 .snow:nth-child(195) {
@@ -2541,7 +2541,7 @@ body {
         transform: translate(85.2615vw, 66.937vh) scale(0.1813);
     }
     to {
-        transform: translate(88.18505vw, 100vh) scale(0.1813);
+        transform: translate(88.18505vw, 98vh) scale(0.1813);
     }
 }
 .snow:nth-child(196) {
@@ -2554,7 +2554,7 @@ body {
         transform: translate(94.7506vw, 73.935vh) scale(0.7893);
     }
     to {
-        transform: translate(91.02205vw, 100vh) scale(0.7893);
+        transform: translate(91.02205vw, 98vh) scale(0.7893);
     }
 }
 .snow:nth-child(197) {
@@ -2567,7 +2567,7 @@ body {
         transform: translate(67.1071vw, 74.228vh) scale(0.5116);
     }
     to {
-        transform: translate(70.024vw, 100vh) scale(0.5116);
+        transform: translate(70.024vw, 98vh) scale(0.5116);
     }
 }
 .snow:nth-child(198) {
@@ -2580,7 +2580,7 @@ body {
         transform: translate(7.7747vw, 58.882vh) scale(0.7263);
     }
     to {
-        transform: translate(8.4875vw, 100vh) scale(0.7263);
+        transform: translate(8.4875vw, 98vh) scale(0.7263);
     }
 }
 .snow:nth-child(199) {
@@ -2593,7 +2593,7 @@ body {
         transform: translate(15.6042vw, 76.544vh) scale(0.4389);
     }
     to {
-        transform: translate(10.85445vw, 100vh) scale(0.4389);
+        transform: translate(10.85445vw, 98vh) scale(0.4389);
     }
 }
 .snow:nth-child(200) {
@@ -2606,6 +2606,6 @@ body {
         transform: translate(81.9179vw, 63.902vh) scale(0.2784);
     }
     to {
-        transform: translate(78.2217vw, 100vh) scale(0.2784);
+        transform: translate(78.2217vw, 98vh) scale(0.2784);
     }
 }

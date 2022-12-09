@@ -5,11 +5,14 @@
     height: 400px;
     flex-direction: column;
     align-items: center;
-    border : solid 1px red;
 }
 .btn-box-delete {
     margin-top: 30px;
     display: flex;
     justify-content: space-around;
     gap : 100px;
+}
+.btn-delete-space {
+    display: flex;
+    gap : 100px
 }

@@ -6,9 +6,10 @@
     justify-content: space-between;
     align-items: center;
 }
-
-.header a > img {
+.header a {
     margin-left: 16px;
+}
+.header a > img {
     width: 124px;
     height :60px;
 }

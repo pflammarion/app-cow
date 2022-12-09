@@ -1,15 +1,12 @@
 <head>
     <link rel="stylesheet" href="./index.css">
 </head>
-<h1>Page de test de fonction</h1>
+<h1>Page de test de methode</h1>
 <form method="post" action="">
     <input type="text" value="1" name="test" style="display: none">
     <button class="button" type="submit">Lancer les tests</button>
+    <a href="index.php" class="button">Reset</a>
 </form>
-
-<a href="index.php" class="button">Reset</a>
-
-
 
 <?php
 if(isset($_POST['test']) && $_POST['test'] == 1){

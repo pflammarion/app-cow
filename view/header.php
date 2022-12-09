@@ -25,6 +25,11 @@
 <!--fix bug load https://bugzilla.mozilla.org/show_bug.cgi?id=1404468 -->
 <script>0</script>
 <!--end-->
+<script>
+    for (let i = 0; i < 198; i++){
+        $(document.body).append('<div class="snow"></div>')
+    }
+</script>
 <div class="header">
     <a href="root" class="logo-link">
         <img class="img-header" src="./public/assets/img/LogoCOW.png" alt="Logo Cow">

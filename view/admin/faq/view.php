@@ -16,7 +16,7 @@
     foreach ($data as $box){
         echo '<div class="faq-box">';
         echo '<div class="container">';
-        echo '<p>id:'.$box["id"].'</p>';
+        echo '<p1>id:'.$box["id"].'</p1>';
         echo '<h2>'.$box["title"].'</h2>';
         echo '<p>'.$box["answer"].'</p>';
         echo '</div>';

@@ -16,7 +16,6 @@ if __name__ == '__main__':
         max = 100
         min_number_value_hour = 2
         max_number_value_hour = 4
-        print(i)
         chip_number = chip[i]
 
         ####Mettre le bon fichier ici

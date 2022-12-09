@@ -17,7 +17,7 @@
             <a href="./login?page=lostpassword">Mot de passe oublié ?</a>
         </div>
         <button type="submit" class="btn-green">
-            <p>Entrer dans le site</p>
+            <p>Connexion</p>
             <img src="./public/assets/icon/login.svg" alt="Enter icon">
         </button>
     </form>

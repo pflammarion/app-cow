@@ -6,7 +6,7 @@ body {
     position: absolute;
     width: 10px;
     height: 10px;
-    background: var(--dark-blue);
+    background: var(--light-blue);
     border-radius: 50%;
 }
 .snow:nth-child(1) {

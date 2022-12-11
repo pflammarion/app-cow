@@ -19,6 +19,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                     'battery' => getSensorValueByCowBySensor($cowId,4),
                 );
                 $cow = getCow($cowId);
+                $chipId = getChip($cowId);
                 $cow_alerts = getAlertByCow($cowId);
                 $no_alert_heard = getAllCowNoAlert();
                 $herd = getAllCowAlert();

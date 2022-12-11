@@ -139,3 +139,20 @@ function getAllCowNoAlert(): array
     }
     return $result;
 }
+
+function getChip (int $cow): int
+{
+    $user = $_SESSION['user'];
+    $sql_get_chip="
+                SELECT chip_cow_user.Chip_Id
+                FROM chip_cow_user
+                WHERE chip_cow_user.Cow_Id =:cow AND chip_cow_user.User_Id =:user;
+    ";
+    $query_get_chip = $GLOBALS['db']->prepare($sql_get_chip);
+    $query_get_chip->execute(array('cow'=>$cow, "user"=>$user));
+    $row = $query_get_chip->fetch();
+    if ($query_get_chip->rowcount() === 1){
+        return $row['Chip_Id'];
+    }
+    return 0;
+}

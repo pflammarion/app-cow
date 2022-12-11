@@ -9,37 +9,45 @@ $action = selectAction("view");
 if(pageAuthorization('user') && !empty($page) && !empty($action)){
     switch ($page) {
         case 'accueil':
-            $view = "user/home";
-            if (isset($_GET['cow'])){
-                $cowId = $_GET['cow'];
-                $sensors = array(
-                    'heart' => getSensorValueByCowBySensor($cowId,1),
-                    'air' => getSensorValueByCowBySensor($cowId,2),
-                    'sound' => getSensorValueByCowBySensor($cowId,3),
-                    'battery' => getSensorValueByCowBySensor($cowId,4),
-                );
-                $cow = getCow($cowId);
-                $chipId = getChip($cowId);
-                $cow_alerts = getAlertByCow($cowId);
-                $no_alert_heard = getAllCowNoAlert();
-                $herd = getAllCowAlert();
-                foreach ($no_alert_heard as $noh){
-                    $exist = False;
-                    foreach ($herd as $h){
-                        if($h['id'] === $noh['id']){
-                            $exist = True;
+            if($action == 'level'){
+                $view = "user/level";
+                $current_level = getLevelByChip($_GET['id']);
+                print_r($current_level);
+            }
+            if($action === 'view'){
+                $view = "user/home";
+                if (isset($_GET['cow'])){
+                    $cowId = $_GET['cow'];
+                    $sensors = array(
+                        'heart' => getSensorValueByCowBySensor($cowId,1),
+                        'air' => getSensorValueByCowBySensor($cowId,2),
+                        'sound' => getSensorValueByCowBySensor($cowId,3),
+                        'battery' => getSensorValueByCowBySensor($cowId,4),
+                    );
+                    $cow = getCow($cowId);
+                    $chipId = getChip($cowId);
+                    $cow_alerts = getAlertByCow($cowId);
+                    $no_alert_heard = getAllCowNoAlert();
+                    $herd = getAllCowAlert();
+                    foreach ($no_alert_heard as $noh){
+                        $exist = False;
+                        foreach ($herd as $h){
+                            if($h['id'] === $noh['id']){
+                                $exist = True;
+                            }
+                        }
+                        if(!$exist){
+                            $herd[] = $noh;
                         }
                     }
-                    if(!$exist){
-                        $herd[] = $noh;
-                    }
+                }
+                else{
+                    $cowId = getCowsNonViewedAlert();
+                    header("Location: user?page=accueil&cow=" . $cowId);
+                    exit();
                 }
             }
-            else{
-                $cowId = getCowsNonViewedAlert();
-                header("Location: user?page=accueil&cow=" . $cowId);
-                exit();
-            }
+
             break;
         case 'boitier':
             $view = "user/chip/". $action;

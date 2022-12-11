@@ -156,3 +156,24 @@ function getChip (int $cow): int
     }
     return 0;
 }
+
+function getLevelByChip(int $chip_id): array
+{
+    $sql_get_level = "SELECT chip_level.High_Level, chip_level.Mid_Level, chip_level.Low_Level, chip_level.Sensor_Id
+                        FROM chip_level 
+                        WHERE chip_level.Chip_Id =:chip";
+    $query_get_level =  $GLOBALS['db']->prepare($sql_get_level);
+    $query_get_level->execute(array('chip'=>$chip_id));
+    $rows = $query_get_level->fetchAll();
+    $result = [];
+    foreach ($rows as $row){
+        $result[] = array(
+            'high'=>$row['High_Level'],
+            'mid'=>$row['Mid_Level'],
+            'low'=>$row['Low_Level'],
+            'sensor'=>$row['Sensor_Id'],
+        );
+    }
+    return $result;
+
+}

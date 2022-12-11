@@ -9,11 +9,13 @@ $chipId = $chipId ?? 0;
     <div class="box">
         <div class="show-cow">
             <div class="sensor-box">
-                <h2>Dernières données</h2>
-                <?php
-                if($chipId !== 0){
-                    echo '<a class="btn-blue" href="user?page=home&action=level&id='.$chipId.'" ><img src="./public/assets/icon/modifier.svg" alt="Edit Level"></a>';
-                }
+                <div class="sensor-box-header">
+                    <h2>Dernières données</h2>
+                    <?php
+                    if($chipId !== 0){
+                        echo '<a class="btn-blue" href="user?page=home&action=level&id='.$chipId.'" ><img src="./public/assets/icon/setting.svg" alt="Edit Level"></a>';
+                    }
+                echo '</div>';
                 foreach ($sensors as $key => $sensor){
                     $class = 'empty-center';
                     $type = 'Vide';

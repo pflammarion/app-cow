@@ -13,7 +13,7 @@ $chipId = $chipId ?? 0;
                     <h2>Dernières données</h2>
                     <?php
                     if($chipId !== 0){
-                        echo '<a class="btn-blue" href="user?page=home&action=level&id='.$chipId.'" ><img src="./public/assets/icon/setting.svg" alt="Edit Level"></a>';
+                        echo '<a class="btn-blue" href="user?page=accueil&action=level&id='.$chipId.'" ><img src="./public/assets/icon/setting.svg" alt="Edit Level"></a>';
                     }
                 echo '</div>';
                 foreach ($sensors as $key => $sensor){

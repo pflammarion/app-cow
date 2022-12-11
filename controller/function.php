@@ -25,6 +25,7 @@ function selectAction(string $default): string
     else {
         $action = $_GET['action'];
     }
+    consoleLog($action);
     return $action;
 }
 

@@ -3,7 +3,7 @@ $sensors = $sensors ?? [];
 $cow = $cow ?? [];
 $cow_alerts = $cow_alerts ?? [];
 $herd = $herd ?? [];
-$chip = $chip ?? [];
+$chipId = $chipId ?? 0;
 ?>
 <div class="home">
     <div class="box">
@@ -11,7 +11,9 @@ $chip = $chip ?? [];
             <div class="sensor-box">
                 <h2>Dernières données</h2>
                 <?php
-                echo '<a class="btn-blue" href="user?page=home&action=level&id="'.$chip["id"].'" ><img src="./public/assets/icon/modifier.svg" alt="Edit Level"></a>';
+                if($chipId !== 0){
+                    echo '<a class="btn-blue" href="user?page=home&action=level&id='.$chipId.'" ><img src="./public/assets/icon/modifier.svg" alt="Edit Level"></a>';
+                }
                 foreach ($sensors as $key => $sensor){
                     $class = 'empty-center';
                     $type = 'Vide';

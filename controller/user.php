@@ -12,7 +12,6 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             if($action == 'level'){
                 $view = "user/level";
                 $current_level = getLevelByChip($_GET['id']);
-                print_r($current_level);
             }
             if($action === 'view'){
                 $view = "user/home";

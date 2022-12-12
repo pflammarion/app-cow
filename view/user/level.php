@@ -4,7 +4,7 @@ $current_level = $current_level ?? [];
 
 <div class="level">
     <h2>Modifier mes seuils</h2>
-    <form>
+    <form id="level-form" action="" method="post">
         <?php
             foreach ($current_level as $level){
                 ?>
@@ -85,45 +85,46 @@ $current_level = $current_level ?? [];
                 <?php
             }
         ?>
-
         <div class="btn-green" id="level-button">Valider les changements</div>
     </form>
 </div>
 
 <script>
     $(document).ready(() => {
-
         $('#level-button').on('click', function (e){
             e.preventDefault();
-            let level = [];
             for(let i = 1; i <= 4; i++){
-                let j = i - 1;
-                level.push([{
-                    key:"sensor",
-                    value: i
-                }])
+                let inputNameMin = ('min-' + i).toString()
                 let minid  = ('#custom-handle-min' + i).toString();
                 let minval = parseInt($(minid).text());
-                level[j].push({
-                    key:"min",
+                $("<input>").attr({
+                    name: inputNameMin,
+                    type: "hidden",
                     value: minval
-                })
+                }).appendTo("form");
+
+                let inputNameMid = ('mid-' + i).toString()
                 let midid  = ('#custom-handle-mid' + i).toString();
                 let midval = parseInt($(midid).text());
-                level[j].push({
-                    key:"mix",
+                $("<input>").attr({
+                    name: inputNameMid,
+                    id: "hiddenId",
+                    type: "hidden",
                     value: midval
-                })
+                }).appendTo("form");
+
+                let inputNameMax = ('max-' + i).toString()
                 let maxid  = ('#custom-handle-max' + i).toString();
                 let maxval = parseInt($(maxid).text());
-                level[j].push({
-                    key:"max",
+                $("<input>").attr({
+                    name: inputNameMax,
+                    id: "hiddenId",
+                    type: "hidden",
                     value: maxval
-                })
+                }).appendTo("form");
             }
-            $.post('user?page=accueil&action=view&js=1',
-                { data: level }
-            )
+            $('#level-form').submit();
+
         })
 
     });

@@ -175,5 +175,21 @@ function getLevelByChip(int $chip_id): array
         );
     }
     return $result;
+}
 
+function changeLevel(int $chipId, array $datas): bool
+{
+    foreach ($datas as $data){
+        $update_level_sql = "UPDATE chip_level SET Low_Level = :min, Mid_Level = :mid, High_Level = :max WHERE Sensor_Id = :sensor AND Chip_Id =:chipId";
+        $update_level_query = $GLOBALS['db']->prepare($update_level_sql);
+        $update_level_query->execute(
+            array(
+                "chipId" => $chipId,
+                "sensor"=> $data['sensor'],
+                'min' => $data['min'],
+                'mid' => $data['mid'],
+                'max' => $data['max'],
+            ));
+    }
+    return true;
 }

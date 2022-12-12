@@ -137,9 +137,9 @@ $current_level = $current_level ?? [];
                     ?>
                 </script>
         <div class="button-container">
-            <?php echo '<a class="btn-exit" href="user?page=accueil&cow=' . $_GET['cow'] . '">Retour</a>'; ?>
-            <?php echo '<a class="btn-red" href="user?page=accueil&action=level&chipid='. $_GET['chipid'].'&cow=' . $_GET['cow'] . '" > Reset</a>'; ?>
-            <div class="btn-green" id="level-button">Valider les changements</div>
+            <?php echo '<a class="btn-edit" href="user?page=accueil&cow=' . $_GET['cow'] . '">Retour</a>'; ?>
+            <?php echo '<a class="btn-delete" href="user?page=accueil&action=level&chipid='. $_GET['chipid'].'&cow=' . $_GET['cow'] . '" > Reset</a>'; ?>
+            <div class="btn-green" id="level-button">Valider</div>
         </div>
 
     </form>

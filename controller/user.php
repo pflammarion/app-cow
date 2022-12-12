@@ -36,7 +36,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                         'mid' => intval($_POST['mid-4']) ?? null,
                         'max' => intval($_POST['max-4']) ?? null,
                     );
-                    $values[] = array($new_heart, $new_air, $new_sound, $new_battery);
+                    $values = array($new_heart, $new_air, $new_sound, $new_battery);
                     $update = changeLevel($_GET['chipid'], $values);
                     if ($update){
                         header("Location: user?page=accueil&cow=" . $_GET['cow']);

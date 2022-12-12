@@ -8,7 +8,7 @@ $action = selectAction("view");
 if(pageAuthorization('user') && !empty($page) && !empty($action)){
     switch ($page) {
         case 'accueil':
-            if($action == 'level' && isset($_GET['chipid'])){
+            if($action == 'level' && isset($_GET['chipid']) && isset($_GET['cow'])){
                 $view = "user/level";
                 $current_level = getLevelByChip($_GET['chipid']);
                 if(isset($_POST['min-1'])){
@@ -39,7 +39,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                     $values[] = array($new_heart, $new_air, $new_sound, $new_battery);
                     $update = changeLevel($_GET['chipid'], $values);
                     if ($update){
-                        header("Location: user?page=accueil&cow=" . $cowId);
+                        header("Location: user?page=accueil&cow=" . $_GET['cow']);
                         exit();
                     }
 

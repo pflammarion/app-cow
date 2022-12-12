@@ -29,6 +29,8 @@
 
 .min{
     background-color: var(--dark-blue);
+    border: none !important;
+    border-radius: unset !important;
 }
 
 .min .ui-slider-handle{
@@ -38,6 +40,8 @@
 
 .mid{
     background-color: var(--dark-blue);
+    border: none !important;
+    border-radius: unset !important;
 }
 
 .mid .ui-slider-handle{
@@ -46,6 +50,8 @@
 
 .max{
     background-color: var(--dark-blue);
+    border: none !important;
+    border-radius: unset !important;
 }
 
 .max .ui-slider-handle{
@@ -70,4 +76,10 @@
 
 .level h2{
     margin-bottom: -20px;
+}
+
+.inline-slider{
+    display: flex;
+    align-items: center;
+    width: 100%;
 }

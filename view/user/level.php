@@ -7,25 +7,26 @@ $current_level = $current_level ?? [];
     <form id="level-form" action="" method="post">
         <?php
             foreach ($current_level as $level){
-                ?>
-                <div class="level-container">
-                    <?php
-                    switch ($level['sensor']){
-                        case 1:
-                            echo '<img src="./public/assets/icon/heart.svg">';
-                            break;
-                        case 2:
-                            echo '<img src="./public/assets/icon/air.svg">';
-                            break;
-                        case 3:
-                            echo '<img src="./public/assets/icon/sound.svg">';
-                            break;
-                        case 4:
-                            echo '<img src="./public/assets/icon/battery.svg">';
-                            break;
-                    }
+                if ($level['sensor']!== 4){
+                    ?>
+                    <div class="level-container">
+                        <?php
+                        switch ($level['sensor']){
+                            case 1:
+                                echo '<img src="./public/assets/icon/heart.svg">';
+                                break;
+                            case 2:
+                                echo '<img src="./public/assets/icon/air.svg">';
+                                break;
+                            case 3:
+                                echo '<img src="./public/assets/icon/sound.svg">';
+                                break;
+                            case 4:
+                                echo '<img src="./public/assets/icon/battery.svg">';
+                                break;
+                        }
                         ?>
-                    <div class="inline-slider">
+                        <div class="inline-slider">
                         <div id="min<?php echo ($level['sensor']) ?>" class="slider min">
                             <div id="custom-handle-min<?php echo ($level['sensor']) ?>" class="ui-slider-handle"></div>
                         </div>
@@ -35,10 +36,11 @@ $current_level = $current_level ?? [];
                         <div id="max<?php echo ($level['sensor']) ?>" class="slider max">
                             <div id="custom-handle-max<?php echo ($level['sensor']) ?>" class="ui-slider-handle"></div>
                         </div>
+                        </div>
                     </div>
-                </div>
 
-                <?php
+                    <?php
+                }
             }
         ?>
 
@@ -77,6 +79,7 @@ $current_level = $current_level ?? [];
 
                     <?php
                     foreach ($current_level as $level){
+                        if ($level['sensor']!== 4){
                     ?>
 
                     $( function() {
@@ -130,11 +133,15 @@ $current_level = $current_level ?? [];
                         });
                     } );
                     <?php
-                    }
+                    }}
                     ?>
                 </script>
+        <div class="button-container">
+            <?php echo '<a class="btn-exit" href="user?page=accueil&cow=' . $_GET['cow'] . '">Retour</a>'; ?>
+            <?php echo '<a class="btn-red" href="user?page=accueil&action=level&chipid='. $_GET['chipid'].'&cow=' . $_GET['cow'] . '" > Reset</a>'; ?>
+            <div class="btn-green" id="level-button">Valider les changements</div>
+        </div>
 
-        <div class="btn-green" id="level-button">Valider les changements</div>
     </form>
 </div>
 

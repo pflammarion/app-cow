@@ -86,6 +86,45 @@ $current_level = $current_level ?? [];
             }
         ?>
 
-        <button type="submit" name="level" class="btn-green">Valider les changements</button>
+        <div class="btn-green" id="level-button">Valider les changements</div>
     </form>
 </div>
+
+<script>
+    $(document).ready(() => {
+
+        $('#level-button').on('click', function (e){
+            e.preventDefault();
+            let level = [];
+            for(let i = 1; i <= 4; i++){
+                let j = i - 1;
+                level.push([{
+                    key:"sensor",
+                    value: i
+                }])
+                let minid  = ('#custom-handle-min' + i).toString();
+                let minval = parseInt($(minid).text());
+                level[j].push({
+                    key:"min",
+                    value: minval
+                })
+                let midid  = ('#custom-handle-mid' + i).toString();
+                let midval = parseInt($(midid).text());
+                level[j].push({
+                    key:"mix",
+                    value: midval
+                })
+                let maxid  = ('#custom-handle-max' + i).toString();
+                let maxval = parseInt($(maxid).text());
+                level[j].push({
+                    key:"max",
+                    value: maxval
+                })
+            }
+            $.post('user?page=accueil&action=view&js=1',
+                { data: level }
+            )
+        })
+
+    });
+</script>

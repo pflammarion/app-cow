@@ -23,17 +23,18 @@ function getCowsNonViewedAlert(): int
 
 function getSensorValueByCowBySensor(int $cow, int $sensor): array
 {
+    $user = $_SESSION['user'];
     $sql_heart_sensor_cow = "
         SELECT  data_sensor.Value, chip_level.Low_Level, chip_level.Mid_Level, chip_level.High_Level
         FROM data_sensor
         left join chip_level on chip_level.Chip_Level_Id = data_sensor.Chip_Level_Id
         left join chip_cow_user ccu on chip_level.Chip_Id = ccu.Chip_Id
-        WHERE ccu.Cow_Id =:cow AND chip_level.Sensor_Id =:sensor
+        WHERE ccu.Cow_Id =:cow AND chip_level.Sensor_Id =:sensor AND User_Id =:user
         ORDER BY data_sensor.Date DESC LIMIT 1;
     ";
 
     $query_heart_sensor_cow = $GLOBALS['db']->prepare($sql_heart_sensor_cow);
-    $query_heart_sensor_cow->execute(array('cow'=>$cow, 'sensor'=>$sensor));
+    $query_heart_sensor_cow->execute(array('cow'=>$cow, 'sensor'=>$sensor, 'user'=> $user));
     $row = $query_heart_sensor_cow->fetch();
     if ($query_heart_sensor_cow->rowcount() === 1){
         return array(
@@ -48,12 +49,14 @@ function getSensorValueByCowBySensor(int $cow, int $sensor): array
 
 function getCow(int $id): array
 {
+    $user = $_SESSION['user'];
     $sql_get_cow = "SELECT cow.Cow_Number, cow.Cow_Img_Url, cow.Cow_Name 
                     FROM cow 
-                    WHERE cow.Cow_Id =:id;";
+                    left join chip_cow_user ccu on cow.Cow_Id = ccu.Cow_Id
+                    WHERE cow.Cow_Id =:id AND ccu.User_Id =:user ;";
 
     $query_get_cow = $GLOBALS['db']->prepare($sql_get_cow);
-    $query_get_cow->execute(array('id'=>$id));
+    $query_get_cow->execute(array('id'=>$id, 'user'=> $user));
     $row = $query_get_cow->fetch();
     if ($query_get_cow->rowcount() === 1){
         return array(
@@ -67,16 +70,17 @@ function getCow(int $id): array
 
 function getAlertByCow(int $id): array
 {
+    $user = $_SESSION['user'];
     $sql_get_alert="SELECT alert.Alert_message,alert.Alert_Status, alert.Alert_Type_Id, alert.Alert_Date
                     FROM alert
                     left join chip_level on chip_level.Chip_Level_Id = alert.Chip_Level_Id
                     left join chip_cow_user on chip_cow_user.Chip_Id = chip_level.Chip_Id
                     left join cow on cow.Cow_Id = chip_cow_user.Cow_Id
-                    WHERE cow.Cow_Id =:id
+                    WHERE cow.Cow_Id =:id AND chip_cow_user.User_Id =:user
                     ORDER BY Alert_Status DESC , Alert_Date DESC;
     ";
     $query_get_alert = $GLOBALS['db']->prepare($sql_get_alert);
-    $query_get_alert->execute(array('id'=>$id));
+    $query_get_alert->execute(array('id'=>$id, 'user'=> $user));
     $rows = $query_get_alert->fetchAll();
     $result = [];
     foreach ($rows as $row){

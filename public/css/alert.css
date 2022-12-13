@@ -3,3 +3,9 @@
     --alert-orange: #F9E8BB;
     --alert-red: #F9C3BB;
 }
+.alert-danger {
+    display: flex;
+    width: 100px;
+    height: 80px;
+    border : solid 2px var(--dark-blue)
+}

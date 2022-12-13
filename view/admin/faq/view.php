@@ -15,7 +15,7 @@
         echo '<div class="faq-box">';
         echo '<div class="container">';
         echo '<p class="p1">id:'.$box["id"].'</p>';
-        echo '<h2>'.$box["title"].'</h2>';
+        echo '<h2 class="view-faq-admin-h2">'.$box["title"].'</h2>';
         echo '<p>'.$box["answer"].'</p>';
         echo '</div>';
         echo '<div class="faq-btn-box">';

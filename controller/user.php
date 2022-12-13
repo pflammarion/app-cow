@@ -8,7 +8,7 @@ $action = selectAction("view");
 if(pageAuthorization('user') && !empty($page) && !empty($action)){
     switch ($page) {
         case 'accueil':
-            if($action == 'level' && isset($_GET['chipid']) && isset($_GET['cow'])){
+            if($action === 'level' && isset($_GET['chipid']) && isset($_GET['cow'])){
                 $view = "user/level";
                 $current_level = getLevelByChip($_GET['chipid']);
                 if(isset($_POST['min-1'])){
@@ -74,6 +74,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 }
                 else{
                     $cowId = getCowsNonViewedAlert();
+                    $view = '';
                     header("Location: user?page=accueil&cow=" . $cowId);
                     exit();
                 }

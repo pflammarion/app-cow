@@ -1,6 +1,6 @@
 <?php $data = $content ??  [];
 foreach ($data as $faq){
-    if ($faq['id']==$_GET['id']){
+    if ($faq['id']===$_GET['id']){
         $box = $faq;
     }
 }
@@ -29,5 +29,4 @@ foreach ($data as $faq){
 
     </div>
 </div>
-
 

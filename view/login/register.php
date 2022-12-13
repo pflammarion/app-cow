@@ -1,40 +1,40 @@
 <div class="register">
     <h1>Pas encore de compte ?</h1>
-    <form action="" method="post">
+    <form id="register-form" action="" method="post">
         <div class="input-container">
-            <label for="lastename">
+            <label for="lastname">
                 Nom
-                <input type="text" name="lastname">
+                <input id="lastname" type="text" name="lastname" required="required">
             </label>
         </div>
         <div class="input-container">
             <label for="firstname">
                 Prénom
-                <input type="text" name="firstname">
+                <input id="firstname" type="text" name="firstname" required="required">
             </label>
         </div>
         <div class="input-container">
             <label for="username">
                 Nom d'utilisateur
-                <input type="text" name="username" autocapitalize="off">
+                <input id="username" type="text" name="username" autocapitalize="off" required="required">
             </label>
         </div>
         <div class="input-container">
             <label for="email">
                 Adresse email
-                <input type="email" name="email">
+                <input id="email" type="email" name="email" required="required">
             </label>
         </div>
         <div class="input-container">
             <label for="password">
                 Mot de passe
-                <input type="password" name="password">
+                <input id="password" type="password" name="password" required="required">
             </label>
         </div>
         <div class="input-container">
             <label for="password_confirm">
                 Confirmation du mot de passe
-                <input type="password" name="password_confirm">
+                <input id="password_confirm" type="password" name="password_confirm" required="required">
             </label>
         </div>
         <button type="submit" class="btn-green">

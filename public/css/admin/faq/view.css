@@ -30,6 +30,9 @@ a {
     justify-content: center;
     margin-bottom: 50px;
 }
+.view-faq-admin-h2 {
+    margin-top: 0px;
+}
 .faq-btn-box {
     display: flex;
     justify-content: center;
@@ -48,6 +51,7 @@ a {
     justify-content: flex-end;
     margin-top: 16px;
     margin-right: 16px;
+    margin-bottom: 0px;
 }
 
 .view-faq-admin .container {

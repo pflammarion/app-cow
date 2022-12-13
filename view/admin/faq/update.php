@@ -8,7 +8,7 @@ foreach ($data as $faq){
 ?>
 <div class="box-question">
     <div class="addquestion">
-        <h1>Nouvelle question</h1>
+        <h1 class="update-faq-admin-title">Nouvelle question</h1>
         <form action="" method="post">
             <div class="form-create-box">
                 <div class="question">

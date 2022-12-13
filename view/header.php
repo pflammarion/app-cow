@@ -71,3 +71,4 @@
     </div>
 </div>
 <div class="super-section">
+    <?php include("./view/sidebar.php")?>

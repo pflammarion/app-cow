@@ -1,0 +1,6 @@
+.sidebar .panel{
+    display:flex;
+    margin-right:32px;
+    cursor:pointer;
+    font-family:sans-serif;
+}

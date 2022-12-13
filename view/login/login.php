@@ -1,9 +1,7 @@
 <div class="login">
 
     <h1>Connexion</h1>
-    <div class="alert-danger">Attentiont test !!</div>
     <form action="" method="post">
-        <div class="alert-danger">Attentiont test !!</div>
         <div class="input-container">
             <label for="username">
                 Nom d'utilisateur

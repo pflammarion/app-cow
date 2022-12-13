@@ -6,6 +6,7 @@ if(isset($_GET['page'])){
 $select = 'class="selected-link"';
 ?>
 <div class="sidebar">
+    <div class="background"></div>
     <div class="sidebar-header">
         <div class="opener">
             <img src="./public/assets/icon/double_arrow.svg">
@@ -58,20 +59,23 @@ $select = 'class="selected-link"';
 
 <script>
     $(document).ready(() => {
-        $('.closer').on("click", function (){
-            $('.sidebar-content').css('height', '0')
-            $('.sidebar-content').find('*').each(function(){
-                $(this).css('display', 'none')
+
+        if $(window.width() > 800){
+            $('.closer').on("click", function (){
+                $('.sidebar-content').css('height', '0')
+                $('.sidebar-content').find('*').each(function(){
+                    $(this).css('display', 'none')
+                });
+                $('.opener').css('display', 'flex')
             });
-            $('.opener').css('display', 'flex')
-        });
-        $('.opener').on("click", function (){
-            $('.sidebar-content').css('height', '50px')
-            $('.sidebar-content').find('*').each(function(){
-                $(this).css('display', 'flex')
-            });
-            $('.opener').css('display', 'none')
-        })
+            $('.opener').on("click", function (){
+                $('.sidebar-content').css('height', '50px')
+                $('.sidebar-content').find('*').each(function(){
+                    $(this).css('display', 'flex')
+                });
+                $('.opener').css('display', 'none')
+            })
+        }
     })
 
 </script>

@@ -35,7 +35,7 @@ if(!empty($page) && !empty($action)){
             }
             if($_POST['action'] == 'delete'){
 
-                $success = deleteFaq($_POST['id']);
+                $success = deleteFaq(intval($_POST['id']));
             }
             if ($success) {
                 header("Location: admin?page=faq&action=view");

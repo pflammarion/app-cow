@@ -71,4 +71,4 @@
     </div>
 </div>
 <div class="super-section">
-    <?php include("./view/sidebar.php")?>
+    <?php if (isset($_SESSION['auth']) && $_SESSION['auth']) include("./view/sidebar.php")?>

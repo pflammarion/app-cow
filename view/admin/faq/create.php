@@ -1,15 +1,15 @@
 <div class="box-question">
-    <div class="addquestion">
+    <div class="add-question">
         <h1>Nouvelle question</h1>
         <form action="" method="post">
             <div class="form-create-box">
-                <div class="question">
+                <div class="create-question">
                     <label for="question">
                         Question
                         <input type="text" name="question">
                     </label>
                 </div>
-                <div class="response">
+                <div class="create-question">
                     <label for="response">
                         Réponse<br>
                         <textarea name="response"></textarea>

@@ -76,7 +76,7 @@ button{
     width: 250px;
     height: 80px;
     border-radius: 5px;
-    background-color: #8388A4;
+    background-color: var(--grey);
     justify-content: center;
     font-weight: bold;
     font-size: 32px;

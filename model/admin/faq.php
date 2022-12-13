@@ -37,8 +37,8 @@ function updateFaq(array $values): bool
 }
 function deleteFaq(int $id): bool
 {
-    if ($id != ""){
-        $delete_faq_sql = "DELETE FROM appcow.faq WHERE FAQ_Id =:id";
+    if ($id){
+        $delete_faq_sql = "DELETE FROM faq WHERE FAQ_Id = :id;";
         $delete_faq_query = $GLOBALS['db']-> prepare($delete_faq_sql);
         $delete_faq_query->execute(
             array(

@@ -1,6 +1,6 @@
 <?php $data = $content ??  [];
 foreach ($data as $faq){
-    if ($faq['id']===$_GET['id']){
+    if ($faq['id']=== (int)$_GET['id']){
         $box = $faq;
     }
 }

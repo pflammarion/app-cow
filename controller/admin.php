@@ -1,5 +1,6 @@
 <?php
 
+include __DIR__ . '/../model/admin/faq.php';
 require __DIR__ . '/../model/permission.php';
 
 $page = selectPage("accueil");
@@ -13,6 +14,34 @@ if(!empty($page) && !empty($action)){
         $view = "admin/home";
     }
     elseif($page == 'faq' && pageAuthorization('admin/faq')){
+        $content = getfaq();
+        if(isset($_POST['action'])){
+            $success = False;
+            if ($_POST['action'] == 'create'){
+                $values = array(
+                    "question" => $_POST['question'],
+                    "response" => $_POST['response'],
+                );
+                $success = createFaq($values);
+            }
+            if($_POST['action'] == 'update') {
+                $values = array(
+                    "question" => $_POST['question'],
+                    "response" => $_POST['response'],
+                    "id" => $_POST['id'],
+                );
+
+                $success = updateFaq($values);
+            }
+            if($_POST['action'] == 'delete'){
+
+                $success = deleteFaq($_POST['id']);
+            }
+            if ($success) {
+                header("Location: admin?page=faq&action=view");
+                exit();
+            }
+        }
         $view = "admin/faq/" . $action;
     }
     elseif($page =='permission' && pageAuthorization('admin/permission')) {

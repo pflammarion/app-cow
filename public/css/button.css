@@ -35,3 +35,59 @@ button{
     font-weight: 700;
     color: white;
 }
+.btn-blue {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: var(--light-blue);
+    border: solid 2px var(--dark-blue);
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.btn-blue:hover {
+    background-color: var(--dark-blue);
+}
+.img-white {
+    display: none;
+}
+.btn-blue:hover .img-white {
+    display: block;
+}
+.btn-blue:hover .img-black {
+    display: none;
+}
+.btn-valider {
+    display: flex;
+    width: 250px;
+    height: 80px;
+    border-radius: 5px;
+    background-color: var(--green);
+    justify-content: center;
+    font-weight: bold;
+    font-size: 32px;
+    gap: 30px;
+    align-items: center;
+    color: white;
+}
+.btn-return {
+    display: flex;
+    width: 250px;
+    height: 80px;
+    border-radius: 5px;
+    background-color: var(--grey);
+    justify-content: center;
+    font-weight: bold;
+    font-size: 32px;
+    gap: 30px;
+    align-items: center;
+    color: white;
+}
+.btn-return > img{
+    height: 30px;
+    width: auto;
+}
+
+
+

@@ -62,7 +62,7 @@
                 </a>
                 <a href="login?page=register">
                     <div class="button">
-                    Incription
+                    Inscription
                     </div>
                 </a>
             <?php

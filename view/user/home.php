@@ -103,7 +103,7 @@ $chipId = $chipId ?? 0;
                 <div class="cow-info">
                     <?php
                     if($cow !== []){
-                        echo $cow['name'];
+                        echo '<h2>' . $cow['name'] . '</h2>';
                         if(!is_null($cow['img'])){
                             echo '<img src="' . $cow['img'] . '" class="cow-img">';
                         }

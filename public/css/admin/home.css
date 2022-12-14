@@ -1,0 +1,28 @@
+.admin-home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.home-box{
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    align-items: center;
+
+}
+.card{
+    display: flex;
+    border:solid 3px  var(--dark-blue);
+    border-radius: 10px ;
+    width:  230px;
+    height: 230px;
+    flex-direction: column;
+    align-items: center;
+    font-size:36px;
+    justify-content: center;
+}
+
+.card img{
+    height: 130px;
+    width: auto;
+}

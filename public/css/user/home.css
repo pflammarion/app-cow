@@ -209,6 +209,9 @@
 .home .empty-center span{
     margin-bottom: 0;
 }
+.home .cow-info .cow-message{
+    text-align: center;
+}
 
 .home .sensor-box-header a img{
     transform: rotate(0deg);

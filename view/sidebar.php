@@ -97,7 +97,6 @@ $select = 'class="selected-link"';
                         $(this).css('display', 'none')
                     });
                     $('.opener').css('display', 'flex')
-                    $('html').css('overflow-y', 'auto')
                 });
                 $('.opener').on("click", function (){
                     $('.sidebar-content').removeClass('responsive')
@@ -105,7 +104,6 @@ $select = 'class="selected-link"';
                         $(this).css('display', 'flex')
                     });
                     $('.opener').css('display', 'none')
-                    $('html').css('overflow-y', 'hidden')
                 })
             }
             else {

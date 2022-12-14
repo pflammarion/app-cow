@@ -3,6 +3,7 @@ $current_level = $current_level ?? [];
 ?>
 
 <div class="level">
+    <div class="level-block">
     <h2>Modifier mes seuils</h2>
     <form id="level-form" action="" method="post">
         <?php
@@ -143,6 +144,7 @@ $current_level = $current_level ?? [];
         </div>
 
     </form>
+    </div>
 </div>
 
 <script>

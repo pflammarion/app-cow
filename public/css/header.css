@@ -20,7 +20,6 @@
     position: absolute;
 }
 .img-header {
-    z-index: 100;
     opacity: 1;
     transition: 0.1s ease-in;
 }

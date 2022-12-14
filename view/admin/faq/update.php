@@ -9,7 +9,7 @@ foreach ($data as $faq){
 <div class="faq-admin-update">
     <div class="box-question">
         <div class="add-question">
-            <h1 class="update-faq-admin-title">Nouvelle question</h1>
+            <h1 class="update-faq-admin-title">Modification de la question</h1>
             <form action="" method="post">
                 <div class="form-create-box">
                     <div class="question">

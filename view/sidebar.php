@@ -2,12 +2,40 @@
 
 if(isset($_GET['page'])){
     $page = $_GET['page'];
+    switch ($page){
+        case 'accueil':
+            $paginer = 'Accueil';
+            break;
+        case 'boitier':
+            $paginer = 'Mes boîtiers';
+            break;
+        case 'vache':
+            $paginer = 'Mes vaches';
+            break;
+        case 'view':
+            $paginer = 'Mon profil';
+            break;
+        case 'user':
+            $paginer = 'Utilisateur';
+            break;
+        case 'permission':
+            $paginer = 'Permission';
+            break;
+        case 'faq':
+            $paginer = 'FAQ';
+            break;
+    }
 }
 $select = 'class="selected-link"';
+
 ?>
 <div class="sidebar">
     <div class="background"></div>
     <div class="sidebar-header">
+        <div class="paginer">
+            <img src="./public/assets/icon/sidebar_icon.svg">
+            <?php if (isset($paginer)) echo $paginer?>
+        </div>
         <div class="opener">
             <img src="./public/assets/icon/double_arrow.svg">
             Ouvrir le volet
@@ -20,7 +48,7 @@ $select = 'class="selected-link"';
                 Accueil
             </a>
             <?php if($_SESSION['role'] === 1){ ?>
-                <a <?php if(isset($page) && $page === 'boitier' && $_SESSION['role'] === 1) echo $select?> href="user?page=boitier" >
+                <a <?php if(isset($page) && $page === 'boitier') echo $select?> href="user?page=boitier" >
                     <img src="./public/assets/icon/boitier.svg">
                     Mes boîtiers
                 </a>
@@ -59,8 +87,7 @@ $select = 'class="selected-link"';
 
 <script>
     $(document).ready(() => {
-
-        if $(window.width() > 800){
+        if ($(window).width > 800){
             $('.closer').on("click", function (){
                 $('.sidebar-content').css('height', '0')
                 $('.sidebar-content').find('*').each(function(){
@@ -75,6 +102,20 @@ $select = 'class="selected-link"';
                 });
                 $('.opener').css('display', 'none')
             })
+        }
+        else {
+            $('.closer').on("click", function (){
+                $('.sidebar-content').css('margin-left', '-200px')
+                $('.background').css('display', 'none')
+            });
+            $('.background').on("click", function (){
+                $('.sidebar-content').css('margin-left', '-200px')
+                $('.background').css('display', 'none')
+            });
+            $('.paginer').find('img').on("click", function (){
+                $('.sidebar-content').css('margin-left', '0')
+                $('.background').css('display', 'block')
+            });
         }
     })
 

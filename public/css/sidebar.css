@@ -2,11 +2,35 @@
     position: absolute;
     z-index: 10;
 }
+.sidebar .sidebar-header .paginer{
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sidebar .sidebar-header .paginer img{
+    height: 13px;
+    width: auto;
+    padding: 0 16px;
+    margin-right: 16px;
+    border-right: 1px solid rgba(120, 120, 120, 1);
+    cursor: pointer;
+}
+
+.sidebar .sidebar-header{
+    background-color: var(--dark-blue);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 40px;
+    margin-top: -40px;
+}
 
 .sidebar .background{
-    background-color: rgba(178, 178, 178, 0.7);
+    background-color: rgba(203, 203, 203, 0.7);
     width: 100vw;
-    height: calc(100vh - 110px);
+    height: calc(100vh - 130px);
     position: absolute;
     z-index: -1;
 }
@@ -19,7 +43,7 @@
     font-size: 13px;
     transition: 0.5s;
     align-items: flex-start;
-    height: calc(100vh - 110px - 32px);
+    height: calc(100vh - 132px - 32px);
     z-index: 10;
     justify-content: space-between;
     width: 140px;

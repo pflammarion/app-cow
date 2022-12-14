@@ -33,6 +33,7 @@
     height: calc(100vh - 130px);
     position: absolute;
     z-index: -1;
+    display: none;
 }
 
 .sidebar-content {
@@ -48,6 +49,7 @@
     justify-content: space-between;
     width: 140px;
     padding: 16px;
+    margin-left: -200px;
 }
 .sidebar-content .link{
     display: flex;

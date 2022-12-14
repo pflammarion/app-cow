@@ -91,9 +91,10 @@ $select = 'class="selected-link"';
             $('.closer').on("click", function (){
                 $('.sidebar-content').css('height', '0')
                 $('.sidebar-content').find('*').each(function(){
-                    $(this).css('display', 'none')
+                    $(this).css('display', 'auto')
                 });
                 $('.opener').css('display', 'flex')
+                $('html').css('overflow-y', 'auto')
             });
             $('.opener').on("click", function (){
                 $('.sidebar-content').css('height', '50px')
@@ -101,20 +102,25 @@ $select = 'class="selected-link"';
                     $(this).css('display', 'flex')
                 });
                 $('.opener').css('display', 'none')
+                $('html').css('overflow-y', 'hidden')
             })
         }
         else {
             $('.closer').on("click", function (){
                 $('.sidebar-content').css('margin-left', '-200px')
                 $('.background').css('display', 'none')
+                $('html').css('overflow-y', 'auto')
             });
             $('.background').on("click", function (){
                 $('.sidebar-content').css('margin-left', '-200px')
                 $('.background').css('display', 'none')
+                $('html').css('overflow-y', 'auto')
             });
+
             $('.paginer').find('img').on("click", function (){
                 $('.sidebar-content').css('margin-left', '0')
                 $('.background').css('display', 'block')
+                $('html').css('overflow-y', 'hidden')
             });
         }
     })

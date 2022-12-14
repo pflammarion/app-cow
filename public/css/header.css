@@ -9,6 +9,7 @@
 .header .logo-link {
     position: relative;
     margin-left: 16px;
+    margin-top: -20px;
     width: 124px;
     height: 60px;
 }

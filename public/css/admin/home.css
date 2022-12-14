@@ -3,14 +3,14 @@
     flex-direction: column;
     align-items: center;
 }
-.home-box{
+.admin-home .home-box{
     display: flex;
     justify-content: center;
     gap: 120px;
     align-items: center;
 
 }
-.card{
+.admin-home .card{
     display: flex;
     border:solid 3px  var(--dark-blue);
     border-radius: 10px ;
@@ -22,7 +22,12 @@
     justify-content: center;
 }
 
-.card img{
+.admin-home .card img{
     height: 130px;
     width: auto;
+    margin-top: 30px;
+}
+
+.admin-home .card:hover{
+    background-color: var(--light-blue);
 }

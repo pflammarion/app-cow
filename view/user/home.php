@@ -3,6 +3,7 @@ $sensors = $sensors ?? [];
 $cow = $cow ?? [];
 $cow_alerts = $cow_alerts ?? [];
 $herd = $herd ?? [];
+
 ?>
 <div class="home">
     <div class="box">
@@ -87,7 +88,10 @@ $herd = $herd ?? [];
                     <?php
                     if($cow !== []){
                         echo $cow['name'];
-                        echo '<img src="' . $cow['img'] . '" class="cow-img">';
+                        if(!is_null($cow['img'])){
+                            echo '<img src="' . $cow['img'] . '" class="cow-img">';
+                        }
+                        else echo '<div class="cow-img"></div>';
                         echo '<p class="font-arima">N°' . $cow['number'] . '</p>';
                     }
 

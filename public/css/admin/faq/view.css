@@ -14,7 +14,7 @@
 .view-faq-admin fieldset {
     margin : 0;
 }
-a {
+.view-faq-admin a {
     display: flex;
 }
 .view-faq-admin input {
@@ -31,7 +31,7 @@ a {
     margin-bottom: 50px;
 }
 .view-faq-admin-h2 {
-    margin-top: 0px;
+    margin-top: 0;
 }
 .faq-btn-box {
     display: flex;
@@ -51,7 +51,7 @@ a {
     justify-content: flex-end;
     margin-top: 16px;
     margin-right: 16px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .view-faq-admin .container {
@@ -62,7 +62,7 @@ a {
     gap : 0;
 }
 
-fieldset {
+.view-faq-admin fieldset {
     border-radius: 100px;
     border: solid 3px var(--dark-blue);
     box-sizing: border-box;

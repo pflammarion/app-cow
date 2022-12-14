@@ -1,4 +1,4 @@
-.delete-container {
+.faq-admin-delete .delete-container {
     display: flex;
     margin: 0 auto;
     width: 1100px;
@@ -6,13 +6,13 @@
     flex-direction: column;
     align-items: center;
 }
-.btn-box-delete {
+.faq-admin-delete .btn-box-delete {
     margin-top: 30px;
     display: flex;
     justify-content: space-around;
     gap : 100px;
 }
-.btn-delete-space {
+.faq-admin-delete .btn-delete-space {
     display: flex;
     gap : 100px
 }

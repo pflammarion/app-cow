@@ -1,8 +1,6 @@
 <div class="admin-home">
     <h1>Choix de pages</h1>
-
     <div class = "home-box">
-
         <?php if ($_SESSION['role'] === 3){?>
         <a href="admin?page=permission" class = "card">
             <img src="./public/assets/icon/permission.svg" alt="permission">
@@ -17,6 +15,5 @@
             <img src="./public/assets/icon/user.svg" alt="user">
             <p>Utilisateurs</p>
         </a>
-
     </div>
 </div>

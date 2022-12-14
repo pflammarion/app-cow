@@ -4,7 +4,7 @@
     <div class = "home-box">
         <a href="admin?page=permission" class = "card">
             <img src="./public/assets/icon/permission.svg">
-            <p> permission </p>
+            <p> Permission </p>
 
 
 

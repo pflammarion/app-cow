@@ -1,0 +1,33 @@
+.admin-home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.admin-home .home-box{
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    align-items: center;
+
+}
+.admin-home .card{
+    display: flex;
+    border:solid 3px  var(--dark-blue);
+    border-radius: 10px ;
+    width:  230px;
+    height: 230px;
+    flex-direction: column;
+    align-items: center;
+    font-size:36px;
+    justify-content: center;
+}
+
+.admin-home .card img{
+    height: 130px;
+    width: auto;
+    margin-top: 30px;
+}
+
+.admin-home .card:hover{
+    background-color: var(--light-blue);
+}

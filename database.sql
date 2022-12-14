@@ -111,7 +111,7 @@ CREATE TABLE `chip` (
   `Chip_Id` int NOT NULL AUTO_INCREMENT,
   `Chip_Number` char(10) NOT NULL,
   PRIMARY KEY (`Chip_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +120,7 @@ CREATE TABLE `chip` (
 
 LOCK TABLES `chip` WRITE;
 /*!40000 ALTER TABLE `chip` DISABLE KEYS */;
-INSERT INTO `chip` VALUES (1,'QFLS34FLG3'),(2,'QDOF59DJKT'),(3,'QPLENI95JR');
+INSERT INTO `chip` VALUES (1,'QFLS34FLG3'),(2,'QDOF59DJKT'),(3,'QPLENI95JR'),(4,'QPLENI90PD'),(5,'QPLENP03LS'),(6,'QPLENJ90JS'),(7,'QPLEJH37IS'),(8,'QSDJFI58OS'),(9,'SDFQJQSD85');
 /*!40000 ALTER TABLE `chip` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,7 +143,7 @@ CREATE TABLE `chip_cow_user` (
   CONSTRAINT `FK_Chip_Id_CCU_Chip` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (`Chip_Id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `FK_Cow_Id_CCU_Cow` FOREIGN KEY (`Cow_Id`) REFERENCES `cow` (`Cow_Id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `FK_User_Id_CCU_User` FOREIGN KEY (`User_Id`) REFERENCES `user` (`User_Id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +152,7 @@ CREATE TABLE `chip_cow_user` (
 
 LOCK TABLES `chip_cow_user` WRITE;
 /*!40000 ALTER TABLE `chip_cow_user` DISABLE KEYS */;
-INSERT INTO `chip_cow_user` VALUES (10,9,1,1),(11,9,2,2);
+INSERT INTO `chip_cow_user` VALUES (10,9,1,1),(11,9,2,2),(12,9,3,3),(13,9,4,4),(14,9,5,5),(15,9,6,6),(16,9,7,7),(17,9,8,8),(18,9,9,9);
 /*!40000 ALTER TABLE `chip_cow_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,7 +175,7 @@ CREATE TABLE `chip_level` (
   KEY `chip_level_chip_Chip_Id_fk` (`Chip_Id`),
   CONSTRAINT `chip_level_chip_Chip_Id_fk` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (`Chip_Id`),
   CONSTRAINT `FK_Sensor_ID_Chip_Sensor_Id` FOREIGN KEY (`Sensor_Id`) REFERENCES `sensor` (`Sensor_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +184,7 @@ CREATE TABLE `chip_level` (
 
 LOCK TABLES `chip_level` WRITE;
 /*!40000 ALTER TABLE `chip_level` DISABLE KEYS */;
-INSERT INTO `chip_level` VALUES (12,1,60,70,80,1),(13,1,60,70,80,2),(14,1,60,70,80,3),(15,1,75,50,25,4),(16,2,45,45,45,1),(17,2,60,70,80,2),(18,2,60,70,80,3),(19,2,75,50,25,4);
+INSERT INTO `chip_level` VALUES (12,1,60,70,80,1),(13,1,60,70,80,2),(14,1,60,70,80,3),(15,1,75,50,25,4),(16,2,60,70,80,1),(17,2,60,70,80,2),(18,2,60,70,80,3),(19,2,75,50,25,4),(20,3,60,70,80,1),(21,3,60,70,80,2),(22,3,60,70,80,3),(23,3,75,50,25,4),(24,4,60,70,80,1),(25,4,60,70,80,2),(26,4,60,70,80,3),(27,4,75,50,25,4),(28,5,60,70,80,1),(29,5,60,70,80,2),(30,5,60,70,80,3),(31,5,75,50,25,4),(32,6,60,70,80,1),(33,6,60,70,80,2),(34,6,60,70,80,3),(35,6,75,50,25,4),(36,7,60,70,80,1),(37,7,60,70,80,2),(38,7,60,70,80,3),(39,7,75,50,25,4),(40,8,60,70,80,1),(41,8,60,70,80,2),(42,8,60,70,80,3),(43,8,75,50,25,4),(44,9,60,70,80,1),(45,9,60,70,80,2),(46,9,60,70,80,3),(47,9,75,50,25,4);
 /*!40000 ALTER TABLE `chip_level` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,7 +210,7 @@ CREATE TABLE `cow` (
 
 LOCK TABLES `cow` WRITE;
 /*!40000 ALTER TABLE `cow` DISABLE KEYS */;
-INSERT INTO `cow` VALUES (1,'Guillemette','g2015',NULL),(2,'Marguerite','m2022',NULL),(3,'Josette','j2019',NULL),(4,'Mike',NULL,NULL),(5,'Paquerette',NULL,NULL),(6,'Capucine','c2011',NULL),(7,'Brigitte','b2010',NULL),(8,'Eglantine',NULL,NULL),(9,'Framboise',NULL,NULL);
+INSERT INTO `cow` VALUES (1,'Guillemette','g2015',NULL),(2,'Marguerite','m2022',NULL),(3,'Josette','j2019',NULL),(4,'Mike','k2020',NULL),(5,'Paquerette','a2018',NULL),(6,'Capucine','c2011',NULL),(7,'Brigitte','b2010',NULL),(8,'Eglantine','c2017',NULL),(9,'Framboise','j2020',NULL);
 /*!40000 ALTER TABLE `cow` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -267,7 +267,7 @@ CREATE TABLE `faq` (
 
 LOCK TABLES `faq` WRITE;
 /*!40000 ALTER TABLE `faq` DISABLE KEYS */;
-INSERT INTO `faq` VALUES (1,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elementum ullamcorper ante, a maximus ipsum consequat vitae. Vestibulum libero velit, ultrices eget elementum eget, commodo ac tortor. Cras in pellentesque nunc. Aliquam erat volutpat.','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elementum ullamcorper ante, a maximus ipsum consequat vitae. Vestibulum libero velit, ultrices eget elementum eget, commodo ac tortor. Cras in pellentesque nunc. Aliquam erat volutpat.'),(2,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elementum ullamcorper ante, a maximus ipsum consequat vitae. Vestibulum libero velit, ultrices eget elementum eget, commodo ac tortor. Cras in pellentesque nunc. Aliquam erat volutpat.','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elementum ullamcorper ante, a maximus ipsum consequat vitae. Vestibulum libero velit, ultrices eget elementum eget, commodo ac tortor. Cras in pellentesque nunc. Aliquam erat volutpat.'),(3,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elementum ullamcorper ante, a maximus ipsum consequat vitae. Vestibulum libero velit, ultrices eget elementum eget, commodo ac tortor. Cras in pellentesque nunc. Aliquam erat volutpat.','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elementum ullamcorper ante, a maximus ipsum consequat vitae. Vestibulum libero velit, ultrices eget elementum eget, commodo ac tortor. Cras in pellentesque nunc. Aliquam erat volutpat.');
+INSERT INTO `faq` VALUES (1,'Comment connecter ma vache à l\'application ?','Pour connecter ma vache à l\'application, il suffit de l\'ajouter dans l\'onglet \"Mes vaches\" et d\'y remplir ses informations. L\'image est facultative mais toujours appréciée.'),(2,'Je voudrais ajouter un image à mon profil','Vous pouvez vous rendre à votre profil dans l\'onglet \"Mon profil\" lorsque vous êtes connecté. Vous pourrez ainsi modifier votre profil et y ajouter une image.'),(3,'Les données ne parviennent plus à l\'application ?','Ce type de problème peut être dû à une mauvaise configuration. Veuillez contacter le service client dans l\'onglet \"Contact\".');
 /*!40000 ALTER TABLE `faq` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -476,7 +476,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`User_Id`),
   KEY `FK_Role_Id_User_Role` (`Role_Id`),
   CONSTRAINT `FK_Role_Id_User_Role` FOREIGN KEY (`Role_Id`) REFERENCES `role` (`Role_Id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -485,7 +485,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (7,1,'paul@flammarion.eu','$2y$10$JM41Tvy9WN/A68M2gbRUVuO0HP0TojvYiW2IDm2BZHwBiEn7N8vIi','pipaul',NULL,0,'Paul','Flammarion'),(8,3,'admin@admin.fr','$2y$10$cit9RGgKP5aOf/lELH5uqeS3.1uyrE341Jb434r32xu7KUOhy6uPy','admin',NULL,0,'Admin','Admin'),(9,1,'user@user.fr','$2y$10$552s3Y.mEfhPRW2cH4ckC.Qoehlb.Hb1dTDYOqavY5hr7S3Lr9J82','user',NULL,0,'User','User');
+INSERT INTO `user` VALUES (7,1,'paul@flammarion.eu','$2y$10$JM41Tvy9WN/A68M2gbRUVuO0HP0TojvYiW2IDm2BZHwBiEn7N8vIi','pipaul',NULL,0,'Paul','Flammarion'),(8,3,'admin@admin.fr','$2y$10$cit9RGgKP5aOf/lELH5uqeS3.1uyrE341Jb434r32xu7KUOhy6uPy','admin',NULL,0,'Admin','Admin'),(9,1,'user@user.fr','$2y$10$552s3Y.mEfhPRW2cH4ckC.Qoehlb.Hb1dTDYOqavY5hr7S3Lr9J82','user',NULL,0,'User','User'),(10,2,'gest@gest.com','$2y$10$tHUcWAS9FzYTregozGtxYOPunZE9VLHkUsEVu3.1x4.tOd7LHqZ/W','gest',NULL,0,'Gest','Gest');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -498,4 +498,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-07 12:25:01
+-- Dump completed on 2022-12-14 17:09:01

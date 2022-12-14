@@ -1,4 +1,5 @@
 <?php
+include __DIR__ . '/../model/admin/faq.php';
 
 $page = selectPage("");
 
@@ -14,6 +15,7 @@ if(!empty($page) && $page !== ""){
 
         case 'faq':
             $view = "all/faq";
+            $content = getfaq();
             break;
 
         case 'legal':

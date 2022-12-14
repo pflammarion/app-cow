@@ -139,3 +139,57 @@ function getAllCowNoAlert(): array
     }
     return $result;
 }
+
+function getChip (int $cow): int
+{
+    $user = $_SESSION['user'];
+    $sql_get_chip="
+                SELECT chip_cow_user.Chip_Id
+                FROM chip_cow_user
+                WHERE chip_cow_user.Cow_Id =:cow AND chip_cow_user.User_Id =:user;
+    ";
+    $query_get_chip = $GLOBALS['db']->prepare($sql_get_chip);
+    $query_get_chip->execute(array('cow'=>$cow, "user"=>$user));
+    $row = $query_get_chip->fetch();
+    if ($query_get_chip->rowcount() === 1){
+        return $row['Chip_Id'];
+    }
+    return 0;
+}
+
+function getLevelByChip(int $chip_id): array
+{
+    $sql_get_level = "SELECT chip_level.High_Level, chip_level.Mid_Level, chip_level.Low_Level, chip_level.Sensor_Id
+                        FROM chip_level 
+                        WHERE chip_level.Chip_Id =:chip";
+    $query_get_level =  $GLOBALS['db']->prepare($sql_get_level);
+    $query_get_level->execute(array('chip'=>$chip_id));
+    $rows = $query_get_level->fetchAll();
+    $result = [];
+    foreach ($rows as $row){
+        $result[] = array(
+            'high'=>$row['High_Level'],
+            'mid'=>$row['Mid_Level'],
+            'low'=>$row['Low_Level'],
+            'sensor'=>$row['Sensor_Id'],
+        );
+    }
+    return $result;
+}
+
+function changeLevel(int $chipId, array $datas): bool
+{
+    foreach ($datas as $data){
+        $update_level_sql = "UPDATE chip_level SET Low_Level = :min, Mid_Level = :mid, High_Level = :max WHERE Sensor_Id = :sensor AND Chip_Id =:chipId";
+        $update_level_query = $GLOBALS['db']->prepare($update_level_sql);
+        $update_level_query->execute(
+            array(
+                "chipId" => $chipId,
+                "sensor"=> $data['sensor'],
+                'min' => $data['min'],
+                'mid' => $data['mid'],
+                'max' => $data['max'],
+            ));
+    }
+    return true;
+}

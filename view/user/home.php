@@ -3,13 +3,19 @@ $sensors = $sensors ?? [];
 $cow = $cow ?? [];
 $cow_alerts = $cow_alerts ?? [];
 $herd = $herd ?? [];
+$chipId = $chipId ?? 0;
 ?>
 <div class="home">
     <div class="box">
         <div class="show-cow">
             <div class="sensor-box">
-                <h2>Dernières données</h2>
-                <?php
+                <div class="sensor-box-header">
+                    <h2>Dernières données</h2>
+                    <?php
+                    if($chipId !== 0){
+                        echo '<a class="btn-blue" href="user?page=accueil&action=level&chipid='.$chipId.'&cow=' . $_GET['cow'] . '" ><img src="./public/assets/icon/setting.svg" alt="Edit Level"></a>';
+                    }
+                echo '</div>';
                 foreach ($sensors as $key => $sensor){
                     $class = 'empty-center';
                     $type = 'Vide';

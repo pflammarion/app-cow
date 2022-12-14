@@ -37,10 +37,10 @@ $chipId = $chipId ?? 0;
 
                         $delta = abs($sensor['value'] - $sensor['low']);
 
-                        if ($delta < $sensor['mid']){
+                        if ($delta <= $sensor['mid']){
                             $class = 'low';
                         }
-                        if ($delta > $sensor['mid'] && $delta < $sensor['high']){
+                        if ($delta > $sensor['mid'] && $delta <= $sensor['high']){
                             $class = 'mid';
                         }
                         if ($delta > $sensor['mid'] && $delta > $sensor['high']){

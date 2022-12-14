@@ -84,14 +84,19 @@ $herd = $herd ?? [];
             <div class="selected-cow">
                 <h2>Vache sélectionnée</h2>
                 <div class="cow-info">
-                    <h2><?php echo $cow['name']?></h2>
                     <?php
-                    if(!is_null($cow['img'])){
+                    if($cow !== []){
+                        echo $cow['name'];
                         echo '<img src="' . $cow['img'] . '" class="cow-img">';
+                        echo '<p class="font-arima">N°' . $cow['number'] . '</p>';
                     }
-                    else echo '<div class="cow-img"></div>'
+
+                    else {
+                        echo '<p class="cow-message">Aucune vache sélectionnée</p>';
+                        echo '<div class="cow-img"></div>';
+                        echo '';
+                    }
                     ?>
-                    <p class="font-arima">N° <?php echo $cow['number']?></p>
                 </div>
                 <div class="alert-box">
                     <?php

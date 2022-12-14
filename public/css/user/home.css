@@ -207,6 +207,9 @@
 .home .empty-center span{
     margin-bottom: 0;
 }
+.home .cow-info .cow-message{
+    text-align: center;
+}
 
 @media screen and (min-width: 800px) {
     .home .box{

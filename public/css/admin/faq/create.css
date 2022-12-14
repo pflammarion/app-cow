@@ -1,0 +1,47 @@
+.faq-admin-create .box-question,
+.faq-admin-update .box-question{
+    display: flex;
+    justify-content: flex-end;
+}
+.faq-admin-create form,
+.faq-admin-update form{
+    width: 1500px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.faq-admin-create .form-create-box,
+.faq-admin-update .form-create-box{
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+    margin-left: 320px;
+}
+.faq-admin-create .add-question,
+.faq-admin-update .add-question{
+    display: flex;
+    width: 100%;
+    height: 600px;
+    flex-direction: column;
+    align-items: center;
+}
+.faq-admin-create .create-question,
+.faq-admin-update .create-question{
+    width: 700px;
+    height: 66px;
+}
+.faq-admin-create textarea,
+.faq-admin-update textarea{
+    width: 692px;
+    height: 220px;
+    border: solid 2px var(--dark-blue);
+    border-radius: 5px;
+    resize : none;
+}
+.faq-admin-create .btn-box-create,
+.faq-admin-update .btn-box-create{
+    display: flex;
+    flex-direction: column;
+    gap : 32px;
+}
+

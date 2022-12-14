@@ -6,27 +6,31 @@ foreach ($data as $faq){
 }
 ?>
 
-<div class="delete-container">
-    <h1>Etes-vous sûr de  SUPPRIMER la question :</h1>
-    <?php echo '<p>'.$box["title"].'</p>' ?>
-    <div class="btn-box-delete">
-        <form action="" method="post">
+<div class="faq-admin-delete">
+    <div class="delete-container">
+        <h1>Etes-vous sûr de SUPPRIMER la question :</h1>
+        <?php if(isset($box))echo '<p>'.$box["title"].'</p>' ?>
+        <div class="btn-box-delete">
+            <form action="" method="post">
 
-            <input type="text" value="delete" name="action" style="display: none">
-            <input type="text" value="<?php echo $_GET["id"] ?>" name="id" style="display: none">
-            <div class="btn-delete-space">
-                <button type="submit" class="btn-valider" style="background:var(--red)">
-                    Supprimer
-                </button>
-                <div>
-                    <a href="admin?page=faq" class="btn-valider">
-                        <img src="./public/assets/icon/retour.svg">
-                        Retour
-                    </a>
+                <input type="hidden" value="delete" name="action" >
+                <input type="hidden" value="<?php echo $_GET["id"] ?>" name="id">
+                <div class="btn-delete-space">
+                    <button type="submit" class="btn-valider" style="background:var(--red)">
+                        Supprimer
+                    </button>
+                    <div>
+                        <a href="admin?page=faq" class="btn-valider">
+                            <img src="./public/assets/icon/retour.svg" alt="retour">
+                            Retour
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
 
+        </div>
     </div>
 </div>
+
+
 

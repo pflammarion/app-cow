@@ -30,6 +30,7 @@
         $(document.body).append('<div class="snow"></div>')
     }
 </script>
+
 <div class="header">
     <a href="root" class="logo-link">
         <img class="img-header" src="./public/assets/img/LogoCOW.png" alt="Logo Cow">

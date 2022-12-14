@@ -11,30 +11,30 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             if($action === 'level' && isset($_GET['chipid']) && isset($_GET['cow'])){
                 $view = "user/level";
                 $current_level = getLevelByChip($_GET['chipid']);
-                if(isset($_POST['min-1'])){
+                if(isset($_POST['reference-1'])){
                     $new_heart = array(
                         'sensor' => 1,
-                        'min' => intval($_POST['min-1']) ?? null,
-                        'mid' => intval($_POST['mid-1']) ?? null,
-                        'max' => intval($_POST['max-1']) ?? null,
+                        'reference' => intval($_POST['reference-1']) ?? null,
+                        'firstLevel' => intval($_POST['firstLevel-1']) ?? null,
+                        'secondLevel' => intval($_POST['firstLevel-1']) ?? null,
                     );
                     $new_air = array(
                         'sensor' => 2,
-                        'min' => intval($_POST['min-2']) ?? null,
-                        'mid' => intval($_POST['mid-2']) ?? null,
-                        'max' => intval($_POST['max-2']) ?? null,
+                        'reference' => intval($_POST['reference-2']) ?? null,
+                        'firstLevel' => intval($_POST['firstLevel-2']) ?? null,
+                        'secondLevel' => intval($_POST['secondLevel-2']) ?? null,
                     );
                     $new_sound = array(
                         'sensor' => 3,
-                        'min' => intval($_POST['min-3']) ?? null,
-                        'mid' => intval($_POST['mid-3']) ?? null,
-                        'max' => intval($_POST['max-3']) ?? null,
+                        'reference' => intval($_POST['reference-3']) ?? null,
+                        'firstLevel' => intval($_POST['firstLevel-3']) ?? null,
+                        'secondLevel' => intval($_POST['secondLevel-3']) ?? null,
                     );
                     $new_battery = array(
                         'sensor' => 4,
-                        'min' => intval($_POST['min-4']) ?? null,
-                        'mid' => intval($_POST['mid-4']) ?? null,
-                        'max' => intval($_POST['max-4']) ?? null,
+                        'reference' => intval($_POST['reference-4']) ?? null,
+                        'firstLevel' => intval($_POST['firstLevel-4']) ?? null,
+                        'secondLevel' => intval($_POST['secondLevel-4']) ?? null,
                     );
                     $values = array($new_heart, $new_air, $new_sound, $new_battery);
                     $update = changeLevel($_GET['chipid'], $values);

@@ -9,6 +9,12 @@
     padding: 20px 10px;
 }
 
+.home .cow-scroller p{
+    font-size: 14px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
 .home .sensor-box{
     display: flex;
     align-items: center;

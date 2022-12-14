@@ -136,6 +136,9 @@ $chipId = $chipId ?? 0;
                         else echo '<a href="user?page=accueil&cow=' . $cow['id'] . '"><div class="herd alert"><div class="herd-name"><img src="./public/assets/icon/cow.svg" alt="cow">' . $cow['name'] . '</div></div></a>';
                     }
                 }
+                if(sizeof($herd) === 0){
+                    echo '<p>Vous n\'avez pas de vache enregistrée</p>';
+                }
                 ?>
             </div>
         </div>

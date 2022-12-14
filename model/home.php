@@ -169,7 +169,7 @@ function getLevelByChip(int $chip_id): array
                         FROM chip_level 
                         WHERE chip_level.Chip_Id =:chip";
     $query_get_level =  $GLOBALS['db']->prepare($sql_get_level);
-    $query_get_level->execute(array('chip'=>$chip_id, 'user'=>$user));
+    $query_get_level->execute(array('chip'=>$chip_id));
     $rows = $query_get_level->fetchAll();
     $result = [];
     foreach ($rows as $row){

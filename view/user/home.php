@@ -90,14 +90,22 @@ $chipId = $chipId ?? 0;
             <div class="selected-cow">
                 <h2>Vache sélectionnée</h2>
                 <div class="cow-info">
-                    <h2><?php echo $cow['name']?></h2>
                     <?php
-                    if(!is_null($cow['img'])){
-                        echo '<img src="' . $cow['img'] . '" class="cow-img">';
+                    if($cow !== []){
+                        echo $cow['name'];
+                        if(!is_null($cow['img'])){
+                            echo '<img src="' . $cow['img'] . '" class="cow-img">';
+                        }
+                        else echo '<div class="cow-img"></div>';
+                        echo '<p class="font-arima">N°' . $cow['number'] . '</p>';
                     }
-                    else echo '<div class="cow-img"></div>'
+
+                    else {
+                        echo '<p class="cow-message">Aucune vache sélectionnée</p>';
+                        echo '<div class="cow-img"></div>';
+                        echo '';
+                    }
                     ?>
-                    <p class="font-arima">N° <?php echo $cow['number']?></p>
                 </div>
                 <div class="alert-box">
                     <?php
@@ -127,6 +135,9 @@ $chipId = $chipId ?? 0;
                         if (isset($cow['level'])) echo '<a href="user?page=accueil&cow=' . $cow['id'] . '"><div class="herd alert alert' . $cow['level'] .'"><div class="herd-name"><img src="./public/assets/icon/cow.svg" alt="cow">' . $cow['name'] . '</div><img src="./public/assets/icon/alert' . $cow['level'] . '.svg" alt="alert"></div></a>';
                         else echo '<a href="user?page=accueil&cow=' . $cow['id'] . '"><div class="herd alert"><div class="herd-name"><img src="./public/assets/icon/cow.svg" alt="cow">' . $cow['name'] . '</div></div></a>';
                     }
+                }
+                if(sizeof($herd) === 0){
+                    echo '<p>Vous n\'avez pas de vache enregistrée</p>';
                 }
                 ?>
             </div>

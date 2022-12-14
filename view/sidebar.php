@@ -92,7 +92,7 @@ $select = 'class="selected-link"';
             let windowsize = $(window).width();
             if ( windowsize > 800){
                 $('.closer').on("click", function (){
-                    $('.sidebar-content').css('height', '0')
+                    $('.sidebar-content').addClass('responsive')
                     $('.sidebar-content').find('*').each(function(){
                         $(this).css('display', 'none')
                     });
@@ -100,7 +100,7 @@ $select = 'class="selected-link"';
                     $('html').css('overflow-y', 'auto')
                 });
                 $('.opener').on("click", function (){
-                    $('.sidebar-content').css('height', '50px')
+                    $('.sidebar-content').removeClass('responsive')
                     $('.sidebar-content').find('*').each(function(){
                         $(this).css('display', 'flex')
                     });
@@ -110,18 +110,18 @@ $select = 'class="selected-link"';
             }
             else {
                 $('.closer').on("click", function (){
-                    $('.sidebar-content').css('margin-left', '-200px')
+                    $('.sidebar-content').removeClass('responsive')
                     $('.background').css('display', 'none')
                     $('html').css('overflow-y', 'auto')
                 });
                 $('.background').on("click", function (){
-                    $('.sidebar-content').css('margin-left', '-200px')
+                    $('.sidebar-content').removeClass('responsive')
                     $('.background').css('display', 'none')
                     $('html').css('overflow-y', 'auto')
                 });
 
                 $('.paginer').find('img').on("click", function (){
-                    $('.sidebar-content').css('margin-left', '0')
+                    $('.sidebar-content').addClass('responsive')
                     $('.background').css('display', 'block')
                     $('html').css('overflow-y', 'hidden')
                 });

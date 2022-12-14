@@ -108,12 +108,12 @@
 }
 
 .sidebar .responsive{
-    margin-left: 0;
+    margin-left: 0 !important;
 }
 
 @media screen and (min-width: 800px) {
     .sidebar .responsive{
-        height: 0;
+        height: 0 !important;
     }
     .sidebar{
         position: static;

@@ -17,10 +17,16 @@ $chipId = $chipId ?? 0;
                     }
                 echo '</div>';
                 foreach ($sensors as $key => $sensor){
-                    $date = new DateTime($sensor['date']);
-                    $diff = $date->diff(new DateTime());
-                    $hours = $diff->h . 'h';
-                    $days = $diff->days . 'j';
+                    if(isset($sensor['date'])){
+                        $date = new DateTime($sensor['date']);
+                        $diff = $date->diff(new DateTime());
+                        $hours = $diff->h . 'h';
+                        $days = $diff->days . 'j';
+                    }
+                    else{
+                        $hours = '-h';
+                        $days = '-j';
+                    }
                     $class = 'empty-center';
                     $type = 'Vide';
                     $img_url = '';

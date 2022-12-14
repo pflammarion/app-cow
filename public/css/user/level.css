@@ -1,64 +1,25 @@
 .level{
     padding: 50px;
 }
+
+/* Chrome, Safari, Edge, Opera */
+.level input::-webkit-outer-spin-button,
+.level input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.level input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .level-block{
     border: solid 3px var(--dark-blue);
     border-radius: 10px;
     width: 500px;
     margin: 0 auto;
     text-align: center;
-}
-
-.level .ui-slider-handle{
-    font-family: "Inter", sans-serif;
-    width: 50px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.level .slider{
-    height: 20px;
-    margin: 20px 0;
-}
-
-.slider .ui-state-active{
-    color: black;
-}
-
-.slider .ui-state-focus{
-    border: none;
-}
-
-.level .min{
-    background-color: var(--dark-blue);
-    border: none !important;
-    border-radius: unset !important;
-}
-
-.level .min .ui-slider-handle{
-    background-color: var(--alert-green);
-
-}
-
-.level .mid{
-    background-color: var(--dark-blue);
-    border: none !important;
-    border-radius: unset !important;
-}
-
-.level .mid .ui-slider-handle{
-    background-color: var(--alert-orange);
-}
-
-.level .max{
-    background-color: var(--dark-blue);
-    border: none !important;
-    border-radius: unset !important;
-}
-
-.level .max .ui-slider-handle{
-    background-color: var(--alert-red);
 }
 
 .level .level-container img{
@@ -69,6 +30,14 @@
 
 .level .level-container{
     padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.level .plus-minus{
+    display: flex;
+    align-items: center;
 }
 
 .level .button-container{
@@ -79,14 +48,9 @@
 }
 
 .level h2{
-    margin-bottom: -20px;
+    margin-bottom: -10px;
 }
 
-.level .inline-slider{
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
 
 .level .btn-delete,
 .level .btn-edit,
@@ -95,4 +59,31 @@
     font-weight: normal;
     padding: 10px 20px;
     cursor: pointer;
+}
+
+.level input{
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    border: none;
+}
+
+.level .reference{
+    background-color: var(--alert-green);
+}
+
+.level .first-level{
+    background-color: var(--alert-orange);
+}
+
+.level .second-level{
+    background-color: var(--alert-red);
+}
+
+.level .level-container img{
+    height: auto;
+    width: 20px;
 }

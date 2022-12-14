@@ -17,6 +17,10 @@ $chipId = $chipId ?? 0;
                     }
                 echo '</div>';
                 foreach ($sensors as $key => $sensor){
+                    $date = new DateTime($sensor['date']);
+                    $diff = $date->diff(new DateTime());
+                    $hours = $diff->h . 'h';
+                    $days = $diff->days . 'j';
                     $class = 'empty-center';
                     $type = 'Vide';
                     $img_url = '';
@@ -81,6 +85,7 @@ $chipId = $chipId ?? 0;
 
                     if($key!== 'battery') echo '<a href="user?page=tableau&type=' . $key  . '">';
                     echo '<div class="sensor '. $class . '">';
+                    echo '<span class="time">' . $days . ' ' . $hours . '</span>';
                     if ($img_url != '') echo '<img src="' . $img_url . '" alt="sensor">';
                     echo '<span>'. $val . " " . $type . '</span></div>';
                     if($key!== 'battery') echo '</a>';

@@ -33,6 +33,7 @@
 }
 
 .home .sensor{
+    position: relative;
     height: 65px;
     width: 65px;
     border: solid 2px black;
@@ -63,6 +64,14 @@
     height: auto;
     width: 20px;
     margin-top: 12px;
+}
+
+.home .sensor span.time{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-weight: 400;
+    font-size: 8px;
 }
 
 .home .sensor span{
@@ -385,6 +394,12 @@
     }
     .home .sensor-box .sensor img{
         width: 35px;
+    }
+
+    .home .sensor span.time{
+        font-size: 10px;
+        top: 3px;
+        right: 3px;
     }
 
     .home .selected-cow{

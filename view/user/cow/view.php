@@ -1,3 +1,3 @@
-<?php
+<div class="cow-box-view">
 
-echo '<h1>Cow view</h1>';
+</div>

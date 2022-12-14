@@ -1,0 +1,5 @@
+/* ici c'est cow */
+.cow-box-view {
+    display: flex;
+    flex-wrap: wrap ;
+}

@@ -92,14 +92,14 @@ $select = 'class="selected-link"';
             let windowsize = $(window).width();
             if ( windowsize > 800){
                 $('.closer').on("click", function (){
-                    $('.sidebar-content').addClass('responsive')
+                    $('.sidebar-content').removeClass('responsive')
                     $('.sidebar-content').find('*').each(function(){
                         $(this).css('display', 'none')
                     });
                     $('.opener').css('display', 'flex')
                 });
                 $('.opener').on("click", function (){
-                    $('.sidebar-content').removeClass('responsive')
+                    $('.sidebar-content').addClass('responsive')
                     $('.sidebar-content').find('*').each(function(){
                         $(this).css('display', 'flex')
                     });

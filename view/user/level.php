@@ -6,6 +6,8 @@ foreach ($current_level as $current){
     if($current['sensor'] === $id) $level = $current ;
 }
 
+$min = 0;
+$max = 0;
 $img = '';
 $reference = $level['reference'];
 $first_level = $level['firstLevel'];
@@ -13,22 +15,18 @@ $second_level = $level['secondLevel'];
 switch ($level['sensor']) {
     case 1:
         $img = '<img src="./public/assets/icon/heart.svg" alt="heart">';
-        $min = 0;
         $max = 150;
         break;
     case 2:
         $img = '<img src="./public/assets/icon/air.svg" alt="air">';
-        $min = 0;
         $max = 100;
         break;
     case 3:
         $img = '<img src="./public/assets/icon/sound.svg" alt="sound">';
-        $min = 0;
         $max = 150;
         break;
     case 4:
         $img = '<img src="./public/assets/icon/battery.svg" alt="battery">';
-        $min = 0;
         $max = 100;
         break;
 }
@@ -45,17 +43,17 @@ switch ($level['sensor']) {
                 <span class="min"><?php echo $min?></span>
                 <div class="high-level-bar"></div>
                 <div class="second-level-cursor-un cursor"><span><?php echo $level['reference'] - $level['secondLevel']?></span></div>
-            <div class="mid-level-bar"></div>
-            <div class="second-level-cursor-deux cursor"><span><?php echo $level['reference'] + $level['secondLevel']?></span></div>
-            <div class="first-level-cursor-un cursor"><span><?php echo $level['reference'] - $level['firstLevel']?></span></div>
-            <div class="low-level-bar "></div>
-            <div class="ref-cursor cursor"><span><?php echo $level['reference']?></span></div>
-            <div class="first-level-cursor-deux cursor"><span><?php echo $level['reference'] + $level['firstLevel']?></span></div>
-            <span class="max">150</span>
-        </div>
+                <div class="mid-level-bar"></div>
+                <div class="second-level-cursor-deux cursor"><span><?php echo $level['reference'] + $level['secondLevel']?></span></div>
+                <div class="first-level-cursor-un cursor"><span><?php echo $level['reference'] - $level['firstLevel']?></span></div>
+                <div class="low-level-bar "></div>
+                <div class="ref-cursor cursor"><span><?php echo $level['reference']?></span></div>
+                <div class="first-level-cursor-deux cursor"><span><?php echo $level['reference'] + $level['firstLevel']?></span></div>
+                <span class="max">150</span>
+            </div>
         <div class="caption">
-            <p class="caption-first">Le seuil moyen est atteint en &#177;<span><?php echo $level['firstLevel']?></span></p>
-            <p class="caption-second">Le seuil critique est atteint en &#177;<span><?php echo $level['secondLevel']?></span></p>
+            <p class="caption-first">Le seuil moyen est atteint en &#177;<span><?php echo $level['firstLevel']?></span>BPM</p>
+            <p class="caption-second">Le seuil critique est atteint en &#177;<span><?php echo $level['secondLevel']?></span>BPM</p>
         </div>
 
             <input name="sensor" type="hidden" value="<?php echo $level['sensor']?>">

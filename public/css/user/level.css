@@ -137,5 +137,22 @@
     background-color: black;
 }
 
+.level .ref-cursor span{
+    left: -10px;
+    top: -30px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.level .caption-first span{
+    font-weight: bold;
+    color: orange;
+}
+
+.level .caption-second span{
+    font-weight: bold;
+    color: red;
+}
+
 
 

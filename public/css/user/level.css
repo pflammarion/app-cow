@@ -28,12 +28,7 @@
     margin: 10px;
 }
 
-.level .level-container{
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
+
 
 .level .plus-minus{
     display: flex;
@@ -60,30 +55,80 @@
     padding: 10px 20px;
     cursor: pointer;
 }
-
-.level input{
-    width: 70px;
-    height: 70px;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: "Inter", sans-serif;
-    text-align: center;
-    border: none;
+.level .level-container{
+    position: relative;
+    width: 400px;
+    height: 20px;
+    margin: 50px auto;
 }
 
-.level .reference{
+.level-container > *{
+    height: 100%;
+    position: absolute;
+}
+
+.level .low-level-bar{
+    width: 100px;
+    left: 150px;
     background-color: var(--alert-green);
+    border-left: 5px orange solid;
+    border-right: 5px orange solid;
 }
 
-.level .first-level{
+.level .mid-level-bar{
+    height: 20px;
+    width: 200px;
+    left: 100px;
     background-color: var(--alert-orange);
+    border-left: 5px red solid;
+    border-right: 5px red solid;
 }
 
-.level .second-level{
+.level .high-level-bar{
+    width: 400px;
+    height: 20px;
+    border-radius: 5px;
     background-color: var(--alert-red);
 }
 
-.level .level-container img{
-    height: auto;
+.level .cursor{
+    cursor: pointer;
     width: 20px;
+    height: 100%;
+    z-index: 10;
 }
+
+.level .cursor span{
+    position: absolute;
+    top: -20px;
+    font-size: 10px;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.level .level-container > span{
+    position: absolute;
+    top: -20px;
+    font-size: 10px;
+    color: red;
+}
+
+.level .level-container .min{
+    left: -10px;
+}
+
+.level .level-container .max{
+    right: 0;
+}
+
+.level-container .ref-cursor{
+    width: 1px;
+    cursor: auto;
+    background-color: black;
+}
+
+
+

@@ -1,6 +1,25 @@
 .level{
     padding: 50px;
 }
+
+.level .level-block > img{
+    height: 40px;
+    width: auto;
+    margin-top: 10px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.level input::-webkit-outer-spin-button,
+.level input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.level input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .level-block{
     border: solid 3px var(--dark-blue);
     border-radius: 10px;
@@ -9,66 +28,17 @@
     text-align: center;
 }
 
-.level .ui-slider-handle{
-    font-family: "Inter", sans-serif;
-    width: 50px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.level .slider{
-    height: 20px;
-    margin: 20px 0;
-}
-
-.slider .ui-state-active{
-    color: black;
-}
-
-.slider .ui-state-focus{
-    border: none;
-}
-
-.level .min{
-    background-color: var(--dark-blue);
-    border: none !important;
-    border-radius: unset !important;
-}
-
-.level .min .ui-slider-handle{
-    background-color: var(--alert-green);
-
-}
-
-.level .mid{
-    background-color: var(--dark-blue);
-    border: none !important;
-    border-radius: unset !important;
-}
-
-.level .mid .ui-slider-handle{
-    background-color: var(--alert-orange);
-}
-
-.level .max{
-    background-color: var(--dark-blue);
-    border: none !important;
-    border-radius: unset !important;
-}
-
-.level .max .ui-slider-handle{
-    background-color: var(--alert-red);
-}
-
 .level .level-container img{
     width: 40px;
     height: auto;
     margin: 10px;
 }
 
-.level .level-container{
-    padding: 20px;
+
+
+.level .plus-minus{
+    display: flex;
+    align-items: center;
 }
 
 .level .button-container{
@@ -79,14 +49,9 @@
 }
 
 .level h2{
-    margin-bottom: -20px;
+    margin-bottom: -10px;
 }
 
-.level .inline-slider{
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
 
 .level .btn-delete,
 .level .btn-edit,
@@ -96,3 +61,98 @@
     padding: 10px 20px;
     cursor: pointer;
 }
+.level .level-container{
+    position: relative;
+    width: 400px;
+    height: 20px;
+    margin: 50px auto;
+}
+
+.level-container > *{
+    height: 100%;
+    position: absolute;
+}
+
+.level .low-level-bar{
+    width: 100px;
+    left: 150px;
+    background-color: var(--alert-green);
+    border-left: 5px orange solid;
+    border-right: 5px orange solid;
+}
+
+.level .mid-level-bar{
+    height: 20px;
+    width: 200px;
+    left: 100px;
+    background-color: var(--alert-orange);
+    border-left: 5px red solid;
+    border-right: 5px red solid;
+}
+
+.level .high-level-bar{
+    width: 400px;
+    height: 20px;
+    border-radius: 5px;
+    background-color: var(--alert-red);
+}
+
+.level .cursor{
+    cursor: pointer;
+    width: 20px;
+    height: 100%;
+    z-index: 10;
+}
+
+.level .cursor span{
+    position: absolute;
+    top: -20px;
+    left: -5px;
+    font-size: 10px;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.level .level-container > span{
+    position: absolute;
+    top: -20px;
+    font-size: 10px;
+    color: red;
+}
+
+.level .level-container .min{
+    left: -10px;
+}
+
+.level .level-container .max{
+    right: 0;
+}
+
+.level-container .ref-cursor{
+    width: 1px;
+    cursor: auto;
+    background-color: black;
+}
+
+.level .ref-cursor span{
+    left: -10px;
+    top: -30px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.level .caption-first span{
+    font-weight: bold;
+    color: orange;
+}
+
+.level .caption-second span{
+    font-weight: bold;
+    color: red;
+}
+
+
+

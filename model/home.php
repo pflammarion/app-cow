@@ -25,7 +25,7 @@ function getSensorValueByCowBySensor(int $cow, int $sensor): array
 {
     $user = $_SESSION['user'];
     $sql_heart_sensor_cow = "
-        SELECT  data_sensor.Value, chip_level.Low_Level, chip_level.Mid_Level, chip_level.High_Level, data_sensor.Date
+        SELECT  data_sensor.Value, chip_level.Chip_Reference, chip_level.Chip_First_Level, chip_level.Chip_Second_Level, data_sensor.Date
         FROM data_sensor
         left join chip_level on chip_level.Chip_Level_Id = data_sensor.Chip_Level_Id
         left join chip_cow_user ccu on chip_level.Chip_Id = ccu.Chip_Id
@@ -40,9 +40,9 @@ function getSensorValueByCowBySensor(int $cow, int $sensor): array
         return array(
             'value' => $row['Value'],
             'date'=> $row['Date'],
-            'low' => $row['Low_Level'],
-            'mid' => $row['Mid_Level'],
-            'high' => $row['High_Level'],
+            'reference' => $row['Chip_Reference'],
+            'firstLevel' => $row['Chip_First_Level'],
+            'secondLevel' => $row['Chip_Second_Level'],
         );
     }
     return [];
@@ -165,7 +165,7 @@ function getChip (int $cow): int
 function getLevelByChip(int $chip_id): array
 {
     $user = $_SESSION['user'];
-    $sql_get_level = "SELECT chip_level.High_Level, chip_level.Mid_Level, chip_level.Low_Level, chip_level.Sensor_Id
+    $sql_get_level = "SELECT chip_level.Chip_Second_Level, chip_level.Chip_First_Level, chip_level.Chip_Reference, chip_level.Sensor_Id
                         FROM chip_level 
                         WHERE chip_level.Chip_Id =:chip";
     $query_get_level =  $GLOBALS['db']->prepare($sql_get_level);
@@ -174,9 +174,9 @@ function getLevelByChip(int $chip_id): array
     $result = [];
     foreach ($rows as $row){
         $result[] = array(
-            'high'=>$row['High_Level'],
-            'mid'=>$row['Mid_Level'],
-            'low'=>$row['Low_Level'],
+            'reference' => $row['Chip_Reference'],
+            'firstLevel' => $row['Chip_First_Level'],
+            'secondLevel' => $row['Chip_Second_Level'],
             'sensor'=>$row['Sensor_Id'],
         );
     }
@@ -187,16 +187,17 @@ function changeLevel(int $chipId, array $datas): bool
 {
     foreach ($datas as $data){
         $update_level_sql = "UPDATE chip_level 
-                                SET Low_Level = :min, Mid_Level = :mid, High_Level = :max 
+                                SET Chip_Reference = :reference, Chip_First_Level = :firstLevel, Chip_Second_Level = :secondLevel 
                                 WHERE Sensor_Id = :sensor AND Chip_Id =:chipId";
         $update_level_query = $GLOBALS['db']->prepare($update_level_sql);
         $update_level_query->execute(
             array(
                 "chipId" => $chipId,
                 "sensor"=> $data['sensor'],
-                'min' => $data['min'],
-                'mid' => $data['mid'],
-                'max' => $data['max'],
+                'reference' => $data['reference'],
+                'firstLevel' => $data['firstLevel'],
+                'secondLevel' => $data['secondLevel'],
+
             ));
     }
     return true;

@@ -83,15 +83,15 @@ $chipId = $chipId ?? 0;
                     if($cow !== []){
                         echo '<h2>' . $cow['name'] . '</h2>';
                         if(!is_null($cow['img'])){
-                            echo '<img src="' . $cow['img'] . '" class="cow-img">';
+                            echo '<div class="crop-img"><img src="' . $cow['img'] . '" class="cow-img" alt="Cow"></div>';
                         }
-                        else echo '<div class="cow-img"></div>';
+                        else echo '<div class="crop-img"><img class="cow-img" src="./public/assets/icon/cow.svg" alt="Cow"></div>';
                         echo '<p class="font-arima">N°' . $cow['number'] . '</p>';
                     }
 
                     else {
                         echo '<p class="cow-message">Aucune vache sélectionnée</p>';
-                        echo '<div class="cow-img"></div>';
+                        echo '<div class="crop-img"><img class="cow-img" src="./public/assets/icon/cow.svg" alt="Cow"></div>';
                         echo '';
                     }
                     ?>

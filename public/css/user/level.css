@@ -2,6 +2,12 @@
     padding: 50px;
 }
 
+.level .level-block > img{
+    height: 40px;
+    width: auto;
+    margin-top: 10px;
+}
+
 /* Chrome, Safari, Edge, Opera */
 .level input::-webkit-outer-spin-button,
 .level input::-webkit-inner-spin-button {
@@ -101,6 +107,7 @@
 .level .cursor span{
     position: absolute;
     top: -20px;
+    left: -5px;
     font-size: 10px;
     user-select: none; /* supported by Chrome and Opera */
     -webkit-user-select: none; /* Safari */

@@ -187,7 +187,7 @@ function changeLevel(int $chipId, array $datas): bool
 {
     foreach ($datas as $data){
         $update_level_sql = "UPDATE chip_level 
-                                SET Chip_Reference = :min, Chip_First_Level = :mid, Chip_Second_Level = :max 
+                                SET Chip_Reference = :reference, Chip_First_Level = :firstLevel, Chip_Second_Level = :secondLevel 
                                 WHERE Sensor_Id = :sensor AND Chip_Id =:chipId";
         $update_level_query = $GLOBALS['db']->prepare($update_level_sql);
         $update_level_query->execute(

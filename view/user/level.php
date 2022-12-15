@@ -1,6 +1,10 @@
 <?php
-$level = $current_level[0] ?? [];
-print_r($level);
+$id = 1;
+$current_level = $current_level ?? [];
+$level = [];
+foreach ($current_level as $current){
+    if($current['sensor'] === $id) $level = $current ;
+}
 
 $img = '';
 $reference = $level['reference'];
@@ -53,6 +57,8 @@ switch ($level['sensor']) {
             <p class="caption-first">Le seuil moyen est atteint en &#177;<span><?php echo $level['firstLevel']?></span></p>
             <p class="caption-second">Le seuil critique est atteint en &#177;<span><?php echo $level['secondLevel']?></span></p>
         </div>
+
+            <input name="sensor" type="hidden" value="<?php echo $level['sensor']?>">
 
 
 
@@ -212,6 +218,42 @@ switch ($level['sensor']) {
 
             }
         });
-    });
+
+
+        // from submiting
+        $('#level-button').on('click', function (e) {
+            e.preventDefault();
+                let inputNameRef = ('reference').toString()
+                let refid = ('.ref-cursor').toString();
+                let refval = parseInt($(refid).text());
+                $("<input>").attr({
+                    name: inputNameRef,
+                    type: "hidden",
+                    value: refval
+                }).appendTo("form");
+
+            let inputNameFirst = ('firstLevel').toString()
+            let firstid = ('.caption-first').toString();
+            let firstval = parseInt($(firstid).find('span').text());
+            $("<input>").attr({
+                name: inputNameFirst,
+                type: "hidden",
+                value: firstval
+            }).appendTo("form");
+
+
+            let inputNameSecond = ('secondLevel').toString()
+            let secid = ('.caption-second').toString();
+            let secval = parseInt($(secid).find('span').text());
+            $("<input>").attr({
+                name: inputNameSecond,
+                type: "hidden",
+                value: secval
+            }).appendTo("form");
+
+            $('#level-form').submit();
+        });
+
+        });
 
 </script>

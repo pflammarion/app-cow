@@ -11,32 +11,15 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             if($action === 'level' && isset($_GET['chipid']) && isset($_GET['cow'])){
                 $view = "user/level";
                 $current_level = getLevelByChip($_GET['chipid']);
-                if(isset($_POST['reference-1'])){
-                    $new_heart = array(
-                        'sensor' => 1,
-                        'reference' => intval($_POST['reference-1']) ?? null,
-                        'firstLevel' => intval($_POST['firstLevel-1']) ?? null,
-                        'secondLevel' => intval($_POST['firstLevel-1']) ?? null,
+                if(isset($_POST['reference'])){
+                    $new_sensor = array(
+                        'sensor' => intval($_POST['sensor']) ?? null,
+                        'reference' => intval($_POST['reference']) ?? null,
+                        'firstLevel' => intval($_POST['firstLevel']) ?? null,
+                        'secondLevel' => intval($_POST['secondLevel']) ?? null,
                     );
-                    $new_air = array(
-                        'sensor' => 2,
-                        'reference' => intval($_POST['reference-2']) ?? null,
-                        'firstLevel' => intval($_POST['firstLevel-2']) ?? null,
-                        'secondLevel' => intval($_POST['secondLevel-2']) ?? null,
-                    );
-                    $new_sound = array(
-                        'sensor' => 3,
-                        'reference' => intval($_POST['reference-3']) ?? null,
-                        'firstLevel' => intval($_POST['firstLevel-3']) ?? null,
-                        'secondLevel' => intval($_POST['secondLevel-3']) ?? null,
-                    );
-                    $new_battery = array(
-                        'sensor' => 4,
-                        'reference' => intval($_POST['reference-4']) ?? null,
-                        'firstLevel' => intval($_POST['firstLevel-4']) ?? null,
-                        'secondLevel' => intval($_POST['secondLevel-4']) ?? null,
-                    );
-                    $values = array($new_heart, $new_air, $new_sound, $new_battery);
+
+                    $values = array($new_sensor);
                     $update = changeLevel($_GET['chipid'], $values);
                     if ($update){
                         header("Location: user?page=accueil&cow=" . $_GET['cow']);

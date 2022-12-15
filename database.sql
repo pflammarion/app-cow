@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.31, for macos12.6 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.31, for Linux (x86_64)
 --
 -- Host: localhost    Database: APPCOW
 -- ------------------------------------------------------
--- Server version	8.0.31
+-- Server version	8.0.31-0ubuntu0.22.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -166,9 +166,9 @@ DROP TABLE IF EXISTS `chip_level`;
 CREATE TABLE `chip_level` (
   `Chip_Level_Id` int NOT NULL AUTO_INCREMENT,
   `Chip_Id` int NOT NULL,
-  `Low_Level` int DEFAULT NULL,
-  `Mid_Level` int DEFAULT NULL,
-  `High_Level` int DEFAULT NULL,
+  `Chip_Reference` int DEFAULT NULL,
+  `Chip_First_Level` int DEFAULT NULL,
+  `Chip_Second_Level` int DEFAULT NULL,
   `Sensor_Id` int DEFAULT NULL,
   PRIMARY KEY (`Chip_Level_Id`),
   KEY `FK_Sensor_ID_Chip_Sensor_Id` (`Sensor_Id`),
@@ -184,7 +184,7 @@ CREATE TABLE `chip_level` (
 
 LOCK TABLES `chip_level` WRITE;
 /*!40000 ALTER TABLE `chip_level` DISABLE KEYS */;
-INSERT INTO `chip_level` VALUES (12,1,60,70,80,1),(13,1,60,70,80,2),(14,1,60,70,80,3),(15,1,75,50,25,4),(16,2,60,70,80,1),(17,2,60,70,80,2),(18,2,60,70,80,3),(19,2,75,50,25,4),(20,3,60,70,80,1),(21,3,60,70,80,2),(22,3,60,70,80,3),(23,3,75,50,25,4),(24,4,60,70,80,1),(25,4,60,70,80,2),(26,4,60,70,80,3),(27,4,75,50,25,4),(28,5,60,70,80,1),(29,5,60,70,80,2),(30,5,60,70,80,3),(31,5,75,50,25,4),(32,6,60,70,80,1),(33,6,60,70,80,2),(34,6,60,70,80,3),(35,6,75,50,25,4),(36,7,60,70,80,1),(37,7,60,70,80,2),(38,7,60,70,80,3),(39,7,75,50,25,4),(40,8,60,70,80,1),(41,8,60,70,80,2),(42,8,60,70,80,3),(43,8,75,50,25,4),(44,9,60,70,80,1),(45,9,60,70,80,2),(46,9,60,70,80,3),(47,9,75,50,25,4);
+INSERT INTO `chip_level` VALUES (12,1,72,18,43,1),(13,1,100,10,20,2),(14,1,60,20,40,3),(15,1,100,50,75,4),(16,2,60,20,40,1),(17,2,100,10,20,2),(18,2,60,20,40,3),(19,2,100,50,75,4),(20,3,60,20,40,1),(21,3,100,10,20,2),(22,3,60,20,40,3),(23,3,100,50,75,4),(24,4,60,20,40,1),(25,4,100,10,20,2),(26,4,60,20,40,3),(27,4,100,50,75,4),(28,5,60,20,40,1),(29,5,100,10,20,2),(30,5,60,20,40,3),(31,5,100,50,75,4),(32,6,60,20,40,1),(33,6,100,10,20,2),(34,6,60,20,40,3),(35,6,100,50,75,4),(36,7,60,20,40,1),(37,7,100,10,20,2),(38,7,60,20,40,3),(39,7,100,50,75,4),(40,8,60,20,40,1),(41,8,100,10,20,2),(42,8,60,20,40,3),(43,8,100,50,75,4),(44,9,60,20,40,1),(45,9,100,10,20,2),(46,9,60,20,40,3),(47,9,100,50,75,4);
 /*!40000 ALTER TABLE `chip_level` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -233,7 +233,7 @@ CREATE TABLE `data_sensor` (
   KEY `FK_Average_Id_Data_Sensor_Average` (`Average_Id`),
   CONSTRAINT `data_sensor_chip_level_Chip_Level_Id_fk` FOREIGN KEY (`Chip_Level_Id`) REFERENCES `chip_level` (`Chip_Level_Id`),
   CONSTRAINT `FK_Average_Id_Data_Sensor_Average` FOREIGN KEY (`Average_Id`) REFERENCES `average` (`Average_Id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=1014 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -258,7 +258,7 @@ CREATE TABLE `faq` (
   `FAQ_Title` varchar(256) NOT NULL,
   `FAQ_Answer` text NOT NULL,
   PRIMARY KEY (`FAQ_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -498,4 +498,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-14 17:09:01
+-- Dump completed on 2022-12-15 18:21:48

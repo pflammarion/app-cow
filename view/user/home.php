@@ -34,57 +34,35 @@ $chipId = $chipId ?? 0;
                     if (isset($sensor['value'])){
                         $val = $sensor['value'];
                         $class = '';
+
+                        $delta = abs($sensor['value'] - $sensor['reference']);
+
+                        if ($delta < $sensor['firstLevel']){
+                            $class = 'low';
+                        }
+                        if ($delta >= $sensor['firstLevel'] && $delta < $sensor['secondLevel']){
+                            $class = 'mid';
+                        }
+                        if ($delta >= $sensor['secondLevel']){
+                            $class = 'high';
+                        }
+
                         if($key === 'heart'){
                             $type = 'BPM';
                             $img_url = './public/assets/icon/heart.svg';
-                            if ($sensor['value'] > $sensor['low']){
-                                $class = 'low';
-                            }
-                            if ($sensor['value'] > $sensor['mid']){
-                                $class = 'mid';
-                            }
-                            if ($sensor['value'] > $sensor['high']){
-                                $class = 'high';
-                            }
+
                         }
-                        if($key === 'sound'){
+                        if($key === 'sound') {
                             $type = 'dB';
                             $img_url = './public/assets/icon/sound.svg';
-                            if ($sensor['value'] > $sensor['low']){
-                                $class = 'low';
-                            }
-                            if ($sensor['value'] > $sensor['mid']){
-                                $class = 'mid';
-                            }
-                            if ($sensor['value'] > $sensor['high']){
-                                $class = 'high';
-                            }
                         }
                         if($key === 'air'){
                             $type = '%';
                             $img_url = './public/assets/icon/air.svg';
-                            if ($sensor['value'] < $sensor['low']){
-                                $class = 'low';
-                            }
-                            if ($sensor['value'] < $sensor['mid']){
-                                $class = 'mid';
-                            }
-                            if ($sensor['value'] < $sensor['high']){
-                                $class = 'high';
-                            }
                         }
                         if($key === 'battery'){
                             $type = '%';
                             $img_url = './public/assets/icon/battery.svg';
-                            if ($sensor['value'] < $sensor['low']){
-                                $class = 'low';
-                            }
-                            if ($sensor['value'] < $sensor['mid']){
-                                $class = 'mid';
-                            }
-                            if ($sensor['value'] < $sensor['high']){
-                                $class = 'high';
-                            }
                         }
                     }
 

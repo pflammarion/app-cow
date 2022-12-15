@@ -1,142 +1,65 @@
 <?php
+$id = 1;
 $current_level = $current_level ?? [];
+$level = [];
+foreach ($current_level as $current){
+    if($current['sensor'] === $id) $level = $current ;
+}
+
+$min = 0;
+$max = 0;
+$img = '';
+$reference = $level['reference'];
+$first_level = $level['firstLevel'];
+$second_level = $level['secondLevel'];
+switch ($level['sensor']) {
+    case 1:
+        $img = '<img src="./public/assets/icon/heart.svg" alt="heart">';
+        $max = 150;
+        break;
+    case 2:
+        $img = '<img src="./public/assets/icon/air.svg" alt="air">';
+        $max = 100;
+        break;
+    case 3:
+        $img = '<img src="./public/assets/icon/sound.svg" alt="sound">';
+        $max = 150;
+        break;
+    case 4:
+        $img = '<img src="./public/assets/icon/battery.svg" alt="battery">';
+        $max = 100;
+        break;
+}
+
 ?>
 
 <div class="level">
     <div class="level-block">
-    <h2>Modifier mes seuils</h2>
-    <form id="level-form" action="" method="post">
-        <?php
-            foreach ($current_level as $level){
-                if ($level['sensor']!== 4){
-                    ?>
-                    <div class="level-container">
-                        <?php
-                        switch ($level['sensor']){
-                            case 1:
-                                echo '<img src="./public/assets/icon/heart.svg">';
-                                break;
-                            case 2:
-                                echo '<img src="./public/assets/icon/air.svg">';
-                                break;
-                            case 3:
-                                echo '<img src="./public/assets/icon/sound.svg">';
-                                break;
-                            case 4:
-                                echo '<img src="./public/assets/icon/battery.svg">';
-                                break;
-                        }
-                        ?>
-                        <div class="inline-slider">
-                        <div id="min<?php echo ($level['sensor']) ?>" class="slider min">
-                            <div id="custom-handle-min<?php echo ($level['sensor']) ?>" class="ui-slider-handle"></div>
-                        </div>
-                        <div id="mid<?php echo ($level['sensor']) ?>" class="slider mid">
-                            <div id="custom-handle-mid<?php echo ($level['sensor']) ?>" class="ui-slider-handle"></div>
-                        </div>
-                        <div id="max<?php echo ($level['sensor']) ?>" class="slider max">
-                            <div id="custom-handle-max<?php echo ($level['sensor']) ?>" class="ui-slider-handle"></div>
-                        </div>
-                        </div>
-                    </div>
+        <h2>Modifier mes seuils</h2>
+        <?php echo $img;?>
+        <form id="level-form" action="" method="post">
 
-                    <?php
-                }
-            }
-        ?>
+            <div class="level-container">
+                <span class="min"><?php echo $min?></span>
+                <div class="high-level-bar"></div>
+                <div class="second-level-cursor-un cursor"><span><?php echo $level['reference'] - $level['secondLevel']?></span></div>
+                <div class="mid-level-bar"></div>
+                <div class="second-level-cursor-deux cursor"><span><?php echo $level['reference'] + $level['secondLevel']?></span></div>
+                <div class="first-level-cursor-un cursor"><span><?php echo $level['reference'] - $level['firstLevel']?></span></div>
+                <div class="low-level-bar "></div>
+                <div class="ref-cursor cursor"><span><?php echo $level['reference']?></span></div>
+                <div class="first-level-cursor-deux cursor"><span><?php echo $level['reference'] + $level['firstLevel']?></span></div>
+                <span class="max">150</span>
+            </div>
+        <div class="caption">
+            <p class="caption-first">Le seuil moyen est atteint en &#177;<span><?php echo $level['firstLevel']?></span>BPM</p>
+            <p class="caption-second">Le seuil critique est atteint en &#177;<span><?php echo $level['secondLevel']?></span>BPM</p>
+        </div>
 
-            <script>
-                    function updateValue(min, mid, max, id){
-                        let minid  = ('#custom-handle-min' + id).toString();
-                        let minval = parseInt($(minid).text());
-                        let midid  = ('#custom-handle-mid' + id).toString();
-                        let midval = parseInt($(midid).text());
-                        let maxid  = ('#custom-handle-max' + id).toString();
-                        let maxval = parseInt($(maxid).text());
-                        if(id === 4){
-                            $(min).slider( "option", "min", midval);
-                            $(mid).slider( "option", "min", maxval);
-                            $(mid).slider( "option", "max", minval);
-                            $(max).slider( "option", "max", midval);
-                        }
-                        else{
-                            $(min).slider( "option", "max", midval);
-                            $(mid).slider( "option", "min", minval);
-                            $(mid).slider( "option", "max", maxval);
-                            $(max).slider( "option", "min", midval);
-                        }
-                        setWidth(min);
-                        setWidth(mid);
-                        setWidth(max);
-                    }
+            <input name="sensor" type="hidden" value="<?php echo $level['sensor']?>">
 
-                    function setWidth(object){
-                        let min = $(object).slider("option", "min");
-                        let max = $(object).slider("option", "max");
-                        let width = ((parseInt(max) - parseInt(min)) * 100)/150;
-                        let percent = width.toString() + "%"
-                        $(object).width(percent);
-                    }
 
-                    <?php
-                    foreach ($current_level as $level){
-                        if ($level['sensor']!== 4){
-                    ?>
 
-                    $( function() {
-                        var handle = $( "#custom-handle-min<?php echo ($level['sensor']) ?>" );
-                        $("#min<?php echo ($level['sensor']) ?>" ).slider({
-                            min: 0,
-                            max: <?php echo ($level['mid']) ?>,
-                            value: <?php echo ($level['low']) ?>, //mettre la valeur de la bdd
-                            create: function() {
-                                handle.text( $( this ).slider( "value" ) );
-                                setWidth("#min<?php echo ($level['sensor']) ?>")
-                            },
-                            slide: function( event, ui ) {
-                                handle.text( ui.value );
-                                updateValue("#min<?php echo ($level['sensor']) ?>", "#mid<?php echo ($level['sensor']) ?>", "#max<?php echo ($level['sensor']) ?>", <?php echo ($level['sensor']) ?>)
-                            }
-                        });
-                    } );
-
-                    $( function() {
-                        var handle = $( "#custom-handle-mid<?php echo ($level['sensor']) ?>" );
-                        $( "#mid<?php echo ($level['sensor']) ?>" ).slider({
-                            min: <?php echo ($level['low']) ?>,
-                            max: <?php echo ($level['high']) ?>,
-                            value: <?php echo ($level['mid']) ?>, //mettre la valeur de la bdd
-                            create: function() {
-                                handle.text( $( this ).slider( "value" ) );
-                                setWidth("#mid<?php echo ($level['sensor']) ?>")
-                            },
-                            slide: function( event, ui ) {
-                                handle.text( ui.value );
-                                updateValue("#min<?php echo ($level['sensor']) ?>", "#mid<?php echo ($level['sensor']) ?>", "#max<?php echo ($level['sensor']) ?>", <?php echo ($level['sensor']) ?>)
-                            }
-                        });
-                    } );
-
-                    $( function() {
-                        var handle = $( "#custom-handle-max<?php echo ($level['sensor']) ?>" );
-                        $( "#max<?php echo ($level['sensor']) ?>" ).slider({
-                            min: <?php echo ($level['mid']) ?>,
-                            max: 150,
-                            value: <?php echo ($level['high']) ?>, //mettre la valeur de la bdd
-                            create: function() {
-                                handle.text( $( this ).slider( "value" ) );
-                                setWidth("#max<?php echo ($level['sensor']) ?>")
-                            },
-                            slide: function( event, ui ) {
-                                handle.text( ui.value );
-                                updateValue("#min<?php echo ($level['sensor']) ?>", "#mid<?php echo ($level['sensor']) ?>", "#max<?php echo ($level['sensor']) ?>", <?php echo ($level['sensor']) ?>)
-                            }
-                        });
-                    } );
-                    <?php
-                    }}
-                    ?>
-                </script>
         <div class="button-container">
             <?php echo '<a class="btn-edit" href="user?page=accueil&cow=' . $_GET['cow'] . '">Retour</a>'; ?>
             <?php echo '<a class="btn-delete" href="user?page=accueil&action=level&chipid='. $_GET['chipid'].'&cow=' . $_GET['cow'] . '" > Reset</a>'; ?>
@@ -149,42 +72,186 @@ $current_level = $current_level ?? [];
 
 <script>
     $(document).ready(() => {
+        //init
 
-        $('#level-button').on('click', function (e){
-            e.preventDefault();
-            for(let i = 1; i <= 4; i++){
-                let inputNameMin = ('min-' + i).toString()
-                let minid  = ('#custom-handle-min' + i).toString();
-                let minval = parseInt($(minid).text());
-                $("<input>").attr({
-                    name: inputNameMin,
-                    type: "hidden",
-                    value: minval
-                }).appendTo("form");
+        let cursorRef = $('.ref-cursor');
+        let cursorFirstUn = $('.first-level-cursor-un');
+        let cursorFirstDeux = $('.first-level-cursor-deux');
+        let cursorSecondUn = $('.second-level-cursor-un');
+        let cursorSecondDeux = $('.second-level-cursor-deux');
 
-                let inputNameMid = ('mid-' + i).toString()
-                let midid  = ('#custom-handle-mid' + i).toString();
-                let midval = parseInt($(midid).text());
-                $("<input>").attr({
-                    name: inputNameMid,
-                    id: "hiddenId",
-                    type: "hidden",
-                    value: midval
-                }).appendTo("form");
+        let largueurTotale = parseInt($('.level-container').width())
+        let coef = largueurTotale/parseInt($('.max').text());
+        let refCursor = parseInt(cursorRef.find('span').text())
 
-                let inputNameMax = ('max-' + i).toString()
-                let maxid  = ('#custom-handle-max' + i).toString();
-                let maxval = parseInt($(maxid).text());
-                $("<input>").attr({
-                    name: inputNameMax,
-                    id: "hiddenId",
-                    type: "hidden",
-                    value: maxval
-                }).appendTo("form");
+        let initWidthFirst = $('.caption-first').find('span').text();
+        $('.low-level-bar').width(initWidthFirst*coef*2);
+        $('.low-level-bar').css('left', (cursorFirstUn.text() * coef));
+        let initWidthSecond = $('.caption-second').find('span').text();
+        $('.mid-level-bar').width(initWidthSecond*coef*2);
+        $('.mid-level-bar').css('left', (cursorSecondUn.text() * coef));
+
+        cursorRef.css('left', refCursor * coef)
+        cursorFirstUn.css('left', (cursorFirstUn.text() * coef))
+        cursorFirstDeux.css('left', (cursorFirstDeux.text() * coef))
+        cursorSecondUn.css('left', (cursorSecondUn.text() * coef))
+        cursorSecondDeux.css('left', (cursorSecondDeux.text() * coef))
+
+
+
+
+        $('.low-level-bar').draggable({
+           axis:"x",
+           drag: function() {
+               //get element position
+               var $this = $(this);
+               var thisPos = $this.position();
+               var x = thisPos.left;
+
+               let width = parseInt($('.low-level-bar').width());
+               let midWidth = parseInt($('.mid-level-bar').width());
+               let midPos = x + (width/2) - (midWidth/2);
+               let refCursor = x + width/2;
+
+               let ref = parseInt(cursorRef.position().left/coef)
+
+               cursorRef.css('left', refCursor)
+               cursorFirstUn.css('left', x)
+               cursorFirstDeux.css('left', x + width)
+               $('.mid-level-bar').css('left', midPos)
+               cursorSecondUn.css('left', midPos)
+               cursorSecondDeux.css('left', midPos + midWidth)
+
+
+               let currentDifMid = parseInt(($('.mid-level-bar').width()/2)/coef)
+                   cursorSecondUn.find('span').text(ref - currentDifMid)
+                   cursorSecondDeux.find('span').text(ref + currentDifMid)
+
+               let currentDifLow = parseInt(($('.low-level-bar').width()/2)/coef)
+                   cursorFirstUn.find('span').text(ref - currentDifLow)
+                   cursorFirstDeux.find('span').text(ref + currentDifLow)
+                //callback
+               cursorRef.find('span').text(ref)
+
+           }
+       });
+            $('.first-level-cursor-un').draggable({
+                axis:"x",
+                drag: function() {
+                    //get element position ref to left
+                    var $this = $(this);
+                    var thisPos = $this.position();
+                    var x = thisPos.left;
+
+                    let ref = parseInt(cursorRef.text())
+                    let dif = ((ref*coef) - x);
+                    let w = dif * 2;
+
+                    $('.low-level-bar').css('left', x)
+                    $('.low-level-bar').css('width', w)
+                    cursorFirstDeux.css('left', (ref*coef) + dif)
+                    let currentDif = parseInt(($('.low-level-bar').width()/2)/coef)
+                    cursorFirstUn.find('span').text(ref - currentDif);
+                    cursorFirstDeux.find('span').text(ref + currentDif);
+                    $('.caption-first').find('span').text(currentDif);
+                }
+            });
+
+        $('.first-level-cursor-deux').draggable({
+            axis:"x",
+            drag: function() {
+                var $this = $(this);
+                var thisPos = $this.position();
+                var x = thisPos.left;
+                let ref = parseInt(cursorRef.text())
+                let dif = (x - (ref*coef));
+                let w = dif * 2;
+                $('.low-level-bar').css('left', (ref*coef) - dif)
+                $('.low-level-bar').css('width', w)
+                cursorFirstUn.css('left', (ref*coef) - dif)
+                let currentDif = parseInt(($('.low-level-bar').width()/2)/coef)
+                cursorFirstUn.find('span').text(ref - currentDif)
+                cursorFirstDeux.find('span').text(ref + currentDif)
+                $('.caption-first').find('span').text(currentDif);
             }
+        });
+
+        $('.second-level-cursor-un').draggable({
+            axis:"x",
+            drag: function() {
+                var $this = $(this);
+                var thisPos = $this.position();
+                var x = thisPos.left;
+
+                let ref = parseInt(cursorRef.text())
+                let dif = ((ref*coef) - x);
+                let w = dif * 2;
+
+                $('.mid-level-bar').css('left', x)
+                $('.mid-level-bar').css('width', w)
+                cursorSecondDeux.css('left', (ref*coef) + dif)
+                let currentDif = parseInt(($('.mid-level-bar').width()/2)/coef)
+                cursorSecondUn.find('span').text(ref - currentDif)
+                cursorSecondDeux.find('span').text(ref + currentDif)
+                $('.caption-second').find('span').text(currentDif);
+            }
+        });
+
+        $('.second-level-cursor-deux').draggable({
+            axis:"x",
+            drag: function() {
+                var $this = $(this);
+                var thisPos = $this.position();
+                var x = thisPos.left;
+                let ref = parseInt(cursorRef.text())
+                let dif = (x - (ref*coef));
+                let w = dif * 2;
+                $('.mid-level-bar').css('left', ref*coef - dif)
+                $('.mid-level-bar').css('width', w)
+                cursorSecondUn.css('left', ref*coef - dif)
+                let currentDif = parseInt(($('.mid-level-bar').width()/2)/coef)
+                cursorSecondUn.find('span').text(ref - currentDif)
+                cursorSecondDeux.find('span').text(ref + currentDif)
+                $('.caption-second').find('span').text(currentDif);
+
+            }
+        });
+
+
+        // from submiting
+        $('#level-button').on('click', function (e) {
+            e.preventDefault();
+                let inputNameRef = ('reference').toString()
+                let refid = ('.ref-cursor').toString();
+                let refval = parseInt($(refid).text());
+                $("<input>").attr({
+                    name: inputNameRef,
+                    type: "hidden",
+                    value: refval
+                }).appendTo("form");
+
+            let inputNameFirst = ('firstLevel').toString()
+            let firstid = ('.caption-first').toString();
+            let firstval = parseInt($(firstid).find('span').text());
+            $("<input>").attr({
+                name: inputNameFirst,
+                type: "hidden",
+                value: firstval
+            }).appendTo("form");
+
+
+            let inputNameSecond = ('secondLevel').toString()
+            let secid = ('.caption-second').toString();
+            let secval = parseInt($(secid).find('span').text());
+            $("<input>").attr({
+                name: inputNameSecond,
+                type: "hidden",
+                value: secval
+            }).appendTo("form");
+
             $('#level-form').submit();
+        });
 
-        })
+        });
 
-    });
 </script>

@@ -214,7 +214,7 @@
 .home .cow-scroller{
     overflow: hidden;
     overflow-y: scroll;
-    height: 100px;
+    height: 180px;
 }
 
 .home .empty-center{

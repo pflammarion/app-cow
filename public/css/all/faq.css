@@ -23,6 +23,9 @@
     width: 90%;
     display: block;
 }
+.faq-user .faq-user-separator:last-child {
+    display: none;
+}
 .faq-user .faq-user-article h2 {
     margin-left: 11px;
     margin-top: 11px;

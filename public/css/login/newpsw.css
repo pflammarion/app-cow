@@ -1,0 +1,33 @@
+.new-password{
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-password .input-container{
+    width: 300px;
+}
+
+.new-password .btn-green{
+    height: 40px;
+    width: 300px !important;
+    margin-top: 60px;
+}
+
+@media screen and (min-width: 800px) {
+    .new-password {
+        width:700px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .new-password {
+        width: 900px;
+    }
+    .new-password .btn-green{
+        height: 50px;
+        margin-top: 40px;
+    }
+}

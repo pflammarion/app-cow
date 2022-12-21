@@ -45,6 +45,9 @@ if(!empty($page)){
                 //else echec
             }
             break;
+        case 'newpassword':
+            $view = "login/newPassword";
+            break;
         case 'register' :
             $view = "login/register";
             if (isset($_POST['username']) and isset($_POST['password']) and isset($_POST['password_confirm']) and isset($_POST['firstname']) and isset($_POST['lastname']) and isset($_POST['email'])) {

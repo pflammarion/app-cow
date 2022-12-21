@@ -60,3 +60,58 @@ function register(array $value) : bool
     }
     return false;
 }
+
+function addToken(string $token, string $email): bool
+{
+    $add_token_sql = "UPDATE user SET User_Token = :token WHERE user.User_Email = :email";
+    $add_token_query = $GLOBALS['db']->prepare($add_token_sql);
+    $add_token_query->execute(
+        array(
+            "token"=> $token,
+            "email"=> $email,
+        ));
+    if ($add_token_query->rowCount() === 1){
+        return true;
+    }
+    else return false;
+}
+
+
+function getUserByToken(string $token): string
+{
+    $sql = "SELECT User_Username
+            FROM user 
+            WHERE User_Token = :token";
+    $query = $GLOBALS['db']->prepare($sql);
+    $query->execute(array('token'=>$token));
+    $row = $query->fetch();
+    if ($query->rowCount() === 1){
+        return $row['User_Username'];
+    }
+    else return '';
+}
+
+function updatePassword(string $password, string $token): bool
+{
+    $update_password_sql = "UPDATE user SET User_Password = :password WHERE user.User_Token = :token";
+    $update_password_query = $GLOBALS['db']->prepare($update_password_sql);
+    $update_password_query->execute(
+        array(
+            "token"=> $token,
+            "password"=> $password,
+        ));
+    if ($update_password_query->rowCount() === 1){
+        return true;
+    }
+    else return false;
+}
+
+function deleteToken(string $token): void
+{
+    $delete_token_sql = "UPDATE user SET User_Token = NULL WHERE user.User_Token = :token";
+    $delete_token_query = $GLOBALS['db']->prepare($delete_token_sql);
+    $delete_token_query->execute(
+        array(
+            "token"=> $token,
+        ));
+}

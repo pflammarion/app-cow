@@ -1,7 +1,7 @@
 <div class="lostpsw">
     <h1>Vous avez perdu votre mot de passe ?</h1>
     <h2>Pas de panique !</h2>
-    <form action="./login">
+    <form action="" method="post">
         <div class="input-container">
             <label for="email">
                 Adresse email

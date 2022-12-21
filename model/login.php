@@ -105,3 +105,13 @@ function updatePassword(string $password, string $token): bool
     }
     else return false;
 }
+
+function deleteToken(string $token): void
+{
+    $delete_token_sql = "DELETE FROM user WHERE User_Token = :token;";
+    $delete_token_query = $GLOBALS['db']->prepare($delete_token_sql);
+    $delete_token_query->execute(
+        array(
+            "token"=> $token,
+        ));
+}

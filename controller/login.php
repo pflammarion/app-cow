@@ -67,6 +67,7 @@ if(!empty($page)){
                         $update = updatePassword($password, $token);
 
                         if ($update) {
+                            deleteToken($token);
                             header("Location: login?page=login");
                             exit();
                         }

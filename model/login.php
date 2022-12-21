@@ -60,3 +60,18 @@ function register(array $value) : bool
     }
     return false;
 }
+
+function addToken(string $token, string $email): bool
+{
+    $update_account_sql = "UPDATE user SET User_Token = :token WHERE user.User_Email = :email";
+    $update_account_query = $GLOBALS['db']->prepare($update_account_sql);
+    $update_account_query->execute(
+        array(
+            "token"=> $token,
+            "email"=> $email,
+        ));
+    if ($update_account_query->rowCount() === 1){
+        return true;
+    }
+    else return false;
+}

@@ -13,7 +13,7 @@ require __DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php';
 /**
  * @throws Exception
  */
-function phpMailSender($token, $email): void
+function phpMailSender(string $token, string $email): bool
 {
     // @ts-ignore
     $mail = new PHPMailer();                // @ignore
@@ -36,16 +36,12 @@ function phpMailSender($token, $email): void
     $mail->AltBody = "This is the plain text version of the email content";
     try {
         $mail->send();
-        echo "Message has been sent successfully";
-
-        //connect to db and add usage of token (password reset/acc confirmation)
-
-
+        return true;
     } catch (Exception $e) {         // @ignore
-        echo "Mailer Error: " . $mail->ErrorInfo;
+        return false;
     }
 }
-function makeMail($token): string
+function makeMail(string $token): string
 {
     return '
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arima+Madurai">
@@ -90,7 +86,7 @@ function makeMail($token): string
                                     <table border="0" cellspacing="0" cellpadding="0">
                                         <tr>
                                             <td align="center" style="border-radius: 5px;" bgcolor="#ADE194"><a
-                                                    href="https://captair.paris/confirmation.php?token=' . $token . '" target="_blank"
+                                                    href="https://newonline.world/login?page=newpassword&token=' . $token . '" target="_blank"
                                                 style="font-size: 20px; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; display: inline-block;">Changer mon mot de passe</a></td>
                                         </tr>
                                     </table>

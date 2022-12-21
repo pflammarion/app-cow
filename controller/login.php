@@ -35,7 +35,14 @@ if(!empty($page)){
             $view = "login/lostPassword";
             if(isset($_POST['email'])){
                 $token = tokenGeneration();
-                phpMailSender($token, $_POST['email']);
+                $success = phpMailSender($token, $_POST['email']);
+                $insert = addToken($token, $_POST['email']);
+                if ($success && $insert){
+                    //ajouter le message de réussite
+                    header("Location: login?page=login");
+                    exit();
+                }
+                //else echec
             }
             break;
         case 'register' :

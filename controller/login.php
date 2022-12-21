@@ -2,6 +2,7 @@
 
 require __DIR__ . '/../model/login.php';
 require __DIR__ . '/../model/function.php';
+require __DIR__.'/mail.php';
 
 $page = selectPage("login");
 $view = "";
@@ -32,6 +33,10 @@ if(!empty($page)){
             break;
         case 'lostpassword':
             $view = "login/lostPassword";
+            if(isset($_POST['email'])){
+                $token = tokenGeneration();
+                phpMailSender($token, $_POST['email']);
+            }
             break;
         case 'register' :
             $view = "login/register";

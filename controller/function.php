@@ -40,3 +40,13 @@ function showPage($view): string
 {
     return (file_exists(__DIR__ .'/../view/' . $view . '.php')) ? 'view/' . $view . '.php' : 'view/error404.php';
 }
+
+function tokenGeneration(): string
+{
+    $token = "";
+    $array_letters = array_merge(range('A', 'Z'), range('a', 'z'), range(0, 9));;
+    for ($i = 0; $i < 30; $i++) {
+        $token .= $array_letters[array_rand($array_letters, 1)];
+    }
+    return $token;
+}

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.31, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.31, for macos12.6 (x86_64)
 --
 -- Host: localhost    Database: APPCOW
 -- ------------------------------------------------------
--- Server version	8.0.31-0ubuntu0.22.04.1
+-- Server version	8.0.31
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -473,6 +473,7 @@ CREATE TABLE `user` (
   `User_Ban` tinyint(1) NOT NULL DEFAULT '0',
   `User_FirstName` varchar(50) NOT NULL,
   `User_LastName` varchar(50) NOT NULL,
+  `User_Token` varchar(512) DEFAULT NULL,
   PRIMARY KEY (`User_Id`),
   KEY `FK_Role_Id_User_Role` (`Role_Id`),
   CONSTRAINT `FK_Role_Id_User_Role` FOREIGN KEY (`Role_Id`) REFERENCES `role` (`Role_Id`) ON UPDATE CASCADE
@@ -485,7 +486,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (7,1,'paul@flammarion.eu','$2y$10$JM41Tvy9WN/A68M2gbRUVuO0HP0TojvYiW2IDm2BZHwBiEn7N8vIi','pipaul',NULL,0,'Paul','Flammarion'),(8,3,'admin@admin.fr','$2y$10$cit9RGgKP5aOf/lELH5uqeS3.1uyrE341Jb434r32xu7KUOhy6uPy','admin',NULL,0,'Admin','Admin'),(9,1,'user@user.fr','$2y$10$552s3Y.mEfhPRW2cH4ckC.Qoehlb.Hb1dTDYOqavY5hr7S3Lr9J82','user',NULL,0,'User','User'),(10,2,'gest@gest.com','$2y$10$tHUcWAS9FzYTregozGtxYOPunZE9VLHkUsEVu3.1x4.tOd7LHqZ/W','gest',NULL,0,'Gest','Gest');
+INSERT INTO `user` VALUES (7,1,'paul@flammarion.eu','$2y$10$JM41Tvy9WN/A68M2gbRUVuO0HP0TojvYiW2IDm2BZHwBiEn7N8vIi','pipaul',NULL,0,'Paul','Flammarion',NULL),(8,3,'admin@admin.fr','$2y$10$cit9RGgKP5aOf/lELH5uqeS3.1uyrE341Jb434r32xu7KUOhy6uPy','admin',NULL,0,'Admin','Admin',NULL),(9,1,'user@user.fr','$2y$10$552s3Y.mEfhPRW2cH4ckC.Qoehlb.Hb1dTDYOqavY5hr7S3Lr9J82','user',NULL,0,'User','User',NULL),(10,2,'gest@gest.com','$2y$10$tHUcWAS9FzYTregozGtxYOPunZE9VLHkUsEVu3.1x4.tOd7LHqZ/W','gest',NULL,0,'Gest','Gest',NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -498,4 +499,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-15 18:21:48
+-- Dump completed on 2022-12-21 14:37:36

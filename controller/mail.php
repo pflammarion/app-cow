@@ -10,7 +10,7 @@ require __DIR__ . '/../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require __DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php';
 
 
-function phpMailSender($token, $email, $typeofemail)
+function phpMailSender($token, $email)
 {
     // @ts-ignore
     $mail = new PHPMailer();                // @ignore
@@ -19,21 +19,15 @@ function phpMailSender($token, $email, $typeofemail)
     $mail->isSMTP();                        // Set mailer to use SMTP
     $mail->Host       = 'ssl0.ovh.net;';    // Specify main SMTP server
     $mail->SMTPAuth   = true;               // Enable SMTP authentication
-    $mail->Username   = 'mail';     // SMTP username
-    $mail->Password   = 'mdp';         // SMTP password
+    $mail->Username   = 'cow';     // SMTP username
+    $mail->Password   = "Let'sCodeAPP";         // SMTP password
     $mail->SMTPSecure = 'ssl';              // Enable TLS encryption, 'ssl' also accepted
     $mail->Port       = 465;                // TCP port to connect to
-    $mail->setFrom('noreply@captair.paris', 'captair.paris noreply');
+    $mail->setFrom('cow@newonline.world', 'newonline.world cow');
     $mail->addAddress($email);
-    if ($typeofemail == 0) {
-        $mail->Subject = "Confirmation de votre adresse mail sur captair.paris";
-        $mail->Body = makemail($token);
-        $mail->AltBody = "This is the plain text version of the email content";
-    } else if ($typeofemail == 1) {
-        $mail->Subject = "Changement de votre mot de passe captair.paris";
-        $mail->Body = makemail($token);
-        $mail->AltBody = "This is the plain text version of the email content";
-    }
+    $mail->Subject = "Récupération de mot de passe COW";
+    $mail->Body = makeMail($token);
+    $mail->AltBody = "This is the plain text version of the email content";
     try {
         $mail->send();
         echo "Message has been sent successfully";
@@ -45,8 +39,9 @@ function phpMailSender($token, $email, $typeofemail)
         echo "Mailer Error: " . $mail->ErrorInfo;
     }
 }
-function makemail($token){
-    $stringData = '
+function makeMail($token): string
+{
+    return '
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
     <style>
     
@@ -146,6 +141,5 @@ function makemail($token){
         </table>
     
     </body>';
-    return $stringData;
 }
 

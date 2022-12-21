@@ -13,6 +13,7 @@
                 <input id="password_confirm" type="password" name="password_confirm" required="required">
             </label>
         </div>
+        <input type="hidden" value="<?php echo $_GET['token']?>" name="token">
         <button type="submit" class="btn-green">
             <p>Je le réinitialise</p>
         </button>

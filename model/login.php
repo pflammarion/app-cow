@@ -63,14 +63,44 @@ function register(array $value) : bool
 
 function addToken(string $token, string $email): bool
 {
-    $update_account_sql = "UPDATE user SET User_Token = :token WHERE user.User_Email = :email";
-    $update_account_query = $GLOBALS['db']->prepare($update_account_sql);
-    $update_account_query->execute(
+    $add_token_sql = "UPDATE user SET User_Token = :token WHERE user.User_Email = :email";
+    $add_token_query = $GLOBALS['db']->prepare($add_token_sql);
+    $add_token_query->execute(
         array(
             "token"=> $token,
             "email"=> $email,
         ));
-    if ($update_account_query->rowCount() === 1){
+    if ($add_token_query->rowCount() === 1){
+        return true;
+    }
+    else return false;
+}
+
+
+function getUserByToken(string $token): string
+{
+    $sql = "SELECT User_Username
+            FROM user 
+            WHERE User_Token = :token";
+    $query = $GLOBALS['db']->prepare($sql);
+    $query->execute(array('token'=>$token));
+    $row = $query->fetch();
+    if ($query->rowCount() === 1){
+        return $row['User_Username'];
+    }
+    else return '';
+}
+
+function updatePassword(string $password, string $token): bool
+{
+    $update_password_sql = "UPDATE user SET User_Password = :password WHERE user.User_Token = :token";
+    $update_password_query = $GLOBALS['db']->prepare($update_password_sql);
+    $update_password_query->execute(
+        array(
+            "token"=> $token,
+            "password"=> $password,
+        ));
+    if ($update_password_query->rowCount() === 1){
         return true;
     }
     else return false;

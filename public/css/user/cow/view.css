@@ -47,6 +47,7 @@
 }
 .cow-view-add-box:hover {
     background-color: #E3E3E3;
+    cursor: pointer;
 }
 .cow-view-add-box img {
     width: 35px;
@@ -84,7 +85,14 @@
     .cow-view-setting-box {
         width: 360px;
         height: 110px;
-        border: 1px solid red;
+    }
+    .cow-view-add-box {
+        width: 360px;
+        height: 100px;
+    }
+    .cow-view-add-box a {
+        width: 44px;
+        height: 44px;
     }
     .cow-view-box {
         width: 300px;

@@ -1,5 +1,6 @@
 <div class="cow-view-page-box">
     <div></div>
+
     <div class="cow-view-setting-box">
         <div class="cow-view-btn-box">
             <a></a>

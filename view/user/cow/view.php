@@ -5,12 +5,14 @@
         <div class="cow-view-btn-box">
             <a></a>
         </div>
-        <div class="cow-view-add-box">
-            <p class="font-arima" style="font-weight: bold">Ajouter une vache</p>
-            <div class="cow-view-profil">
-                <img src="./public/assets/icon/cow.svg">
+        <a href="user?page=vache&action=create">
+            <div class="cow-view-add-box">
+                <p class="font-arima" style="font-weight: bold">Ajouter une vache</p>
+                <div class="cow-view-profil">
+                    <img src="./public/assets/icon/cow.svg">
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="cow-view-setting-box">
         <div class="cow-view-btn-box">

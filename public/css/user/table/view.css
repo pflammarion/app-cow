@@ -1,0 +1,129 @@
+.table{
+    padding: 50px 0;
+}
+
+.table .container{
+    border: solid 3px var(--dark-blue);
+    border-radius: 10px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.table .container .table-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+.table .container .table-header .changer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table .container .table-header .changer img:last-child{
+    transform: rotate(180deg);
+}
+.table .table-header img{
+    height: 20px;
+    width: auto;
+}
+
+.table .table-header .changer div{
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: var(--grey);
+    padding: 3px 10px;
+    margin: 0 10px;
+}
+
+.table .table-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table .table-footer > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 400;
+    margin: 10px 15px;
+    gap: 10px;
+}
+
+.table .table-footer .round{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
+.table .table-footer div .herd{
+    background-color: var(--light-blue);
+}
+.table .table-footer div .selected-cow{
+    background-color: var(--dark-blue);
+}
+
+.table .table-content{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.table .table-content .side{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    gap: 5px;
+}
+
+.table .bar{
+    position: relative;
+    font-weight: 400;
+    font-size: 9px;
+    width: 20px;
+    color: #808080;
+
+}
+
+.table .table-content .bar div{
+    width: 20px;
+    border-radius: 5px;
+}
+
+.table .table-content .bar .herd{
+    position: absolute;
+    bottom: 0;
+    background-color: var(--light-blue);
+}
+.table .table-content .bar .selected-cow{
+    position: absolute;
+    bottom: 0;
+    background-color: var(--dark-blue);
+}
+
+.table .table-content .bar > div > span{
+    position: absolute;
+    top: -8px;
+}
+
+.table .table-content .bar .selected-cow > span{
+    right: 0;
+}
+
+.table .table-content .bar .herd > span{
+    left: 0;
+}
+
+.table .table-content .bar > span{
+    position: absolute;
+    bottom: -15px;
+    font-size: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}

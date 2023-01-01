@@ -1,4 +1,5 @@
-.level{
+.level,
+.level-selector{
     padding: 50px;
 }
 
@@ -152,6 +153,46 @@
 .level .caption-second span{
     font-weight: bold;
     color: red;
+}
+
+.level-selector .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    border: solid 3px var(--dark-blue);
+    border-radius: 10px;
+}
+
+.level-selector .container .button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.level-selector .container .button-container > a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    border: 3px solid var(--dark-blue);
+    border-radius: 5px;
+    height: 200px;
+    width: 200px;
+}
+
+.level-selector .container .button-container > a:hover{
+    background-color: var(--light-blue);
+    cursor: pointer;
+}
+
+.level-selector .container .button-container > a > img {
+    width: 50px;
+    height: auto;
 }
 
 

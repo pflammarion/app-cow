@@ -1,5 +1,5 @@
 <?php
-$id = 1;
+$id = intval($_GET['sensorid']);
 $current_level = $current_level ?? [];
 $level = [];
 foreach ($current_level as $current){
@@ -61,7 +61,7 @@ switch ($level['sensor']) {
 
 
         <div class="button-container">
-            <?php echo '<a class="btn-edit" href="user?page=accueil&cow=' . $_GET['cow'] . '">Retour</a>'; ?>
+            <?php echo '<a class="btn-edit" href="user?page=accueil&action=level_selector&chipid='.$_GET['chipid'].'&cow=' . $_GET['cow'] . '">Retour</a>'; ?>
             <?php echo '<a class="btn-delete" href="user?page=accueil&action=level&chipid='. $_GET['chipid'].'&cow=' . $_GET['cow'] . '" > Reset</a>'; ?>
             <div class="btn-green" id="level-button">Valider</div>
         </div>

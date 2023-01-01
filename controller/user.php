@@ -8,7 +8,10 @@ $action = selectAction("view");
 if(pageAuthorization('user') && !empty($page) && !empty($action)){
     switch ($page) {
         case 'accueil':
-            if($action === 'level' && isset($_GET['chipid']) && isset($_GET['cow'])){
+            if($action === 'level_selector' && isset($_GET['chipid']) && isset($_GET['cow'])){
+                $view = "user/level_selector";
+            }
+            if($action === 'level' && isset($_GET['chipid'], $_GET['cow'], $_GET['sensorid'])){
                 $view = "user/level";
                 $current_level = getLevelByChip($_GET['chipid']);
                 if(isset($_POST['reference'])){

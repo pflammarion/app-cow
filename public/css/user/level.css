@@ -69,6 +69,12 @@
     margin: 50px auto;
 }
 
+.level .level-overflow{
+    overflow-x: hidden;
+    width: 400px;
+    margin: 0 auto;
+}
+
 .level-container > *{
     height: 100%;
     position: absolute;

@@ -38,7 +38,7 @@ switch ($level['sensor']) {
         <h2>Modifier mes seuils</h2>
         <?php echo $img;?>
         <form id="level-form" action="" method="post">
-
+            <?php if($level['sensor'] === 1 || $level['sensor'] === 3){?>
             <div class="level-container">
                 <span class="min"><?php echo $min?></span>
                 <div class="high-level-bar"></div>
@@ -49,20 +49,74 @@ switch ($level['sensor']) {
                 <div class="low-level-bar "></div>
                 <div class="ref-cursor cursor"><span><?php echo $level['reference']?></span></div>
                 <div class="first-level-cursor-deux cursor"><span><?php echo $level['reference'] + $level['firstLevel']?></span></div>
-                <span class="max">150</span>
+                <span class="max"><?php echo $max?></span>
             </div>
+            <?php }else{?>
+                    <div class="level-overflow">
+                        <div class="level-container">
+                            <span class="min" style="left: 0"><?php echo $min?></span>
+                            <div class="high-level-bar"></div>
+                            <div class="second-level-cursor-un cursor"><span><?php echo $level['reference'] - $level['secondLevel']?></span></div>
+                            <div class="mid-level-bar"></div>
+                            <div class="second-level-cursor-deux cursor"><span><?php echo $level['reference'] + $level['secondLevel']?></span></div>
+                            <div class="first-level-cursor-un cursor"><span><?php echo $level['reference'] - $level['firstLevel']?></span></div>
+                            <div class="low-level-bar "></div>
+                            <div class="ref-cursor cursor"><span style="left: -31px; top: -40px"><?php echo $level['reference']?></span></div>
+                            <div class="first-level-cursor-deux cursor"><span><?php echo $level['reference'] + $level['firstLevel']?></span></div>
+                            <span class="max" style="display: none"><?php echo $max?></span>
+                        </div>
+                    </div>
+            <?php }?>
         <div class="caption">
-            <p class="caption-first">Le seuil moyen est atteint en &#177;<span><?php echo $level['firstLevel']?></span>BPM</p>
-            <p class="caption-second">Le seuil critique est atteint en &#177;<span><?php echo $level['secondLevel']?></span>BPM</p>
+            <p class="caption-first">Le seuil moyen est atteint en
+                <?php
+                if($level['sensor'] === 2 || $level['sensor'] === 4){
+                        echo '-';
+                    }
+                else echo '&#177';
+                ?>
+
+                <span><?php echo $level['firstLevel']?></span>
+                <?php if($level['sensor'] === 1){
+                        echo 'BPM';
+                    }
+                    elseif($level['sensor'] === 2 || $level['sensor'] === 4){
+                        echo '%';
+                    }
+                    elseif ($level['sensor']){
+                        echo 'dB';
+                    }
+                ?>
+            </p>
+            <p class="caption-second">Le seuil critique est atteint en
+                <?php
+                if($level['sensor'] === 2 || $level['sensor'] === 4){
+                        echo '-';
+                    }
+                else echo '&#177';
+                ?>
+               <span><?php echo $level['secondLevel']?></span>
+                <?php if($level['sensor'] === 1){
+                    echo 'BPM';
+                }
+                elseif($level['sensor'] === 2 || $level['sensor'] === 4){
+                    echo '%';
+                }
+                elseif ($level['sensor']){
+                    echo 'dB';
+                }
+                ?>
+            </p>
         </div>
 
             <input name="sensor" type="hidden" value="<?php echo $level['sensor']?>">
 
 
 
+
         <div class="button-container">
             <?php echo '<a class="btn-edit" href="user?page=accueil&action=level_selector&chipid='.$_GET['chipid'].'&cow=' . $_GET['cow'] . '">Retour</a>'; ?>
-            <?php echo '<a class="btn-delete" href="user?page=accueil&action=level&chipid='. $_GET['chipid'].'&cow=' . $_GET['cow'] . '" > Reset</a>'; ?>
+            <?php echo '<a class="btn-delete" href="user?page=accueil&action=level&chipid='. $_GET['chipid'].'&cow=' . $_GET['cow'] . '&sensorid='.$_GET['sensorid'].'" > Reset</a>'; ?>
             <div class="btn-green" id="level-button">Valider</div>
         </div>
 
@@ -99,6 +153,7 @@ switch ($level['sensor']) {
 
 
 
+        <?php if($level['sensor'] === 1 || $level['sensor'] === 3){?>
 
         $('.low-level-bar').draggable({
            axis:"x",
@@ -135,6 +190,7 @@ switch ($level['sensor']) {
 
            }
        });
+        <?php }?>
             $('.first-level-cursor-un').draggable({
                 axis:"x",
                 drag: function() {

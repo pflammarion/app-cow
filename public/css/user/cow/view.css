@@ -1,3 +1,117 @@
-.cow-view{
-    padding: 50px;
+.cow-view-page-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap : 30px;
+}
+.cow-view-setting-box {
+    display: flex;
+    justify-content: center;
+    width: 305px;
+    height: 85px;
+}
+.cow-view-btn-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    margin-right: 4px;
+    gap: 8px;
+}
+.cow-view-btn-box a {
+    width: 28px;
+    height: 28px;
+}
+.cow-view-btn-box img {
+    width: 24px;
+    height: 24px;
+}
+.cow-view-box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 260px;
+    border: solid 3px var(--dark-blue);
+    border-radius:  10px;
+}
+.cow-view-add-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 260px;
+    border:solid 3px var(--dark-blue);
+    border-style: dashed;
+    background-color: #F0F0F0;
+    border-radius:  10px;
+}
+.cow-view-add-box:hover {
+    background-color: #E3E3E3;
+    cursor: pointer;
+}
+.cow-view-add-box img {
+    width: 35px;
+    height: 35px;
+}
+.cow-view-profil {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 20px;
+}
+@media screen and (min-width: 800px) {
+    .cow-view-setting-box {
+        width: 400px;
+        height: 100px;
+    }
+    .cow-view-setting-box h1 {
+        font-size: 22px;
+    }
+    .cow-view-btn-box a {
+        width: 35px;
+        height: 35px;
+    }
+    .cow-view-add-box img {
+        width: 45px;
+        height: 45px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .cow-view-page-box {
+        display: flex;
+        justify-content: space-around;
+    }
+    .cow-view-setting-box {
+        width: 360px;
+        height: 110px;
+    }
+    .cow-view-add-box {
+        width: 360px;
+        height: 100px;
+    }
+    .cow-view-add-box a {
+        width: 44px;
+        height: 44px;
+    }
+    .cow-view-box {
+        width: 300px;
+    }
+    .cow-view-btn-box {
+        width: 50px;
+    }
+    .cow-view-setting-box h1 {
+        font-size: 22px;
+    }
+    .cow-view-btn-box a {
+        width: 40px;
+        height: 40px;
+    }
+    .cow-view-add-box img {
+        width: 40px;
+        height: 40px;
+    }
+    .cow-view-add-box p {
+        font-size: 22px;
+    }
 }

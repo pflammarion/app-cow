@@ -24,7 +24,7 @@ between 00 AND 03;*/
 
 /*Annuel*/
 
-SELECT data_sensor.Value #,data_sensor.Date
+SELECT data_sensor.Value,data_sensor.Date
 FROM data_sensor
          LEFT JOIN chip_level ON chip_level.Chip_Level_Id = data_sensor.Chip_Level_Id
          LEFT JOIN chip_cow_user ON chip_cow_user.Chip_Id = chip_level.Chip_Id
@@ -33,10 +33,7 @@ WHERE cow.Cow_Id = 1
   AND chip_cow_user.User_Id = 9
   AND chip_level.Sensor_Id = 1
   AND data_sensor.Average_Id = 3 # mensuel
-  AND YEAR(data_sensor.Date) =2022
-  AND MONTH(data_sensor.Date)=03
-  AND DAY(data_sensor.Date)=01 # On ne modifie pas cette valeur
-  AND HOUR(data_sensor.Date) BETWEEN 00 AND 03; # On ne modifie cette valeur
+  AND data_sensor.Date BETWEEN '2022-02-01' and '2023-01-31';
 
 /*Semaine*/
 
@@ -56,9 +53,9 @@ WHERE cow.Cow_Id = 1
 
 SELECT DAYOFWEEK('2022-01-01') as jour_semaine;
 
-SET @begin = STR_TO_DATE('2023 1 Monday', '%X %V %W');
-SET @end = STR_TO_DATE('2023 2 Monday', '%X %V %W');
-SELECT data_sensor.Value
+SET @begin = STR_TO_DATE('2022 1 Monday', '%X %V %W');
+SET @end = STR_TO_DATE('2022 2 Monday', '%X %V %W');
+SELECT data_sensor.Value, data_sensor.Date
 FROM data_sensor
          LEFT JOIN chip_level ON chip_level.Chip_Level_Id = data_sensor.Chip_Level_Id
          LEFT JOIN chip_cow_user ON chip_cow_user.Chip_Id = chip_level.Chip_Id
@@ -67,12 +64,13 @@ WHERE cow.Cow_Id = 1
   AND chip_cow_user.User_Id = 9
   AND chip_level.Sensor_Id = 1
   AND data_sensor.Average_Id = 2 # journalier
-  AND DAY(data_sensor.Date) > @start
-  AND DAY(data_sensor.Date) <= @end;
+  AND data_sensor.Date > @begin
+  and data_sensor.Date <= @end;
 
 
 SELECT WEEK('2022-11-01') as semaine_numero;
 
+/*fonction en sql*/
 CREATE PROCEDURE selectAllWeek(
 IN Week INT
 )

@@ -56,4 +56,31 @@ WHERE cow.Cow_Id = 1
 
 SELECT DAYOFWEEK('2022-01-01') as jour_semaine;
 
+SET @begin = STR_TO_DATE('2023 1 Monday', '%X %V %W');
+SET @end = STR_TO_DATE('2023 2 Monday', '%X %V %W');
+SELECT data_sensor.Value
+FROM data_sensor
+         LEFT JOIN chip_level ON chip_level.Chip_Level_Id = data_sensor.Chip_Level_Id
+         LEFT JOIN chip_cow_user ON chip_cow_user.Chip_Id = chip_level.Chip_Id
+         LEFT JOIN cow ON cow.Cow_Id = chip_cow_user.Cow_Id
+WHERE cow.Cow_Id = 1
+  AND chip_cow_user.User_Id = 9
+  AND chip_level.Sensor_Id = 1
+  AND data_sensor.Average_Id = 2 # journalier
+  AND DAY(data_sensor.Date) > @start
+  AND DAY(data_sensor.Date) <= @end;
+
+
 SELECT WEEK('2022-11-01') as semaine_numero;
+
+CREATE PROCEDURE selectAllWeek(
+IN Week INT
+)
+BEGIN
+    DECLARE count INT DEFAULT 0;
+
+    WHILE count < 7 DO
+        SELECT ....
+    SET count = count + 1;
+  END WHILE;
+END;

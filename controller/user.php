@@ -80,16 +80,17 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                     $average = intval($_GET['average']);
                     $sensor = intval($_GET['sensor']);
                     $cowId = intval($_GET['cowId']);
-                    $date = $_GET['date'];
+                    //filter data from get
+                    $date = strtotime($_GET['date']);
                     //for annual
                     if ($average === 3){
-                        $year = intval(substr($date, 0, 4));
+                        $year = intval(date('Y', $date));
                         $date_start = $year . '-02-01';
                         $date_end = $year + 1 . '-01-31';
                     }
                     //journalier
                     $data = getTableData($average, $date_start, $date_end, $sensor, $cowId);
-                    print_r($data);
+                    echo json_encode($data);
                 }
                 $view = "user/table";
             }

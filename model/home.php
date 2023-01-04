@@ -209,7 +209,7 @@ function getTableData(int $average, string $date_start, string $date_end, int $s
     $data = [];
     $user = $_SESSION['user'];
     $sql_get_table = "
-SELECT data_sensor.Value,data_sensor.Date
+SELECT data_sensor.Value,data_sensor.Date, cow.Cow_Name
 FROM data_sensor
          LEFT JOIN chip_level ON chip_level.Chip_Level_Id = data_sensor.Chip_Level_Id
          LEFT JOIN chip_cow_user ON chip_cow_user.Chip_Id = chip_level.Chip_Id
@@ -232,6 +232,7 @@ WHERE cow.Cow_Id = :cow
     $rows = $query_get_table->fetchAll();
     foreach ($rows as $row){
         $data[] = array(
+            'name' => $row['Cow_Name'],
             'value' => $row['Value'],
             'date' => $row['Date'],
         );

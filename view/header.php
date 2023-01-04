@@ -11,6 +11,7 @@
     <script src="./public/js/jquery-3.6.1.min.js"></script>
     <script src="./public/js/jquery-ui.min.js"></script>
     <script src="./public/js/index.js"></script>
+    <script src="./node_modules/chart.js/dist/chart.umd.js"></script>
 
     <?php
     if (isset($_SESSION['auth']) && $_SESSION['auth']){

@@ -1,6 +1,7 @@
 <div class="cow-vache-delete">
     <div class="cow-view-setting-box-delete">
         <h1>Voulez vous supprimer la vache :</h1>
+
         <div class="cow-view-setting-box">
             <div class="cow-view-box">
                 <div class="cow-view-profil">
@@ -10,6 +11,7 @@
                     Numéro de puce</h1>
             </div>
         </div>
+
         <div class="btn-cow">
             <div>
                 <button type="submit" class="btn-delete">

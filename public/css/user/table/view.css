@@ -40,7 +40,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    z-index: 100;
+    z-index: 10;
 }
 
 .table .table-header .changer div{

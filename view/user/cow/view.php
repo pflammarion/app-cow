@@ -1,3 +1,5 @@
+<?php $data = $content ??  []; ?>
+
 <div class="cow-view-page-box">
 
     <div class="cow-view-setting-box">
@@ -16,65 +18,29 @@
         </a>
     </div>
 
-    <div class="cow-view-setting-box">
-        <div class="cow-view-btn-box">
-            <a class="btn-blue" href="user?page=vache&action=delete">
+    <?php
+    foreach ($data as $box){
+        echo '<div class="cow-view-setting-box">';
+        echo '<div class="cow-view-btn-box">';
+        echo '<a class="btn-blue" href="user?page=vache&action=delete">
                 <img class="img-black" src="./public/assets/icon/delete.svg" alt="delete">
                 <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="delete">
             </a>
             <a class="btn-blue" href="user?page=vache&action=update">
                 <img class="img-black" src="./public/assets/icon/modifier.svg" alt="edit">
                 <img class="img-white" src="./public/assets/icon/modifier-white.svg" alt="edit">
-            </a>
-        </div>
-        <div class="cow-view-box">
-            <div class="cow-view-profil">
-                <img src="./public/assets/icon/profile.svg" class="profil-img">
-            </div>
-            <h1>Nom de la vache <br>
-            Numéro de puce</h1>
-        </div>
-    </div>
-
-    <div class="cow-view-setting-box">
-        <div class="cow-view-btn-box">
-            <a class="btn-blue" href="user?page=vache&action=delete">
-                <img class="img-black" src="./public/assets/icon/delete.svg" alt="delete">
-                <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="delete">
-            </a>
-            <a class="btn-blue" href="user?page=vache&action=update">
-                <img class="img-black" src="./public/assets/icon/modifier.svg" alt="edit">
-                <img class="img-white" src="./public/assets/icon/modifier-white.svg" alt="edit">
-            </a>
-        </div>
-        <div class="cow-view-box">
-            <div class="cow-view-profil">
-                <img src="./public/assets/icon/profile.svg" class="profil-img">
-            </div>
-            <h1>Nom de la vache <br>
-                Numéro de puce</h1>
-        </div>
-    </div>
-
-    <div class="cow-view-setting-box">
-        <div class="cow-view-btn-box">
-            <a class="btn-blue" href="user?page=vache&action=delete">
-                <img class="img-black" src="./public/assets/icon/delete.svg" alt="delete">
-                <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="delete">
-            </a>
-            <a class="btn-blue" href="user?page=vache&action=update">
-                <img class="img-black" src="./public/assets/icon/modifier.svg" alt="edit">
-                <img class="img-white" src="./public/assets/icon/modifier-white.svg" alt="edit">
-            </a>
-        </div>
-        <div class="cow-view-box">
-            <div class="cow-view-profil">
-                <img src="./public/assets/icon/profile.svg" class="profil-img">
-            </div>
-            <h1>Nom de la vache <br>
-                Numéro de puce</h1>
-        </div>
-    </div>
+            </a>';
+        echo '</div>';
+        echo '<div class="cow-view-box">';
+        echo '<div class="cow-view-profil">';
+        echo '<img src="./public/assets/icon/profile.svg" class="profil-img">';
+        echo '</div>';
+        echo '<h1>Nom de la vache <br>
+            Numéro de puce</h1>';
+        echo '</div>';
+        echo '</div>';
+    }
+    ?>
 
     <div class="cow-view-setting-box">
         <div class="cow-view-btn-box">
@@ -95,86 +61,4 @@
                 Numéro de puce</h1>
         </div>
     </div>
-
-    <div class="cow-view-setting-box">
-        <div class="cow-view-btn-box">
-            <a class="btn-blue" href="user?page=vache&action=delete">
-                <img class="img-black" src="./public/assets/icon/delete.svg" alt="delete">
-                <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="delete">
-            </a>
-            <a class="btn-blue" href="user?page=vache&action=update">
-                <img class="img-black" src="./public/assets/icon/modifier.svg" alt="edit">
-                <img class="img-white" src="./public/assets/icon/modifier-white.svg" alt="edit">
-            </a>
-        </div>
-        <div class="cow-view-box">
-            <div class="cow-view-profil">
-                <img src="./public/assets/icon/profile.svg" class="profil-img">
-            </div>
-            <h1>Nom de la vache <br>
-                Numéro de puce</h1>
-        </div>
-    </div>
-
-    <div class="cow-view-setting-box">
-        <div class="cow-view-btn-box">
-            <a class="btn-blue" href="user?page=vache&action=delete">
-                <img class="img-black" src="./public/assets/icon/delete.svg" alt="delete">
-                <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="delete">
-            </a>
-            <a class="btn-blue" href="user?page=vache&action=update">
-                <img class="img-black" src="./public/assets/icon/modifier.svg" alt="edit">
-                <img class="img-white" src="./public/assets/icon/modifier-white.svg" alt="edit">
-            </a>
-        </div>
-        <div class="cow-view-box">
-            <div class="cow-view-profil">
-                <img src="./public/assets/icon/profile.svg" class="profil-img">
-            </div>
-            <h1>Nom de la vache <br>
-                Numéro de puce</h1>
-        </div>
-    </div>
-
-    <div class="cow-view-setting-box">
-        <div class="cow-view-btn-box">
-            <a class="btn-blue" href="user?page=vache&action=delete">
-                <img class="img-black" src="./public/assets/icon/delete.svg" alt="delete">
-                <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="delete">
-            </a>
-            <a class="btn-blue" href="user?page=vache&action=update">
-                <img class="img-black" src="./public/assets/icon/modifier.svg" alt="edit">
-                <img class="img-white" src="./public/assets/icon/modifier-white.svg" alt="edit">
-            </a>
-        </div>
-        <div class="cow-view-box">
-            <div class="cow-view-profil">
-                <img src="./public/assets/icon/profile.svg" class="profil-img">
-            </div>
-            <h1>Nom de la vache <br>
-                Numéro de puce</h1>
-        </div>
-    </div>
-
-    <div class="cow-view-setting-box">
-        <div class="cow-view-btn-box">
-            <a class="btn-blue" href="user?page=vache&action=delete">
-                <img class="img-black" src="./public/assets/icon/delete.svg" alt="delete">
-                <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="delete">
-            </a>
-            <a class="btn-blue" href="user?page=vache&action=update">
-                <img class="img-black" src="./public/assets/icon/modifier.svg" alt="edit">
-                <img class="img-white" src="./public/assets/icon/modifier-white.svg" alt="edit">
-            </a>
-        </div>
-        <div class="cow-view-box">
-            <div class="cow-view-profil">
-                <img src="./public/assets/icon/profile.svg" class="profil-img">
-            </div>
-            <h1>Nom de la vache <br>
-                Numéro de puce</h1>
-        </div>
-    </div>
-
-
 </div>

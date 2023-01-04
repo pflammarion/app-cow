@@ -73,6 +73,8 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
 
         case 'vache':
             $view = "user/cow/". $action;
+            $content = getCow();
+
             break;
 
         case 'tableau':

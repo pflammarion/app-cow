@@ -7,7 +7,7 @@
                 <input id="datePicker" type="date" name="date">
                 <img src="./public/assets/icon/arrow.svg" alt="arrow 2">
             </div>
-            <img src="./public/assets/icon/sorting.svg" alt="sorting">
+            <img id="average" data-val="1" src="./public/assets/icon/sorting.svg" alt="sorting">
         </div>
         <div class="table-content">
             <canvas id="graph"></canvas>
@@ -18,13 +18,13 @@
 
 <script>
     $(document).ready(() => {
-
+        let average = $('#average').data("val");
         let cowName = "";
         let cow = [0, 0, 0, 0, 0, 0];
         let herd = [0, 0, 0, 0, 0, 0];
         document.getElementById('datePicker').valueAsDate = new Date('2022-01-03');
         const getData =  async () => {
-            let data = await getDataFromController('user?page=tableau&type=heart&average=3&sensor=1&cowId=1&date=' + $('#datePicker').val())
+            let data = await getDataFromController('user?page=tableau&type=heart&average=' + average + '&sensor=1&cowId=1&date=' + $('#datePicker').val())
             cow = [0, 0, 0, 0, 0, 0];
             herd = [0, 0, 0, 0, 0, 0];
             for (let i = 0; i < data.length; i++){
@@ -54,6 +54,15 @@
 
 
         $('#datePicker').on('change', async function() {
+            await getData();
+        });
+
+        $('#average').on('click', async function (){
+            $('#average').data("val", average + 1);
+            average = $('#average').data("val");
+            if (average > 3){
+                average = 1;
+            }
             await getData();
         });
 

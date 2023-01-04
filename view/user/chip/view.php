@@ -10,7 +10,7 @@
                 </div>
                 <h1 class="font-arima" style="font-weight: bold">Ajouter une puce</h1>
                 <div class="cow-view-profil">
-                    <img src="./public/assets/icon/cow.svg">
+                    <img src="./public/assets/icon/boitier.svg">
                 </div>
             </div>
         </a>

@@ -50,3 +50,9 @@ function tokenGeneration(): string
     }
     return $token;
 }
+
+function validateDate($date, $format = 'Y-m-d H:i:s'): bool
+{
+    $d = DateTime::createFromFormat($format, $date);
+    return $d && $d->format($format) == $date;
+}

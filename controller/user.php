@@ -76,14 +76,43 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             break;
 
         case 'tableau':
-            $type = $_GET['type'];
-            $view = "user/table";
+            if (isset($_GET['sensor'])){
+                $sensor= intval(htmlspecialchars($_GET['sensor']));
+                //user?page=tableau&type=air&js=1&average=3&date=2022-01-04&sensor=1&cowId=1
+                if(isset($_GET['js'], $_GET['average'], $_GET['date'], $_GET['cowId'])){
+                    $average = intval($_GET['average']);
+                    $cowId = intval($_GET['cowId']);
+                    //filter data from get
+                    $date = strtotime($_GET['date']);
+                    //for annual
+                    if ($average === 3){
+                        $year = intval(date('Y', $date));
+                        $date_start = $year . '-02-01';
+                        $date_end = $year + 1 . '-01-31';
+                    }
+                    //journalier
+                    if ($average ===2){
+                        $date_start =  date(('Y-m-d'), strtotime('-2 days', $date));
+                        $date_end =  date(('Y-m-d'), strtotime('+4 days', $date));
+
+                    }
+                    if ($average===1){
+                        $date_start =  date(('Y-m-d'), $date) . ' 03:00:00';
+                        $date_end =  date(('Y-m-d'), strtotime('+1 days', $date)) . ' 02:59:59';
+                    }
+                    $data = getTableData($average, $date_start, $date_end, $sensor, $cowId);
+                    echo json_encode($data);
+                }
+                $view = "user/table";
+            }
             break;
 
         default:
             $view = "error404";
     }
-    include (showPage($view));
+    if(!isset($_GET['js'])){
+        include (showPage($view));
+    }
 }
 else{
     echo('<script>alert("Vous n\'avez pas la permission d\'accéder à cette page")</script>');

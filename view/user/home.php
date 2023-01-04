@@ -31,6 +31,7 @@ $chipId = $chipId ?? 0;
                     $type = 'Vide';
                     $img_url = '';
                     $val = '';
+                    $sensor_id = 1;
                     if (isset($sensor['value'])){
                         $val = $sensor['value'];
                         $class = '';
@@ -55,19 +56,21 @@ $chipId = $chipId ?? 0;
                         if($key === 'sound') {
                             $type = 'dB';
                             $img_url = './public/assets/icon/sound.svg';
+                            $sensor_id = 3;
                         }
                         if($key === 'air'){
                             $type = '%';
                             $img_url = './public/assets/icon/air.svg';
+                            $sensor_id = 2;
                         }
                         if($key === 'battery'){
                             $type = '%';
                             $img_url = './public/assets/icon/battery.svg';
+                            $sensor_id = 4;
                         }
                     }
 
-
-                    if($key!== 'battery') echo '<a href="user?page=tableau&type=' . $key  . '">';
+                    echo '<a href="user?page=tableau&sensor=' . $sensor_id  . '&cow=' . intval($_GET['cow']) .'">';
                     echo '<div class="sensor '. $class . '">';
                     echo '<span class="time">' . $days . ' ' . $hours . '</span>';
                     if ($img_url != '') echo '<img src="' . $img_url . '" alt="sensor">';

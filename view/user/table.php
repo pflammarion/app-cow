@@ -28,17 +28,22 @@
             cow = [0, 0, 0, 0, 0, 0];
             herd = [0, 0, 0, 0, 0, 0];
             for (let i = 0; i < data.length; i++){
-                const date = new Date(data[i]['date']);
-                const month = date.getMonth();
-                const index = Math.ceil(month/2)-1;
+
                 if (data[i]['name'] !== 'herd'){
+                    const date = new Date(data[i]['date']);
+                    const month = date.getMonth();
+                    const index = Math.ceil(month/2)-1;
                     cow[index]= data[i]['value'];
                     cowName = data[i]['name'];
                 }
+                if (data[i]['name'] === "herd"){
+                    const index = data[i]['key']-2;
+                    herd[index]= data[i]['value'];
+                }
             }
-            mixedChart.data.datasets[1].data = cow;
-            mixedChart.data.datasets[1].label = cowName;
-            mixedChart.data.datasets[0].data = herd;
+            mixedChart.data.datasets[0].data = cow;
+            mixedChart.data.datasets[0].label = cowName;
+            mixedChart.data.datasets[1].data = herd;
             mixedChart.update();
         }
         getData();
@@ -57,12 +62,19 @@
                 data: {
                     datasets: [{
                         type: 'line',
-                        label: 'Mes vaches',
-                        data: herd,
-                    }, {
-                        type: 'bar',
                         label: cowName,
                         data: cow,
+                        borderColor: '#ADE194',
+                        backgroundColor: '#ADE194',
+                        lineTension: 0.4,
+
+                    }, {
+                        type: 'bar',
+                        label: 'Mes vaches',
+                        data: herd,
+                        borderColor: '#C8EFFE',
+                        backgroundColor: '#C8EFFE',
+
                     }],
                     labels: ['1-2', '3-4', '5-6', '7-8', '9-10', '11-12']
                 },

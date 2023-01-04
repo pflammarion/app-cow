@@ -2,7 +2,9 @@
     <div></div>
 
     <div class="cow-view-setting-box">
-        <div class="cow-view-btn-box"></div>
+        <div class="cow-view-btn-box">
+            <a></a><a></a>
+        </div>
         <a href="user?page=vache&action=create">
             <div class="cow-view-add-box">
                 <div class="cow-view-btn-box">
@@ -14,6 +16,7 @@
             </div>
         </a>
     </div>
+
     <div class="cow-view-setting-box">
         <div class="cow-view-btn-box">
             <a class="btn-blue" href="user?page=vache&action=delete">

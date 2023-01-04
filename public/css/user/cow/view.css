@@ -39,8 +39,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 266px;
-    height: 85px;
+    width: 260px;
+    height: 79px;
     border:solid 3px var(--dark-blue);
     border-style: dashed;
     background-color: #F0F0F0;

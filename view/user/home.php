@@ -70,7 +70,7 @@ $chipId = $chipId ?? 0;
                         }
                     }
 
-                    if($key!== 'battery') echo '<a href="user?page=tableau&sensor=' . $sensor_id  . '&cow=' . intval($_GET['cow']) .'">';
+                    echo '<a href="user?page=tableau&sensor=' . $sensor_id  . '&cow=' . intval($_GET['cow']) .'">';
                     echo '<div class="sensor '. $class . '">';
                     echo '<span class="time">' . $days . ' ' . $hours . '</span>';
                     if ($img_url != '') echo '<img src="' . $img_url . '" alt="sensor">';

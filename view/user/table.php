@@ -1,7 +1,9 @@
 <div class="table">
     <div class="container">
         <div class="table-header">
-            <img id="sensor" data-val="1" src="./public/assets/icon/heart.svg" alt="icon">
+            <div id="sensor-container">
+                <img id="sensor" data-val="<?php echo intval(htmlspecialchars($_GET['sensor'])) ?>" src="./public/assets/icon/heart.svg" alt="icon">
+            </div>
             <div class="changer">
                 <img id="arrow-down" src="./public/assets/icon/arrow.svg" alt="arrow">
                 <input id="datePicker" type="date" name="date">
@@ -108,7 +110,7 @@
             await getData();
         });
 
-        $('#sensor').on('click', async function (){
+        $('#sensor-container').on('click', async function (){
             $('#sensor').data("val", sensor + 1);
             sensor = $('#sensor').data("val");
             if (sensor > 4){
@@ -117,13 +119,13 @@
             if (sensor ===1){
                 $('#sensor').attr('src', './public/assets/icon/heart.svg')
             }
-            else if (sensor ===2){
+            if (sensor ===2){
                 $('#sensor').attr('src', './public/assets/icon/air.svg')
             }
-            else if (sensor ===3){
+            if (sensor ===3){
                 $('#sensor').attr('src', './public/assets/icon/sound.svg')
             }
-            else if (sensor ===4){
+            if (sensor ===4){
                 $('#sensor').attr('src', './public/assets/icon/battery.svg')
             }
             await getData();

@@ -34,6 +34,14 @@
     height: auto;
 }
 
+.table .table-header #sensor-container{
+    height: 50px;
+    width: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .table .table-header .changer div{
     border-radius: 5px;
     color: white;

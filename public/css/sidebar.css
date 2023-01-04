@@ -1,6 +1,7 @@
 .sidebar{
     position: absolute;
     z-index: 10;
+    height: 0;
 }
 .sidebar .sidebar-header .paginer{
     font-size: 12px;
@@ -117,6 +118,7 @@
     }
     .sidebar{
         position: static;
+        height: unset;
     }
     .sidebar .paginer img,
     .sidebar .paginer{

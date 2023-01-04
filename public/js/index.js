@@ -1,8 +1,13 @@
 function getDataFromController(url){
     let ajaxUrl = url
+    let js;
+    if(url.includes("?")){
+        js = '&js=1'
+    }
+    else js = '?js=1'
     return new Promise(function(resolve, reject) {
         $.ajax({
-            url: ajaxUrl + '?js=1',
+            url: ajaxUrl + js,
             type: 'GET',
             dataType: 'json',
             async: true,

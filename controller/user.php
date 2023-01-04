@@ -89,6 +89,15 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                         $date_end = $year + 1 . '-01-31';
                     }
                     //journalier
+                    if ($average ===2){
+                        $date_start =  date(('Y-m-d'), strtotime('-2 days', $date));
+                        $date_end =  date(('Y-m-d'), strtotime('+4 days', $date));
+
+                    }
+                    if ($average===1){
+                        $date_start =  date(('Y-m-d'), $date) . ' 03:00:00';
+                        $date_end =  date(('Y-m-d'), strtotime('+1 days', $date)) . ' 02:59:59';
+                    }
                     $data = getTableData($average, $date_start, $date_end, $sensor, $cowId);
                     echo json_encode($data);
                 }

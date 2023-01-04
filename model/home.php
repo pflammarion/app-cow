@@ -237,8 +237,10 @@ WHERE cow.Cow_Id = :cow
             'date' => $row['Date'],
         );
     }
-    //herd
-    $sql_get_herd_table = "
+    $sql_get_herd_table = "";
+    //herd year
+    if ($average === 3){
+        $sql_get_herd_table = "
 SELECT (MONTH(data_sensor.Date) - 1) DIV 2 + 1 as ind, AVG(data_sensor.Value) as val
 FROM data_sensor
          LEFT JOIN chip_level ON chip_level.Chip_Level_Id = data_sensor.Chip_Level_Id
@@ -251,6 +253,49 @@ WHERE cow.Cow_Id != :cow
   AND data_sensor.Date BETWEEN :dateStart and :dateEnd
 GROUP BY ind;
 ";
+    }
+
+    if ($average ===2) {
+        $sql_get_herd_table = "
+SELECT AVG(data_sensor.Value) as val, day(data_sensor.Date) as ind
+FROM data_sensor
+         LEFT JOIN chip_level ON chip_level.Chip_Level_Id = data_sensor.Chip_Level_Id
+         LEFT JOIN chip_cow_user ON chip_cow_user.Chip_Id = chip_level.Chip_Id
+         LEFT JOIN cow ON cow.Cow_Id = chip_cow_user.Cow_Id
+WHERE cow.Cow_Id != :cow
+  AND chip_cow_user.User_Id = :user
+  AND chip_level.Sensor_Id = :sensor
+  AND data_sensor.Average_Id = :average
+  AND data_sensor.Date BETWEEN :dateStart and :dateEnd
+GROUP BY ind;
+";
+    }
+    if ($average === 1){
+        $sql_get_herd_table = "
+
+SELECT
+    FROM_UNIXTIME(UNIX_TIMESTAMP(:dateStart) + (ref* 3*60*60)) as ind,
+    AVG(data) as val
+FROM (
+SELECT
+       FLOOR((UNIX_TIMESTAMP(data_sensor.Date) - UNIX_TIMESTAMP(:dateStart)) / (3 * 60 * 60)) as ref,
+       data_sensor.Value as data
+FROM
+    data_sensor
+        LEFT JOIN chip_level ON chip_level.Chip_Level_Id = data_sensor.Chip_Level_Id
+        LEFT JOIN chip_cow_user ON chip_cow_user.Chip_Id = chip_level.Chip_Id
+        LEFT JOIN cow ON cow.Cow_Id = chip_cow_user.Cow_Id
+WHERE cow.Cow_Id != :cow
+  AND chip_cow_user.User_Id = :user
+  AND chip_level.Sensor_Id = :sensor
+  AND data_sensor.Average_Id = :average
+  AND data_sensor.Date BETWEEN :dateStart and :dateEnd
+          ) t
+GROUP BY
+    ref;
+";
+    }
+
     $query_get_herd_table =  $GLOBALS['db']->prepare($sql_get_herd_table);
     $query_get_herd_table->execute(
         array('cow'=>$cow,

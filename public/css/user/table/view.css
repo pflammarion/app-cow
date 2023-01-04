@@ -30,8 +30,8 @@
 }
 .table .table-header img{
     cursor: pointer;
-    height: 20px;
-    width: auto;
+    width: 20px;
+    height: auto;
 }
 
 .table .table-header .changer div{
@@ -137,5 +137,9 @@
     .table .container{
         width: 600px;
         padding: 0 20px;
+    }
+
+    .table .table-header img{
+        width: 30px;
     }
 }

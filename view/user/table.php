@@ -1,7 +1,7 @@
 <div class="table">
     <div class="container">
         <div class="table-header">
-            <img src="./public/assets/icon/heart.svg" alt="icon">
+            <img id="sensor" data-val="<?php echo intval(htmlspecialchars($_GET['sensor'])) ?>" src="./public/assets/icon/heart.svg" alt="icon">
             <div class="changer">
                 <img id="arrow-down" src="./public/assets/icon/arrow.svg" alt="arrow">
                 <input id="datePicker" type="date" name="date">
@@ -9,7 +9,7 @@
             </div>
             <img id="average" data-val="1" src="./public/assets/icon/sorting.svg" alt="sorting">
         </div>
-        <div class="table-content">
+        <div id="table-content" data-val="<?php echo intval(htmlspecialchars($_GET['cow'])) ?>" class="table-content">
             <canvas id="graph"></canvas>
         </div>
     </div>
@@ -19,6 +19,8 @@
 <script>
     $(document).ready(() => {
         let average = $('#average').data("val");
+        let sensor = $('#sensor').data('val');
+        let cowId =  $('#table-content').data('val');
         let cowName = "";
         let title = "";
         let cow = [];
@@ -34,7 +36,7 @@
                 title = "Données annuelles";
             }
             else title = "Données journalières";
-            let data = await getDataFromController('user?page=tableau&type=heart&average=' + average + '&sensor=1&cowId=1&date=' + $('#datePicker').val())
+            let data = await getDataFromController('user?page=tableau&average=' + average + '&sensor=' + sensor + '&cowId=' + cowId +'&date=' + $('#datePicker').val())
             cow = [];
             herd = [];
             let label = [];
@@ -106,10 +108,28 @@
             await getData();
         });
 
+        $('#sensor').on('click', async function (){
+            $('#sensor').data("val", sensor + 1);
+            sensor = $('#sensor').data("val");
+            if (sensor > 4){
+                sensor = 1;
+            }
+            if (sensor ===1){
+                $('#sensor').attr('src', './public/assets/icon/heart.svg')
+            }
+            else if (sensor ===2){
+                $('#sensor').attr('src', './public/assets/icon/air.svg')
+            }
+            else if (sensor ===3){
+                $('#sensor').attr('src', './public/assets/icon/sound.svg')
+            }
+            else if (sensor ===4){
+                $('#sensor').attr('src', './public/assets/icon/battery.svg')
+            }
+            await getData();
+        });
+
         let number;
-
-
-
         $('#arrow-down').on('click', async function(){
             if ($('#average').data("val") === 2){
                 number = 7

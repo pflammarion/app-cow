@@ -20,22 +20,4 @@
     display: flex;
     justify-content: center;
 }
-.cow-vache-add .btn-cow {
-    display: flex;
-    flex-direction: column;
-    margin-top: 25px;
-    gap: 10px;
-}
-.cow-vache-add .btn-valider {
-    width: 200px;
-    height: 65px;
-}
-.cow-vache-add .btn-return {
-    width: 200px;
-    height: 65px;
-}
-.cow-vache-add .btn-return img {
-    width: 30px;
-    height: 30px;
-    margin-right: -15px;
-}
+

@@ -12,7 +12,7 @@
         </div>
         <div class="btn-cow">
             <div>
-                <button type="submit" class="btn-valider" style="background: var(--red)">
+                <button type="submit" class="btn-delete">
                     Supprimer
                 </button>
             </div>

@@ -21,10 +21,15 @@
     align-items: center;
 }
 
+.table .container .table-header .changer img{
+    margin: 0 10px;
+}
+
 .table .container .table-header .changer img:last-child{
     transform: rotate(180deg);
 }
 .table .table-header img{
+    cursor: pointer;
     height: 20px;
     width: auto;
 }
@@ -126,4 +131,11 @@
     font-size: 10px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+@media screen and (min-width: 800px) {
+    .table .container{
+        width: 600px;
+        padding: 0 20px;
+    }
 }

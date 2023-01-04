@@ -3,9 +3,9 @@
         <div class="table-header">
             <img src="./public/assets/icon/heart.svg" alt="icon">
             <div class="changer">
-                <img src="./public/assets/icon/arrow.svg" alt="arrow">
+                <img id="arrow-down" src="./public/assets/icon/arrow.svg" alt="arrow">
                 <input id="datePicker" type="date" name="date">
-                <img src="./public/assets/icon/arrow.svg" alt="arrow 2">
+                <img id="arrow-up" src="./public/assets/icon/arrow.svg" alt="arrow 2">
             </div>
             <img id="average" data-val="1" src="./public/assets/icon/sorting.svg" alt="sorting">
         </div>
@@ -20,10 +20,20 @@
     $(document).ready(() => {
         let average = $('#average').data("val");
         let cowName = "";
+        let title = "";
         let cow = [];
         let herd = [];
         document.getElementById('datePicker').valueAsDate = new Date('2022-01-01');
+
+
         const getData =  async () => {
+            if ($('#average').data("val") === 2){
+                title = "Données sur 7 jours";
+            }
+            else if ($('#average').data("val") === 3){
+                title = "Données annuelles";
+            }
+            else title = "Données journalières";
             let data = await getDataFromController('user?page=tableau&type=heart&average=' + average + '&sensor=1&cowId=1&date=' + $('#datePicker').val())
             cow = [];
             herd = [];
@@ -73,6 +83,7 @@
             mixedChart.data.datasets[0].label = cowName;
             mixedChart.data.datasets[1].data = herd;
             mixedChart.data.labels = label;
+            mixedChart.options.plugins.title.text = title;
             mixedChart.update();
         }
         getData();
@@ -95,6 +106,38 @@
             await getData();
         });
 
+        let number;
+
+
+
+        $('#arrow-down').on('click', async function(){
+            if ($('#average').data("val") === 2){
+                number = 7
+            }
+            else if ($('#average').data("val") === 3){
+                number = 365
+            }
+            else number = 1;
+            const currentDate = new Date($('#datePicker').val());
+            currentDate.setDate(currentDate.getDate() - number);
+            document.getElementById('datePicker').valueAsDate = new Date(currentDate);
+            await getData();
+        })
+
+        $('#arrow-up').on('click', async function(){
+            if ($('#average').data("val") === 2){
+                number = 7
+            }
+            else if ($('#average').data("val") === 3){
+                number = 365
+            }
+            else number = 1;
+            const currentDate = new Date($('#datePicker').val());
+            currentDate.setDate(currentDate.getDate() + number);
+            document.getElementById('datePicker').valueAsDate = new Date(currentDate);
+            await getData();
+        })
+
             let ctx = $('#graph');
             const mixedChart = new Chart(ctx, {
                 data: {
@@ -115,6 +158,21 @@
 
                     }],
                     labels: ['1-2', '3-4', '5-6', '7-8', '9-10', '11-12']
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
+                        title: {
+                            display: true,
+                            text: title,
+                            padding: {
+                                top: 5,
+                                bottom: 10
+                            }
+                        }
+                    }
                 },
             });
     });

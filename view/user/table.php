@@ -187,11 +187,14 @@
                         title: {
                             display: true,
                             text: title,
+                            font: {
+                                size: 15
+                            },
                             padding: {
                                 top: 5,
                                 bottom: 10
                             }
-                        }
+                        },
                     }
                 },
             });

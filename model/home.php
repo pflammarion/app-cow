@@ -274,11 +274,11 @@ GROUP BY ind;
         $sql_get_herd_table = "
 
 SELECT
-    FROM_UNIXTIME(UNIX_TIMESTAMP(:dateStart) + (ref* 3*60*60)) as ind,
+    FROM_UNIXTIME(UNIX_TIMESTAMP(:dateStart) + (ref* 4*60*60)) as ind,
     AVG(data) as val
 FROM (
 SELECT
-       FLOOR((UNIX_TIMESTAMP(data_sensor.Date) - UNIX_TIMESTAMP(:dateStart)) / (3 * 60 * 60)) as ref,
+       FLOOR((UNIX_TIMESTAMP(data_sensor.Date) - UNIX_TIMESTAMP(:dateStart)) / (4 * 60 * 60)) as ref,
        data_sensor.Value as data
 FROM
     data_sensor

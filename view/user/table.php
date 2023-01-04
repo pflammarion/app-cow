@@ -20,30 +20,59 @@
     $(document).ready(() => {
         let average = $('#average').data("val");
         let cowName = "";
-        let cow = [0, 0, 0, 0, 0, 0];
-        let herd = [0, 0, 0, 0, 0, 0];
-        document.getElementById('datePicker').valueAsDate = new Date('2022-01-03');
+        let cow = [];
+        let herd = [];
+        document.getElementById('datePicker').valueAsDate = new Date('2022-01-01');
         const getData =  async () => {
             let data = await getDataFromController('user?page=tableau&type=heart&average=' + average + '&sensor=1&cowId=1&date=' + $('#datePicker').val())
-            cow = [0, 0, 0, 0, 0, 0];
-            herd = [0, 0, 0, 0, 0, 0];
+            cow = [];
+            herd = [];
+            let label = [];
             for (let i = 0; i < data.length; i++){
+                const dateRef = new Date(data[0]['date']);
+                let reference = dateRef.getDate();
 
                 if (data[i]['name'] !== 'herd'){
                     const date = new Date(data[i]['date']);
-                    const month = date.getMonth();
-                    const index = Math.ceil(month/2)-1;
+                    let index;
+                    if (average === 3){
+                        const month = date.getMonth();
+                        index = Math.ceil(month/2)-1;
+                        label = ['1-2', '3-4', '5-6', '7-8', '9-10', '11-12'];
+                        label = label.slice(0, data.length/2);
+                    }
+                    if (average === 2){
+                        label.push(date.getDate())
+                        index = i;
+                    }
+                    if (average ===1){
+                        label = ['0-3', '4-7', '8-11', '12-15', '16-19', '20-23'];
+                        label = label.slice(0, data.length/2);
+                        index = i;
+                    }
                     cow[index]= data[i]['value'];
                     cowName = data[i]['name'];
                 }
                 if (data[i]['name'] === "herd"){
-                    const index = data[i]['key']-2;
+                    let index;
+                    if (average === 3){
+                        index = data[i]['key']-2;
+                    }
+                    if (average === 2){
+                        index = data[i]['key'] - reference;
+                    }
+                    if (average === 1){
+                        //pour commencer à la moitier de la liste
+                        index = i - data.length/2
+                    }
                     herd[index]= data[i]['value'];
                 }
             }
+
             mixedChart.data.datasets[0].data = cow;
             mixedChart.data.datasets[0].label = cowName;
             mixedChart.data.datasets[1].data = herd;
+            mixedChart.data.labels = label;
             mixedChart.update();
         }
         getData();

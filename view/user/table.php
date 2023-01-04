@@ -1,7 +1,7 @@
 <div class="table">
     <div class="container">
         <div class="table-header">
-            <img id="sensor" data-val="<?php echo intval(htmlspecialchars($_GET['sensor'])) ?>" src="./public/assets/icon/heart.svg" alt="icon">
+            <img id="sensor" data-val="1" src="./public/assets/icon/heart.svg" alt="icon">
             <div class="changer">
                 <img id="arrow-down" src="./public/assets/icon/arrow.svg" alt="arrow">
                 <input id="datePicker" type="date" name="date">

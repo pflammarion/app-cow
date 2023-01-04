@@ -2,7 +2,7 @@
     <div class="container">
         <div class="table-header">
             <div id="sensor-container">
-                <img id="sensor" data-val="<?php echo intval(htmlspecialchars($_GET['sensor'])) ?>" src="./public/assets/icon/heart.svg" alt="icon">
+                <img id="sensor" data-val="<?php echo intval(htmlspecialchars($_GET['sensor'])) ?>" src="" alt="icon">
             </div>
             <div class="changer">
                 <img id="arrow-down" src="./public/assets/icon/arrow.svg" alt="arrow">
@@ -27,8 +27,20 @@
         let title = "";
         let cow = [];
         let herd = [];
+        //change to empty date
         document.getElementById('datePicker').valueAsDate = new Date('2022-01-01');
-
+        if (sensor ===1){
+            $('#sensor').attr('src', './public/assets/icon/heart.svg')
+        }
+        if (sensor ===2){
+            $('#sensor').attr('src', './public/assets/icon/air.svg')
+        }
+        if (sensor ===3){
+            $('#sensor').attr('src', './public/assets/icon/sound.svg')
+        }
+        if (sensor ===4){
+            $('#sensor').attr('src', './public/assets/icon/battery.svg')
+        }
 
         const getData =  async () => {
             if ($('#average').data("val") === 2){

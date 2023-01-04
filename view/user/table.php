@@ -4,7 +4,7 @@
             <img src="./public/assets/icon/heart.svg" alt="icon">
             <div class="changer">
                 <img src="./public/assets/icon/arrow.svg" alt="arrow">
-                <div>Semaine 2</div>
+                <input id="datePicker" type="date" name="date">
                 <img src="./public/assets/icon/arrow.svg" alt="arrow 2">
             </div>
             <img src="./public/assets/icon/sorting.svg" alt="sorting">
@@ -36,3 +36,10 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    $(document).ready(() => {
+        document.getElementById('datePicker').valueAsDate = new Date();
+    });
+</script>

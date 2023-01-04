@@ -73,14 +73,34 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             break;
 
         case 'tableau':
-            $type = $_GET['type'];
-            $view = "user/table";
+            if (isset($_GET['type'])){
+                $type = htmlspecialchars($_GET['type']);
+                //user?page=tableau&type=air&js=1&average=3&date=2022-01-04&sensor=1&cowId=1
+                if(isset($_GET['js'], $_GET['average'], $_GET['date'], $_GET['sensor'], $_GET['cowId'])){
+                    $average = intval($_GET['average']);
+                    $sensor = intval($_GET['sensor']);
+                    $cowId = intval($_GET['cowId']);
+                    $date = $_GET['date'];
+                    //for annual
+                    if ($average === 3){
+                        $year = intval(substr($date, 0, 4));
+                        $date_start = $year . '-02-01';
+                        $date_end = $year + 1 . '-01-31';
+                    }
+                    //journalier
+                    $data = getTableData($average, $date_start, $date_end, $sensor, $cowId);
+                    print_r($data);
+                }
+                $view = "user/table";
+            }
             break;
 
         default:
             $view = "error404";
     }
-    include (showPage($view));
+    if(!isset($_GET['js'])){
+        include (showPage($view));
+    }
 }
 else{
     echo('<script>alert("Vous n\'avez pas la permission d\'accéder à cette page")</script>');

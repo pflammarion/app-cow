@@ -167,9 +167,10 @@ function getLevelByChip(int $chip_id): array
     $user = $_SESSION['user'];
     $sql_get_level = "SELECT chip_level.Chip_Second_Level, chip_level.Chip_First_Level, chip_level.Chip_Reference, chip_level.Sensor_Id
                         FROM chip_level 
-                        WHERE chip_level.Chip_Id =:chip";
+                        LEFT JOIN chip_cow_user ccu on chip_level.Chip_Id = ccu.Chip_Id
+                        WHERE chip_level.Chip_Id =:chip AND ccu.User_Id = :user";
     $query_get_level =  $GLOBALS['db']->prepare($sql_get_level);
-    $query_get_level->execute(array('chip'=>$chip_id));
+    $query_get_level->execute(array('chip'=>$chip_id, 'user'=>$user));
     $rows = $query_get_level->fetchAll();
     $result = [];
     foreach ($rows as $row){
@@ -201,4 +202,39 @@ function changeLevel(int $chipId, array $datas): bool
             ));
     }
     return true;
+}
+
+function getTableData(int $average, string $date_start, string $date_end, int $sensor, int $cow): array
+{
+    $data = [];
+    $user = $_SESSION['user'];
+    $sql_get_table = "
+SELECT data_sensor.Value,data_sensor.Date
+FROM data_sensor
+         LEFT JOIN chip_level ON chip_level.Chip_Level_Id = data_sensor.Chip_Level_Id
+         LEFT JOIN chip_cow_user ON chip_cow_user.Chip_Id = chip_level.Chip_Id
+         LEFT JOIN cow ON cow.Cow_Id = chip_cow_user.Cow_Id
+WHERE cow.Cow_Id = :cow
+  AND chip_cow_user.User_Id = :user
+  AND chip_level.Sensor_Id = :sensor
+  AND data_sensor.Average_Id = :average
+  AND data_sensor.Date BETWEEN :dateStart and :dateEnd;
+";
+    $query_get_table =  $GLOBALS['db']->prepare($sql_get_table);
+    $query_get_table->execute(
+        array('cow'=>$cow,
+            'user'=>$user,
+            'sensor'=>$sensor,
+            'average'=>$average,
+            'dateStart'=>$date_start,
+            'dateEnd'=>$date_end,
+            ));
+    $rows = $query_get_table->fetchAll();
+    foreach ($rows as $row){
+        $data[] = array(
+            'value' => $row['Value'],
+            'date' => $row['Date'],
+        );
+    }
+    return $data;
 }

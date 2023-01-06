@@ -5,11 +5,11 @@
             <div class="create-question">
                 <label for="question">
                     Nom de la Vache :
-                    <input type="text" name="question">
+                    <input type="text" name="name">
                 </label>
                 <label for="question">
                     Numéro de boitier :
-                    <input type="text" name="question">
+                    <input type="text" name="number">
                 </label>
             </div>
         </div>
@@ -17,9 +17,11 @@
         <div class="box-around-btn">
             <div class="btn-cow">
                 <div>
-                    <button type="submit" class="btn-valider">
-                        Valider
-                    </button>
+                    <a href="user?page=vache">
+                        <button type="submit" class="btn-valider">
+                            Valider
+                        </button>
+                    </a>
                 </div>
                 <div>
                     <a href="user?page=vache">

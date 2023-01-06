@@ -3,7 +3,6 @@
 usort($data, function ($item1, $item2) {
     return $item1['name'] <=> $item2['name'];
 });
-print_r($data);
 ?>
 
 <div class="cow-view-page-box">
@@ -28,7 +27,7 @@ print_r($data);
     foreach ($data as $box){
         echo '<div class="cow-view-setting-box">';
         echo '<div class="cow-view-btn-box">';
-        echo '<a class="btn-blue" href="user?page=vache&action=delete">
+        echo '<a class="btn-blue" href="user?page=vache&action=delete&cowId='.$box['id'].'&name='.$box['name'].'">
                 <img class="img-black" src="./public/assets/icon/delete.svg" alt="delete">
                 <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="delete">
             </a>

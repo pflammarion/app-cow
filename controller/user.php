@@ -77,15 +77,21 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             $view = "user/cow/". $action;
             $content = getAllCow();
             if (isset($_POST['action'])) {
-                if ($_POST['action'] == 'create') {
+                if ($_POST['action'] === 'create') {
                     $values = array(
                         "name" => $_POST['name'],
                         "number" => $_POST['number'],
                     );
                     $success = createCow($values);
                 }
-                if ($_POST['action'] === 'delete') {
-                    $success = deleteFaq(intval($_POST['id']));
+                if ($_POST['action'] === 'delete' && isset($_POST['cowId'], $_POST['name'])) {
+                    $name = htmlspecialchars($_POST['name']);
+                    $success = deleteCow(intval($_POST['cowId']));
+                    if ($success ){
+                        $url = "Location: user?page=vache&action=view&success=La vache " .$name. " à été supprimée";
+                        header($url);
+                        exit();
+                    }
                 }
             }
             break;

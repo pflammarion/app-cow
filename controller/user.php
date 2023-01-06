@@ -117,8 +117,8 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 }
                 $view = "user/table";
             }
-            if (isset($_GET['js'], $_GET['herd'])){
-                $data = getAllCows();
+            if (isset($_GET['js'], $_GET['herd'], $_GET['cowId'])){
+                $data = getAllCows(intval($_GET['cowId']));
                 if (isset($_GET['recherche'])){
                     $data = recherche($data, $_GET['recherche']);
                 }

@@ -170,6 +170,16 @@
     font-weight: bold;
 }
 
+.table .container input[type=search]{
+    margin: 16px 16px 0 16px;
+    width: calc(100% - 32px);
+}
+
+.table .container:nth-child(2){
+    margin-top: 32px;
+}
+
+
 @media screen and (min-width: 800px) {
     .table .container{
         width: 600px;

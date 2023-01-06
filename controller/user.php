@@ -84,22 +84,6 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                     "id"=>2
                 ),
             );
-            if ($_GET['terme'] !== "" && $_GET['terme'] !== null){
-                if ( !preg_match('/[^A-Za-z0-9]/', $_GET['terme'])) {
-                    $recherche = $_GET['terme'];
-                    $affiche = recherche($list, $recherche);
-                }
-                else{
-                    $affiche = array(
-                        "error" => "preg not match",
-                    );
-                }
-            }
-            else{
-                $affiche = array(
-                    "error" => "requete null",
-                );
-            }
             break;
 
         case 'tableau':

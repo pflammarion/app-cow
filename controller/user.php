@@ -2,6 +2,7 @@
 
 require __DIR__ . '/../model/permission.php';
 require __DIR__ . '/../model/home.php';
+require __DIR__ . '/../model/cow.php';
 
 $page = selectPage("accueil");
 $action = selectAction("view");
@@ -69,12 +70,12 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             break;
         case 'boitier':
             $view = "user/chip/". $action;
+            $content = getAllCow();
             break;
 
         case 'vache':
             $view = "user/cow/". $action;
-            $content = getCow();
-
+            $content = getAllCow();
             break;
 
         case 'tableau':

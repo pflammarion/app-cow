@@ -49,23 +49,25 @@ function deleteCow(int $id): bool
     }
     return false;
 }
-
-function getCow(): array
+function getAllCow(): array
 {
-    $get_cow_sql = "SELECT Cow_Id,Cow_Name,Cow_Number FROM cow;";
-    $get_cow_query = $GLOBALS['db']-> prepare($get_cow_sql);
-    $get_cow_query->execute();
-    $rows = $get_cow_query->fetchAll();
-    $values = [];
-    if ($get_cow_query->rowCount() > 0){
-        foreach ($rows as $row) {
-            $values[]=array(
-                "id"=>$row["Cow_Id"],
-                "name"=>$row["Cow_Name"],
-                "number"=>$row["Cow_Number"],
-            );
+    $tmp = [];
+    $user = $_SESSION['user'];
+    $sql_get_cow = "SELECT cow.Cow_Number, cow.Cow_Img_Url, cow.Cow_Name, cow.Cow_Id
+                    FROM cow 
+                    left join chip_cow_user ccu on cow.Cow_Id = ccu.Cow_Id
+                    WHERE ccu.User_Id =:user ;";
 
-        }
+    $query_get_cow = $GLOBALS['db']->prepare($sql_get_cow);
+    $query_get_cow->execute(array('user'=> $user));
+    $rows = $query_get_cow->fetchAll();
+    foreach ($rows as $row){
+        $tmp[]= array(
+            'number' => $row['Cow_Number'],
+            'img' => $row['Cow_Img_Url'],
+            'name' => $row['Cow_Name'],
+            'id' => $row['Cow_Id'],
+        );
     }
-    return $values;
+        return $tmp;
 }

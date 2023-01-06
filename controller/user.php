@@ -114,6 +114,13 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                     $data = getTableData($average, $date_start, $date_end, $sensor, $cowId);
                     echo json_encode($data);
                 }
+                if (isset($_GET['js'], $_GET['cow'])){
+                    $data = getCow(9);
+                    if (isset($_GET['recherche'])){
+                        $data = recherche($data, $_GET['recherche']);
+                    }
+                    echo json_encode($data);
+                }
                 $view = "user/table";
             }
             break;

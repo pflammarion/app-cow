@@ -72,7 +72,34 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             break;
 
         case 'vache':
+
             $view = "user/cow/". $action;
+            $list = array(
+                array(
+                    "name"=>"paul",
+                    "id"=>1,
+                ),
+                array(
+                    "name"=>"francois",
+                    "id"=>2
+                ),
+            );
+            if ($_GET['terme'] !== "" && $_GET['terme'] !== null){
+                if ( !preg_match('/[^A-Za-z0-9]/', $_GET['terme'])) {
+                    $recherche = $_GET['terme'];
+                    $affiche = recherche($list, $recherche);
+                }
+                else{
+                    $affiche = array(
+                        "error" => "preg not match",
+                    );
+                }
+            }
+            else{
+                $affiche = array(
+                    "error" => "requete null",
+                );
+            }
             break;
 
         case 'tableau':

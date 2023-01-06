@@ -13,6 +13,15 @@
             <canvas id="graph"></canvas>
         </div>
     </div>
+    <div class="container">
+        <input type="search" placeholder="Rechercher">
+        <div class="selected-cow">
+
+        </div>
+        <div class="herd">
+
+        </div>
+    </div>
 </div>
 
 

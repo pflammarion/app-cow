@@ -40,3 +40,19 @@ function showPage($view): string
 {
     return (file_exists(__DIR__ .'/../view/' . $view . '.php')) ? 'view/' . $view . '.php' : 'view/error404.php';
 }
+
+function recherche (array $list,string $recherche): array{
+    $temp=[];
+        foreach ($list as $item) {
+            if (isset($item['name'])) {
+
+                if (str_contains(strtolower($item['name']), strtolower($recherche))) {
+                    $temp[] = $item;
+                }
+            }
+        }
+        return $temp;
+
+
+}
+

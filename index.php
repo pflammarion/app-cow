@@ -1,3 +1,4 @@
+
 <?php
 ini_set('display_errors', 1);
 
@@ -48,4 +49,7 @@ else{
 if (!isset($_GET['js'])) {
     include __DIR__ . '/view/footer.php';
 }
+
+?>
+
 

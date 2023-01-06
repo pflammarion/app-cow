@@ -1,13 +1,17 @@
 <?php
 function createCow(array $values): bool
 {
-    $name = $values["name"];
-    $number = $values["number"];
-    if ($name != "" && $number != ""){
-        $create_cow_sql = "INSERT INTO cow (Cow_Name, Cow_Number) VALUES (:name, :number) ";
+    $user = intval($_SESSION['user']);
+    $name = htmlspecialchars($values["name"]);
+    $number = htmlspecialchars($values["number"]);
+    if ($name !== "" && $number !== ""){
+        $create_cow_sql = "INSERT INTO cow (Cow_Name, Cow_Number) VALUES (:name, :number);
+                           INSERT INTO chip_cow_user (Cow_Id, User_Id)
+                           SELECT Cow_Id,:user FROM cow WHERE Cow_Id = last_insert_id()";
         $create_cow_query = $GLOBALS['db']-> prepare($create_cow_sql);
         $create_cow_query->execute(
             array(
+                "user"=> $user,
                 "name"=> $name,
                 "number"=> $number,
             )

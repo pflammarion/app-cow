@@ -78,11 +78,17 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             $content = getAllCow();
             if (isset($_POST['action'])) {
                 if ($_POST['action'] === 'create') {
+                    $name = htmlspecialchars($_POST['name']);
                     $values = array(
                         "name" => $_POST['name'],
                         "number" => $_POST['number'],
                     );
                     $success = createCow($values);
+                    if ($success ){
+                        $url = "Location: user?page=vache&action=view&success=La vache " . $name . " à été ajouté à votre compte";
+                        header($url);
+                        exit();
+                    }
                 }
                 if ($_POST['action'] === 'delete' && isset($_POST['cowId'], $_POST['name'])) {
                     $name = htmlspecialchars($_POST['name']);

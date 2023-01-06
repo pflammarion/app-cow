@@ -16,11 +16,11 @@ foreach ($data as $faq){
                 <input type="hidden" value="delete" name="action" >
                 <input type="hidden" value="<?php echo $_GET["id"] ?>" name="id">
                 <div class="btn-delete-space">
-                    <button type="submit" class="btn-valider" style="background:var(--red)">
+                    <button type="submit" class="btn-delete">
                         Supprimer
                     </button>
                     <div>
-                        <a href="admin?page=faq" class="btn-valider">
+                        <a href="admin?page=faq" class="btn-return">
                             <img src="./public/assets/icon/retour.svg" alt="retour">
                             Retour
                         </a>

@@ -88,6 +88,9 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                         $url = "Location: user?page=vache&action=view&success=La vache " . $name . " à été ajouté à votre compte";
                         header($url);
                         exit();
+                    }else{
+                        header("Location: user?page=vache&action=create&error=Une erreur s'est produite veuillez rééssayer");
+                        exit();
                     }
                 }
                 if ($_POST['action'] === 'delete' && isset($_POST['cowId'], $_POST['name'])) {

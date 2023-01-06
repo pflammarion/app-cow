@@ -77,6 +77,28 @@
 
         getCow();
 
+        const getHerd = async () =>{
+            let herd = await getDataFromController('user?page=tableau&herd=1');
+            let name = '';
+            let number = '';
+            if (herd.length>0){
+                for (let i = 0; i< herd.length; i++){
+                    if(cowId !== herd[i]['number']){
+                        if (herd[i]['name'] !== null && herd[i]['name'] !== ""){
+                            name = herd[i]['name'];
+                        }
+
+                        if (herd[i]['number'] !== null && herd[i]['number'] !== ""){
+                            number = 'N°' + herd[i]['number'];
+                        }
+                        $('#herd').append('<a><span>' + name +'</span><span>' + number + '</span></a>')
+                    }
+                }
+            }
+        }
+
+        getHerd();
+
         const getData =  async () => {
             if ($('#average').data("val") === 2){
                 title = "Données sur 7 jours";

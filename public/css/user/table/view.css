@@ -179,6 +179,19 @@
     margin-top: 32px;
 }
 
+.table #herd a{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 3px 6px;
+    border: 2px solid var(--dark-blue);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.table #herd a span:nth-child(1){
+    width: calc((100%/2) + 40px);
+}
 
 @media screen and (min-width: 800px) {
     .table .container{

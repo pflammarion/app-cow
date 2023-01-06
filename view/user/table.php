@@ -78,12 +78,20 @@
         getCow();
 
         const getHerd = async () =>{
-            let herd = await getDataFromController('user?page=tableau&herd=1');
+            $('#herd').empty()
+            let url = '';
+            let search = $('input[type=search]').val();
+            if (search !== ""){
+                url = 'user?page=tableau&herd=1&recherche=' + search;
+            }
+            else url = 'user?page=tableau&herd=1';
+
+            let herd = await getDataFromController(url);
             let name = '';
             let number = '';
             if (herd.length>0){
                 for (let i = 0; i< herd.length; i++){
-                    if(cowId !== herd[i]['number']){
+                    if(cowId !== herd[i]['id']){
                         if (herd[i]['name'] !== null && herd[i]['name'] !== ""){
                             name = herd[i]['name'];
                         }
@@ -170,6 +178,10 @@
         $('#datePicker').on('change', async function() {
             await getData();
         });
+
+        $("input[type=search").on('input', async function(){
+            await getHerd()
+        })
 
         $('#average').on('click', async function (){
             $('#average').data("val", average + 1);

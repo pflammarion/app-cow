@@ -2,6 +2,7 @@
 
 require __DIR__ . '/../model/permission.php';
 require __DIR__ . '/../model/home.php';
+require __DIR__ . '/../model/function.php';
 
 $page = selectPage("accueil");
 $action = selectAction("view");
@@ -114,17 +115,16 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                     $data = getTableData($average, $date_start, $date_end, $sensor, $cowId);
                     echo json_encode($data);
                 }
-                if (isset($_GET['js'], $_GET['cow'])){
-                    $data = getCow(9);
-                    if (isset($_GET['recherche'])){
-                        $data = recherche($data, $_GET['recherche']);
-                    }
-                    echo json_encode($data);
-                }
                 $view = "user/table";
             }
+            if (isset($_GET['js'], $_GET['herd'])){
+                $data = getAllCows();
+                if (isset($_GET['recherche'])){
+                    $data = recherche($data, $_GET['recherche']);
+                }
+                echo json_encode($data);
+            }
             break;
-
         default:
             $view = "error404";
     }

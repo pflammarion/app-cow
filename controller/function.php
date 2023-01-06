@@ -65,7 +65,6 @@ function recherche(array $list,string $recherche): array
             $query = $recherche;
             foreach ($list as $item) {
                 if (isset($item['name'])) {
-
                     if (str_contains(strtolower($item['name']), strtolower($query))) {
                         $affiche[] = $item;
                     }

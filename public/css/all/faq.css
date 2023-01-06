@@ -7,7 +7,7 @@
     flex-direction: column;
 }
 .faq-user h1 {
-    margin: 11px auto 11px;
+    margin-top: 11px;
 }
 .faq-user .faq-user-article {
     margin: auto auto 56px;
@@ -18,7 +18,7 @@
     border-radius: 10px;
 }
 .faq-user .faq-user-separator {
-    margin: 0 auto;
+    margin: 11px auto;
     border-top: 3px solid var(--green);
     width: 90%;
     display: block;
@@ -32,8 +32,8 @@
     border-bottom: 3px solid var(--dark-blue);
 }
 .faq-user .faq-user-article p {
-    margin: 0 auto 11px;
-    padding: 0 11px;
+    margin: 11px auto;
+    padding: 11px;
 }
 
 @media screen and (min-width: 800px){
@@ -51,8 +51,8 @@
         margin-top: 22px;
     }
     .faq-user .faq-user-article p {
-        margin: 0 auto 22px;
-        padding: 0 22px;
+        margin: 22px auto;
+        padding: 22px;
     }
 
 }
@@ -62,7 +62,7 @@
         width: 1440px;
     }
     .faq-user h1 {
-        margin: 25px auto 2225;
+        margin: 25px auto;
     }
     .faq-user .faq-user-article {
         width: 1240px;
@@ -75,3 +75,4 @@
         margin: 0 auto 25px;
         padding: 0 25px;
     }
+}

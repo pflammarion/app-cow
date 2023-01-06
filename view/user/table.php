@@ -15,12 +15,11 @@
     </div>
     <div class="container">
         <input type="search" placeholder="Rechercher">
-        <div class="selected-cow">
-
+        <div id="selected-cow">
+            <div class="crop-img"><img src="" alt="cow"></div>
+            <div class="content"></div>
         </div>
-        <div class="herd">
-
-        </div>
+        <div id="herd"></div>
     </div>
 </div>
 
@@ -48,6 +47,35 @@
         if (sensor ===4){
             $('#sensor').attr('src', './public/assets/icon/battery.svg')
         }
+
+        const getCow = async () =>{
+            let selectedCow = await getDataFromController('user?page=tableau&selectedCow=' + cowId);
+            let src = '';
+            let name = '';
+            let number = '';
+            if (!selectedCow.length){
+                if (selectedCow['img'] !== null && selectedCow['img'] !== ""){
+                    src = '/uploads/' + selectedCow['img'];
+                }
+                else{
+                    src = './public/assets/icon/cow.svg'
+                }
+
+                if (selectedCow['name'] !== null && selectedCow['name'] !== ""){
+                    name = selectedCow['name'];
+                }
+
+                if (selectedCow['number'] !== null && selectedCow['number'] !== ""){
+                    number = 'N°' + selectedCow['number'];
+                }
+                cowId = selectedCow['id'];
+                $('#table-content').data('val', cowId);
+                $('#selected-cow').find('img').attr('src', src);
+                $('#selected-cow').find('.content').append('<span>' + name +'</span><span>' + number + '</span>')
+            }
+        }
+
+        getCow();
 
         const getData =  async () => {
             if ($('#average').data("val") === 2){
@@ -113,6 +141,7 @@
 
         $(document).on('load', async function(){
             await getData();
+            await getCow();
         })
 
 

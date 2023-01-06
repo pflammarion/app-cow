@@ -1,6 +1,6 @@
 <?php $data = $content ??  [];
 foreach ($data as $cow){
-    if ($cow['id']=== (int)$_GET['id']){
+    if ($cow['id'] === intval($_GET['cowId'])){
         $box = $cow;
     }
 }
@@ -22,21 +22,22 @@ foreach ($data as $cow){
         </div>
 
         <div class="btn-cow">
-            <div>
-                <a href="user?page=vache">
+            <form action="" method="post">
+                <input type="hidden" value="delete" name="action" >
+                <input type="hidden" value="<?php echo htmlspecialchars($_GET['name']) ?>" name="name">
+                <input type="hidden" value="<?php echo intval($_GET["cowId"]) ?>" name="cowId">
+                <div class="btn-cow">
                     <button type="submit" class="btn-delete">
                         Supprimer
                     </button>
-                </a>
-            </div>
-            <div>
-                <a href="user?page=vache">
-                    <div class="btn-return">
-                        <img src="./public/assets/icon/retour.svg" alt="retour">
-                        Retour
+                    <div>
+                        <a href="user?page=vache" class="btn-return">
+                            <img src="./public/assets/icon/retour.svg" alt="retour">
+                            Retour
+                        </a>
                     </div>
-                </a>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

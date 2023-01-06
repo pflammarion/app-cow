@@ -76,8 +76,19 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
         case 'vache':
             $view = "user/cow/". $action;
             $content = getAllCow();
+            if (isset($_POST['action'])) {
+                if ($_POST['action'] == 'create') {
+                    $values = array(
+                        "name" => $_POST['name'],
+                        "number" => $_POST['number'],
+                    );
+                    $success = createCow($values);
+                }
+                if ($_POST['action'] === 'delete') {
+                    $success = deleteFaq(intval($_POST['id']));
+                }
+            }
             break;
-
         case 'tableau':
             $type = $_GET['type'];
             $view = "user/table";

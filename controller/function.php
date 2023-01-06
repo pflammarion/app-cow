@@ -44,7 +44,7 @@ function showPage($view): string
 function recherche(array $list,string $recherche): array
 {
     $affiche = [];
-    if ($recherche !== "" && $recherche !== null){
+    if ($recherche !== ""){
         if ( !preg_match('/[^A-Za-z0-9]/', $recherche)) {
             $query = $recherche;
             foreach ($list as $item) {

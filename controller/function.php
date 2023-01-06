@@ -56,3 +56,32 @@ function validateDate($date, $format = 'Y-m-d H:i:s'): bool
     $d = DateTime::createFromFormat($format, $date);
     return $d && $d->format($format) == $date;
 }
+
+function recherche(array $list,string $recherche): array
+{
+    $affiche = [];
+    if ($recherche !== ""){
+        if ( !preg_match('/[^A-Za-z0-9]/', $recherche)) {
+            $query = $recherche;
+            foreach ($list as $item) {
+                if (isset($item['name'])) {
+
+                    if (str_contains(strtolower($item['name']), strtolower($query))) {
+                        $affiche[] = $item;
+                    }
+                }
+            }
+        }
+        else{
+            $affiche = array(
+                "error" => "preg not match",
+            );
+        }
+    }else{
+        $affiche = array(
+            "error" => "requête nulle",
+        );
+    }
+    return $affiche;
+}
+

@@ -23,7 +23,7 @@ function phpMailSender(string $token, string $email): bool
 
     $mail->SMTPDebug = 0;                   // Enable verbose debug output
     $mail->isSMTP();                        // Set mailer to use SMTP
-    $mail->Host       = 'ssl0.ovh.net;';    // Specify main SMTP server
+    $mail->Host       = 'ssl0.ovh.net';    // Specify main SMTP server
     $mail->SMTPAuth   = true;               // Enable SMTP authentication
     $mail->Username   = 'cow@newonline.world';     // SMTP username
     $mail->Password   = "Let'sCodeAPP";         // SMTP password

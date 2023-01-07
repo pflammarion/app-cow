@@ -3,12 +3,14 @@
     <div class="contact-article">
         <div class="contacter">
             <h2>NOUS CONTACTER</h2>
-            <p><label for="email">Votre Email :</label>
-                <input type="email" name="email" id="box" placeholder="Email" size="33" maxlength="50" />
-            </p>
+            <div class="email-sujet">
+                <p><label for="email">Votre Email :</label>
+                    <input type="email" name="email" id="box" placeholder="Email" size="33" maxlength="50" />
+                </p>
 
-            <p><label for="sujet">Sujet :</label>
+                <p><label for="sujet">Sujet :</label>
 
+            </div>
                 <select name="sujet" id="box">
                     <option value="">--Choisir votre demande--</option>
                     <option value="dog">Dog</option>
@@ -23,10 +25,8 @@
             </p>
         </div>
         <span class="separator"></span>
-        <div class="telephone">
-            <h2>CONTACT TELEPHONIQUE</h2>
-            <p>06 54 32 10 69<br> Lorem mes couilles</p>
-        </div>
+        <h2>CONTACT TELEPHONIQUE</h2>
+        <p>06 54 32 10 69<br>Lorem mes couilles Lorem mes couilles Lorem mes couillesLorem mes couillesLorem mes couillesLorem mes couilles </p>
     </div>
 </div>
 

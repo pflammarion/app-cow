@@ -27,7 +27,7 @@
 .contact .contact-article .contacter{
     margin: auto;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     border: solid 1px red;
 }
 
@@ -45,7 +45,7 @@
 
 .contact .contact-article .contacter textarea{
     width: 284px;
-    height: 171px;
+    height: 200px;
     border: 0;
     border-radius: 5px;
     color: black;
@@ -78,10 +78,19 @@
     .contact .contact-article h2 {
         margin: 22px auto;
     }
-    .contact .contact-article p,
-    .contact .contact-article ul{
+    .contact .contact-article p{
         margin: 0 auto 22px;
-        padding: 0 34px;
+        padding: 0 22px;
+    }
+    .contact .contact-article .contacter textarea{
+        width: 586px;
+        height: 383px;
+    }
+    .contact .contact-article .contacter select,
+    .contact .contact-article .contacter input{
+        padding: 0 22px;
+        width: 590px;
+        height: 40px;
     }
 }
 
@@ -99,8 +108,7 @@
     .contact .contact-article h2 {
         margin: 25px auto;
     }
-    .contact .contact-article p,
-    .contact .contact-article ul{
+    .contact .contact-article p{
         margin: 0 auto 25px;
         padding: 0 84px;
     }

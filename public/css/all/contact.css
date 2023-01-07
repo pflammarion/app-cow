@@ -114,19 +114,31 @@
         margin: 22px auto;
     }
 
-    .contact .contact-article .contacter select,
-    .contact .contact-article .contacter input {
-        padding: 0 22px;
-        width: 590px;
+    .contact .contact-article .contacter p select,
+    .contact .contact-article .contacter p input {
+
+        width: 612px;
         height: 40px;
     }
+    .contact .contact-article .contacter textarea{
+        width: 608px;
+        height: 383px;
+    }
+    .contact .contact-article .contacter .form .caracteres{
+        display: flex;
+        margin: -26px 0 0;
+        font-size: 15px;
+    }
+    .contact .contact-article .contacter input[type=submit]{
+        width: 300px;
+        height: 50px;
+        margin: 0 auto 22px;
+    }
     .contact .contact-article .contacter p{
-        margin: 0 auto 11px;
-        padding: 0 11px;
+        margin: 0 auto 22px;
     }
     .contact .contact-article .telephone p{
-        margin: 0 auto 22px;
-        padding: 0 34px;
+        margin: 0 34px 22px;
     }
     .contact .contact-article label{
         margin: 0 auto 22px;
@@ -141,16 +153,42 @@
     .contact h1{
         margin: 16px auto 20px;
     }
-    .contact .contact-article {
+    .contact .contact-article{
         margin: auto auto 40px;
         width: 1240px;
     }
     .contact .contact-article h2 {
         margin: 25px auto;
     }
-    .contact .contact-article p{
-        margin: 0 auto 25px;
-        padding: 0 84px;
+    .contact .contact-article .contacter .email-sujet{
+        display: flex;
+    }
+    .contact .contact-article .contacter p select,
+    .contact .contact-article .contacter p input {
+        width: 598px;
+        height: 40px;
+    }
+    .contact .contact-article .contacter textarea{
+        width: 1214px;
+        height: 383px;
+    }
+    .contact .contact-article .contacter .form .caracteres{
+        display: flex;
+        margin: -30px 0 0;
         font-size: 20px;
+    }
+    .contact .contact-article .contacter input[type=submit]{
+        width: 300px;
+        height: 50px;
+        margin: 0 auto 25px;
+    }
+    .contact .contact-article .contacter p{
+        margin: 0 auto 25px;
+    }
+    .contact .contact-article .telephone p{
+        margin: 0 84px 25px;
+    }
+    .contact .contact-article label{
+        margin: 0 auto 25px;
     }
 }

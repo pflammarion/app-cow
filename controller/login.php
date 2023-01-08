@@ -31,11 +31,21 @@ if(!empty($page)){
                 }
             }
             break;
+        case 'contact':
+            $view = "login/contact";
+            if(isset($_POST['email']) && isset($_POST['sujet']) && isset($_POST['message'])){
+                header("Location: login?page=contact&success=Mail envoyé !\brVous recevrez une réponse prochainement");
+                exit();
+                }
+            else {
+                    header("Location: ?page=contact&error=Un des champs n'a pas été rempli");
+                }
+            break;
         case 'lostpassword':
             $view = "login/lostPassword";
             if(isset($_POST['email'])){
                 $token = tokenGeneration();
-                $success = phpMailSender($token, $_POST['email']);
+                $success = phpMailSender($token, $_POST['email'], $_POST['message'], );
                 $insert = addToken($token, $_POST['email']);
                 if ($success && $insert){
                     header("Location: login?page=login&success=Vous recevrez un mail d'ici quelques instants" );
@@ -102,15 +112,6 @@ if(!empty($page)){
                     }
                     header("Location: ?page=register&error=Les mots de passe que vous avez saisis ne correspondent pas");
                     break;
-                }
-
-                if(isset($_POST['email'])){
-                    $token = tokenGeneration();
-                    $success = phpMailSender($token, $_POST['email']);
-                    $insert = addToken($token, $_POST['email']);
-                    if ($success && $insert){
-                        header("Location: ?page=register&error=Cet email a déjà été utilisé");
-                    }
                 }
 
                 if (!$register_errors){

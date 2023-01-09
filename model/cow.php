@@ -25,7 +25,7 @@ function updateCow(array $values): bool
     $name = $values["name"];
     $number = $values["number"];
     $id = $values["id"];
-    if ($name != "" && $number != "" && $id != ""){
+    if ($name !== "" && $number !== "" && $id !== ""){
         $update_cow_sql = "UPDATE cow SET Cow_Name=:name, Cow_Number=:number WHERE Cow_Id=:id";
         $update_cow_query = $GLOBALS['db']-> prepare($update_cow_sql);
         $update_cow_query->execute(

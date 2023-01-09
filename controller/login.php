@@ -19,7 +19,7 @@ if(!empty($page)){
                 $error = login($values);
                 if ($error === ""){
                     if ($_SESSION['role'] === 1){
-                        header("Location: user?page=accueil&success=Vous êtes connecté en temps que utilisateur");
+                        header("Location: user?page=accueil&success=Vous êtes connecté en temps qu'utilisateur");
                     }
                     else{
                         header("Location: admin?page=accueil");
@@ -28,55 +28,6 @@ if(!empty($page)){
                 }
                 else{
                     header("Location: ?page=login&error=". $error);
-                }
-            }
-            break;
-        case 'contact':
-            $view = "all/contact";
-            if(isset($_POST['email']) && isset($_POST['sujet']) && isset($_POST['message'])){
-                header("Location: login?page=contact&success=Mail envoyé !\brVous recevrez une réponse prochainement");
-                exit();
-                }
-            else {
-                    header("Location: ?page=contact&error=Un des champs n'a pas été rempli");
-                }
-            break;
-        case 'update':
-            $view = "profile/update";
-            if(isset($_POST['username']) and isset($_POST['firstname']) and isset($_POST['lastname']) and isset($_POST['email'])) {
-                $update_errors = [];
-
-                if ($_POST['password'] !== $_POST['password_confirm']){
-                    $update_errors[] = "Passwords don't match";
-                    if (strlen($_POST['password']) < 4) {
-                        $update_errors[] = "Password not long enough! Must be at least 8 characters long";
-                        if ($_POST['username'] === $_POST['password']) {
-                            $update_errors[]= "Your name cannot be your password!";
-                            header("Location: ?page=register&error=Votre mot de passe ne peut pas être votre nom d'utilisateur");
-                            break;
-                        }
-                        header("Location: ?page=register&error=Le mot de passe nécessite plus de 4 caractères");
-                        break;
-                    }
-                    header("Location: ?page=register&error=Les mots de passe que vous avez saisis ne correspondent pas");
-                    break;
-                }
-
-                if (!$update_errors){
-
-                    $values = [
-                        'username' => $_POST['username'],
-                        'email' => $_POST['email'],
-                        'firstname' => $_POST['firstname'],
-                        'lastname' => $_POST['lastname'],
-                    ];
-
-                    $update = register($values);
-
-                    if ($update) {
-                        header("Location: login?page=login&success=Inscription réussite !");
-                        exit();
-                    }
                 }
             }
             break;

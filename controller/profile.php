@@ -31,6 +31,7 @@ if(!empty($action)){
 
             if(isset($_POST['delete-img'])){
                 $update = removeImage('user', $_SESSION['user']);
+                header("Location: profil?action=update&success=L'image a bien été supprimée");
             }
 
             if (isset( $_FILES["file"] ) && !empty( $_FILES["file"]["name"] ) && $update){
@@ -43,10 +44,13 @@ if(!empty($action)){
                 if($extension != "jpg" && $extension != "png" && $extension!= "jpeg") {
                     $upload = False;
                     $update= False;
+                    header("Location: profil?action=update&error=Le fichier n'a pas une extension acceptable");
+                    exit();
                 }
                 if ($_FILES["file"]["size"] > 5000000) {
                     $upload = False;
                     $update= False;
+                    header("Location: profil?action=update&error=La taille du fichier dépasse 5Mb");
                 }
                 if($upload){
                     $update = updateImage("user", $destination, $_SESSION['user']);
@@ -56,7 +60,7 @@ if(!empty($action)){
                 }
             }
             if ($update) {
-                header("Location: profil?action=view");
+                header("Location: profil?action=view&success=Votre profile a été mis à jour !");
                 exit();
             }
         }

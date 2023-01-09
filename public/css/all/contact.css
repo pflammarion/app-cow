@@ -67,7 +67,8 @@
     font-size: 10px;
 }
 
-.contact .contact-article .contacter input[type=submit]{
+.contact .contact-article .contacter button{
+    display: flex;
     width: 164px;
     height: 41px;
     background-color: #ADE194;
@@ -75,12 +76,16 @@
     margin: 0 auto 11px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    align-items: center;
+}
+.contact .contact-article .contacter button p{
+    margin: auto;
+}
+.contact .contact-article .contacter button img{
+    width: 25px;
+    margin: auto;
 }
 
-.contact .contact-article .contacter input[type=submit]:hover {
-    background-color: #4CAF50;
-}
 
 .contact .contact-article .separator {
     margin: 0 auto;
@@ -129,10 +134,13 @@
         margin: -26px 0 0;
         font-size: 15px;
     }
-    .contact .contact-article .contacter input[type=submit]{
+    .contact .contact-article .contacter button{
         width: 300px;
         height: 50px;
         margin: 0 auto 22px;
+    }
+    .contact .contact-article .contacter button img{
+        width: 30px;
     }
     .contact .contact-article .contacter p{
         margin: 0 auto 22px;
@@ -143,7 +151,6 @@
     .contact .contact-article label{
         margin: 0 auto 22px;
     }
-
 }
 
 @media screen and (min-width: 1440px) {
@@ -177,9 +184,7 @@
         margin: -30px 0 0;
         font-size: 20px;
     }
-    .contact .contact-article .contacter input[type=submit]{
-        width: 300px;
-        height: 50px;
+    .contact .contact-article .contacter button{
         margin: 0 auto 25px;
     }
     .contact .contact-article .contacter p{

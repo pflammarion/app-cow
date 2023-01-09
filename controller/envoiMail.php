@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\Exception;
 require __DIR__ . '/../vendor/phpmailer/phpmailer/src/Exception.php';
 require __DIR__ . '/../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require __DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php';
-require __DIR__.'/../contact.php';
+require __DIR__.'./public/assets//mail.svgcontact.php';
 
 
 /**

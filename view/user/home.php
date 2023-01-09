@@ -32,6 +32,7 @@ $chipId = $chipId ?? 0;
                     $img_url = '';
                     $val = '';
                     $sensor_id = 1;
+                    $url = '/user?page=accueil';
                     if (isset($sensor['value'])){
                         $val = $sensor['value'];
                         $class = '';
@@ -68,9 +69,10 @@ $chipId = $chipId ?? 0;
                             $img_url = './public/assets/icon/battery.svg';
                             $sensor_id = 4;
                         }
+                        $url = 'user?page=tableau&sensor=' . $sensor_id  . '&cow=' . intval($_GET['cow']);
                     }
 
-                    echo '<a href="user?page=tableau&sensor=' . $sensor_id  . '&cow=' . intval($_GET['cow']) .'">';
+                    echo '<a href="' . $url . '">';
                     echo '<div class="sensor '. $class . '">';
                     echo '<span class="time">' . $days . ' ' . $hours . '</span>';
                     if ($img_url != '') echo '<img src="' . $img_url . '" alt="sensor">';

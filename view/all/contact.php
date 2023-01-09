@@ -16,7 +16,8 @@
                             <option value="bug informatique">Bug informatique</option>
                             <option value="problème materiel">Problème materiel</option>
                             <option value="demande d'informations">Demande d'informations</option>
-                        </select></p>
+                        </select>
+                    </p>
                 </div>
                 <p><label for="message">Votre message :</label>
                 <textarea name="message" placeholder="Message" class="required"></textarea>

@@ -35,7 +35,7 @@ if(!empty($page)){
             $view = "login/lostPassword";
             if(isset($_POST['email'])){
                 $token = tokenGeneration();
-                $success = phpMailSender($token, $_POST['email']);
+                $success = phpMailSender($token, $_POST['email'], 'mdp', '', '' );
                 $insert = addToken($token, $_POST['email']);
                 if ($success && $insert){
                     //ajouter le message de réussite

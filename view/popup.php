@@ -1,5 +1,4 @@
-<div class="popup-container" id="popup"  onclick="hide()">
-</div>
+<div class="popup-container" id="popup"  onclick="hide(this)"></div>
 
 <script>
     $(document).ready(() => {
@@ -19,8 +18,8 @@
         $('.popup').delay(5000).fadeOut('slow');
     });
 
-    function hide(){
-        document.getElementById("delete").style.display = "none";
+    function hide(e){
+        e.style.display = "none";
     }
 </script>
 

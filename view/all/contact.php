@@ -3,7 +3,7 @@
     <div class="contact-article">
         <div class="contacter">
             <h2>Nous contacter</h2>
-            <form action="" method="get" class="form">
+            <form action="" method="post" class="form">
                 <div class="email-sujet">
                     <p><label for="email">Votre adresse email :</label>
                         <input type="email" name="email" id="box" placeholder="nom@gmail.com" size="33" maxlength="50" />
@@ -13,9 +13,9 @@
 
                         <select name="sujet" id="box">
                             <option value="">--Choisir votre demande--</option>
-                            <option value="Bug informatique">bug informatique</option>
-                            <option value="Problème materiel">problème materiel</option>
-                            <option value="Demande d'informations">demande d'informations</option>
+                            <option value="bug informatique">Bug informatique</option>
+                            <option value="problème materiel">Problème materiel</option>
+                            <option value="demande d'informations">Demande d'informations</option>
                         </select></p>
                 </div>
                 <p><label for="message">Votre message :</label>
@@ -33,51 +33,48 @@
     </div>
 </div>
 
-<script>
-        <?php
+<?php
 
-        use PHPMailer\PHPMailer\PHPMailer;
-        use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-        require __DIR__ . '/../vendor/phpmailer/phpmailer/src/Exception.php';
-        require __DIR__ . '/../vendor/phpmailer/phpmailer/src/PHPMailer.php';
-        require __DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php';
+require __DIR__ . '/../vendor/phpmailer/phpmailer/src/Exception.php';
+require __DIR__ . '/../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require __DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php';
+require __DIR__.'/../contact.php';
 
 
-        /**
-         * @throws Exception
-         **/
-        if (isset($_POST["Envoyer"])) {
-            // @ts-ignore
-            $mail = new PHPMailer();                // @ignore
-            $mail->CharSet = 'UTF-8';
-            $mail->Encoding = 'base64';
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+/**
+ * @throws Exception
+ **/
+if (isset($_POST["Envoyer"])) {
+    // @ts-ignore
+    $mail = new PHPMailer();                // @ignore
+    $mail->CharSet = 'UTF-8';
+    $mail->Encoding = 'base64';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 
-            $mail->SMTPDebug = 0;                   // Enable verbose debug output
-            $mail->isSMTP();                        // Set mailer to use SMTP
-            $mail->Host = 'ssl0.ovh.net';    // Specify main SMTP server
-            $mail->SMTPAuth = true;               // Enable SMTP authentication
-            $mail->Username = 'cow@newonline.world';     // SMTP username
-            $mail->Password = "Let'sCodeAPP";         // SMTP password
-            $mail->SMTPSecure = 'ssl';              // Enable TLS encryption, 'ssl' also accepted
-            $mail->Port = 465;                // TCP port to connect to
+    $mail->SMTPDebug = 0;                   // Enable verbose debug output
+    $mail->isSMTP();                        // Set mailer to use SMTP
+    $mail->Host = 'ssl0.ovh.net';    // Specify main SMTP server
+    $mail->SMTPAuth = true;               // Enable SMTP authentication
+    $mail->Username = 'cow@newonline.world';     // SMTP username
+    $mail->Password = "Let'sCodeAPP";         // SMTP password
+    $mail->SMTPSecure = 'ssl';              // Enable TLS encryption, 'ssl' also accepted
+    $mail->Port = 465;                // TCP port to connect to
 
-            $mail->setFrom('cow@newonline.world', 'noreply');
+    $mail->setFrom('cow@newonline.world', 'noreply');
 
-            $mail->addAddress($_POST["email"]);
+    $mail->addAddress($_POST["email"]);
 
-            $mail->isHTML(true);
+    $mail->isHTML(true);
 
-            $mail->Subject = $_POST["sujet"];
-            $mail->Body = $_POST["message"];
-        }
-        try {
-            $mail->send();
-            return true;
-        } catch (Exception $e) {         // @ignore
-            return false;
-        }?>
-
-</script>
-
+    $mail->Subject = $_POST["sujet"];
+    $mail->Body = $_POST["message"];
+}
+try {
+    $mail->send();
+    return true;
+} catch (Exception $e) {         // @ignore
+    return false;
+}?>

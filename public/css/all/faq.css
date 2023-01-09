@@ -28,6 +28,7 @@
 }
 .faq-user .faq-user-article h2 {
     margin-left: 11px;
+    margin-right: 11px;
     margin-top: 11px;
     border-bottom: 3px solid var(--dark-blue);
 }
@@ -48,6 +49,7 @@
     }
     .faq-user .faq-user-article h2 {
         margin-left: 22px;
+        margin-right: 22px;
         margin-top: 22px;
     }
     .faq-user .faq-user-article p {
@@ -69,6 +71,7 @@
     }
     .faq-user .faq-user-article h2 {
         margin-left: 25px;
+        margin-right: 25px;
         margin-top: 25px;
     }
     .faq-user .faq-user-article p {

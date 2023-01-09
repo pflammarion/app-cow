@@ -7,7 +7,7 @@ foreach ($data as $cow){
 ?>
 <div class="cow-vache-delete">
     <div class="cow-view-setting-box-delete">
-        <h1>Voulez vous supprimer la vache :</h1>
+        <h1>Voulez vous supprimer la vache : <?php echo $box["name"] ?></h1>
 
         <div class="cow-view-setting-box">
             <div class="cow-view-box">

@@ -1,4 +1,4 @@
-<div class="popup-container" id="delete"  onclick="k()">
+<div class="popup-container" id="popup"  onclick="hide()">
 </div>
 
 <script>
@@ -16,13 +16,10 @@
             $('#number' + i).addClass('success');
             i++;
         <?php }?>
-
-
         $('.popup').delay(5000).fadeOut('slow');
+    });
 
-
-    })
-    function k(){
+    function hide(){
         document.getElementById("delete").style.display = "none";
     }
 </script>

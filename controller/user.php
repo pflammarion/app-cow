@@ -102,18 +102,13 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                         exit();
                     }
                 }
-                if ($_POST['action'] === 'update' && isset($_POST['cowId'], $_POST['name'])) {
+                if ($_POST['action'] === 'update') {
                     $values = array(
                         "name" => $_POST['name'],
                         "number" => $_POST['number'],
-                        "id" => $_POST['id'],
+                        "id" => $_POST['cowId'],
                     );
                     $success = updateCow($values);
-                    if ($success ){
-                        $url = "Location: user?page=vache&action=view&success=La vache " .$name. " à été modifiée";
-                        header($url);
-                        exit();
-                    }
                 }
             }
             break;

@@ -55,20 +55,21 @@
             let name = '';
             let number = '';
             if (!selectedCow.length){
-                if (selectedCow['img'] !== null && selectedCow['img'] !== ""){
+                if (selectedCow['img'] !== null && selectedCow['img'] !== "" && selectedCow['img'] !== undefined){
                     src = '/uploads/' + selectedCow['img'];
                 }
                 else{
                     src = './public/assets/icon/cow.svg'
                 }
 
-                if (selectedCow['name'] !== null && selectedCow['name'] !== ""){
+                if (selectedCow['name'] !== null && selectedCow['name'] !== "" && selectedCow['name'] !== undefined){
                     name = selectedCow['name'];
                 }
 
-                if (selectedCow['number'] !== null && selectedCow['number'] !== ""){
+                if (selectedCow['number'] !== null && selectedCow['number'] !== "" && selectedCow['number'] !== undefined){
                     number = 'N°' + selectedCow['number'];
                 }
+                else number = 'Aucune vache ne peut être sélectionnée'
                 cowId = selectedCow['id'];
                 $('#table-content').data('val', cowId);
                 $('#selected-cow').find('img').attr('src', src);

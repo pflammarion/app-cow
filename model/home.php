@@ -51,7 +51,7 @@ function getSensorValueByCowBySensor(int $cow, int $sensor): array
 function getCow(int $id): array
 {
     $user = $_SESSION['user'];
-    $sql_get_cow = "SELECT cow.Cow_Number, cow.Cow_Img_Url, cow.Cow_Name 
+    $sql_get_cow = "SELECT cow.Cow_Number, cow.Cow_Img_Url, cow.Cow_Name, cow.Cow_Id
                     FROM cow 
                     left join chip_cow_user ccu on cow.Cow_Id = ccu.Cow_Id
                     WHERE cow.Cow_Id =:id AND ccu.User_Id =:user ;";
@@ -61,6 +61,7 @@ function getCow(int $id): array
     $row = $query_get_cow->fetch();
     if ($query_get_cow->rowcount() === 1){
         return array(
+            'id' => $row['Cow_Id'],
             'number' => $row['Cow_Number'],
             'img' => $row['Cow_Img_Url'],
             'name' => $row['Cow_Name'],

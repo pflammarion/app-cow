@@ -1,6 +1,9 @@
+<?php
+$date = new DateTime();
+?>
 </div>
 <footer>
-    <p>©</p>
+    <p> © NewOnlineWorld <?php echo $date->format('Y') ?></p>
     <div class="link">
         <a href="all?page=cgu">CGU</a>
         <a href="all?page=legal">Mentions légales</a>

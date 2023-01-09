@@ -1,15 +1,23 @@
+<?php
+$data = $content ??  [];
+foreach ($data as $cow){
+    if ($cow['id']==$_GET['id']){
+        $box = $cow;
+    }
+}
+?>
 <div class="cow-vache-add">
     <h1>Modifier la Puce de : NomDeLaVache</h1>
     <form action="" method="post">
         <div class="form-cow-box">
             <div class="create-question">
-                <label for="question">
+                <label for="name">
                     Nom de la Vache :
-                    <input type="text" name="question">
+                    <input type="text" name="name" >
                 </label>
-                <label for="question">
+                <label for="number">
                     Numéro de boitier :
-                    <input type="text" name="question">
+                    <input type="text" name="number" >
                 </label>
             </div>
         </div>

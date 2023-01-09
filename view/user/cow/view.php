@@ -31,7 +31,7 @@ usort($data, function ($item1, $item2) {
                 <img class="img-black" src="./public/assets/icon/delete.svg" alt="delete">
                 <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="delete">
             </a>
-            <a class="btn-blue" href="user?page=vache&action=update">
+            <a class="btn-blue" href="user?page=vache&action=update&cowId='.$box['id'].'&name='.$box['name'].'">
                 <img class="img-black" src="./public/assets/icon/modifier.svg" alt="edit">
                 <img class="img-white" src="./public/assets/icon/modifier-white.svg" alt="edit">
             </a>';

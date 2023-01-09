@@ -65,3 +65,26 @@ function removeImage(string $table, int $id): bool
     );
     return true;
 }
+
+function getAllCows(): array
+{
+    $tmp = [];
+    $user = $_SESSION['user'];
+    $sql_get_cow = "SELECT cow.Cow_Number, cow.Cow_Img_Url, cow.Cow_Name, cow.Cow_Id
+                    FROM cow 
+                    left join chip_cow_user ccu on cow.Cow_Id = ccu.Cow_Id
+                    WHERE ccu.User_Id =:user";
+
+    $query_get_cow = $GLOBALS['db']->prepare($sql_get_cow);
+    $query_get_cow->execute(array('user' => $user));
+    $rows = $query_get_cow->fetchAll();
+    foreach ($rows as $row) {
+        $tmp[] = array(
+            'number' => $row['Cow_Number'],
+            'img' => $row['Cow_Img_Url'],
+            'name' => $row['Cow_Name'],
+            'id' => $row['Cow_Id'],
+        );
+    }
+    return $tmp;
+}

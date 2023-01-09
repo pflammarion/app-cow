@@ -13,6 +13,15 @@
             <canvas id="graph"></canvas>
         </div>
     </div>
+    <div class="container">
+        <input type="search" placeholder="Rechercher">
+        <div id="selected-cow">
+            <!-- voir le cas ou la vache est null (empecher le lien de la page d'accueil ?) -->
+            <div class="crop-img"><img src="" alt="cow"></div>
+            <div class="content"></div>
+        </div>
+        <div id="herd"></div>
+    </div>
 </div>
 
 
@@ -39,6 +48,68 @@
         if (sensor ===4){
             $('#sensor').attr('src', './public/assets/icon/battery.svg')
         }
+
+        const getCow = async () =>{
+            let selectedCow = await getDataFromController('user?page=tableau&selectedCow=' + cowId);
+            let src = '';
+            let name = '';
+            let number = '';
+            if (!selectedCow.length){
+                if (selectedCow['img'] !== null && selectedCow['img'] !== "" && selectedCow['img'] !== undefined){
+                    src = '/uploads/' + selectedCow['img'];
+                }
+                else{
+                    src = './public/assets/icon/cow.svg'
+                }
+
+                if (selectedCow['name'] !== null && selectedCow['name'] !== "" && selectedCow['name'] !== undefined){
+                    name = selectedCow['name'];
+                }
+
+                if (selectedCow['number'] !== null && selectedCow['number'] !== "" && selectedCow['number'] !== undefined){
+                    number = 'N°' + selectedCow['number'];
+                }
+                else number = 'Aucune vache ne peut être sélectionnée'
+                cowId = selectedCow['id'];
+                $('#table-content').data('val', cowId);
+                $('#selected-cow').find('img').attr('src', src);
+                $('#selected-cow').find('.content').append('<span>' + name +'</span><span>' + number + '</span>')
+            }
+        }
+
+        getCow();
+
+        const getHerd = async () =>{
+            $('#herd').empty()
+            let url = '';
+            let search = $('input[type=search]').val();
+            if (search !== ""){
+                url = 'user?page=tableau&herd=1&recherche=' + search;
+            }
+            else url = 'user?page=tableau&herd=1';
+
+            let herd = await getDataFromController(url);
+            let name = '';
+            let number = '';
+            if (herd.length>0){
+                for (let i = 0; i< herd.length; i++){
+                    if(cowId !== herd[i]['id']){
+                        if (herd[i]['name'] !== null && herd[i]['name'] !== ""){
+                            name = herd[i]['name'];
+                        }
+
+                        if (herd[i]['number'] !== null && herd[i]['number'] !== ""){
+                            number = 'N°' + herd[i]['number'];
+                        }
+                        let id = herd[i]['id'];
+                        //faire onclick js plutot qu'un lien mais pas grave pour l'instant
+                        $('#herd').append('<a href="/user?page=tableau&sensor=2&cow=' + id +'" class="herd-button"><span>' + name +'</span><span>' + number + '</span></a>')
+                    }
+                }
+            }
+        }
+
+        getHerd();
 
         const getData =  async () => {
             if ($('#average').data("val") === 2){
@@ -104,12 +175,17 @@
 
         $(document).on('load', async function(){
             await getData();
+            await getCow();
         })
 
 
         $('#datePicker').on('change', async function() {
             await getData();
         });
+
+        $("input[type=search").on('input', async function(){
+            await getHerd()
+        })
 
         $('#average').on('click', async function (){
             $('#average').data("val", average + 1);

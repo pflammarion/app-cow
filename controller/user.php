@@ -109,6 +109,11 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                         "id" => $_POST['cowId'],
                     );
                     $success = updateCow($values);
+                    if ($success ){
+                        $url = "Location: user?page=vache&action=view&success=La vache " .$name. " à été modifiée";
+                        header($url);
+                        exit();
+                    }
                 }
             }
             break;

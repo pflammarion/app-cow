@@ -49,13 +49,6 @@
             $('#sensor').attr('src', './public/assets/icon/battery.svg')
         }
 
-        function changeCow(id){
-            $('#table-content').data('val', id);
-            cowId =  $('#table-content').data('val');
-            getCow();
-            getHerd();
-        }
-
         const getCow = async () =>{
             let selectedCow = await getDataFromController('user?page=tableau&selectedCow=' + cowId);
             let src = '';
@@ -107,21 +100,15 @@
                         if (herd[i]['number'] !== null && herd[i]['number'] !== ""){
                             number = 'N°' + herd[i]['number'];
                         }
-                        let id = herd[i]['id']
-                        $('#herd').append('<div class="herd-button" data-val="' + id +'"><span>' + name +'</span><span>' + number + '</span></div>')
+                        let id = herd[i]['id'];
+                        //faire onclick js plutot qu'un lien mais pas grave pour l'instant
+                        $('#herd').append('<a href="/user?page=tableau&sensor=2&cow=' + id +'" class="herd-button"><span>' + name +'</span><span>' + number + '</span></a>')
                     }
                 }
             }
         }
 
         getHerd();
-
-        $('.herd-button').on('click', function (){
-            cowId = $(this).data('val');
-            console.log(cowId)
-            getCow();
-            getHerd();
-        });
 
         const getData =  async () => {
             if ($('#average').data("val") === 2){

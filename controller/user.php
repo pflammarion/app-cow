@@ -75,16 +75,6 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
         case 'vache':
 
             $view = "user/cow/". $action;
-            $list = array(
-                array(
-                    "name"=>"paul",
-                    "id"=>1,
-                ),
-                array(
-                    "name"=>"francois",
-                    "id"=>2
-                ),
-            );
             break;
 
         case 'tableau':

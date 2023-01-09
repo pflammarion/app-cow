@@ -19,7 +19,7 @@ if(!empty($page)){
                 $error = login($values);
                 if ($error === ""){
                     if ($_SESSION['role'] === 1){
-                        header("Location: user?page=accueil");
+                        header("Location: user?page=accueil&success=Vous êtes connecté en temps qu'utilisateur");
                     }
                     else{
                         header("Location: admin?page=accueil");
@@ -27,7 +27,7 @@ if(!empty($page)){
                     exit();
                 }
                 else{
-                    echo('<script>alert("' . $error . '")</script>');
+                    header("Location: ?page=login&error=". $error);
                 }
             }
             break;
@@ -38,11 +38,12 @@ if(!empty($page)){
                 $success = phpMailSender($token, $_POST['email']);
                 $insert = addToken($token, $_POST['email']);
                 if ($success && $insert){
-                    //ajouter le message de réussite
-                    header("Location: login?page=login");
+                    header("Location: login?page=login&success=Vous recevrez un mail d'ici quelques instants" );
                     exit();
                 }
-                //else echec
+                else {
+                    header("Location: ?page=lostpassword&error=Email non reconnu");
+                }
             }
             break;
         case 'newpassword':
@@ -54,13 +55,20 @@ if(!empty($page)){
                     $register_errors = [];
                     if ($_POST['password'] !== $_POST['password_confirm']){
                         $register_errors[] = "Passwords don't match";
+                        if (strlen($_POST['password']) < 4) {
+                            $register_errors[] = "Password not long enough! Must be at least 8 characters long";
+                            if ($user === $_POST['password']) {
+                                $register_errors[]= "Your name cannot be your password!";
+                                header("Location: ?page=newpassword&error=Votre mot de passe ne peut pas être votre nom d'utilisateur");
+                                break;
+                            }
+                            header("Location: ?page=newpassword&error=Le mot de passe nécessite plus de 4 caractères");
+                            break;
+                        }
+                        header("Location: ?page=newpassword&error=Les mots de passe que vous avez saisis ne correspondent pas");
+                        break;
                     }
-                    if (strlen($_POST['password']) < 4) {
-                        $register_errors[] = "Password not long enough! Must be at least 8 characters long";
-                    }
-                    if ($user === $_POST['password']) {
-                        $register_errors[]= "Your name cannot be your password!";
-                    }
+
                     if (!$register_errors){
                         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
@@ -68,7 +76,7 @@ if(!empty($page)){
 
                         if ($update) {
                             deleteToken($token);
-                            header("Location: login?page=login");
+                            header("Location: login?page=login&success=Votre mot de passe a été modifié !");
                             exit();
                         }
                     }
@@ -82,14 +90,20 @@ if(!empty($page)){
 
                 if ($_POST['password'] !== $_POST['password_confirm']){
                     $register_errors[] = "Passwords don't match";
-                }
-                if (strlen($_POST['password']) < 4) {
-                    $register_errors[] = "Password not long enough! Must be at least 8 characters long";
+                    if (strlen($_POST['password']) < 4) {
+                        $register_errors[] = "Password not long enough! Must be at least 8 characters long";
+                        if ($_POST['username'] === $_POST['password']) {
+                            $register_errors[]= "Your name cannot be your password!";
+                            header("Location: ?page=register&error=Votre mot de passe ne peut pas être votre nom d'utilisateur");
+                            break;
+                        }
+                        header("Location: ?page=register&error=Le mot de passe nécessite plus de 4 caractères");
+                        break;
+                    }
+                    header("Location: ?page=register&error=Les mots de passe que vous avez saisis ne correspondent pas");
+                    break;
                 }
 
-                if ($_POST['username'] === $_POST['password']) {
-                    $register_errors[]= "Your name cannot be your password!";
-                }
                 if (!$register_errors){
                     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
@@ -104,7 +118,7 @@ if(!empty($page)){
                     $register = register($values);
 
                     if ($register) {
-                        header("Location: login?page=login");
+                        header("Location: login?page=login&success=Inscription réussite !");
                         exit();
                     }
                 }

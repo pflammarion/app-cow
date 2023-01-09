@@ -179,7 +179,7 @@
     margin-top: 32px;
 }
 
-.table #herd a{
+.table #herd .herd-button{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -189,7 +189,12 @@
     padding: 5px;
 }
 
-.table #herd a span:nth-child(1){
+.table #herd .herd-button:hover{
+    background-color: var(--light-blue);
+    cursor: pointer;
+}
+
+.table #herd .herd-button span:nth-child(1){
     width: calc((100%/2) + 40px);
 }
 

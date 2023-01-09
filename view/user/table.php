@@ -16,6 +16,7 @@
     <div class="container">
         <input type="search" placeholder="Rechercher">
         <div id="selected-cow">
+            <!-- voir le cas ou la vache est null (empecher le lien de la page d'accueil ?) -->
             <div class="crop-img"><img src="" alt="cow"></div>
             <div class="content"></div>
         </div>
@@ -46,6 +47,13 @@
         }
         if (sensor ===4){
             $('#sensor').attr('src', './public/assets/icon/battery.svg')
+        }
+
+        function changeCow(id){
+            $('#table-content').data('val', id);
+            cowId =  $('#table-content').data('val');
+            getCow();
+            getHerd();
         }
 
         const getCow = async () =>{
@@ -99,13 +107,21 @@
                         if (herd[i]['number'] !== null && herd[i]['number'] !== ""){
                             number = 'N°' + herd[i]['number'];
                         }
-                        $('#herd').append('<a><span>' + name +'</span><span>' + number + '</span></a>')
+                        let id = herd[i]['id']
+                        $('#herd').append('<div class="herd-button" data-val="' + id +'"><span>' + name +'</span><span>' + number + '</span></div>')
                     }
                 }
             }
         }
 
         getHerd();
+
+        $('.herd-button').on('click', function (){
+            cowId = $(this).data('val');
+            console.log(cowId)
+            getCow();
+            getHerd();
+        });
 
         const getData =  async () => {
             if ($('#average').data("val") === 2){

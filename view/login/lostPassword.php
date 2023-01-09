@@ -14,3 +14,22 @@
         </button>
     </form>
 </div>
+
+<div id="overlay">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(() => {
+
+        $('button').on('click', function (e){
+            e.preventDefault();
+            $("#overlay").fadeIn(300);
+            $('form').submit();
+        })
+
+    });
+</script>

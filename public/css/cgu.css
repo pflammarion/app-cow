@@ -1,0 +1,20 @@
+.cgu {
+    display: flex;
+    width: 310px;
+    height: 100%;
+}
+.cgu .cgu-title {
+    display: flex;
+    width: 230px;
+    height: 80px;
+    align-items: center;
+    background-color: red;
+    margin-left: 65px;
+}
+.cgu,
+.cgu-articles {
+    display: flex;
+    width: 310px;
+    height: 575px;
+    background-color: darkorchid;
+}

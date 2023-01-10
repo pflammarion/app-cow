@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: *
+
+Sitemap: https://newonline.world/sitemap.xml

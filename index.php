@@ -50,6 +50,5 @@ if (!isset($_GET['js'])) {
     include __DIR__ . '/view/footer.php';
 }
 
-?>
 
 

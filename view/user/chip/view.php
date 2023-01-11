@@ -40,8 +40,7 @@ usort($data, function ($item1, $item2) {
         echo '<div class="cow-view-profil">';
         echo '<img src="./public/assets/icon/profile.svg" class="profil-img">';
         echo '</div>';
-        echo '<h1>'.$box["number"].'<br>'
-            .$box["name"].'</h1>';
+        echo '<h1>'.$box["number"].'</h1>';
         echo '</div>';
         echo '</div>';
     }

@@ -1,0 +1,32 @@
+.permission-view{
+    padding-top: 50px;
+}
+
+.permission-view table{
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.permission-view thead{
+    font-family: 'Arima Madurai', sans-serif ;
+    border-bottom: 2px solid var(--dark-blue);
+}
+
+.permission-view thead th{
+    width: 250px;
+}
+
+.permission-view tbody p{
+    font-weight: 300;
+}
+
+.permission-view tbody tr th:nth-child(1){
+    text-align: left;
+}
+
+.permission-view tbody tr th{
+    border-left: 2px solid var(--dark-blue);
+}
+.permission-view tbody tr th:first-child{
+    border-left: none;
+}

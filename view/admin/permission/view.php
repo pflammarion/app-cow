@@ -5,7 +5,21 @@ $role_count = count($roles) - 1;
 
 ?>
 
-<div class="permission-view">
+<form action="" method="post" class="permission-view">
+    <div class="button-container">
+        <div>
+            <a href="admin?page=faq">
+                <div class="btn-return">
+                    Rôles
+                </div>
+            </a>
+        </div>
+        <div>
+            <button type="submit" class="btn-valider">
+                Sauvegarder
+            </button>
+        </div>
+    </div>
     <table>
         <thead>
         <tr>
@@ -32,6 +46,6 @@ $role_count = count($roles) - 1;
 
         </tbody>
     </table>
-</div>
+</form>
 
 

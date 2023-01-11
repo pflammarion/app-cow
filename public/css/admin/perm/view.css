@@ -30,3 +30,21 @@
 .permission-view tbody tr th:first-child{
     border-left: none;
 }
+.permission-view .button-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    margin-bottom: 20px;
+}
+
+.permission-view .btn-return{
+    width: 80px;
+    height: 40px;
+    font-size: 15px;
+}
+
+.permission-view .btn-valider{
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+}

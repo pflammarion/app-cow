@@ -15,8 +15,7 @@ foreach ($data as $chip){
                     <img src="./public/assets/icon/profile.svg" class="profil-img">
                 </div>
                 <?php
-                echo '<h1>'.$box["number"].'<br>
-                    '.$box["name"].'</h1>';
+                echo '<h1>'.$box["number"].'</h1>';
                 ?>
             </div>
         </div>

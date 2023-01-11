@@ -1,8 +1,8 @@
 <?php
 $data = $content ??  [];
-foreach ($data as $cow){
-    if ($cow['id']===$_GET['id']){
-        $box = $cow;
+foreach ($data as $chip){
+    if ($chip['id']===$_GET['chipId']){
+        $box = $chip;
     }
 }
 ?>

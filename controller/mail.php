@@ -23,10 +23,10 @@ function phpMailSender(string $token, string $email): bool
 
     $mail->SMTPDebug = 0;                   // Enable verbose debug output
     $mail->isSMTP();                        // Set mailer to use SMTP
-    $mail->Host       = 'ssl0.ovh.net';    // Specify main SMTP server
+    $mail->Host       = config::$mail_host;    // Specify main SMTP server
     $mail->SMTPAuth   = true;               // Enable SMTP authentication
-    $mail->Username   = 'cow@newonline.world';     // SMTP username
-    $mail->Password   = "Let'sCodeAPP";         // SMTP password
+    $mail->Username   = config::$mail_user;     // SMTP username
+    $mail->Password   = config::$mail_pass;         // SMTP password
     $mail->SMTPSecure = 'ssl';              // Enable TLS encryption, 'ssl' also accepted
     $mail->Port       = 465;                // TCP port to connect to
     $mail->setFrom('cow@newonline.world', 'noreply');

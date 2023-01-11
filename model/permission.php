@@ -18,3 +18,39 @@ function pageAuthorization(string $page) : bool
     }
     else return false;
 }
+
+function getRoles(): array
+{
+    $get_role = "SELECT Role_Id, Role_Name FROM role";
+    $get_role = $GLOBALS['db']-> prepare($get_role);
+    $get_role->execute();
+    $rows = $get_role->fetchAll();
+    $values = [];
+    if ($get_role->rowCount() > 0){
+        foreach ($rows as $row) {
+            $values[]=array(
+                "id"=>$row["Role_Id"],
+                "name"=>$row["Role_Name"],
+            );
+        }
+    }
+    return $values;
+}
+
+function getPages(): array
+{
+    $get_page = "SELECT Page_Id, Page_Name FROM page";
+    $get_page = $GLOBALS['db']-> prepare($get_page);
+    $get_page->execute();
+    $rows = $get_page->fetchAll();
+    $values = [];
+    if ($get_page->rowCount() > 0){
+        foreach ($rows as $row) {
+            $values[]=array(
+                "id"=>$row["Page_Id"],
+                "name"=>$row["Page_Name"],
+            );
+        }
+    }
+    return $values;
+}

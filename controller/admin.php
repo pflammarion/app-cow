@@ -42,6 +42,8 @@ if(!empty($page) && !empty($action)){
         }
     }
     elseif($page === 'permission' && pageAuthorization('admin/permission')) {
+        $roles = getRoles();
+        $pages = getPages();
         $view = "admin/permission/" . $action;
     }
     elseif($page === 'user' && pageAuthorization('admin/user')){

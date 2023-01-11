@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../model/admin/faq.php';
+include __DIR__ . '/../model/faq.php';
 
 $page = selectPage("");
 

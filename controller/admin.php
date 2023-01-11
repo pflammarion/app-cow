@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../model/admin/faq.php';
+include __DIR__ . '/../model/faq.php';
 require __DIR__ . '/../model/permission.php';
 
 $page = selectPage("accueil");

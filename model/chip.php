@@ -4,7 +4,9 @@ function createChip(array $values): bool
     $user = intval($_SESSION['user']);
     $number = htmlspecialchars($values["number"]);
     if ($number !== ""){
-        $create_chip_sql = "INSERT INTO chip (Chip_Number) VALUES (:number)";
+        $create_chip_sql = "INSERT INTO chip (Chip_Number) VALUES (:number);
+                           INSERT INTO chip_cow_user (Chip_Id, User_Id)
+                           SELECT Cow_Id,:user FROM cow WHERE Cow_Id = last_insert_id()";
         $create_chip_query = $GLOBALS['db']-> prepare($create_chip_sql);
         $create_chip_query->execute(
             array(
@@ -40,7 +42,7 @@ function deleteChip(int $id): bool
         $delete_chip_query = $GLOBALS['db']-> prepare($delete_chip_sql);
         $delete_chip_query->execute(
             array(
-                "id"=> $id,
+                "chipId"=> $id,
             )
         );
         return true;

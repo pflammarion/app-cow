@@ -52,6 +52,7 @@ $perms = $perms ?? [];
     $(document).ready(() => {
         let permissions = [];
         permissions = <?php echo json_encode($perms, JSON_NUMERIC_CHECK);?> ;
+        //loop in permission
         for(let i = 0; i < permissions.length; i++){
             let page = permissions[i]['page'];
             let role = permissions[i]['role'];

@@ -8,7 +8,7 @@ $perms = $perms ?? [];
 <form action="" method="post" class="permission-view">
     <div class="button-container">
         <div>
-            <a href="admin?page=role">
+            <a href="/admin?page=role">
                 <div class="btn-return">
                     Rôles
                 </div>
@@ -38,7 +38,7 @@ $perms = $perms ?? [];
             echo '<tr data-id="'. $page['id'] .'">';
             echo '<th><p>' . $page['name'] .'</p></th>';
             for ($i = 0; $i < $role_count; $i++){
-                echo '<th><input type="checkbox"></th>';
+                echo '<th><input name="checkbox[]" type="checkbox"></th>';
             }
             echo'</tr>';
         }
@@ -56,13 +56,18 @@ $perms = $perms ?? [];
         for(let i = 0; i < permissions.length; i++){
             let page = permissions[i]['page'];
             let role = permissions[i]['role'];
-            console.log($('thead').find('th').filter('[data-id="' + role +'"]').data('index'));
             if($('tr').filter('[data-id="' + page +'"]').length){
                 let index = $('thead').find('th').filter('[data-id="' + role +'"]').data('index');
                 $('tr').filter('[data-id="' + page +'"]').find('input[type="checkbox"]').eq(index).attr('checked', 'checked');
             }
-
         }
+
+        $('table input[type=checkbox]').each(function () {
+            let page = $(this).closest('tr').data('id');
+            let index = $(this).parent().index();
+            let role = $('table thead tr th').eq(index).data('id');
+            $(this).val(page + '-' + role);
+        });
 
     });
 </script>

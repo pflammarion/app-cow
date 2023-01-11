@@ -54,3 +54,22 @@ function getPages(): array
     }
     return $values;
 }
+
+
+function getPermission(): array
+{
+    $get_perm = "SELECT Page_Id, Role_Id FROM permission";
+    $get_perm = $GLOBALS['db']-> prepare($get_perm);
+    $get_perm->execute();
+    $rows = $get_perm->fetchAll();
+    $values = [];
+    if ($get_perm->rowCount() > 0){
+        foreach ($rows as $row) {
+            $values[]=array(
+                "page"=>$row["Page_Id"],
+                "role"=>$row["Role_Id"],
+            );
+        }
+    }
+    return $values;
+}

@@ -69,7 +69,6 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                     exit();
                 }
             }
-
             break;
         case 'boitier':
             $view = "user/chip/". $action;

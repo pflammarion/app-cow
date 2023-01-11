@@ -12,11 +12,11 @@ foreach ($data as $chip){
             <div class="create-question">
                 <label for="number">
                     Numéro de boitier :
-                    <input type="text" name="number" >
+                    <input type="text" name="number" value="<?php if(isset($box))echo $box["number"] ?>">
                 </label>
                 <label for="name">
                     Nom de la Vache associée <br>(si existante) :
-                    <input type="text" name="name" >
+                    <input type="text" name="name" value="<?php if(isset($box))echo $box["name"] ?>">
                 </label>
             </div>
         </div>

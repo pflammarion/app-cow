@@ -37,7 +37,7 @@
 
 <div class="header">
     <a href="root" class="logo-link">
-        <img class="img-header" src="./public/assets/img/LogoCOW.png" alt="Logo Cow">
+        <img class="img-header" src="./public/assets/img/LogoCOW2023.svg" alt="Logo Cow">
         <?php
         if(date('i') % 2 == 0){
             $file = "LogoCOWSanta.svg";

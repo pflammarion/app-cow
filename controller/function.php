@@ -12,9 +12,40 @@ function selectPage(string $default): string
         $page = $default;
     }
     else {
-        $page = $_GET['page'];
+        $page = htmlspecialchars($_GET['page']);
     }
     return $page;
+}
+function verifyInt($valeur)
+{
+    if (is_int($valeur)) {
+        // La valeur est déjà un entier, on ne fait rien
+        return $valeur;
+    } elseif (is_string($valeur) && ctype_digit($valeur)) {
+        // La valeur est une chaîne de caractères qui ne contient que des chiffres, on la convertit en entier
+        return (int)$valeur;
+    } else {
+        // La valeur n'est pas un entier, on renvoie false
+        echo "erreur";
+        return false;
+    }
+}
+function verifyString($str)
+{
+    if (is_string($str)){
+        // La valeur est déjà un string, on ne fait rien
+        #echo gettype($str);
+        return $str;
+    }
+    elseif (!is_string($str)){
+
+        $st= "\"" . $str . "\"";
+        #gettype($st)
+        return $st;
+    }
+    else {
+        return false;
+    }
 }
 
 function selectAction(string $default): string

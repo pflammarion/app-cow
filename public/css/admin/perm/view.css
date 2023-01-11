@@ -49,3 +49,7 @@
     font-size: 15px;
 }
 /*end change size*/
+
+.permission-view input[type=checkbox]{
+    accent-color: var(--green);
+}

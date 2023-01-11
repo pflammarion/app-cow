@@ -1,4 +1,9 @@
-<?php $data = $content ??  []; ?>
+<?php $data = $content ??  [];
+
+usort($data, function ($item1, $item2) {
+    return $item1['number'] <=> $item2['number'];
+});
+?>
 
 <div class="cow-view-page-box">
 
@@ -6,7 +11,7 @@
         <div class="cow-view-btn-box">
             <a></a><a></a>
         </div>
-        <a href="user?page=vache&action=create">
+        <a href="user?page=boitier&action=create">
             <div class="cow-view-add-box">
                 <div class="cow-view-btn-box">
                 </div>
@@ -22,11 +27,11 @@
     foreach ($data as $box){
         echo '<div class="cow-view-setting-box">';
         echo '<div class="cow-view-btn-box">';
-        echo '<a class="btn-blue" href="user?page=vache&action=delete">
+        echo '<a class="btn-blue" href="user?page=boitier&action=delete&chipId='.$box['id'].'&number='.$box['number'].'">
                 <img class="img-black" src="./public/assets/icon/delete.svg" alt="delete">
                 <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="delete">
             </a>
-            <a class="btn-blue" href="user?page=vache&action=update">
+            <a class="btn-blue" href="user?page=boitier&action=update&chipId='.$box['id'].'&number='.$box['number'].'">
                 <img class="img-black" src="./public/assets/icon/modifier.svg" alt="edit">
                 <img class="img-white" src="./public/assets/icon/modifier-white.svg" alt="edit">
             </a>';
@@ -35,8 +40,8 @@
         echo '<div class="cow-view-profil">';
         echo '<img src="./public/assets/icon/profile.svg" class="profil-img">';
         echo '</div>';
-        echo '<h1>'.$box["number"].'<br>
-            '.$box["name"].'</h1>';
+        echo '<h1>'.$box["number"].'<br>'
+            .$box["name"].'</h1>';
         echo '</div>';
         echo '</div>';
     }

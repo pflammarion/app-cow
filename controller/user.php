@@ -70,7 +70,45 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             break;
         case 'boitier':
             $view = "user/chip/". $action;
-            $content = getAllCow();
+            $content = getAllChip();
+            if (isset($_POST['action'])) {
+                if ($_POST['action'] === 'create') {
+                    $number = htmlspecialchars($_POST['number']);
+                    $values = array(
+                        "number" => $_POST['number'],
+                    );
+                    $success = createChip($values);
+                    if ($success ){
+                        $url = "Location: user?page=boitier&action=view&success=Le boitier " . $number . " à été ajouté à votre compte";
+                        header($url);
+                        exit();
+                    }else{
+                        header("Location: user?page=boitier&action=create&error=Une erreur s'est produite veuillez rééssayer");
+                        exit();
+                    }
+                }
+                if ($_POST['action'] === 'delete' && isset($_POST['chipId'], $_POST['number'])) {
+                    $number = htmlspecialchars($_POST['number']);
+                    $success = deleteChip(intval($_POST['chipId']));
+                    if ($success ){
+                        $url = "Location: user?page=boitier&action=view&success=Le boitier " .$number. " à été supprimée";
+                        header($url);
+                        exit();
+                    }
+                }
+                if ($_POST['action'] === 'update') {
+                    $values = array(
+                        "number" => $_POST['number'],
+                        "id" => $_POST['chipId'],
+                    );
+                    $success = updateChip($values);
+                    if ($success ){
+                        $url = "Location: user?page=boitier&action=view&success=Le boitier " .$number. " à été modifiée";
+                        header($url);
+                        exit();
+                    }
+                }
+            }
             break;
 
         case 'vache':

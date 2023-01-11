@@ -1,7 +1,6 @@
 <?php
 
 include __DIR__ . '/../model/faq.php';
-require __DIR__ . '/../model/permission.php';
 
 $page = selectPage("accueil");
 $action = selectAction("view");
@@ -9,7 +8,12 @@ $action = selectAction("view");
 $view = "error404";
 
 if(!empty($page) && !empty($action)){
-    if($page === 'accueil' && pageAuthorization('admin')) {
+    if($page === 'accueil') {
+        $perms = array(
+            'faq'=> pageAuthorization('admin/faq'),
+            'user'=> pageAuthorization('admin/user'),
+            'permission'=> pageAuthorization('admin/permission'),
+        );
         $view = "admin/home";
     }
     elseif($page === 'faq' && pageAuthorization('admin/faq')) {

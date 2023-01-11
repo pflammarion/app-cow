@@ -73,3 +73,26 @@ function getPermission(): array
     }
     return $values;
 }
+
+function addPerm(int $page, int $role): bool
+{
+    $update_perm_sql = "INSERT INTO permission (Role_Id, Page_Id) VALUES (:role, :page)";
+    $update_perm_query = $GLOBALS['db']->prepare($update_perm_sql);
+    $update_perm_query->execute(
+        array(
+            "page"=> $page,
+            "role"=> $role,
+        ));
+    if ($update_perm_query->rowCount() === 1){
+        return true;
+    }
+    else return false;
+}
+
+function deleteAllPermExceptAdmin(): bool
+{
+    $delete_perm_sql = "DELETE FROM permission WHERE Role_Id != 3;";
+    $delete_perm_query = $GLOBALS['db']->prepare($delete_perm_sql);
+    $delete_perm_query->execute();
+    return true;
+}

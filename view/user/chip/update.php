@@ -1,13 +1,12 @@
-<?php
-$data = $content ??  [];
+<?php $data = $content ??  [];
 foreach ($data as $chip){
-    if ($chip['id']===$_GET['chipId']){
+    if ($chip['id'] === intval($_GET['chipId'])){
         $box = $chip;
     }
 }
 ?>
 <div class="cow-vache-add">
-    <h1>Modifier la Puce : <?php echo $box["number"] ?></h1>
+    <h1>Modifier le Boitier : <?php echo $box["number"] ?></h1>
     <form action="" method="post">
         <div class="form-cow-box">
             <div class="create-question">

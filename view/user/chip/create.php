@@ -4,12 +4,12 @@
         <div class="form-cow-box">
             <div class="create-question">
                 <label for="question">
-                    Nom de la Vache :
-                    <input type="text" name="question">
+                    Numéro de boitier :
+                    <input type="text" name="number">
                 </label>
                 <label for="question">
-                    Numéro de boitier :
-                    <input type="text" name="question">
+                    Nom de la Vache associée <br>(si existante) :
+                    <input type="text" name="name">
                 </label>
             </div>
         </div>
@@ -17,9 +17,11 @@
         <div class="box-around-btn">
             <div class="btn-cow">
                 <div>
-                    <button type="submit" class="btn-valider">
-                        Valider
-                    </button>
+                    <a href="user?page=boitier">
+                        <button type="submit" class="btn-valider">
+                            Valider
+                        </button>
+                    </a>
                 </div>
                 <div>
                     <a href="user?page=boitier">

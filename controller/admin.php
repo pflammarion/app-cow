@@ -46,19 +46,24 @@ if(!empty($page) && !empty($action)){
         $pages = getPages();
         $perms = getPermission();
         $view = "admin/permission/" . $action;
-        $success = deleteAllPermExceptAdmin();
-        if($success && isset($_POST['checkbox'])){
-            $datas = $_POST['checkbox'];
-            $add = false;
-            foreach ($datas as $data){
-                $parts = explode("-", $data);
-                $add = addPerm(intval($parts[0]), $parts[1]);
+        if (isset($_POST['checkbox'])){
+            $success = deleteAllPermExceptAdmin();
+            if($success){
+                $datas = $_POST['checkbox'];
+                $add = false;
+                print_r($datas);
+                for ($i = 0; $i < count($datas); $i++){
+                    $parts = explode("-", $datas[$i]);
+                    addPerm(intval($parts[0]), $parts[1]);
+                    if ($i === count($datas) - 1){
+                        $add = true;
+                    }
+                }
+                if ($add){
+                    header("Location: admin?page=permission&success=Vous avez bien mis à jour les roles");
+                    exit();
+                }
             }
-            if ($add){
-                header("Location: admin?page=permission&success=Vous avez bien mis à jour les roles");
-                exit();
-            }
-
         }
     }
     elseif($page === 'user' && pageAuthorization('admin/user')){

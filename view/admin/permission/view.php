@@ -8,7 +8,7 @@ $perms = $perms ?? [];
 <form action="" method="post" class="permission-view">
     <div class="button-container">
         <div>
-            <a href="/admin?page=role">
+            <a href="/admin?page=permission&action=role">
                 <div class="btn-return">
                     Rôles
                 </div>

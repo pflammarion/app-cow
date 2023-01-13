@@ -50,6 +50,9 @@ if(!empty($page) && !empty($action)){
         $pages = getPages();
         $perms = getPermission();
         $view = "admin/permission/" . $action;
+        if ($action === 'role'){
+            $data = getAllRoles();
+        }
         if (isset($_POST['checkbox'])){
                 $datas = $_POST['checkbox'];
                 $new_perms = [];

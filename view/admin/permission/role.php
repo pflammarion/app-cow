@@ -25,13 +25,13 @@
 
     </div>
     <div class="btn-container">
-        <a href="/admin?page=permission">
+        <a href="admin?page=permission">
             <div class="btn-return">
                 <img src="./public/assets/icon/retour.svg" alt="retour">
                 Retour
             </div>
         </a>
-        <a href="/admin?page=permission&action=create">
+        <a href="admin?page=permission&action=create">
             <div class="btn-green">
                 Ajouter
             </div>

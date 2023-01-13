@@ -7,7 +7,7 @@
                 </label>
                 <div class="btn-container">
                     <div>
-                        <a href="/admin?page=permission&action=role">
+                        <a href="admin?page=permission&action=role">
                             <div class="btn-return">
                                 <img src="./public/assets/icon/retour.svg" alt="retour">
                                 Retour

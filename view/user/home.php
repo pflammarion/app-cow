@@ -77,7 +77,7 @@ $chipId = $chipId ?? 0;
                     echo '<span class="time">' . $days . ' ' . $hours . '</span>';
                     if ($img_url != '') echo '<img src="' . $img_url . '" alt="sensor">';
                     echo '<span>'. $val . " " . $type . '</span></div>';
-                    if($key!== 'battery') echo '</a>';
+                    echo '</a>';
                 }
                 ?>
             </div>

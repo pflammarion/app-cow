@@ -1,7 +1,10 @@
 <?php
 $pages = $pages ??  [];
 $roles = $roles ?? [];
-$role_count = count($roles) - 1;
+$roles = array_filter($roles, function ($obj) {
+    return $obj['id'] !== 3;
+});
+$roles = array_values($roles);
 $perms = $perms ?? [];
 ?>
 
@@ -25,9 +28,7 @@ $perms = $perms ?? [];
         <tr>
             <th>Pages</th>
             <?php for ($i = 0; $i < count($roles); $i++){
-                if($roles[$i]['id']!==3){
-                    echo '<th data-id="'. $roles[$i]['id'] .'" data-index="'. $i .'">' . $roles[$i]['name'] .'</th>';
-                }
+                echo '<th data-id="'. $roles[$i]['id'] .'" data-index="'. $i .'">' . $roles[$i]['name'] .'</th>';
             } ?>
         </tr>
 
@@ -37,7 +38,7 @@ $perms = $perms ?? [];
         foreach ($pages as $page){
             echo '<tr data-id="'. $page['id'] .'">';
             echo '<th><p>' . $page['name'] .'</p></th>';
-            for ($i = 0; $i < $role_count; $i++){
+            for ($i = 0; $i < count($roles); $i++){
                 echo '<th><input name="checkbox[]" type="checkbox"></th>';
             }
             echo'</tr>';
@@ -64,8 +65,8 @@ $perms = $perms ?? [];
 
         $('table input[type=checkbox]').each(function () {
             let page = $(this).closest('tr').data('id');
-            let index = $(this).parent().index();
-            let role = $('table thead tr th').eq(index).data('id');
+            let indexParent = $(this).parent().index();
+            let role = $('table thead tr th').eq(indexParent).data('id');
             $(this).val(page + '-' + role);
         });
 

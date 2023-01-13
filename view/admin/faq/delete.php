@@ -1,6 +1,6 @@
 <?php $data = $content ??  [];
 foreach ($data as $faq){
-    if ($faq['id']=== (int)$_GET['id']){
+    if ($faq['id']=== verifyInt($_GET['id'])){
         $box = $faq;
     }
 }
@@ -14,7 +14,7 @@ foreach ($data as $faq){
             <form action="" method="post">
 
                 <input type="hidden" value="delete" name="action" >
-                <input type="hidden" value="<?php echo $_GET["id"] ?>" name="id">
+                <input type="hidden" value="<?php echo verifyInt($_GET["id"]) ?>" name="id">
                 <div class="btn-delete-space">
                     <button type="submit" class="btn-delete">
                         Supprimer

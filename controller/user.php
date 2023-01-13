@@ -205,7 +205,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 $sensor= intval(htmlspecialchars($_GET['sensor']));
                 if(isset($_GET['api'], $_GET['average'], $_GET['date'], $_GET['cowId'])){
                     $average = intval($_GET['average']);
-                    $cowId = intval($_GET['cowId']);
+                    $cowId = intval(verifyInt($_GET['cowId']));
                     //filter data from get
                     $date = strtotime($_GET['date']);
                     //for annual

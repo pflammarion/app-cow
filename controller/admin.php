@@ -54,17 +54,17 @@ if(!empty($page) && !empty($action)){
         if ($action === 'role'){
             $data = getAllRoles();
         }
-        if(isset($_POST['role']) && $_POST['action'] === 'create'){
+        if(isset($_POST['role'], $_POST['action']) && $_POST['action'] === 'create'){
             $success = createRole(htmlentities($_POST['role']));
         }
-        if ($_POST['action'] === 'update') {
+        if (isset($_POST['action'],$_POST['role'], $_POST['id']) && $_POST['action'] === 'update') {
             $values = array(
-                "name" => htmlentities($_POST['name']),
+                "name" => htmlentities($_POST['role']),
                 "id" => htmlentities($_POST['id']),
             );
             $success = updateRole($values);
         }
-        if ($_POST['action'] === 'delete') {
+        if (isset($_POST['action'], $_POST['id']) && $_POST['action'] === 'delete') {
             $success = deleteRole(intval($_POST['id']));
         }
         if ($success){

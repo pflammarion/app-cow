@@ -1,7 +1,7 @@
 <div class="perm-create">
             <h1>Nouveau role</h1>
             <form action="" method="post">
-                <label for="question">
+                <label for="role">
                     Role
                     <input type="text" name="role">
                 </label>

@@ -9,11 +9,11 @@
             echo '<p>' . $role['name'] . '</p>';
             echo '<div>';
             if ($role['id'] !== 3){
-                echo '<a class="btn-blue" href="admin?page=faq&action=update&id='.$role["id"].'" >
+                echo '<a class="btn-blue" href="admin?page=permission&action=update&id='.$role["id"].'" >
                 <img class="img-black" src="./public/assets/icon/modifier.svg" alt="edit">
                 <img class="img-white" src="./public/assets/icon/modifier-white.svg" alt="edit">
               </a>
-              <a class="btn-blue" href="admin?page=faq&action=delete&id='.$role["id"].'" >
+              <a class="btn-blue" href="admin?page=permission&action=delete&id='.$role["id"].'" >
                 <img class="img-black" src="./public/assets/icon/delete.svg" alt="delete">
                 <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="delete">
               </a>';

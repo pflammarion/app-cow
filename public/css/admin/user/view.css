@@ -1,0 +1,76 @@
+.view-user-admin {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+.view-user-header {
+    display: flex;
+    margin-top: 90px;
+    width: 100%;
+    height: 210px;
+    justify-content: center;
+}
+.view-user-admin fieldset {
+    margin : 0;
+}
+.view-user-admin a {
+    display: flex;
+}
+.view-user-admin input {
+    border-radius: 50px;
+    width: 600px;
+    height: 60px;
+}
+.view-user-admin .btn-blue {
+    margin-left: 20px;
+}
+.user-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.view-user-admin-h2 {
+    margin-top: 0 !important;
+}
+.user-btn-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap : 35px;
+}
+.user-box h2 {
+    margin: 24px;
+}
+.user-box p {
+    margin: 24px;
+}
+.user-box .p1 {
+    display: flex;
+    font-size: 16px;
+    justify-content: flex-end;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 0;
+}
+
+.view-user-admin .container {
+    display: block;
+    width: 1000px;
+    border-radius: 10px;
+    border : solid 3px var(--dark-blue);
+    gap : 0;
+}
+
+.view-user-admin fieldset {
+    border-radius: 100px;
+    border: solid 3px var(--dark-blue);
+    box-sizing: border-box;
+    position: absolute;
+    width: 600px;
+    height: 50px;
+    left: 420px;
+    top: 273px;
+}
+
+

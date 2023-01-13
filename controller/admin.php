@@ -105,6 +105,7 @@ if(!empty($page) && !empty($action)){
         }
     }
     elseif($page === 'user' && pageAuthorization('admin/user')){
+        $roles = getRoles();
         $view = "admin/user/" . $action;
     }
     elseif($page === 'ticket' && pageAuthorization('admin/ticket')) {

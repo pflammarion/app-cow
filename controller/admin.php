@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../model/faq.php';
+require_once __DIR__ . '/../model/faq.php';
 
 $page = selectPage("accueil");
 $action = selectAction("view");

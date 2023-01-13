@@ -42,7 +42,7 @@ function deleteChip(int $id): bool
         $delete_chip_query = $GLOBALS['db']-> prepare($delete_chip_sql);
         $delete_chip_query->execute(
             array(
-                "chipId"=> $id,
+                "id"=> $id,
             )
         );
         return true;

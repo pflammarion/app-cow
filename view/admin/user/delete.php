@@ -1,15 +1,15 @@
 <?php $data = $content ??  [];
-foreach ($data as $faq){
-    if ($faq['id']=== (int)$_GET['id']){
-        $box = $faq;
+foreach ($data as $user){
+    if ($user['id']=== (int)$_GET['id']){
+        $box = $user;
     }
 }
 ?>
 
-<div class="faq-admin-delete">
+<div class="user-admin-delete">
     <div class="delete-container">
-        <h1>Etes-vous sûr de SUPPRIMER la question :</h1>
-        <?php if(isset($box))echo '<p>'.$box["title"].'</p>' ?>
+        <h1>Etes-vous sûr de SUPPRIMER l'utilisateur :</h1>
+        <?php if(isset($box))echo '<p>'.$box["prenom"]." ".$box["nom"].'</p>' ?>
         <div class="btn-box-delete">
             <form action="" method="post">
 
@@ -20,7 +20,7 @@ foreach ($data as $faq){
                         Supprimer
                     </button>
                     <div>
-                        <a href="admin?page=faq" class="btn-valider">
+                        <a href="admin?page=user" class="btn-valider">
                             <img src="./public/assets/icon/retour.svg" alt="retour">
                             Retour
                         </a>

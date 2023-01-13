@@ -1,6 +1,5 @@
 <?php
 
-require __DIR__ . '/../model/permission.php';
 require __DIR__ . '/../model/home.php';
 require __DIR__ . '/../model/function.php';
 

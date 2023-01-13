@@ -87,10 +87,14 @@ function addPerm(int $page, int $role): bool
     else return false;
 }
 
-function deleteAllPermExceptAdmin(): bool
+function deletePerm(int $page, int $role): bool
 {
-    $delete_perm_sql = "DELETE FROM permission WHERE Role_Id != 3;";
+    $delete_perm_sql = "DELETE FROM permission WHERE Page_Id = :page AND Role_Id =:role AND Role_Id != 3;";
     $delete_perm_query = $GLOBALS['db']->prepare($delete_perm_sql);
-    $delete_perm_query->execute();
+    $delete_perm_query->execute(
+        array(
+            "page"=> $page,
+            "role"=> $role,
+        ));
     return true;
 }

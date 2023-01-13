@@ -22,8 +22,6 @@
                                 Adresse mail
                                 <input type="email" name="mail"
                             </label>
-                        </div>
-                    <div class="create-user">
                         <label for="role">
                             Rôle<br>
                             <select>

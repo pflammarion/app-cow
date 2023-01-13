@@ -15,8 +15,8 @@
         echo '<div class="user-box">';
         echo '<div class="container">';
         echo '<p class="p1">id:'.$box["id"].'</p>';
-        echo '<h2 class="view-user-admin-h2">'.$box["title"].'</h2>';
-        echo '<p>'.$box["answer"].'</p>';
+        echo '<h2 class="view-user-admin-h2">'.$box["User_FirstName"].'</h2>';
+        echo '<p>'.$box["User_LastName"].'</p>';
         echo '</div>';
         echo '<div class="user-btn-box">';
         echo '<a class="btn-blue" href="admin?page=user&action=update&id='.$box["id"].'" >

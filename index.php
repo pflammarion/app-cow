@@ -5,6 +5,7 @@ ini_set('display_errors', 1);
 require_once ('./config.inc.php');
 require_once("./controller/function.php");
 require_once("./view/function.php");
+require_once("./model/permission.php");
 require_once __DIR__ . '/model/connection.php';
 
 if (!isset($_GET['js'])){

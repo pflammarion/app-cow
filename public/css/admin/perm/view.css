@@ -1,0 +1,99 @@
+.permission-view{
+    padding-top: 50px;
+}
+
+.permission-view table{
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.permission-view thead{
+    font-family: 'Arima Madurai', sans-serif ;
+    border-bottom: 2px solid var(--dark-blue);
+}
+
+.permission-view thead th{
+    width: 250px;
+}
+
+.permission-view tbody p{
+    font-weight: 300;
+}
+
+.permission-view tbody tr th:nth-child(1){
+    text-align: left;
+}
+
+.permission-view tbody tr th{
+    border-left: 2px solid var(--dark-blue);
+}
+.permission-view tbody tr th:first-child{
+    border-left: none;
+}
+.permission-view .button-container{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 0 50px;
+    margin-bottom: 20px;
+}
+/*change button size*/
+.permission-view .btn-return{
+    width: 80px;
+    height: 40px;
+    font-size: 15px;
+}
+
+.permission-view .btn-valider{
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+}
+/*end change size*/
+
+.permission-view input[type=checkbox]{
+    accent-color: var(--green);
+}
+
+.role{
+    padding: 50px;
+    position: relative;
+}
+
+.role .role-container{
+    display: flex;
+    border: 3px var(--dark-blue) dashed;
+    padding: 3px;
+    justify-content: space-around;
+    align-items: center;
+    width: 600px;
+    border-radius: 10px;
+    margin: 40px 0;
+}
+
+.role .role-container > div{
+    display: flex;
+    align-items: center;
+    width: 140px;
+    justify-content: space-between;
+}
+.role .container{
+    width: fit-content;
+    margin: -120px auto;
+}
+
+.role .btn-container{
+    top: 80px;
+    right: 50px;
+    position: absolute;
+    width: fit-content;
+}
+
+.role .btn-green{
+    margin: 50px 0;
+    color: white;
+    width: 250px;
+    height: 80px;
+    font-weight: bold;
+    font-size: 32px;
+}

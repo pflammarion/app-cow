@@ -129,7 +129,7 @@ function createRole(string $role): bool
         return true;
 }
 
-function deleteFaq(int $id): bool
+function deleteRole(int $id): bool
 {
     $delete_role_sql = "DELETE FROM role WHERE Role_Id = :id;";
     $delete_role_query = $GLOBALS['db']-> prepare($delete_role_sql);

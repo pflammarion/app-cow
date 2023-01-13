@@ -50,15 +50,26 @@ if(!empty($page) && !empty($action)){
         $pages = getPages();
         $perms = getPermission();
         $view = "admin/permission/" . $action;
+        $success = false;
         if ($action === 'role'){
             $data = getAllRoles();
-            if(isset($_POST['role'])){
-                $success = createRole(htmlentities($_POST['role']));
-                if ($success){
-                    header("Location: admin?page=permission&action=role");
-                    exit();
-                }
-            }
+        }
+        if(isset($_POST['role']) && $_POST['action'] === 'create'){
+            $success = createRole(htmlentities($_POST['role']));
+        }
+        if ($_POST['action'] === 'update') {
+            $values = array(
+                "name" => htmlentities($_POST['name']),
+                "id" => htmlentities($_POST['id']),
+            );
+            $success = updateRole($values);
+        }
+        if ($_POST['action'] === 'delete') {
+            $success = deleteRole(intval($_POST['id']));
+        }
+        if ($success){
+            header("Location: admin?page=permission&action=role");
+            exit();
         }
         if (isset($_POST['checkbox'])){
                 $datas = $_POST['checkbox'];

@@ -119,12 +119,42 @@ function getAllRoles(): array
 
 function createRole(string $role): bool
 {
-        $update_faq_sql = "INSERT INTO role SET Role_Name=:role";
-        $update_faq_query = $GLOBALS['db']-> prepare($update_faq_sql);
-        $update_faq_query->execute(
+        $update_role_sql = "INSERT INTO role SET Role_Name=:role";
+        $update_role_query = $GLOBALS['db']-> prepare($update_role_sql);
+        $update_role_query->execute(
             array(
                 "role"=> $role,
             )
         );
         return true;
+}
+
+function deleteFaq(int $id): bool
+{
+    $delete_role_sql = "DELETE FROM role WHERE Role_Id = :id;";
+    $delete_role_query = $GLOBALS['db']-> prepare($delete_role_sql);
+    $delete_role_query->execute(
+        array(
+            "id"=> $id,
+        )
+    );
+    return true;
+}
+
+function updateRole(array $values): bool
+{
+    $name= $values["name"];
+    $id = $values["id"];
+    if ($name !== "" && $id !== ""){
+        $update_faq_sql = "UPDATE role SET Role_Name=:name WHERE Role_Id=:id";
+        $update_faq_query = $GLOBALS['db']-> prepare($update_faq_sql);
+        $update_faq_query->execute(
+            array(
+                "name"=> $name,
+                "id"=> $id,
+            )
+        );
+        return true;
+    }
+    return false;
 }

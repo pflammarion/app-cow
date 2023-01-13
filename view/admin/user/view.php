@@ -5,8 +5,8 @@
     <div class="view-user-header">
         <input>
         <a class="btn-blue" href="admin?page=user&action=create" >
-            <img class="img-black" src="./public/assets/icon/addquestion.svg" alt="add question">
-            <img class="img-white" src="./public/assets/icon/addquestion-white.svg" alt="add question">
+            <img class="img-black" src="./public/assets/icon/addquestion.svg" alt="add user">
+            <img class="img-white" src="./public/assets/icon/addquestion-white.svg" alt="add user">
         </a>
     </div>
 

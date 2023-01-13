@@ -1,13 +1,15 @@
 <?php $data = $data ?? []?>
 
 <div class="role">
-    <h1>Rôles</h1>
+    <h1>Rôles :</h1>
     <div class="container">
         <?php
         foreach ($data as $role){
             echo '<div class="role-container">';
             echo '<p>' . $role['name'] . '</p>';
-            echo '<a class="btn-blue" href="admin?page=faq&action=update&id='.$role["id"].'" >
+            echo '<div>';
+            if ($role['id'] !== 3){
+                echo '<a class="btn-blue" href="admin?page=faq&action=update&id='.$role["id"].'" >
                 <img class="img-black" src="./public/assets/icon/modifier.svg" alt="edit">
                 <img class="img-white" src="./public/assets/icon/modifier-white.svg" alt="edit">
               </a>
@@ -15,6 +17,8 @@
                 <img class="img-black" src="./public/assets/icon/delete.svg" alt="delete">
                 <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="delete">
               </a>';
+            }
+            echo '</div>';
             echo '</div>';
         }
         ?>

@@ -54,17 +54,45 @@
     accent-color: var(--green);
 }
 
+.role{
+    padding: 50px;
+    position: relative;
+}
+
 .role .role-container{
     display: flex;
     border: 3px var(--dark-blue) dashed;
     padding: 3px;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     width: 600px;
     border-radius: 10px;
     margin: 40px 0;
 }
+
+.role .role-container > div{
+    display: flex;
+    align-items: center;
+    width: 140px;
+    justify-content: space-between;
+}
 .role .container{
     width: fit-content;
-    margin: 0 auto;
+    margin: -120px auto;
+}
+
+.role .btn-container{
+    top: 80px;
+    right: 50px;
+    position: absolute;
+    width: fit-content;
+}
+
+.role .btn-green{
+    margin: 50px 0;
+    color: white;
+    width: 250px;
+    height: 80px;
+    font-weight: bold;
+    font-size: 32px;
 }

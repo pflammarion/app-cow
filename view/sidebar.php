@@ -58,20 +58,24 @@ $select = 'class="selected-link"';
                 </a>
             <?php }
             else{
-                if ($_SESSION['role'] === 3){?>
+                if (pageAuthorization('admin/permission')){?>
                     <a <?php if(isset($page) && $page === 'permission') echo $select?> href="admin?page=permission" >
                         <img src="./public/assets/icon/permission.svg">
                         Permission
                     </a>
             <?php }?>
+                <?php if (pageAuthorization('admin/faq')){?>
                     <a <?php if(isset($page) && $page === 'faq') echo $select?> href="admin?page=faq" >
                         <img src="./public/assets/icon/faq.svg">
                         FAQ
                     </a>
+            <?php }?>
+                <?php if (pageAuthorization('admin/user')){?>
                     <a <?php if(isset($page) && $page === 'utilisateur') echo $select?> href="admin?page=user" >
                         <img src="./public/assets/icon/user.svg">
                         Utilisateur
                     </a>
+            <?php }?>
                 <?php } ?>
             <a <?php if(isset($page) && $page === 'view') echo $select?> href="profil?page=view">
                 <img src="./public/assets/icon/profile.svg">

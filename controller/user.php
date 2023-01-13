@@ -81,7 +81,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 //user?page=tableau&type=air&js=1&average=3&date=2022-01-04&sensor=1&cowId=1
                 if(isset($_GET['js'], $_GET['average'], $_GET['date'], $_GET['cowId'])){
                     $average = intval($_GET['average']);
-                    $cowId = intval($_GET['cowId']);
+                    $cowId = intval(verifyInt($_GET['cowId']));
                     //filter data from get
                     $date = strtotime($_GET['date']);
                     //for annual

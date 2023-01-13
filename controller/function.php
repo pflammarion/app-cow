@@ -12,7 +12,7 @@ function selectPage(string $default): string
         $page = $default;
     }
     else {
-        $page = htmlspecialchars($_GET['page']);
+        $page = verifyString($_GET['page']);
     }
     return $page;
 }

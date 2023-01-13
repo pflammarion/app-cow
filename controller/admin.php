@@ -1,6 +1,7 @@
 <?php
 
 include __DIR__ . '/../model/admin/faq.php';
+include __DIR__ . '/../model/admin/user.php';
 require __DIR__ . '/../model/permission.php';
 
 $page = selectPage("accueil");
@@ -45,11 +46,48 @@ if(!empty($page) && !empty($action)){
         $view = "admin/permission/" . $action;
     }
     elseif($page === 'user' && pageAuthorization('admin/user')){
-        $roles = getRoles();
         $view = "admin/user/" . $action;
+        $content = getuser();
+        $roles = getRoles();
+        if (isset($_POST['action'])) {
+            $success = False;
+            if ($_POST['action'] == 'create') {
+                $values = array(
+                    "nom" => $_POST['lastName'],
+                    "prenom" => $_POST['firstName'],
+                    "email" => $_POST['email'],
+                    "userName" => $_POST['userName'],
+                    "role" => $_POST["role"],
+                );
+                $success = createUser($values);
+                if ($_POST['action'] == 'update') {
+                    $values = array(
+                        "nom" => $_POST['lastName'],
+                        "prenom" => $_POST['firstName'],
+                        "email" => $_POST['email'],
+                        "userName" => $_POST['userName'],
+                        "role" => $_POST["role"],
+                        "id" => $_POST['id'],
+                    );
+                    $success = updateUser($values);
+                    if ($_POST['action'] === 'delete') {
+                        $success = deleteUser(intval($_POST['id']));
+                    }
+                    if ($success) {
+                        header("Location: admin?page=user&action=view");
+                        exit();
+                    }
+                }
+                }
+            if ($success) {
+                header("Location: admin?page=user&action=view");
+                exit();
+            }
+        }
     }
     else {
         echo '<script>alert("Vous n\'avez pas accès à cette page")</script>';
     }
+include (showPage($view));{
 }
-include (showPage($view));
+}

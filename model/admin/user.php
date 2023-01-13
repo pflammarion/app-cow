@@ -1,33 +1,44 @@
 <?php
-function createFaq(array $values): bool
+function createUser(array $values): bool
 {
-    $question = $values["question"];
-    $response = $values["response"];
-    if ($question != "" && $response != ""){
-        $create_faq_sql = "INSERT INTO faq (FAQ_Title, FAQ_Answer) VALUES (:question, :response) ";
-        $create_faq_query = $GLOBALS['db']-> prepare($create_faq_sql);
-        $create_faq_query->execute(
+    $nom = $values['nom'];
+    $prenom = $values['prenom'];
+    $usname = $values["userName"];
+    $email = $values["email"];
+    $role = $values["role"];
+    if ($nom != "" && $prenom != "" && $usname != "" && $email != "" && $role = ""){
+        $create_user_sql = "INSERT INTO user (User_FirstName, User_LastName, User_Username, User_Email) VALUES (:firstName, :lastName, :userName, :email) ";
+        $create_user_query = $GLOBALS['db']-> prepare($create_user_sql);
+        $create_user_query->execute(
             array(
-                "question"=> $question,
-                "response"=> $response,
+                "nom"=> $nom,
+                "prenom"=> $prenom,
+                "userName"=> $usname,
+                "email"=> $email,
+                "role"=> $role,
             )
         );
         return true;
     }
     return false;
 }
-function updateFaq(array $values): bool
+function updateUser(array $values): bool
 {
-    $question = $values["question"];
-    $response = $values["response"];
+    $nom = $values["nom"];
+    $prenom = $values["prenom"];
+    $usname = $values["userName"];
+    $email = $values["email"];
+    $role = $values["role"];
     $id = $values["id"];
-    if ($question != "" && $response != "" && $id != ""){
-        $update_faq_sql = "UPDATE faq SET FAQ_Title=:question, FAQ_Answer=:response WHERE FAQ_Id=:id";
-        $update_faq_query = $GLOBALS['db']-> prepare($update_faq_sql);
-        $update_faq_query->execute(
+    if ($nom != "" && $prenom != "" && $usname != "" && $email != "" && $role != "" && $id != ""){
+        $update_user_sql = "UPDATE user SET User_FirstName=:prenom, User_LastName=:nom, User_Username=:usname, User_Email=:email WHERE User_Id=:id";
+        $update_user_query = $GLOBALS['db']-> prepare($update_user_sql);
+        $update_user_query->execute(
             array(
-                "question"=> $question,
-                "response"=> $response,
+                "nom"=> $nom,
+                "prenom"=> $prenom,
+                "email"=> $email,
+                "userName"=> $usname,
                 "id"=> $id,
             )
         );
@@ -35,12 +46,12 @@ function updateFaq(array $values): bool
     }
     return false;
 }
-function deleteFaq(int $id): bool
+function deleteUser(int $id): bool
 {
     if ($id){
-        $delete_faq_sql = "DELETE FROM faq WHERE FAQ_Id = :id;";
-        $delete_faq_query = $GLOBALS['db']-> prepare($delete_faq_sql);
-        $delete_faq_query->execute(
+        $delete_user_sql = "DELETE FROM user WHERE User_Id = :id;";
+        $delete_user_query = $GLOBALS['db']-> prepare($delete_user_sql);
+        $delete_user_query->execute(
             array(
                 "id"=> $id,
             )
@@ -50,19 +61,21 @@ function deleteFaq(int $id): bool
     return false;
 }
 
-function getfaq(): array
+function getuser(): array
 {
-    $get_faq_sql = "SELECT FAQ_Id,FAQ_Title,FAQ_Answer FROM faq;";
-    $get_faq_query = $GLOBALS['db']-> prepare($get_faq_sql);
-    $get_faq_query->execute();
-    $rows = $get_faq_query->fetchAll();
+    $get_user_sql = "SELECT User_Id,User_FirstName,User_LastName, User_Email, User_Username FROM user";
+    $get_user_query = $GLOBALS['db']-> prepare($get_user_sql);
+    $get_user_query->execute();
+    $rows = $get_user_query->fetchAll();
     $values = [];
-    if ($get_faq_query->rowCount() > 0){
+    if ($get_user_query->rowCount() > 0){
         foreach ($rows as $row) {
             $values[]=array(
-                "id"=>$row["FAQ_Id"],
-                "title"=>$row["FAQ_Title"],
-                "answer"=>$row["FAQ_Answer"],
+                "id"=>$row["User_Id"],
+                "prenom"=>$row["User_FirstName"],
+                "nom"=>$row["User_LastName"],
+                "email"=>$row["User_Email"],
+                "usname"=>$row["User_Username"],
             );
 
         }

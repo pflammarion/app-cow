@@ -8,23 +8,23 @@
                         <div class="create-user">
                             <label for="user">
                                 Nom
-                                <input type="text" name="LastName">
+                                <input type="text" name="lastName">
                             </label>
                             <label for="user">
                                 Prénom
-                                <input type="text" name="FirstName"
+                                <input type="text" name="firstName"
                             </label>
                             <label for="user">
                                 Nom d'utilisateur
-                                <input type="text" name="UserName"
+                                <input type="text" name="userName"
                             </label>
                             <label for ="user">
                                 Adresse mail
-                                <input type="email" name="mail"
+                                <input type="email" name="email"
                             </label>
                         <label for="role">
                             Rôle<br>
-                            <select>
+                            <select name="role">
                                 <?php
                                 foreach ($roles as $role){
                                         echo '<option>' . $role['name'] .'</option>';

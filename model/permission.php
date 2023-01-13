@@ -18,3 +18,20 @@ function pageAuthorization(string $page) : bool
     }
     else return false;
 }
+function getRoles(): array
+{
+    $get_role = "SELECT Role_Id, Role_Name FROM role";
+    $get_role = $GLOBALS['db']-> prepare($get_role);
+    $get_role->execute();
+    $rows = $get_role->fetchAll();
+    $values = [];
+    if ($get_role->rowCount() > 0){
+        foreach ($rows as $row) {
+            $values[]=array(
+                "id"=>$row["Role_Id"],
+                "name"=>$row["Role_Name"],
+            );
+        }
+    }
+    return $values;
+}

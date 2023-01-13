@@ -45,6 +45,7 @@ if(!empty($page) && !empty($action)){
         $view = "admin/permission/" . $action;
     }
     elseif($page === 'user' && pageAuthorization('admin/user')){
+        $roles = getRoles();
         $view = "admin/user/" . $action;
     }
     else {

@@ -116,3 +116,15 @@ function getAllRoles(): array
     }
     return $values;
 }
+
+function createRole(string $role): bool
+{
+        $update_faq_sql = "INSERT INTO role SET Role_Name=:role";
+        $update_faq_query = $GLOBALS['db']-> prepare($update_faq_sql);
+        $update_faq_query->execute(
+            array(
+                "role"=> $role,
+            )
+        );
+        return true;
+}

@@ -3,7 +3,7 @@
             <form action="" method="post">
                 <label for="question">
                     Role
-                    <input type="text" name="question">
+                    <input type="text" name="role">
                 </label>
                 <div class="btn-container">
                     <div>

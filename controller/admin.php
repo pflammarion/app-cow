@@ -52,6 +52,13 @@ if(!empty($page) && !empty($action)){
         $view = "admin/permission/" . $action;
         if ($action === 'role'){
             $data = getAllRoles();
+            if(isset($_POST['role'])){
+                $success = createRole(htmlentities($_POST['role']));
+                if ($success){
+                    header("Location: admin?page=permission&action=role");
+                    exit();
+                }
+            }
         }
         if (isset($_POST['checkbox'])){
                 $datas = $_POST['checkbox'];

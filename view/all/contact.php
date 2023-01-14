@@ -1,10 +1,15 @@
+<?php
+$connected = $connected ?? false;
+?>
 <div class="contact">
     <div class="container">
+        <?php if($connected === true){?>
         <h2>Liste des tickets</h2>
         <div class="list">
             <?php ?>
         </div>
         <span class="separator"></span>
+        <?php } ?>
         <h2>Nous contacter</h2>
         <form action="" method="post">
             <label for="email">

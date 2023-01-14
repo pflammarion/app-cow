@@ -25,12 +25,11 @@ if(!empty($page) && $page !== ""){
                 $insert = createTicket(htmlspecialchars($_POST['email']), intval($_POST['tagId']), htmlspecialchars($_POST['content']));
                 if($success && $insert){
                     header("Location: all?page=contact&success=Votre demande à été envoyée, vous aurez un retour dans les plus brefs délais" );
-                    exit();
                 }
                 else {
                     header("Location: all?page=contact&error=Une erreur s'est produite, merci de réessayer" );
-                    exit();
                 }
+                exit();
             }
 
 

@@ -2,7 +2,7 @@
 
 function getAllTags(): array
 {
-    $sql_get_tags="SELECT Tag_Name, Tag_Id FROM tag;";
+    $sql_get_tags="SELECT Tag_Name, Tag_Id FROM tag";
     $query_get_tags = $GLOBALS['db']->prepare($sql_get_tags);
     $query_get_tags ->execute();
     $rows = $query_get_tags->fetchAll();
@@ -34,7 +34,7 @@ function getUserTickets(): array
 {
     $sql_get_ticket="SELECT Tag_Id, Status_Id, Ticket_Content, Ticket_Date_Creation, Ticket_Date_Modif FROM ticket WHERE User_Id =:user ;";
     $query_get_ticket = $GLOBALS['db']->prepare($sql_get_ticket);
-    $query_get_ticket ->execute();
+    $query_get_ticket ->execute(array('user'=>intval($_SESSION['user'])));
     $rows = $query_get_ticket->fetchAll();
     $result = [];
     foreach ($rows as $row){

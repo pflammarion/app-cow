@@ -46,7 +46,7 @@
 
 .contact .container textarea{
     width: 250px;
-    height: 220px;
+    height: 150px;
     border: solid 2px var(--dark-blue);
     border-radius: 5px;
     resize : none;

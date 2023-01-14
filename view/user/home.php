@@ -139,8 +139,16 @@ $chipId = $chipId ?? 0;
     </div>
 </div>
 <script>
-    $( ".not-viewed" ).click(function() {
+$(document).ready(() => {
+    $(".not-viewed").click(function (e) {
+        e.preventDefault()
         $(this).removeClass('not-viewed');
         $(this).find('img').css('display', 'none');
+        removeAlert($(this).data('id'))
     });
+    const removeAlert = async (alertId) =>{
+        await getDataFromController('user?page=accueil&alertId=' + alertId);
+    }
+
+});
 </script>

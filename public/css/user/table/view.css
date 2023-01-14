@@ -202,12 +202,20 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    border-bottom: 2px dashed var(--dark-blue);
+    padding-bottom: 20px;
+    margin-bottom: 16px ;
 }
 
 .table .container .download-link a img{
     height: 30px;
     width: auto;
     margin-top: 16px;
+}
+
+.table .container > span{
+    font-size: 12px;
+    font-style: italic;
 }
 
 @media screen and (min-width: 800px) {

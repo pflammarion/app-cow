@@ -54,18 +54,31 @@ function getUserTickets(): array
     return $result;
 }
 
-function createTicket(string $email, int $tag, string $content): bool
+function createTicket(string $email, int $tag, string $content, int $userEmail = null): bool
 {
-    $user = $_SESSION['user'] ?? null;
+    $user = $_SESSION['user'] ?? $userEmail;
     $add_ticket_sql = "INSERT INTO ticket (User_Id, Tag_Id, Ticket_Email, Ticket_Date_Creation, Status_Id, Ticket_Content) VALUES (:user, :tag, :email, current_timestamp(), 1, :content)";
     $add_ticket_query = $GLOBALS['db']-> prepare($add_ticket_sql);
     $add_ticket_query->execute(
         array(
-            'user'=> $user,
+            "user" => $user,
             "email"=> $email,
             "tag"=> $tag,
             "content"=> $content,
         )
     );
     return true;
+}
+function getUserIdByEmail(string $email): int
+{
+    $sql_get_email="SELECT User_Id FROM user WHERE User_Email =:email ;";
+    $query_get_email = $GLOBALS['db']->prepare($sql_get_email);
+    $query_get_email ->execute(array(
+        'email'=> $email
+    ));
+    $row = $query_get_email->fetch();
+    if ($query_get_email->rowcount() === 1){
+        return $row['User_Id'];
+    }
+    return 0;
 }

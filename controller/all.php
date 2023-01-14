@@ -28,7 +28,11 @@ if(!empty($page) && $page !== ""){
             }
             if(isset($_POST['email'], $_POST['tag'], $_POST['content']) && !empty($_POST['tag'])){
                 $success = phpMailSender( htmlspecialchars($_POST['email']), 'contact');
-                $insert = createTicket(htmlspecialchars($_POST['email']), intval($_POST['tag']), htmlspecialchars($_POST['content']));
+                $user = getUserIdByEmail(htmlspecialchars($_POST['email']));
+                if ($user === 0){
+                    $user = null;
+                }
+                $insert = createTicket(htmlspecialchars($_POST['email']), intval($_POST['tag']), htmlspecialchars($_POST['content']), $user);
                 if($success && $insert){
                     header("Location: all?page=contact&success=Votre demande à été envoyée, vous aurez un retour dans les plus brefs délais" );
                 }

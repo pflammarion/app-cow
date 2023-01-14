@@ -23,6 +23,8 @@ $tickets = $tickets ?? array(
                     }
                     echo '<span>Statut : ' . $ticket['status'] .'</span>';
                     echo '<span>Sujet : ' . $ticket['tag'] .'</span>';
+                    echo '<span>Contenu :<button class="afficher">Afficher</button></span>';
+                    echo '<span class="ticket-content">' . $ticket['content'] .'</span>';
                 }
                 else echo "<span>Vous n'avez pas de ticket ouvert</span>";
                 echo '</div>';
@@ -47,7 +49,7 @@ $tickets = $tickets ?? array(
             </label>
             <label for="content">
                 Votre message
-                <textarea id="content" name="content" required="required"></textarea>
+                <textarea name="content" required="required"></textarea>
             </label>
 
             <button type="submit" class="btn-green">
@@ -60,3 +62,14 @@ $tickets = $tickets ?? array(
         <p>+33 X XX XX XX XX</p>
     </div>
 </div>
+
+<script>
+    $(document).ready(() => {
+        $('.afficher').on('click', function (e){
+            e.preventDefault()
+            $(this).parent().siblings('.ticket-content').css('height', 'unset')
+            $(this).parent().siblings('.ticket-content').css('display', 'block')
+            $(this).css('display', 'none')
+        })
+    });
+</script>

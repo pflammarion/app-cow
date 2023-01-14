@@ -82,10 +82,28 @@
     flex-direction: column;
     align-items: flex-start;
     margin: 20px 0;
+    width: 250px;
 }
 
 .contact .container .list .ticket span{
     margin: 5px 0;
+}
+
+.contact .container .afficher{
+    margin-left: 10px;
+    border: 2px solid var(--dark-blue);
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.contact .container .afficher:hover{
+    background-color: var(--light-blue);
+}
+
+.contact .container .ticket-content{
+    height: 0;
+    display: none;
+    font-style: italic;
 }
 
 

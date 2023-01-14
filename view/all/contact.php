@@ -4,6 +4,7 @@ $sujet = $sujet ?? [];
 $tickets = $tickets ?? array(
     'content'=> null,
 );
+$email = $email ?? '';
 
 ?>
 
@@ -38,7 +39,7 @@ $tickets = $tickets ?? array(
         <form action="" method="post">
             <label for="email">
                 Email
-                <input id="email" type="email" name="email" required="required">
+                <input id="email" type="email" name="email" required="required" value="<?php if($connected === true){echo $email;}?>">
             </label>
             <label for="tag">
                 Sujet

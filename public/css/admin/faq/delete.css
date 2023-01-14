@@ -16,3 +16,7 @@
     display: flex;
     gap : 100px
 }
+.faq-admin-delete .btn-delete{
+    width: 250px;
+    font-size: 32px;
+}

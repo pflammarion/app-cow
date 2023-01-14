@@ -108,7 +108,7 @@ $chipId = $chipId ?? 0;
                         $diff = $date->diff(new DateTime());
                         $hours = $diff->h;
                         $days = $diff->days;
-                        if ($cow_alert['status'] != 0) echo '<div class="alert alert'. $cow_alert['type'] . ' not-viewed">';
+                        if ($cow_alert['status'] != 0) echo '<div data-id="' . $cow_alert['id'] . '" class="alert alert'. $cow_alert['type'] . ' not-viewed">';
                         else echo '<div class="alert alert'. $cow_alert['type'] . '">';
                         echo '<span class="alert-date">' . $days . 'j ' . $hours . 'h</span>';
                         echo '<div class="alert-content">';
@@ -139,8 +139,16 @@ $chipId = $chipId ?? 0;
     </div>
 </div>
 <script>
-    $( ".not-viewed" ).click(function() {
+$(document).ready(() => {
+    $(".not-viewed").click(function (e) {
+        e.preventDefault()
         $(this).removeClass('not-viewed');
         $(this).find('img').css('display', 'none');
+        removeAlert($(this).data('id'))
     });
+    const removeAlert = async (alertId) =>{
+        await getDataFromController('user?page=accueil&alertId=' + alertId);
+    }
+
+});
 </script>

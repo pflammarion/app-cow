@@ -73,7 +73,7 @@ function getCow(int $id): array
 function getAlertByCow(int $id): array
 {
     $user = $_SESSION['user'];
-    $sql_get_alert="SELECT alert.Alert_message,alert.Alert_Status, alert.Alert_Type_Id, alert.Alert_Date
+    $sql_get_alert="SELECT alert.Alert_Id, alert.Alert_message,alert.Alert_Status, alert.Alert_Type_Id, alert.Alert_Date
                     FROM alert
                     left join chip_level on chip_level.Chip_Level_Id = alert.Chip_Level_Id
                     left join chip_cow_user on chip_cow_user.Chip_Id = chip_level.Chip_Id
@@ -87,6 +87,7 @@ function getAlertByCow(int $id): array
     $result = [];
     foreach ($rows as $row){
         $result[] = array(
+            'id' => $row['Alert_Id'],
             'message'=>$row['Alert_message'],
             'status'=>$row['Alert_Status'],
             'type'=>$row['Alert_Type_Id'],
@@ -315,6 +316,23 @@ GROUP BY
         );
     }
     return $data;
+}
+
+function deleteAlertOnClick(int $id): bool
+{
+        $update_faq_sql = "UPDATE alert
+                            LEFT JOIN chip_level cl on cl.Chip_Level_Id = alert.Chip_Level_Id
+                            LEFT JOIN chip_cow_user ccu on cl.Chip_Id = ccu.Chip_Id
+                            SET Alert_Status = 0 
+                            WHERE Alert_Status = 1 AND Alert_Id = :id AND ccu.User_Id = :user";
+        $update_faq_query = $GLOBALS['db']-> prepare($update_faq_sql);
+        $update_faq_query->execute(
+            array(
+                "id"=> $id,
+                "user"=> intval($_SESSION['user']),
+            )
+        );
+        return true;
 }
 
 function getDownloadableData(int $id = null): array

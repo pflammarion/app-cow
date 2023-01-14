@@ -64,7 +64,7 @@ $email = $email ?? '';
         </form>
         <span class="separator"></span>
         <h2>Contact téléphonique</h2>
-        <p>+33 X XX XX XX XX</p>
+        <a href="tel:+33652365615">+33 6 52 36 56 15</a>
     </div>
 </div>
 

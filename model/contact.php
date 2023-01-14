@@ -47,3 +47,19 @@ function getUserTickets(): array
     }
     return $result;
 }
+
+function createTicket(string $email, int $tag, string $content): bool
+{
+    $user = $_SESSION['user'] ?? null;
+    $add_ticket_sql = "INSERT INTO ticket SET User_Id =:user, Tag_Id =:tag, Ticket_Email= :email, Ticket_Date_Creation = current_timestamp, Status_Id = 1";
+    $add_ticket_query = $GLOBALS['db']-> prepare($add_ticket_sql);
+    $add_ticket_query->execute(
+        array(
+            'user'=> $user,
+            "email"=> $email,
+            "tag"=> $tag,
+            "content"=> $content,
+        )
+    );
+    return true;
+}

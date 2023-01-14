@@ -13,13 +13,26 @@ if(!empty($page) && $page !== ""){
         case 'contact':
             $connected = false;
             $email  = "";
-            if(isset($_SESSION['auth']) && $_SESSION['auth']){
+            $sujet = getAllTags();
+            $view = "all/contact";
+            if(isset($_SESSION['auth']) && $_SESSION['auth'] && !isset($_POST['email'])){
                 $connected = true;
                 $email = getUserEmail();
                 $tickets = getUserTickets();
             }
-            $sujet = getAllTags();
-            $view = "all/contact";
+            if(isset($_POST['email'], $_POST['tagId'], $_POST['content'])){
+                $success = phpMailSender('', htmlspecialchars($_POST['email']));
+                $insert = createTicket(htmlspecialchars($_POST['email']), intval($_POST['tagId']), htmlspecialchars($_POST['content']));
+                if($success && $insert){
+                    header("Location: all?page=contact&success=Votre demande à été envoyée, vous aurez un retour dans les plus brefs délais" );
+                    exit();
+                }
+                else {
+                    header("Location: all?page=contact&error=Une erreur s'est produite, merci de réessayer" );
+                    exit();
+                }
+            }
+
 
             break;
 

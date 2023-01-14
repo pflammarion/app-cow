@@ -13,7 +13,7 @@ require __DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php';
 /**
  * @throws Exception
  */
-function phpMailSender(string $token, string $email): bool
+function phpMailSender(string $email, string $type,  string $token = ''): bool
 {
     // @ts-ignore
     $mail = new PHPMailer();                // @ignore
@@ -31,8 +31,15 @@ function phpMailSender(string $token, string $email): bool
     $mail->Port       = 465;                // TCP port to connect to
     $mail->setFrom('cow@newonline.world', 'noreply');
     $mail->addAddress($email);
-    $mail->Subject = "Récupération de mot de passe COW";
-    $mail->Body = makeMail($token);
+    if($type === 'psw'){
+        $mail->Subject = "Récupération de mot de passe COW";
+        $mail->Body = makeMail($token);
+    }
+    if ($type === 'contact'){
+        $mail->Subject = "Confirmation de la reception du ticket COW";
+        //faire un body plus joli
+        $mail->Body = 'Votre demande a bien été prise en compte, vous pouvez consulter son status dans la page contacte, ou par mail si vous ne pouvez pas vous connecter';
+    }
     $mail->AltBody = "This is the plain text version of the email content";
     try {
         $mail->send();

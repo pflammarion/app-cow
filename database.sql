@@ -392,7 +392,7 @@ CREATE TABLE `status` (
 
 LOCK TABLES `status` WRITE;
 /*!40000 ALTER TABLE `status` DISABLE KEYS */;
-INSERT INTO `status` VALUES (1,'ouvert'),(2,'fermé'),(3,'en cours');
+INSERT INTO `status` VALUES (1,'ouvert'),(2,'en cours'),(3,'fermé');
 /*!40000 ALTER TABLE `status` ENABLE KEYS */;
 UNLOCK TABLES;
 

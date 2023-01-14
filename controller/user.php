@@ -120,6 +120,29 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 $data = getCow(intval($_GET['selectedCow']));
                 echo json_encode($data);
             }
+            if (isset($_GET['exel'], $_GET['js'])){
+                $cowExel = null;
+                if (isset($_GET['cowId'])){
+                    $cowExel = intval($_GET['cowId']);
+                    $cow_attr = getCow($cowExel);
+                    header('Content-Disposition: attachment;filename="' . $cow_attr['name'] .'_N_' . $cow_attr['number'] .'.xls"');
+                }
+                else header('Content-Disposition: attachment;filename="troupeau.xls"');
+                $data = getDownloadableData($cowExel);
+                header('Content-Type: application/vnd.ms-excel');
+                header('Cache-Control: max-age=0');
+                echo '<table>';
+                foreach ($data as $row) {
+                    echo '<tr>';
+                    foreach ($row as $cell) {
+                        echo '<td>' . $cell . '</td>';
+                    }
+                    echo '</tr>';
+                }
+                echo '</table>';
+            }
+
+
             break;
         default:
             $view = "error404";

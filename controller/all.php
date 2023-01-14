@@ -16,7 +16,7 @@ if(!empty($page) && $page !== ""){
             $email  = "";
             $sujet = getAllTags();
             $view = "all/contact";
-            if(isset($_SESSION['auth']) && $_SESSION['auth'] && !isset($_POST['email'])){
+            if(isset($_SESSION['auth']) && $_SESSION['auth'] && $_SERVER['REQUEST_METHOD'] === 'GET'){
                 $connected = true;
                 $email = getUserEmail();
                 $tickets = getUserTickets();
@@ -26,22 +26,24 @@ if(!empty($page) && $page !== ""){
                     );
                 }
             }
-            if(isset($_POST['email'], $_POST['tag'], $_POST['content']) && !empty($_POST['tag'])){
-                $success = phpMailSender( htmlspecialchars($_POST['email']), 'contact');
-                $user = getUserIdByEmail(htmlspecialchars($_POST['email']));
-                if ($user === 0){
-                    $user = null;
-                }
-                $insert = createTicket(htmlspecialchars($_POST['email']), intval($_POST['tag']), htmlspecialchars($_POST['content']), $user);
-                if($success && $insert){
-                    header("Location: all?page=contact&success=Votre demande à été envoyée, vous aurez un retour dans les plus brefs délais" );
-                }
-                else {
-                    header("Location: all?page=contact&error=Une erreur s'est produite, merci de réessayer" );
+            if(isset($_POST['email'], $_POST['tag'], $_POST['content'])){
+                if (!empty($_POST['tag']) && !empty($_POST['email']) && !empty($_POST['content'])) {
+                    $success = phpMailSender(htmlspecialchars($_POST['email']), 'contact');
+                    $user = getUserIdByEmail(htmlspecialchars($_POST['email']));
+                    if ($user === 0) {
+                        $user = null;
+                    }
+                    $insert = createTicket(htmlspecialchars($_POST['email']), intval($_POST['tag']), htmlspecialchars($_POST['content']), $user);
+                    if ($success && $insert) {
+                        header("Location: all?page=contact&success=Votre demande à été envoyée, vous aurez un retour dans les plus brefs délais");
+                    } else {
+                        header("Location: all?page=contact&error=Une erreur s'est produite, merci de réessayer");
+                    }
+                }else{
+                    header("Location: all?page=contact&error=Merci de bien remplir tous les champs" );
                 }
                 exit();
             }
-
 
             break;
 

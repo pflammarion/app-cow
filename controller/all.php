@@ -1,5 +1,6 @@
 <?php
-include __DIR__ . '/../model/faq.php';
+require_once  __DIR__ . '/../model/faq.php';
+require_once  __DIR__ . '/../model/contact.php';
 
 $page = selectPage("");
 
@@ -10,7 +11,16 @@ if(!empty($page) && $page !== ""){
             break;
 
         case 'contact':
+            $connected = false;
+            $email  = "";
+            if(isset($_SESSION['auth']) && $_SESSION['auth']){
+                $connected = true;
+                $email = getUserEmail();
+                $tickets = getUserTickets();
+            }
+            $sujet = getAllTags();
             $view = "all/contact";
+
             break;
 
         case 'faq':

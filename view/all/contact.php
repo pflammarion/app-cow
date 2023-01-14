@@ -1,12 +1,29 @@
 <?php
 $connected = $connected ?? false;
+$sujet = $sujet ?? [];
+$tickets = $tickets ?? array(
+    'content'=> null,
+);
+print_r($tickets);
+
 ?>
+
+
 <div class="contact">
     <div class="container">
         <?php if($connected === true){?>
         <h2>Liste des tickets</h2>
         <div class="list">
-            <?php ?>
+            <?php
+            foreach ($tickets as $ticket){
+                if(isset($ticket['content'])){
+                    echo '<div class="ticket">';
+                    echo '</div>';
+                }
+                else echo "Vous n'avez pas de ticket ouvert";
+            }
+
+            ?>
         </div>
         <span class="separator"></span>
         <?php } ?>

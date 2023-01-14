@@ -32,17 +32,22 @@ function getUserEmail(): string
 
 function getUserTickets(): array
 {
-    $sql_get_ticket="SELECT Tag_Id, Status_Id, Ticket_Content, Ticket_Date_Creation, Ticket_Date_Modif FROM ticket WHERE User_Id =:user ;";
+    $sql_get_ticket="SELECT t.Tag_Name as tag, s.Status_Name as status, Ticket_Content,  DATE_FORMAT(Ticket_Date_Creation, '%d/%m/%Y') as date_create, DATE_FORMAT(Ticket_Date_Modif, '%d/%m/%Y') as date_update 
+                    FROM ticket 
+                    LEFT JOIN tag t on t.Tag_Id = ticket.Tag_Id
+                    LEFT JOIN status s on s.Status_Id = ticket.Status_Id
+                    WHERE User_Id =:user ;";
     $query_get_ticket = $GLOBALS['db']->prepare($sql_get_ticket);
     $query_get_ticket ->execute(array('user'=>intval($_SESSION['user'])));
     $rows = $query_get_ticket->fetchAll();
     $result = [];
     foreach ($rows as $row){
         $result[] = array(
-            'tag_id'=>$row['Tag_Id'],
-            'status_id'=>$row['Status_Id'],
+            'tag'=>$row['tag'],
+            'status'=>$row['status'],
             'content'=>$row['Ticket_Content'],
-            'modif'=>$row['Ticket_Date_Modif'],
+            'creation'=> $row['date_create'],
+            'modif'=>$row['date_update'],
         );
     }
     return $result;

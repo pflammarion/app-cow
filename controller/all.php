@@ -19,6 +19,11 @@ if(!empty($page) && $page !== ""){
                 $connected = true;
                 $email = getUserEmail();
                 $tickets = getUserTickets();
+                if (count($tickets) === 0){
+                    $tickets = array(
+                        'content'=> null,
+                    );
+                }
             }
             if(isset($_POST['email'], $_POST['tagId'], $_POST['content'])){
                 $success = phpMailSender( htmlspecialchars($_POST['email']), 'contact');

@@ -57,7 +57,7 @@ $email = $email ?? '';
                 <textarea name="content" required="required"></textarea>
             </label>
 
-            <button type="submit" class="btn-green">
+            <button id="submit" type="submit" class="btn-green">
                 Envoyer
                 <img src="./public/assets/icon/mail.svg" alt="Send icon">
             </button>
@@ -83,7 +83,7 @@ $email = $email ?? '';
             $(this).css('display', 'none')
         })
 
-        $('button').on('click', function (e){
+        $('#submit').on('click', function (e){
             e.preventDefault();
             $("#overlay").fadeIn(300);
             $('form').submit();

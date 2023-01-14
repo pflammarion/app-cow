@@ -117,6 +117,27 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 $data = getCow(intval($_GET['selectedCow']));
                 echo json_encode($data);
             }
+            if (isset($_GET['exel'], $_GET['js'])){
+                $cowExel = null;
+                if (isset($_GET['cowId'])){
+                    $cowExel = intval($_GET['cowId']);
+                }
+                $data = getDownloadableData($cowExel);
+                header('Content-Type: application/vnd.ms-excel');
+                header('Content-Disposition: attachment;filename="data.xls"');
+                header('Cache-Control: max-age=0');
+                echo '<table>';
+                foreach ($data as $row) {
+                    echo '<tr>';
+                    foreach ($row as $cell) {
+                        echo '<td>' . $cell . '</td>';
+                    }
+                    echo '</tr>';
+                }
+                echo '</table>';
+            }
+
+
             break;
         default:
             $view = "error404";

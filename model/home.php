@@ -316,3 +316,42 @@ GROUP BY
     }
     return $data;
 }
+
+function getDownloadableData(int $id = null): array
+{
+    $data = [];
+    if (isset($id)){
+        $sql = 'SELECT Date, Value, s.Sensor_Name as sensor
+            FROM data_sensor
+            LEFT JOIN chip_level cl on cl.Chip_Level_Id = data_sensor.Chip_Level_Id
+            LEFT JOIN sensor s on s.Sensor_Id = cl.Sensor_Id
+            LEFT JOIN chip_cow_user ccu on cl.Chip_Id = ccu.Chip_Id
+            WHERE User_Id =:user AND Cow_Id =:cow AND Coef = 1
+            ORDER BY sensor, Date';
+    }
+    else{
+        $sql = 'SELECT Date, Value, s.Sensor_Name as sensor
+            FROM data_sensor
+            LEFT JOIN chip_level cl on cl.Chip_Level_Id = data_sensor.Chip_Level_Id
+            LEFT JOIN sensor s on s.Sensor_Id = cl.Sensor_Id
+            LEFT JOIN chip_cow_user ccu on cl.Chip_Id = ccu.Chip_Id
+            WHERE User_Id =:user AND Cow_Id =:cow AND Coef = 1
+            ORDER BY sensor, Date';
+    }
+    $query =  $GLOBALS['db']->prepare($sql);
+    $query->execute(
+        array(
+            'cow'=>$id,
+            'user'=> intval($_SESSION['user']),
+        ));
+    $rows = $query->fetchAll();
+    foreach ($rows as $row){
+        $data[] = array(
+            'sensor' => $row['sensor'],
+            'value' => $row['Value'],
+            'date' => $row['Date'],
+        );
+    }
+    return $data;
+
+}

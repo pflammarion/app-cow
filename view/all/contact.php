@@ -1,5 +1,4 @@
 <div class="contact">
-    <h1>Contact</h1>
     <div class="container">
         <h2>Liste des tickets</h2>
         <div class="list">
@@ -25,8 +24,8 @@
             </label>
 
             <button type="submit" class="btn-green">
-                Je crée mon profil
-                <img src="./public/assets/icon/login.svg" alt="Enter icon">
+                Envoyer
+                <img src="./public/assets/icon/mail.svg" alt="Send icon">
             </button>
         </form>
         <span class="separator"></span>

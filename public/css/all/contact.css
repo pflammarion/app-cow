@@ -69,5 +69,24 @@
     width: 250px;
 }
 
+.contact .container .list{
+
+}
+
+.contact .container .list .ticket{
+    font-size: 14px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px 0;
+}
+
+.contact .container .list .ticket span{
+    margin: 5px 0;
+}
+
 
 

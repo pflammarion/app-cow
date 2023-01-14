@@ -4,7 +4,6 @@ $sujet = $sujet ?? [];
 $tickets = $tickets ?? array(
     'content'=> null,
 );
-print_r($tickets);
 
 ?>
 
@@ -16,11 +15,17 @@ print_r($tickets);
         <div class="list">
             <?php
             foreach ($tickets as $ticket){
+                echo '<div class="ticket">';
                 if(isset($ticket['content'])){
-                    echo '<div class="ticket">';
-                    echo '</div>';
+                    echo '<span>Créé le : ' . $ticket['creation'] .'</span>';
+                    if (isset($ticket['modif'])){
+                        echo '<span>Modifié le : ' . $ticket['modif'] .'</span>';
+                    }
+                    echo '<span>Statut : ' . $ticket['status'] .'</span>';
+                    echo '<span>Sujet : ' . $ticket['tag'] .'</span>';
                 }
-                else echo "Vous n'avez pas de ticket ouvert";
+                else echo "<span>Vous n'avez pas de ticket ouvert</span>";
+                echo '</div>';
             }
 
             ?>

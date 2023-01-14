@@ -36,7 +36,8 @@ function getUserTickets(): array
                     FROM ticket 
                     LEFT JOIN tag t on t.Tag_Id = ticket.Tag_Id
                     LEFT JOIN status s on s.Status_Id = ticket.Status_Id
-                    WHERE User_Id =:user ;";
+                    WHERE User_Id =:user 
+                    ORDER BY s.Status_Id";
     $query_get_ticket = $GLOBALS['db']->prepare($sql_get_ticket);
     $query_get_ticket ->execute(array('user'=>intval($_SESSION['user'])));
     $rows = $query_get_ticket->fetchAll();

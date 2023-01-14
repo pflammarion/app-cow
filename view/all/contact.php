@@ -43,8 +43,12 @@ $tickets = $tickets ?? array(
             <label for="tag">
                 Sujet
                 <select name="tag">
-                    <option>Choisir votre demande</option>
-                    <?php ?>
+                    <option value="" disabled selected>Choisir votre demande</option>
+                    <?php
+                        foreach ($sujet as $s){
+                            echo '<option value="' . $s['id'] .'">' . $s['name'] . '</option>';
+                        }
+                    ?>
                 </select>
             </label>
             <label for="content">

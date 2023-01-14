@@ -339,32 +339,44 @@ function getDownloadableData(int $id = null): array
 {
     $data = [];
     if (isset($id)){
-        $sql = 'SELECT Date, Value, s.Sensor_Name as sensor
+        $sql = 'SELECT Date, Value, s.Sensor_Name as sensor, c.Cow_Name as name, c.Cow_Number as number
             FROM data_sensor
             LEFT JOIN chip_level cl on cl.Chip_Level_Id = data_sensor.Chip_Level_Id
             LEFT JOIN sensor s on s.Sensor_Id = cl.Sensor_Id
             LEFT JOIN chip_cow_user ccu on cl.Chip_Id = ccu.Chip_Id
-            WHERE User_Id =:user AND Cow_Id =:cow AND Coef = 1
-            ORDER BY sensor, Date';
+            LEFT JOIN cow c on ccu.Cow_Id = c.Cow_Id
+            WHERE User_Id =:user AND ccu.Cow_Id =:cow AND Coef = 1
+            ORDER BY name, number, sensor, Date';
     }
     else{
-        $sql = 'SELECT Date, Value, s.Sensor_Name as sensor
+        $sql = 'SELECT Date, Value, s.Sensor_Name as sensor, c.Cow_Name as name, c.Cow_Number as number
             FROM data_sensor
             LEFT JOIN chip_level cl on cl.Chip_Level_Id = data_sensor.Chip_Level_Id
             LEFT JOIN sensor s on s.Sensor_Id = cl.Sensor_Id
             LEFT JOIN chip_cow_user ccu on cl.Chip_Id = ccu.Chip_Id
-            WHERE User_Id =:user AND Cow_Id =:cow AND Coef = 1
-            ORDER BY sensor, Date';
+            LEFT JOIN cow c on ccu.Cow_Id = c.Cow_Id
+            WHERE User_Id =:user AND Coef = 1
+            ORDER BY name, number, sensor, Date';
     }
     $query =  $GLOBALS['db']->prepare($sql);
+    if (isset($id)){
     $query->execute(
         array(
-            'cow'=>$id,
+            'cow'=> $id ,
             'user'=> intval($_SESSION['user']),
         ));
+    }
+    else{
+        $query->execute(
+            array(
+                'user'=> intval($_SESSION['user']),
+            ));
+    }
     $rows = $query->fetchAll();
     foreach ($rows as $row){
         $data[] = array(
+            'name' => $row['name'],
+            'number' => $row['number'],
             'sensor' => $row['sensor'],
             'value' => $row['Value'],
             'date' => $row['Date'],

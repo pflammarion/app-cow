@@ -1,6 +1,6 @@
 <div class="table">
-    <a href="user?page=tableau&js=1&exel=1&cowId=1">Télécharger les données de la vache sélectionnée</a>
-    <a href="user?page=tableau&js=1&exel=1">Télécharger les données de tout votre troupeau</a>
+    <a href="user?page=tableau&js=1&exel=1&cowId=1" title="Télécharger les données de la vache sélectionnée"><img src="./public/assets/icon/download.svg" alt="Download cow data"></a>
+    <a href="user?page=tableau&js=1&exel=1" title="Télécharger les données de tout votre troupeau"><img src="./public/assets/icon/download.svg" alt="Download cow data"></a>
     <div class="container">
         <div class="table-header">
             <img id="sensor" data-val="<?php echo intval(htmlspecialchars($_GET['sensor'])) ?>" src="" alt="icon">

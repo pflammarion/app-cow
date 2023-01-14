@@ -15,7 +15,7 @@
     </div>
     <div class="container">
         <div class="download-link">
-            <a href="user?page=tableau&js=1&exel=1&cowId=1" title="Télécharger les données de la vache sélectionnée"><img src="./public/assets/icon/cow_download.svg" alt="Download cow data"></a>
+            <a href="user?page=tableau&js=1&exel=1&cowId=<?php echo intval(($_GET['cow']))?>" title="Télécharger les données de la vache sélectionnée"><img src="./public/assets/icon/cow_download.svg" alt="Download cow data"></a>
             <a href="user?page=tableau&js=1&exel=1" title="Télécharger les données de tout votre troupeau"><img src="./public/assets/icon/herd_download.svg" alt="Download cow data"></a>
         </div>
         <input type="search" placeholder="Rechercher">

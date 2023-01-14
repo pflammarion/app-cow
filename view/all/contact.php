@@ -68,6 +68,12 @@ $email = $email ?? '';
     </div>
 </div>
 
+<div id="overlay">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>
+
 <script>
     $(document).ready(() => {
         $('.afficher').on('click', function (e){
@@ -75,6 +81,12 @@ $email = $email ?? '';
             $(this).parent().siblings('.ticket-content').css('height', 'unset')
             $(this).parent().siblings('.ticket-content').css('display', 'block')
             $(this).css('display', 'none')
+        })
+
+        $('button').on('click', function (e){
+            e.preventDefault();
+            $("#overlay").fadeIn(300);
+            $('form').submit();
         })
     });
 </script>

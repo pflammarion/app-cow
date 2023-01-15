@@ -115,3 +115,14 @@ function deleteToken(string $token): void
             "token"=> $token,
         ));
 }
+
+function isAdminNotInit(): bool
+{
+    $sql = "SELECT User_Id FROM user WHERE User_Id = 1 AND Admin_Init = 0";
+    $query = $GLOBALS['db']->prepare($sql);
+    $query->execute();
+    if ($query->rowCount() === 1){
+        return true;
+    }
+    else return false;
+}

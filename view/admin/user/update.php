@@ -13,21 +13,21 @@ foreach ($data as $user){
             <form action="" method="post">
                 <div class="form-create-box">
                     <div class="user">
-                        <label for="prenom">
+                        <label for="firstname">
                             Prénom
-                            <input type="text" name="prenom" value="<?php if(isset($box))echo $box["prenom"] ?>">
+                            <input type="text" name="firstname" value="<?php if(isset($box))echo $box["firstname"] ?>">
                         </label>
-                        <label for="nom">
+                        <label for="lastname">
                             Nom
-                            <input type="text" name="nom" value="<?php if(isset($box))echo $box["nom"] ?>">
+                            <input type="text" name="lastname" value="<?php if(isset($box))echo $box["lastname"] ?>">
                         </label>
                         <label for="email">
                             Email
                             <input type="email" name="email" value="<?php if(isset($box))echo $box["email"] ?>">
                         </label>
-                        <label for="prenom">
+                        <label for="username">
                             Nom d'utilisateur
-                            <input type="text" name="userName" value="<?php if(isset($box))echo $box["usname"] ?>">
+                            <input type="text" name="username" value="<?php if(isset($box))echo $box["username"] ?>">
                         </label>
                     </div>
                 </div>

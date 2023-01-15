@@ -89,7 +89,7 @@ function getAllTickets(): array
             FROM ticket 
             LEFT JOIN tag t on t.Tag_Id = ticket.Tag_Id
             LEFT JOIN status s on s.Status_Id = ticket.Status_Id
-            ORDER BY s.Status_Id, date_create, date_update";
+            ORDER BY s.Status_Id, date_create desc, date_update desc";
     $query = $GLOBALS['db']->prepare($sql);
     $query ->execute();
     $rows = $query->fetchAll();

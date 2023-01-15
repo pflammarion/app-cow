@@ -4,6 +4,11 @@
 
 .ticket-view .container{
     margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 .ticket-view .open{
@@ -15,4 +20,30 @@
 
 .ticket-view .closed{
     background-color: var(--alert-red);
+}
+
+
+.ticket-view .container .ticket{
+    font-size: 14px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 250px;
+}
+
+
+.ticket-view .container .ticket-content{
+    height: 0;
+    display: none;
+    font-style: italic;
+}
+
+.ticket-view .container .afficher{
+    margin-left: 10px;
+    border: 2px solid var(--dark-blue);
+    padding: 3px;
+    border-radius: 5px;
 }

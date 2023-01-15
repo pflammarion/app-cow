@@ -42,8 +42,12 @@
 }
 
 .ticket-view .container .afficher{
-    margin-left: 10px;
+    margin: 10px auto;
     border: 2px solid var(--dark-blue);
-    padding: 3px;
+    padding: 3px 12px;
     border-radius: 5px;
+}
+
+.ticket-view .container .afficher:hover{
+    background-color: var(--light-blue);
 }

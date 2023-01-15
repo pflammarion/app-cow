@@ -40,6 +40,6 @@ foreach ($data as $chip){
         </div>
 
 
-        <input type="hidden" value="create" name="action">
+        <input type="hidden" value="update" name="action">
     </form>
 </div>

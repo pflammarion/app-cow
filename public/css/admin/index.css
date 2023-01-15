@@ -13,4 +13,6 @@
 @import "user/update.css";
 @import "user/delete.css";
 
+@import "ticket/view.css";
+
 @import "home.css";

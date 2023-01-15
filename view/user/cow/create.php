@@ -5,11 +5,11 @@
             <div class="create-question">
                 <label for="question">
                     Nom de la Vache :
-                    <input type="text" name="name">
+                    <input type="text" name="name" required="required">
                 </label>
                 <label for="question">
                     Numéro de la vache :
-                    <input type="text" name="number">
+                    <input type="text" name="number" required="required">
                 </label>
             </div>
         </div>

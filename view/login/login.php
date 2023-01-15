@@ -21,5 +21,6 @@
             <p>Connexion</p>
             <img src="./public/assets/icon/login.svg" alt="Enter icon">
         </button>
+        <input type="hidden" name="redirect" value="<?php if (isset($_GET['redirect'])) echo htmlentities($_GET['redirect'])?>">
     </form>
 </div>

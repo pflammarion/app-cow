@@ -18,13 +18,21 @@ if(!empty($page)){
                 ];
                 $error = login($values);
                 if ($error === ""){
-                    if ($_SESSION['role'] === 1){
-                        header("Location: user?page=accueil&success=Vous êtes connecté en temps qu'utilisateur");
+                    if (isset($_POST['redirect']) && !empty($_POST['redirect'])){
+                       if (htmlentities($_POST['redirect']) === 'ticket'){
+                           header("Location: all?page=contact");
+                           exit();
+                       }
                     }
                     else{
-                        header("Location: admin?page=accueil");
+                        if ($_SESSION['role'] === 1){
+                            header("Location: user?page=accueil&success=Vous êtes connecté en temps qu'utilisateur");
+                        }
+                        else{
+                            header("Location: admin?page=accueil");
+                        }
+                        exit();
                     }
-                    exit();
                 }
                 else{
                     header("Location: ?page=login&error=". $error);

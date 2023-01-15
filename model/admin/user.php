@@ -3,17 +3,17 @@ function createUser(array $values): bool
 {
     $nom = $values['nom'];
     $prenom = $values['prenom'];
-    $usname = $values["userName"];
+    $usname = $values["username"];
     $email = $values["email"];
     $role = $values["role"];
     if ($nom != "" && $prenom != "" && $usname != "" && $email != "" && $role = ""){
-        $create_user_sql = "INSERT INTO user (User_FirstName, User_LastName, User_Username, User_Email) VALUES (:firstName, :lastName, :userName, :email) ";
+        $create_user_sql = "INSERT INTO user (User_FirstName, User_LastName, User_Username, User_Email) VALUES (:firstName, :lastName, :username, :email) ";
         $create_user_query = $GLOBALS['db']-> prepare($create_user_sql);
         $create_user_query->execute(
             array(
                 "nom"=> $nom,
                 "prenom"=> $prenom,
-                "userName"=> $usname,
+                "username"=> $usname,
                 "email"=> $email,
                 "role"=> $role,
             )
@@ -26,7 +26,7 @@ function updateUser(array $values): bool
 {
     $nom = $values["nom"];
     $prenom = $values["prenom"];
-    $usname = $values["userName"];
+    $usname = $values["username"];
     $email = $values["email"];
     $role = $values["role"];
     $id = $values["id"];
@@ -38,7 +38,7 @@ function updateUser(array $values): bool
                 "nom"=> $nom,
                 "prenom"=> $prenom,
                 "email"=> $email,
-                "userName"=> $usname,
+                "username"=> $usname,
                 "id"=> $id,
             )
         );

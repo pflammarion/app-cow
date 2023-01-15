@@ -1,7 +1,7 @@
 <?php $roles = $roles ?? [];
 $data = $content ??  [];
 foreach ($data as $user){
-    if ($user['id']==$_GET['id']){
+    if ($user['id']===$_GET['id']){
         $box = $user;
     }
 }
@@ -18,7 +18,7 @@ foreach ($data as $user){
                             <input type="text" name="prenom" value="<?php if(isset($box))echo $box["prenom"] ?>">
                         </label>
                         <label for="nom">
-                            Prénom
+                            Nom
                             <input type="text" name="nom" value="<?php if(isset($box))echo $box["nom"] ?>">
                         </label>
                         <label for="email">

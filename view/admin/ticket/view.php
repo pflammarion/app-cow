@@ -19,7 +19,7 @@ foreach ($tickets as $item) {
         else if ($k === 3) echo '<div class="container closed">';
         else echo '<div class="container open">';
     foreach ($tickets as $ticket){
-        echo '<div>';
+        echo '<div class="ticket">';
         if(isset($ticket['content'])){
             echo '<span>Créé le : ' . $ticket['creation'] .'</span>';
             if (isset($ticket['modif'])){
@@ -38,3 +38,22 @@ foreach ($tickets as $item) {
 
     ?>
 </div>
+
+
+
+<script>
+    $(document).ready(() => {
+        $('.afficher').on('click', function (e){
+            e.preventDefault()
+            $(this).parent().siblings('.ticket-content').css('height', 'unset')
+            $(this).parent().siblings('.ticket-content').css('display', 'block')
+            $(this).css('display', 'none')
+        })
+
+        $('#sub').on('click', function (e){
+            e.preventDefault();
+            $("#overlay").fadeIn(300);
+            $('form').submit();
+        })
+    });
+</script>

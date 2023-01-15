@@ -15,6 +15,10 @@ foreach ($data as $user){
 
                 <input type="hidden" value="delete" name="action" >
                 <input type="hidden" value="<?php echo $_GET["id"] ?>" name="id">
+                <input type="hidden" value="<?php echo $_GET["firstname"] ?>" name="firstname">
+                <input type="hidden" value="<?php echo $_GET["lastname"] ?>" name="lastname">
+                <input type="hidden" value="<?php echo $_GET["username"] ?>" name="username">
+                <input type="hidden" value="<?php echo $_GET["email"] ?>" name="email">
                 <div class="btn-delete-space">
                     <button type="submit" class="btn-valider" style="background:var(--red)">
                         Supprimer

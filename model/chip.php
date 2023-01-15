@@ -5,8 +5,8 @@ function createChip(array $values): bool
     $number = htmlspecialchars($values["number"]);
     if ($number !== ""){
         $create_chip_sql = "INSERT INTO chip (Chip_Number) VALUES (:number);
-                           INSERT INTO chip_cow_user (Chip_Id, User_Id)
-                           SELECT Cow_Id,:user FROM cow WHERE Cow_Id = last_insert_id()";
+                            INSERT INTO chip_cow_user (Chip_Id, User_Id)
+                            SELECT Chip_Id,:user FROM cow WHERE Chip_Id = last_insert_id()";
         $create_chip_query = $GLOBALS['db']-> prepare($create_chip_sql);
         $create_chip_query->execute(
             array(

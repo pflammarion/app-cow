@@ -24,7 +24,6 @@ usort($data, function ($item1, $item2) {
     </div>
 
     <?php
-    print_r($data);
     foreach ($data as $box){
         echo '<div class="cow-view-setting-box">';
         echo '<div class="cow-view-btn-box">';

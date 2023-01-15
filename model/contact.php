@@ -82,3 +82,27 @@ function getUserIdByEmail(string $email): int
     }
     return 0;
 }
+
+function getAllTickets(): array
+{
+    $sql = "SELECT t.Tag_Name as tag, s.Status_Name as status, s.Status_Id, Ticket_Content,  DATE_FORMAT(Ticket_Date_Creation, '%d/%m/%Y') as date_create, DATE_FORMAT(Ticket_Date_Modif, '%d/%m/%Y') as date_update 
+            FROM ticket 
+            LEFT JOIN tag t on t.Tag_Id = ticket.Tag_Id
+            LEFT JOIN status s on s.Status_Id = ticket.Status_Id
+            ORDER BY s.Status_Id, date_create, date_update";
+    $query = $GLOBALS['db']->prepare($sql);
+    $query ->execute();
+    $rows = $query->fetchAll();
+    $result = [];
+    foreach ($rows as $row){
+        $result[] = array(
+            'tag'=>$row['tag'],
+            'status'=>$row['status'],
+            'status_id' => $row['Status_Id'],
+            'content'=>$row['Ticket_Content'],
+            'creation'=> $row['date_create'],
+            'modif'=>$row['date_update'],
+        );
+    }
+    return $result;
+}

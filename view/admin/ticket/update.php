@@ -11,8 +11,11 @@ $ticket = $ticket ?? [];
         <div class="ticket-status">
     <?php
     if(isset($ticket['status_id'])){
-       if($ticket['status_id'] === 1 || $ticket['status_id'] === 2){
+       if($ticket['status_id'] === 1){
            echo '<a href="admin?page=ticket&action=update&change=2&ticket=' . intval($ticket['id']) .'&email=' . urlencode($ticket['email']) . '" class="progress">Traiter le ticket</a>';
+           echo '<a href="admin?page=ticket&action=update&change=3&ticket=' . intval($ticket['id']) .'&email=' . urlencode($ticket['email']) . '" class="closed">Fermer le ticket</a>';
+       }
+       if($ticket['status_id'] === 2){
            echo '<a href="admin?page=ticket&action=update&change=3&ticket=' . intval($ticket['id']) .'&email=' . urlencode($ticket['email']) . '" class="closed">Fermer le ticket</a>';
        }
         if($ticket['status_id'] === 3){

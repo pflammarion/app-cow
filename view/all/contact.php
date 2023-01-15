@@ -21,7 +21,7 @@ $email = $email ?? '';
                 else if ($ticket['status_id'] === 3) echo '<div class="ticket closed">';
                 else echo '<div class="container">';
                 if(isset($ticket['content'])){
-                    echo '<a href="all?page=contact&delete=1&ticket=' . $ticket['id'] .'" class="btn-blue">
+                    echo '<a title="Supprimer" href="all?page=contact&delete=1&ticket=' . $ticket['id'] .'" class="btn-blue">
                                 <img class="img-black" src="./public/assets/icon/delete.svg" alt="Delete">
                                 <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="Delete">
                           </a>';

@@ -96,7 +96,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                         exit();
                     }
                 }
-                if ($_POST['action'] === 'update') {
+                if ($_POST['action'] === 'update' && isset($_POST['chipId'], $_POST['number'])) {
                     $values = array(
                         "number" => $_POST['number'],
                         "id" => $_POST['chipId'],

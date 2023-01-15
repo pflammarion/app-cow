@@ -31,6 +31,7 @@ function updateChip(array $values): bool
                 "id"=> $id,
             )
         );
+        return true;
     }
     return false;
 }

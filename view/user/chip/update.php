@@ -39,7 +39,6 @@ foreach ($data as $chip){
             </div>
         </div>
 
-
         <input type="hidden" value="update" name="action">
     </form>
 </div>

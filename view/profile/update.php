@@ -1,4 +1,7 @@
-<?php $data = $content ?? []; ?>
+<?php
+$data = $content ?? [];
+print_r($content);
+?>
 <div class="profil-update">
     <div class="container">
         <form action="" method="post" enctype="multipart/form-data" id="form">

@@ -13,14 +13,17 @@
     overflow-y: scroll;
 }
 
-.ticket-view .open{
+.ticket-view .open,
+.ticket-update .open:hover{
     background-color: var(--alert-green);
 }
-.ticket-view .progress{
+.ticket-view .progress,
+.ticket-update .progress:hover{
     background-color: var(--alert-orange);
 }
 
-.ticket-view .closed{
+.ticket-view .closed,
+.ticket-update .closed:hover{
     background-color: var(--alert-red);
 }
 

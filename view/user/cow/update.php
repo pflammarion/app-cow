@@ -1,4 +1,5 @@
-<?php $data = $content ??  [];
+<?php
+$data = $content ??  [];
 foreach ($data as $cow){
     if ($cow['id'] === intval($_GET['cowId'])){
         $box = $cow;

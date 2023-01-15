@@ -16,7 +16,7 @@ foreach ($data as $cow){
                     <input type="text" name="name" value="<?php if(isset($box))echo $box["name"] ?>">
                 </label>
                 <label for="number">
-                    Numéro de boitier :
+                    Numéro de la vache :
                     <input type="text" name="number" value="<?php if(isset($box))echo $box["number"] ?>">
                 </label>
             </div>

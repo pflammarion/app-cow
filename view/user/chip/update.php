@@ -1,5 +1,4 @@
 <?php
-$cow = $cow ?? [];
 $data = $content ??  [];
 foreach ($data as $chip){
     if ($chip['id'] === intval($_GET['chipId'])){
@@ -16,24 +15,7 @@ foreach ($data as $chip){
                     Numéro de boitier :
                     <input type="text" name="number" value="<?php if(isset($box))echo $box["number"] ?>">
                 </label>
-                <label for="name">
-                    <div class="cows">
-                        <h2>Vache associé :</h2>
-                        <?php
-                        foreach ($content as $cow ){
-                            if ($cow['id'] !== $chip['id']){
-                                $box = $cow;
-                                print_r($chip);
-                                print_r($cow);
-                            }
-                            echo '<option value="' . $cow['id'] .'">' . $cow['name'] . '</option>';
 
-                            $box = $cow;
-                            echo '<p>'.$box["name"].'</p>';
-                        }
-                        ?>
-
-                </label>
                 </div>
             </div>
         </div>

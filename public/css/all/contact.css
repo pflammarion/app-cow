@@ -85,6 +85,19 @@
     align-items: flex-start;
     margin: 20px 0;
     width: 250px;
+    position: relative;
+}
+
+.contact .container .ticket.open{
+    border: 2px solid var(--alert-green);
+}
+
+.contact .container .ticket.progress{
+    border: 2px solid var(--alert-orange);
+}
+
+.contact .container .ticket.closed{
+    border: 2px solid var(--alert-red);
 }
 
 .contact .container .list .ticket span{
@@ -108,6 +121,18 @@
     font-style: italic;
 }
 
+.contact .container .list .ticket .btn-blue{
+    top: 8px;
+    right: 8px;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+}
+
+.contact .container .list .ticket .btn-blue img{
+    height: 20px;
+    width: auto;
+}
 
 @media screen and (min-width: 800px) {
    .contact{

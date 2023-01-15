@@ -291,7 +291,7 @@ CREATE TABLE `page` (
 
 LOCK TABLES `page` WRITE;
 /*!40000 ALTER TABLE `page` DISABLE KEYS */;
-INSERT INTO `page` VALUES (5,'user'),(6,'admin/user'),(7,'admin/faq'),(8,'admin/permission'),(9,'admin');
+INSERT INTO `page` VALUES (5,'user'),(6,'admin'),(7,'admin/user'),(8,'admin/faq'),(9,'admin/permission'),(10,'admin/ticket');
 /*!40000 ALTER TABLE `page` ENABLE KEYS */;
 UNLOCK TABLES;
 

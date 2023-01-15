@@ -1,0 +1,75 @@
+.ticket-update{
+    padding: 50px;
+}
+
+.ticket-update .ticket-container{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    border-radius: 10px;
+    border: 3px solid var(--dark-blue);
+    gap: 10px;
+    width:fit-content;
+    max-width: 500px;
+}
+
+.ticket-update .ticket-container .email{
+    margin: 20px auto;
+    border: 2px solid var(--dark-blue);
+    padding: 3px 12px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.ticket-update .ticket-container .email:hover{
+    background-color: var(--light-blue);
+}
+
+.ticket-update .btn-edit{
+    width: 140px;
+    height: 40px;
+    gap: 16px;
+}
+
+.ticket-update .btn-edit img{
+    height: 20px;
+}
+
+.ticket-update .ticket-container .ticket-content{
+    font-style: italic;
+    font-size: 15px;
+    margin: 20px 0;
+}
+
+.ticket-update .ticket-container span:last-child{
+    font-style: italic;
+    font-size: 12px;
+
+}
+.ticket-update .btn-container{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+.ticket-update .btn-container .ticket-status{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ticket-update .btn-container .ticket-status a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: var(--dark);
+    font-weight: normal;
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+    border: 2px solid var(--dark-blue);
+}

@@ -72,10 +72,10 @@ function getuser(): array
         foreach ($rows as $row) {
             $values[]=array(
                 "id"=>$row["User_Id"],
-                "prenom"=>$row["User_FirstName"],
-                "nom"=>$row["User_LastName"],
+                "firstname"=>$row["User_FirstName"],
+                "lastname"=>$row["User_LastName"],
                 "email"=>$row["User_Email"],
-                "usname"=>$row["User_Username"],
+                "username"=>$row["User_Username"],
             );
 
         }

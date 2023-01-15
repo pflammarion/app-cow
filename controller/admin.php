@@ -53,8 +53,8 @@ if(!empty($page) && !empty($action)){
             $success = False;
             if ($_POST['action'] == 'create') {
                 $values = array(
-                    "nom" => $_POST['lastname'],
-                    "prenom" => $_POST['firstname'],
+                    "lastname" => $_POST['lastname'],
+                    "firstname" => $_POST['firstname'],
                     "email" => $_POST['email'],
                     "username" => $_POST['username'],
                     "role" => $_POST["role"],
@@ -62,8 +62,8 @@ if(!empty($page) && !empty($action)){
                 $success = createUser($values);
                 if ($_POST['action'] == 'update') {
                     $values = array(
-                        "nom" => $_POST['lastname'],
-                        "prenom" => $_POST['firstname'],
+                        "lastname" => $_POST['lastname'],
+                        "firstname" => $_POST['firstname'],
                         "email" => $_POST['email'],
                         "username" => $_POST['username'],
                         "role" => $_POST["role"],

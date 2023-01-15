@@ -9,7 +9,7 @@ foreach ($data as $user){
 <div class="user-admin-delete">
     <div class="delete-container">
         <h1>Etes-vous sûr de SUPPRIMER l'utilisateur :</h1>
-        <?php if(isset($box))echo '<p>'.$box["prenom"]." ".$box["nom"].'</p>' ?>
+        <?php if(isset($box))echo '<p>'.$box["firstname"]." ".$box["lastname"].'</p>' ?>
         <div class="btn-box-delete">
             <form action="" method="post">
 

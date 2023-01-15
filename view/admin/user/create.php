@@ -8,15 +8,15 @@
                         <div class="create-user">
                             <label for="user">
                                 Nom
-                                <input type="text" name="lastName">
+                                <input type="text" name="lastname">
                             </label>
                             <label for="user">
                                 Prénom
-                                <input type="text" name="firstName"
+                                <input type="text" name="firstname"
                             </label>
                             <label for="user">
                                 Nom d'utilisateur
-                                <input type="text" name="userName"
+                                <input type="text" name="username"
                             </label>
                             <label for ="user">
                                 Adresse mail

@@ -15,10 +15,10 @@
         echo '<div class="user-box">';
         echo '<div class="container">';
         echo '<p class="p1">id:'.$box["id"].'</p>';
-        echo '<p>'.$box["prenom"].'</p>';
-        echo '<p>'.$box["nom"].'</p>';
+        echo '<p>'.$box["firstname"].'</p>';
+        echo '<p>'.$box["lastname"].'</p>';
         echo '<p>'.$box["email"].'</p>';
-        echo '<p>'.$box["usname"].'</p>';
+        echo '<p>'.$box["username"].'</p>';
         echo '</div>';
         echo '<div class="user-btn-box">';
         echo '<a class="btn-blue" href="admin?page=user&action=update&id='.$box["id"].'" >

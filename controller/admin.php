@@ -22,14 +22,14 @@ if(!empty($page) && !empty($action)){
         $content = getfaq();
         if (isset($_POST['action'])) {
             $success = False;
-            if ($_POST['action'] == 'create') {
+            if ($_POST['action'] === 'create') {
                 $values = array(
                     "question" => $_POST['question'],
                     "response" => $_POST['response'],
                 );
                 $success = createFaq($values);
             }
-            if ($_POST['action'] == 'update') {
+            if ($_POST['action'] === 'update') {
                 $values = array(
                     "question" => $_POST['question'],
                     "response" => $_POST['response'],
@@ -107,6 +107,9 @@ if(!empty($page) && !empty($action)){
     elseif($page === 'ticket' && pageAuthorization('admin/ticket')) {
         $view = "admin/ticket/" . $action;
         $tickets = getAllTickets();
+        if($action === 'update' && isset($_GET['ticket'])){
+            $ticket = getTicketById(intval($_GET['ticket']));
+        }
     }
     else {
         echo '<script>alert("Vous n\'avez pas accès à cette page")</script>';

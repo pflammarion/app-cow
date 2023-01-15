@@ -11,6 +11,10 @@ foreach ($tickets as $item) {
 }
 ?>
 
+
+<!-- ajouter les filtres-->
+
+
 <div class="ticket-view">
     <?php
     foreach ($lists as $k => $tickets){
@@ -27,10 +31,9 @@ foreach ($tickets as $item) {
             }
             echo '<span>Statut : ' . $ticket['status'] .'</span>';
             echo '<span>Sujet : ' . $ticket['tag'] .'</span>';
-            echo '<span>Contenu :<button class="afficher">Afficher</button></span>';
-            echo '<span class="ticket-content">' . $ticket['content'] .'</span>';
+            echo '<a href="admin?page=ticket&action=update&ticket=' . $ticket['id'] .'" class="afficher">Voir</a>';
         }
-        else echo "<span>Vous n'avez pas de ticket ouvert</span>";
+        else echo "<span>Il n'y a pas de ticket</span>";
         echo '</div>';
     }
     echo '</div>';
@@ -43,17 +46,5 @@ foreach ($tickets as $item) {
 
 <script>
     $(document).ready(() => {
-        $('.afficher').on('click', function (e){
-            e.preventDefault()
-            $(this).parent().siblings('.ticket-content').css('height', 'unset')
-            $(this).parent().siblings('.ticket-content').css('display', 'block')
-            $(this).css('display', 'none')
-        })
-
-        $('#sub').on('click', function (e){
-            e.preventDefault();
-            $("#overlay").fadeIn(300);
-            $('form').submit();
-        })
     });
 </script>

@@ -15,10 +15,18 @@ function getCowsNonViewedAlert(): int
     $query_first_cow = $GLOBALS['db']->prepare($sql_first_cow);
     $query_first_cow->execute(array('id'=>$id));
     $row = $query_first_cow->fetch();
-    if ($query_first_cow->rowcount() === 1){
-        return $row['Cow_Id'];
+    if ($query_first_cow->rowcount() !== 1) {
+        $sql = "  SELECT cow.Cow_Id
+                        FROM cow
+                        LEFT JOIN chip_cow_user ON cow.Cow_Id = chip_cow_user.Cow_Id
+                        WHERE chip_cow_user.User_Id =:id
+                        LIMIT 1;";
+
+        $query = $GLOBALS['db']->prepare($sql);
+        $query->execute(array('id' => $id));
+        $row = $query->fetch();
     }
-    return 0;
+    return $row['Cow_Id'] ?? 0;
 }
 
 function getSensorValueByCowBySensor(int $cow, int $sensor): array

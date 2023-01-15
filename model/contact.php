@@ -132,7 +132,7 @@ function getTicketById(int $ticket): array
 
 function updateTicketStatus(int $status, int $id): bool
 {
-    $update_sql = "UPDATE ticket SET Status_Id=:status WHERE Ticket_Id=:id";
+    $update_sql = "UPDATE ticket SET Status_Id=:status, Ticket_Date_Modif = current_timestamp WHERE Ticket_Id=:id";
     $update_query = $GLOBALS['db']-> prepare($update_sql);
     $update_query->execute(
         array(

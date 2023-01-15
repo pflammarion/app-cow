@@ -8,7 +8,7 @@
                     <input type="text" name="name">
                 </label>
                 <label for="question">
-                    Numéro de boitier :
+                    Numéro de la vache :
                     <input type="text" name="number">
                 </label>
             </div>

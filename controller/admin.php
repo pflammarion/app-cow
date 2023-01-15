@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../model/faq.php';
 require_once __DIR__ . '/../model/contact.php';
+require_once __DIR__ . '/../model/login.php';
 require_once __DIR__ . '/mail.php';
 
 $page = selectPage("accueil");
@@ -120,6 +121,30 @@ if(!empty($page) && !empty($action)){
                 else header("Location: admin?page=ticket&action=update&ticket=" . intval($_GET['ticket']) . "&error=Une erreur s'est produite pendant la mise à jour du status mis à jour le status");
                 exit();
             }
+        }
+    }
+    elseif($page === 'init' && isAdminNotInit() && intval($_SESSION['role']) === 3) {
+        $view = 'admin/init/' . $action;
+        if (isset($_POST['password']) && isset($_POST['password_confirm'])){
+            $register_errors = [];
+            if ($_POST['password'] !== $_POST['password_confirm']){
+                header("Location: admin?page=init&error=Les mots de passe que vous avez saisis ne correspondent pas");
+                exit();
+            }
+            if (strlen($_POST['password']) < 8) {
+                header("Location: admin?page=init&error=Le mot de passe nécessite plus de 8 caractères");
+                exit();
+            }
+
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $update = initAdmin($password);
+            if ($update) {
+                header("Location: root?success=Le compte administrateur a bien été initialisé");
+            }
+            else {
+                header("Location: admin?page=init&error=Une erreur s'est produite, merci de recommencer la saisie");
+            }
+            exit();
         }
     }
     else {

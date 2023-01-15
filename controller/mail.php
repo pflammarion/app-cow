@@ -33,15 +33,29 @@ function phpMailSender(string $email, string $type,  string $token = ''): bool
     $mail->addAddress($email);
     if($type === 'psw'){
         $mail->Subject = "Récupération de mot de passe COW";
-        $mail->Body = makeMailPsw($token);
+        $content = 'Veuillez cliquer sur ce bouton pour configurer un nouveau mot de passe :';
+        $link = 'https://newonline.world/login?page=newpassword&token=' . $token;
+        $link_text = 'Changer mon mot de passe';
+        $mail->Body = makeMail($content, $link, $link_text);
+        $mail->AltBody = "Pour changer de mot de passe merci de cliquer sur ce lien : " . $link;
     }
     if ($type === 'contact'){
         $mail->Subject = "Confirmation de la reception du ticket COW";
-        //faire un body plus joli
-        //$mail->Body = 'Votre demande a bien été prise en compte, vous pouvez consulter son status dans la page contacte, ou par mail si vous ne pouvez pas vous connecter';
-        $mail->Body = makeMailContact();
+        $content = 'Votre demande a bien été prise en compte, vous pouvez consulter le status de votre demande dans la page contact, ou vous serez contacté par mail si vous ne pouvez pas vous connecter.';
+        $link = 'https://newonline.world/all?page=contact&isconnected=1';
+        $link_text = 'Voir mes tickets';
+        $mail->Body = makeMail($content, $link, $link_text);
+        $mail->AltBody = "Votre ticket a bien été envoyé, vous pouvez le voir à cette adresse : " . $link;
     }
-    $mail->AltBody = "This is the plain text version of the email content";
+    if ($type === 'contact_update'){
+        $mail->Subject = "Changement de status du ticket COW";
+        $content = "L'un de vos tickets a changé de status à l'instant, vous pouvez retrouver tous vos tickets ici :";
+        $link = 'https://newonline.world/all?page=contact&isconnected=1';
+        $link_text = 'Voir mes tickets';
+        $mail->Body = makeMail($content, $link, $link_text);
+        $mail->AltBody = "Votre ticket a changé de statut à l'instant " . $link;
+    }
+
     try {
         $mail->send();
         return true;
@@ -49,7 +63,7 @@ function phpMailSender(string $email, string $type,  string $token = ''): bool
         return false;
     }
 }
-function makeMailPsw(string $token): string
+function makeMail(string $content, string $link, string $link_text): string
 {
     return '
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arima+Madurai">
@@ -83,7 +97,7 @@ function makeMailPsw(string $token): string
                 <tr>
                     <td bgcolor="#ffffff" align="left"
                         style="padding: 20px 30px 40px 30px; color: #666666; font-size: 18px; font-weight: 400; line-height: 25px;">
-                        <p style="margin: 0;">Veuillez cliquer sur ce bouton pour configurer un nouveau mot de passe :</p>
+                        <p style="margin: 0;">'. $content .'</p>
                     </td>
                 </tr>
                 <tr>
@@ -92,78 +106,9 @@ function makeMailPsw(string $token): string
                             <tr>
                                 <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
                                     <table border="0" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td align="center" style="border-radius: 5px;" bgcolor="#ADE194"><a
-                                                    href="https://newonline.world/login?page=newpassword&token=' . $token . '" target="_blank"
-                                                style="font-size: 20px; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; display: inline-block;">Changer mon mot de passe</a></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-
-            </table>
-    <tr>
-    </tr>
-    </td>
-    </tr>
-    <td bgcolor="#C8EFFE" align="left" style="padding: 0px 30px 190px 30px; color: #666666; ">
-    </td>
-</table>
-
-</body>';
-}
-
-function makeMailContact(): string
-{
-    return '
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arima+Madurai">
-
-<body style="background-color: #fff; margin: 0 !important; padding: 0 !important; font-family: Arima Madurai, sans-serif">
-
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
-    <tr>
-        <td bgcolor="#C8EFFE" align="center">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                <tr>
-                    <td align="center" valign="top" style="padding: 40px 10px 40px 10px;"> </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <td bgcolor="#C8EFFE" align="center" style="padding: 0 10px 0 10px;">
-        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-            <tr>
-                <td bgcolor="#ffffff" align="center" valign="top"
-                    style="padding: 40px 20px 20px 20px; border-radius: 10px 10px 0 0; color: black; ">
-                    <h1 style="font-size: 48px; font-weight: 400; margin: 2px;">Bonjour</h1></td>
-            </tr>
-        </table>
-    </td>
-    <tr>
-    </tr>
-    <tr>
-        <td bgcolor="#C8EFFE" align="center" style="padding: 0px 10px 0px 10px;">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                <tr>
-                    <td bgcolor="#ffffff" align="left"
-                        style="padding: 20px 30px 40px 30px; color: #666666; font-size: 18px; font-weight: 400; line-height: 25px;">
-                        <p style="margin: 0;">Votre demande a bien été prise en compte, vous pouvez consulter le status de votre demande dans la page contact, ou vous serez contacté par mail si vous ne pouvez pas vous connecter.</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td bgcolor="#ffffff" align="left">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
-                                    <table border="0" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td align="center" style="border-radius: 5px;" bgcolor="#ADE194"><a
-                                                    href="https://newonline.world/all?page=contact&isconnected=1" target="_blank"
-                                                style="font-size: 20px; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; display: inline-block;">Voir mes tickets</a></td>
-                                        </tr>
+                                        <td align="center" style="border-radius: 5px;" bgcolor="#ADE194"><a
+                                                    href="' . $link .'" target="_blank"
+                                                style="font-size: 20px; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; display: inline-block;">' . $link_text . '</a></td>
                                     </table>
                                 </td>
                             </tr>

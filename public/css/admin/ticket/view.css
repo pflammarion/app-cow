@@ -1,0 +1,58 @@
+.ticket-view{
+
+}
+
+.ticket-view .container{
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.ticket-view .open,
+.ticket-update .open:hover{
+    background-color: var(--alert-green);
+}
+.ticket-view .progress,
+.ticket-update .progress:hover{
+    background-color: var(--alert-orange);
+}
+
+.ticket-view .closed,
+.ticket-update .closed:hover{
+    background-color: var(--alert-red);
+}
+
+
+.ticket-view .container .ticket{
+    font-size: 14px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 250px;
+}
+
+
+.ticket-view .container .ticket-content{
+    height: 0;
+    display: none;
+    font-style: italic;
+}
+
+.ticket-view .container .afficher{
+    margin: 10px auto;
+    border: 2px solid var(--dark-blue);
+    padding: 3px 12px;
+    border-radius: 5px;
+}
+
+.ticket-view .container .afficher:hover{
+    background-color: var(--light-blue);
+}

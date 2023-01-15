@@ -1,6 +1,8 @@
 <?php
 
 require_once __DIR__ . '/../model/faq.php';
+require_once __DIR__ . '/../model/contact.php';
+require_once __DIR__ . '/mail.php';
 
 $page = selectPage("accueil");
 $action = selectAction("view");
@@ -21,14 +23,14 @@ if(!empty($page) && !empty($action)){
         $content = getfaq();
         if (isset($_POST['action'])) {
             $success = False;
-            if ($_POST['action'] == 'create') {
+            if ($_POST['action'] === 'create') {
                 $values = array(
                     "question" => $_POST['question'],
                     "response" => $_POST['response'],
                 );
                 $success = createFaq($values);
             }
-            if ($_POST['action'] == 'update') {
+            if ($_POST['action'] === 'update') {
                 $values = array(
                     "question" => $_POST['question'],
                     "response" => $_POST['response'],
@@ -102,6 +104,22 @@ if(!empty($page) && !empty($action)){
     }
     elseif($page === 'user' && pageAuthorization('admin/user')){
         $view = "admin/user/" . $action;
+    }
+    elseif($page === 'ticket' && pageAuthorization('admin/ticket')) {
+        $view = "admin/ticket/" . $action;
+        $tickets = getAllTickets();
+        if($action === 'update' && isset($_GET['ticket'])){
+            $ticket = getTicketById(intval($_GET['ticket']));
+            if(isset($_GET['change'], $_GET['email'])){
+                $success = updateTicketStatus(intval($_GET['change']), intval($_GET['ticket']));
+                if ($success){
+                    phpMailSender(htmlentities($_GET['email']), 'contact_update');
+                    header("Location: admin?page=ticket&action=update&ticket=" . intval($_GET['ticket']) . "&success=Vous avez bien mis à jour le status");
+                }
+                else header("Location: admin?page=ticket&action=update&ticket=" . intval($_GET['ticket']) . "&error=Une erreur s'est produite pendant la mise à jour du status mis à jour le status");
+                exit();
+            }
+        }
     }
     else {
         echo '<script>alert("Vous n\'avez pas accès à cette page")</script>';

@@ -20,6 +20,7 @@ function createChip(array $values): bool
 }
 function updateChip(array $values): bool
 {
+    $name = $values["name"];
     $number = $values["number"];
     $id = $values["id"];
     if ($number !== "" && $id !== ""){
@@ -31,7 +32,14 @@ function updateChip(array $values): bool
                 "id"=> $id,
             )
         );
-        return true;
+        $update_chip_cow_user_sql = "UPDATE chip_cow_user RIGHT JOIN chip ON chip_cow_user.Cow_Id WHERE Chip_Id =:id";
+        $update_chip_cow_user_query = $GLOBALS['db']-> prepare($update_chip_cow_user_sql);
+        $update_chip_cow_user_query->execute(
+            array(
+                "name"=> $name,
+                "id"=> $id,
+            )
+        );
     }
     return false;
 }

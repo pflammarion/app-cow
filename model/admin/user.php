@@ -1,8 +1,8 @@
 <?php
 function createUser(array $values): bool
 {
-    $nom = $values['nom'];
-    $prenom = $values['prenom'];
+    $nom = $values['lastname'];
+    $prenom = $values['firstname'];
     $usname = $values["username"];
     $email = $values["email"];
     $role = $values["role"];
@@ -11,8 +11,8 @@ function createUser(array $values): bool
         $create_user_query = $GLOBALS['db']-> prepare($create_user_sql);
         $create_user_query->execute(
             array(
-                "nom"=> $nom,
-                "prenom"=> $prenom,
+                "lastname"=> $nom,
+                "firstname"=> $prenom,
                 "username"=> $usname,
                 "email"=> $email,
                 "role"=> $role,
@@ -24,8 +24,8 @@ function createUser(array $values): bool
 }
 function updateUser(array $values): bool
 {
-    $nom = $values["nom"];
-    $prenom = $values["prenom"];
+    $nom = $values["lastname"];
+    $prenom = $values["firstname"];
     $usname = $values["username"];
     $email = $values["email"];
     $role = $values["role"];
@@ -35,8 +35,8 @@ function updateUser(array $values): bool
         $update_user_query = $GLOBALS['db']-> prepare($update_user_sql);
         $update_user_query->execute(
             array(
-                "nom"=> $nom,
-                "prenom"=> $prenom,
+                "lastname"=> $nom,
+                "firstname"=> $prenom,
                 "email"=> $email,
                 "username"=> $usname,
                 "id"=> $id,

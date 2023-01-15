@@ -56,7 +56,7 @@ if(!empty($page) && !empty($action)){
                     "nom" => $_POST['lastname'],
                     "prenom" => $_POST['firstname'],
                     "email" => $_POST['email'],
-                    "userName" => $_POST['username'],
+                    "username" => $_POST['username'],
                     "role" => $_POST["role"],
                 );
                 $success = createUser($values);
@@ -65,7 +65,7 @@ if(!empty($page) && !empty($action)){
                         "nom" => $_POST['lastname'],
                         "prenom" => $_POST['firstname'],
                         "email" => $_POST['email'],
-                        "userName" => $_POST['username'],
+                        "username" => $_POST['username'],
                         "role" => $_POST["role"],
                         "id" => $_POST['id'],
                     );

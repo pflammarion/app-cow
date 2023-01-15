@@ -1,6 +1,6 @@
 <?php $data = $content ??  [];
 foreach ($data as $user){
-    if ($user['id']=== (int)$_GET['id']){
+    if ($user['id']=== intval($_GET['id'])){
         $box = $user;
     }
 }

@@ -53,19 +53,19 @@ if(!empty($page) && !empty($action)){
             $success = False;
             if ($_POST['action'] == 'create') {
                 $values = array(
-                    "nom" => $_POST['lastName'],
-                    "prenom" => $_POST['firstName'],
+                    "nom" => $_POST['lastname'],
+                    "prenom" => $_POST['firstname'],
                     "email" => $_POST['email'],
-                    "userName" => $_POST['userName'],
+                    "userName" => $_POST['username'],
                     "role" => $_POST["role"],
                 );
                 $success = createUser($values);
                 if ($_POST['action'] == 'update') {
                     $values = array(
-                        "nom" => $_POST['lastName'],
-                        "prenom" => $_POST['firstName'],
+                        "nom" => $_POST['lastname'],
+                        "prenom" => $_POST['firstname'],
                         "email" => $_POST['email'],
-                        "userName" => $_POST['userName'],
+                        "userName" => $_POST['username'],
                         "role" => $_POST["role"],
                         "id" => $_POST['id'],
                     );
@@ -74,13 +74,13 @@ if(!empty($page) && !empty($action)){
                         $success = deleteUser(intval($_POST['id']));
                     }
                     if ($success) {
-                        header("Location: admin?page=user&action=view");
+                        header("Location: admin?page=user&action=view&success=Reussite");
                         exit();
                     }
                 }
                 }
             if ($success) {
-                header("Location: admin?page=user&action=view");
+                header("Location: admin?page=user&action=view&success=Reussite");
                 exit();
             }
         }

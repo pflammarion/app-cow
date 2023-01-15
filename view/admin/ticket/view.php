@@ -24,7 +24,7 @@ foreach ($tickets as $item) {
         else echo '<div class="container open">';
     foreach ($tickets as $ticket){
         echo '<div class="ticket">';
-        if(isset($ticket['content'])){
+        if(isset($ticket['id'])){
             echo '<span>Créé le : ' . $ticket['creation'] .'</span>';
             if (isset($ticket['modif'])){
                 echo '<span>Modifié le : ' . $ticket['modif'] .'</span>';
@@ -33,9 +33,9 @@ foreach ($tickets as $item) {
             echo '<span>Sujet : ' . $ticket['tag'] .'</span>';
             echo '<a href="admin?page=ticket&action=update&ticket=' . $ticket['id'] .'" class="afficher">Voir</a>';
         }
-        else echo "<span>Il n'y a pas de ticket</span>";
         echo '</div>';
     }
+    if (count($tickets) === 0) echo "<span>Il n'y a pas de ticket</span>";
     echo '</div>';
     }
 

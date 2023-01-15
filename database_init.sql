@@ -402,6 +402,7 @@ CREATE TABLE `user` (
   `User_FirstName` varchar(50) NOT NULL,
   `User_LastName` varchar(50) NOT NULL,
   `User_Token` varchar(512) DEFAULT NULL,
+  `Admin_Init` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`User_Id`),
   KEY `FK_Role_Id_User_Role` (`Role_Id`),
   CONSTRAINT `FK_Role_Id_User_Role` FOREIGN KEY (`Role_Id`) REFERENCES `role` (`Role_Id`) ON UPDATE CASCADE
@@ -414,7 +415,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,3,'admin@admin.fr','$2y$10$cit9RGgKP5aOf/lELH5uqeS3.1uyrE341Jb434r32xu7KUOhy6uPy','admin',NULL,0,'Admin','Admin',NULL);
+INSERT INTO `user` VALUES (1,3,'admin@admin.fr','$2y$10$cit9RGgKP5aOf/lELH5uqeS3.1uyrE341Jb434r32xu7KUOhy6uPy','admin',NULL,0,'Admin','Admin',NULL, 0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

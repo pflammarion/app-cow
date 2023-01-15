@@ -129,3 +129,16 @@ function getTicketById(int $ticket): array
         'email'=>$row['email'],
         );
 }
+
+function updateTicketStatus(int $status, int $id): bool
+{
+    $update_sql = "UPDATE ticket SET Status_Id=:status WHERE Ticket_Id=:id";
+    $update_query = $GLOBALS['db']-> prepare($update_sql);
+    $update_query->execute(
+        array(
+            "id"=> $id,
+            "status"=>$status,
+        )
+    );
+    return true;
+}

@@ -61,7 +61,7 @@
     gap: 10px;
 }
 
-.ticket-update .btn-container .ticket-status span{
+.ticket-update .btn-container .ticket-status a{
     display: flex;
     justify-content: center;
     align-items: center;

@@ -20,10 +20,15 @@ foreach ($data as $chip){
                     <div class="cows">
                         <h2>Vache associé :</h2>
                         <?php
-                        foreach ($data as $cow){
-                            print_r($cow);
+                        foreach ($data as $cow ){
+                            if ($cow['id'] !== $chip['id']){
+                                $box = $cow;
+                                print_r($chip);
+                                print_r($cow);
+                            }
+
                             $box = $cow;
-                            echo '<p>'.$box["id"].'</p>';
+                            echo '<p>'.$box["name"].'</p>';
                         }
                         ?>
 

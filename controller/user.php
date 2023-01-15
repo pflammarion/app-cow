@@ -153,7 +153,6 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                         exit();
                     }
 
-                    if(isset($_POST['update']) && $_POST['update'] == 1){
                             if(isset($_POST['delete-img'])){
                                 $update = removeImage('user', $_SESSION['user']);
                             }
@@ -179,7 +178,6 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                                     }
                                 }
                             }
-                    }
                 }
             }
             break;

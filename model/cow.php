@@ -68,7 +68,7 @@ function getAllCow(): array
     foreach ($rows as $row){
         $tmp[]= array(
             'number' => $row['Cow_Number'],
-            'img' => $row['Cow_Img_Url'],
+            'img_cow' => $row['Cow_Img_Url'],
             'name' => $row['Cow_Name'],
             'id' => $row['Cow_Id'],
         );

@@ -16,7 +16,7 @@ function getUserProfile(int $id): array
             'firstname' => $row['User_FirstName'],
             'lastname' => $row['User_LastName'],
             'img_url' => $row['User_Img_Url'],
-            'role' => $row['Role_Name']
+            'role' => $row['Role_Name'],
         );
     }
     else return [];

@@ -152,6 +152,34 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                         header($url);
                         exit();
                     }
+
+                    if(isset($_POST['update']) && $_POST['update'] == 1){
+                            if(isset($_POST['delete-img'])){
+                                $update = removeImage('user', $_SESSION['user']);
+                            }
+                            if (isset( $_FILES["file"] ) && !empty( $_FILES["file"]["name"] ) && $update){
+                                $filename   = uniqid() . "-" . time();
+                                $extension  = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION );
+                                $basename   = $filename . "." . $extension;
+                                $source       = $_FILES["file"]["tmp_name"];
+                                $destination  = "./uploads/{$basename}";
+                                $upload = True;
+                                if($extension != "jpg" && $extension != "png" && $extension!= "jpeg") {
+                                    $upload = False;
+                                    $update= False;
+                                }
+                                if ($_FILES["file"]["size"] > 5000000) {
+                                    $upload = False;
+                                    $update= False;
+                                }
+                                if($upload){
+                                    $update = updateImage("user", $destination, $_SESSION['user']);
+                                    if ($update){
+                                        move_uploaded_file( $source, $destination );
+                                    }
+                                }
+                            }
+                    }
                 }
             }
             break;

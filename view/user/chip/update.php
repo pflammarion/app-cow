@@ -9,6 +9,7 @@ foreach ($data as $chip){
 <div class="cow-vache-add">
     <h1>Modifier le Boitier : <?php echo $box["number"] ?></h1>
     <form action="" method="post">
+        <input type="hidden" value="<?php echo intval($_GET["chipId"]) ?>" name="chipId">
         <div class="form-cow-box">
             <div class="create-question">
                 <label for="number">

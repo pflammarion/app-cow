@@ -23,7 +23,7 @@ function updateChip(array $values): bool
     $number = $values["number"];
     $id = $values["id"];
     if ($number !== "" && $id !== ""){
-        $update_chip_sql = "UPDATE chip SET Chip_Number=:number WHERE Chip_Id=:id";
+        $update_chip_sql = "UPDATE chip SET Chip_Number=:number  WHERE Chip_Id=:id";
         $update_chip_query = $GLOBALS['db']-> prepare($update_chip_sql);
         $update_chip_query->execute(
             array(

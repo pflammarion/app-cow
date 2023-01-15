@@ -14,11 +14,9 @@
         <div class="box-around-btn">
             <div class="btn-cow">
                 <div>
-                    <a href="user?page=boitier">
-                        <button type="submit" class="btn-valider">
-                            Valider
-                        </button>
-                    </a>
+                    <button type="submit" class="btn-valider">
+                        Valider
+                    </button>
                 </div>
                 <div>
                     <a href="user?page=boitier">

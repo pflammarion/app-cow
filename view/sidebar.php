@@ -70,6 +70,12 @@ $select = 'class="selected-link"';
                         FAQ
                     </a>
             <?php }?>
+                <?php if (pageAuthorization('admin/ticket')){?>
+                    <a <?php if(isset($page) && $page === 'ticket') echo $select?> href="admin?page=ticket" >
+                        <img src="./public/assets/icon/ticket.svg">
+                        SAV
+                    </a>
+                <?php }?>
                 <?php if (pageAuthorization('admin/user')){?>
                     <a <?php if(isset($page) && $page === 'utilisateur') echo $select?> href="admin?page=user" >
                         <img src="./public/assets/icon/user.svg">

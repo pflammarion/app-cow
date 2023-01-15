@@ -5,6 +5,7 @@ foreach ($data as $chip){
     }
 }
 ?>
+
 <div class="cow-vache-delete">
     <div class="cow-view-setting-box-delete">
         <h1>Voulez vous supprimer le boitier : <?php echo $box["number"] ?></h1>

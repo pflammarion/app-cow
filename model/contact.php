@@ -32,7 +32,7 @@ function getUserEmail(): string
 
 function getUserTickets(): array
 {
-    $sql_get_ticket="SELECT t.Tag_Name as tag, s.Status_Name as status, Ticket_Content,  DATE_FORMAT(Ticket_Date_Creation, '%d/%m/%Y') as date_create, DATE_FORMAT(Ticket_Date_Modif, '%d/%m/%Y') as date_update 
+    $sql_get_ticket="SELECT s.Status_Id, t.Tag_Name as tag, s.Status_Name as status, Ticket_Content,  DATE_FORMAT(Ticket_Date_Creation, '%d/%m/%Y') as date_create, DATE_FORMAT(Ticket_Date_Modif, '%d/%m/%Y') as date_update 
                     FROM ticket 
                     LEFT JOIN tag t on t.Tag_Id = ticket.Tag_Id
                     LEFT JOIN status s on s.Status_Id = ticket.Status_Id
@@ -46,6 +46,7 @@ function getUserTickets(): array
         $result[] = array(
             'tag'=>$row['tag'],
             'status'=>$row['status'],
+            'status_id'=>$row['Status_Id'],
             'content'=>$row['Ticket_Content'],
             'creation'=> $row['date_create'],
             'modif'=>$row['date_update'],

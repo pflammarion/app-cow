@@ -87,6 +87,18 @@
     width: 250px;
 }
 
+.contact .container .ticket.open{
+    border: 2px solid var(--alert-green);
+}
+
+.contact .container .ticket.progress{
+    border: 2px solid var(--alert-orange);
+}
+
+.contact .container .ticket.closed{
+    border: 2px solid var(--alert-red);
+}
+
 .contact .container .list .ticket span{
     margin: 5px 0;
 }

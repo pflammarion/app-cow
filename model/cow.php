@@ -75,3 +75,4 @@ function getAllCow(): array
     }
         return $tmp;
 }
+

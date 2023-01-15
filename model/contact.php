@@ -32,7 +32,7 @@ function getUserEmail(): string
 
 function getUserTickets(): array
 {
-    $sql_get_ticket="SELECT s.Status_Id, t.Tag_Name as tag, s.Status_Name as status, Ticket_Content,  DATE_FORMAT(Ticket_Date_Creation, '%d/%m/%Y') as date_create, DATE_FORMAT(Ticket_Date_Modif, '%d/%m/%Y') as date_update 
+    $sql_get_ticket="SELECT Ticket_Id as id, s.Status_Id, t.Tag_Name as tag, s.Status_Name as status, Ticket_Content,  DATE_FORMAT(Ticket_Date_Creation, '%d/%m/%Y') as date_create, DATE_FORMAT(Ticket_Date_Modif, '%d/%m/%Y') as date_update 
                     FROM ticket 
                     LEFT JOIN tag t on t.Tag_Id = ticket.Tag_Id
                     LEFT JOIN status s on s.Status_Id = ticket.Status_Id
@@ -44,6 +44,7 @@ function getUserTickets(): array
     $result = [];
     foreach ($rows as $row){
         $result[] = array(
+            'id'=> $row['id'],
             'tag'=>$row['tag'],
             'status'=>$row['status'],
             'status_id'=>$row['Status_Id'],
@@ -139,6 +140,18 @@ function updateTicketStatus(int $status, int $id): bool
         array(
             "id"=> $id,
             "status"=>$status,
+        )
+    );
+    return true;
+}
+
+function deleteTicketById(int $id): bool
+{
+    $sql = "DELETE FROM ticket WHERE Ticket_Id =:id";
+    $query = $GLOBALS['db']->prepare($sql);
+    $query->execute(
+        array(
+            "id"=> $id,
         )
     );
     return true;

@@ -31,6 +31,17 @@ if(!empty($page) && $page !== ""){
                         'content'=> null,
                     );
                 }
+                if (isset($_GET['ticket'], $_GET['delete'])){
+                    $success = false;
+                    $success = deleteTicketById(intval($_GET['ticket']));
+                    if ($success){
+                       header("Location: all?page=contact&success=La suppression de votre ticket a bien été prise en compte");
+                    }
+                    else {
+                        header("Location: all?page=contact&error=Une erreur s'est produite pendant la suppression de votre ticket");
+                    }
+                    exit();
+                }
             }
             if(isset($_POST['email'], $_POST['tag'], $_POST['content'])){
                 if (!empty($_POST['tag']) && !empty($_POST['email']) && !empty($_POST['content'])) {

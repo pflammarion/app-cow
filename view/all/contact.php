@@ -19,8 +19,12 @@ $email = $email ?? '';
                  if ($ticket['status_id'] === 1) echo '<div class="ticket open">';
                 else if ($ticket['status_id'] === 2) echo '<div class="ticket progress">';
                 else if ($ticket['status_id'] === 3) echo '<div class="ticket closed">';
-                else echo '<div class="container open">';
+                else echo '<div class="container">';
                 if(isset($ticket['content'])){
+                    echo '<a href="all?page=contact&delete=1&ticket=' . $ticket['id'] .'" class="btn-blue">
+                                <img class="img-black" src="./public/assets/icon/delete.svg" alt="Delete">
+                                <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="Delete">
+                          </a>';
                     echo '<span>Créé le : ' . $ticket['creation'] .'</span>';
                     if (isset($ticket['modif'])){
                         echo '<span>Modifié le : ' . $ticket['modif'] .'</span>';

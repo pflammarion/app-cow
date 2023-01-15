@@ -18,7 +18,7 @@ if(!empty($page) && $page !== ""){
             $view = "all/contact";
             if (isset($_GET['isconnected'])){
                 if (!isset($_SESSION['auth']) || !$_SESSION['auth']){
-                    header("Location: login?page=login&error=Merci de vous connecter pour accéder à vos tickets&redirect=ticket" );
+                    header("Location: login?page=login&success=Merci de vous connecter pour accéder à vos tickets&redirect=ticket" );
                     exit();
                 }
             }

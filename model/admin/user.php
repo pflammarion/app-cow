@@ -31,7 +31,7 @@ function updateUser(array $values): bool
     $role = $values["role"];
     $id = $values["id"];
     if ($nom != "" && $prenom != "" && $usname != "" && $email != "" && $role != "" && $id != ""){
-        $update_user_sql = "UPDATE user SET User_FirstName=:prenom, User_LastName=:nom, User_Username=:usname, User_Email=:email WHERE User_Id=:id";
+        $update_user_sql = "UPDATE user SET User_FirstName=:firstname, User_LastName=:lastname, User_Username=:username, User_Email=:email WHERE User_Id=:id";
         $update_user_query = $GLOBALS['db']-> prepare($update_user_sql);
         $update_user_query->execute(
             array(

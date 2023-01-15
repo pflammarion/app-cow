@@ -1,6 +1,5 @@
 <?php
 $cow = $cow ?? [];
-$herd = $herd ?? [];
 $data = $content ??  [];
 foreach ($data as $chip){
     if ($chip['id'] === intval($_GET['chipId'])){
@@ -20,24 +19,13 @@ foreach ($data as $chip){
                 <label for="name">
                     <div class="cows">
                         <h2>Vache associé :</h2>
-
-                        <div class="cows">
-                            <h2>Mes Vaches</h2>
-                            <div class="cow-scroller">
-                                <?php
-                                foreach ($herd as $cow){
-                                    if ($cow['id'] != $_GET['cow']){
-                                        if (isset($cow['level'])) echo '<a href="user?page=accueil&cow=' . $cow['id'] . '"><div class="herd alert alert' . $cow['level'] .'"><div class="herd-name"><img src="./public/assets/icon/cow.svg" alt="cow">' . $cow['name'] . '</div><img src="./public/assets/icon/alert' . $cow['level'] . '.svg" alt="alert"></div></a>';
-                                        else echo '<a href="user?page=accueil&cow=' . $cow['id'] . '"><div class="herd alert"><div class="herd-name"><img src="./public/assets/icon/cow.svg" alt="cow">' . $cow['name'] . '</div></div></a>';
-                                    }
-                                }
-                                if(sizeof($herd) === 0){
-                                    echo '<p>Vous n\'avez pas de vache enregistrée</p>';
-                                }
-                                ?>
-                            </div>
-                        </div>
-
+                        <?php
+                        foreach ($data as $cow){
+                            print_r($cow);
+                            $box = $cow;
+                            echo '<p>'.$box["id"].'</p>';
+                        }
+                        ?>
 
                 </label>
                 </div>

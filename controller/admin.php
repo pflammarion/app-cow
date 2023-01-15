@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../model/faq.php';
+require_once __DIR__ . '/../model/contact.php';
 
 $page = selectPage("accueil");
 $action = selectAction("view");
@@ -102,6 +103,10 @@ if(!empty($page) && !empty($action)){
     }
     elseif($page === 'user' && pageAuthorization('admin/user')){
         $view = "admin/user/" . $action;
+    }
+    elseif($page === 'ticket' && pageAuthorization('admin/ticket')) {
+        $view = "admin/ticket/" . $action;
+        $tickets = getAllTickets();
     }
     else {
         echo '<script>alert("Vous n\'avez pas accès à cette page")</script>';

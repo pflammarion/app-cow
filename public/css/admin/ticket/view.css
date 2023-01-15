@@ -1,0 +1,18 @@
+.ticket-view{
+
+}
+
+.ticket-view .container{
+    margin: 20px;
+}
+
+.ticket-view .open{
+    background-color: var(--alert-green);
+}
+.ticket-view .progress{
+    background-color: var(--alert-orange);
+}
+
+.ticket-view .closed{
+    background-color: var(--alert-red);
+}

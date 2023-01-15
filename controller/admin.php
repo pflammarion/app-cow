@@ -15,6 +15,7 @@ if(!empty($page) && !empty($action)){
             'faq'=> pageAuthorization('admin/faq'),
             'user'=> pageAuthorization('admin/user'),
             'permission'=> pageAuthorization('admin/permission'),
+            'ticket'=> pageAuthorization('admin/ticket'),
         );
         $view = "admin/home";
     }

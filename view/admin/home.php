@@ -13,6 +13,11 @@
             <img src="./public/assets/icon/faq.svg" alt="faq">
             <p>FAQ</p>
         </a>
+        <?php }?><?php if ($perms['ticket']){?>
+            <a href="admin?page=ticket" class="card">
+                <img src="./public/assets/icon/ticket.svg" alt="user">
+                <p>SAV</p>
+            </a>
         <?php }?>
         <?php if ($perms['user']){?>
         <a href="admin?page=user" class="card">

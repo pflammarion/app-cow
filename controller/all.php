@@ -16,6 +16,12 @@ if(!empty($page) && $page !== ""){
             $email  = "";
             $sujet = getAllTags();
             $view = "all/contact";
+            if (isset($_GET['isconnected'])){
+                if (!isset($_SESSION['auth']) || !$_SESSION['auth']){
+                    header("Location: login?page=login&error=Merci de vous connecter pour accéder à vos tickets" );
+                    exit();
+                }
+            }
             if(isset($_SESSION['auth']) && $_SESSION['auth'] && $_SERVER['REQUEST_METHOD'] === 'GET'){
                 $connected = true;
                 $email = getUserEmail();

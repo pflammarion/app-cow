@@ -3,7 +3,8 @@
 function updateImage(string $table, string $destination, int $id): bool
 {
     $success = false;
-    if ($destination != ""){
+    if ($destination !== ""){
+        $update_img_sql = "";
         switch ($table){
             case 'user' :
                 $update_img_sql = "UPDATE user SET user.User_Img_Url=:destination WHERE user.User_Id = :id";
@@ -49,6 +50,7 @@ function checkBan(string $username, string $email, int $id = null): bool
 }
 function removeImage(string $table, int $id): bool
 {
+    $update_img_sql = "";
     switch ($table) {
         case 'user' :
             $update_img_sql = "UPDATE user SET user.User_Img_Url=null WHERE user.User_Id = :id";

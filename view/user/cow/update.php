@@ -8,7 +8,7 @@ foreach ($data as $cow){
 ?>
 <div class="cow-vache-add">
     <h1>Modifier la Vache : <?php echo $box["name"] ?></h1>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data" id="form">
         <input type="hidden" value="<?php echo intval($_GET["cowId"]) ?>" name="cowId">
         <div class="form-cow-box">
             <div class="create-question">

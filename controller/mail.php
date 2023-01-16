@@ -31,34 +31,66 @@ function phpMailSender(string $email, string $type,  string $token = ''): bool
     $mail->Port       = 465;                // TCP port to connect to
     $mail->setFrom('cow@newonline.world', 'noreply');
     $mail->addAddress($email);
-    if($type === 'psw'){
-        $mail->Subject = "Récupération de mot de passe COW";
-        $content = 'Veuillez cliquer sur ce bouton pour configurer un nouveau mot de passe :';
-        $link = 'https://newonline.world/login?page=newpassword&token=' . $token;
-        $link_text = 'Changer mon mot de passe';
-        $mail->Body = makeMail($content, $link, $link_text);
-        $mail->AltBody = "Pour changer de mot de passe merci de cliquer sur ce lien : " . $link;
+    switch ($type){
+        case 'psw':
+            $mail->Subject = "Récupération de mot de passe COW";
+            $content = 'Veuillez cliquer sur ce bouton pour configurer un nouveau mot de passe :';
+            $link = 'https://newonline.world/login?page=newpassword&token=' . $token;
+            $link_text = 'Changer mon mot de passe';
+            $mail->Body = makeMail($content, $link, $link_text);
+            $mail->AltBody = "Pour changer de mot de passe merci de cliquer sur ce lien : " . $link;
+            break;
+        case 'creation':
+            $mail->Subject = "Création de votre compte COW";
+            $content = 'Veuillez cliquer sur ce bouton pour configurer votre nouveau mot de passe :';
+            $link = 'https://newonline.world/login?page=newpassword&token=' . $token;
+            $link_text = 'Créer mon mot de passe';
+            $mail->Body = makeMail($content, $link, $link_text);
+            $mail->AltBody = "Pour créer votre mot de passe merci de cliquer sur ce lien : " . $link;
+            break;
+        case 'update':
+            $mail->Subject = "Mise à jour de votre compte COW";
+            $content = 'Un administrateur a mis à jour votre compte, pour aller sur l\'application, vous pouvez cliquer sur ce lien :';
+            $link = 'https://newonline.world';
+            $link_text = 'Application COW';
+            $mail->Body = makeMail($content, $link, $link_text);
+            $mail->AltBody = "Un administrateur a mis à jour votre compte, pour aller sur l'application, vous pouvez cliquer sur ce lien : " . $link;
+            break;
+        case 'delete':
+            $mail->Subject = "Suppression de votre compte COW";
+            $content = 'Un administrateur a supprimé votre compte, pour contacter un administrateur, vous pouvez cliquer sur ce lien :';
+            $link = 'https://newonline.world/all?page=contact';
+            $link_text = 'Contacter un admin';
+            $mail->Body = makeMail($content, $link, $link_text);
+            $mail->AltBody = "Un administrateur a supprimé votre compte, pour contacter un administrateur, vous pouvez cliquer sur ce lien : " . $link;
+            break;
+        case 'ban':
+            $mail->Subject = "Bannissement de votre compte COW";
+            $content = 'Un administrateur a banni votre compte, pour contacter un administrateur, vous pouvez cliquer sur ce lien :';
+            $link = 'https://newonline.world/all?page=contact';
+            $link_text = 'Contacter un admin';
+            $mail->Body = makeMail($content, $link, $link_text);
+            $mail->AltBody = "Un administrateur a banni votre compte, pour contacter un administrateur, vous pouvez cliquer sur ce lien : " . $link;
+            break;
+        case 'contact':
+            $mail->Subject = "Confirmation de la reception du ticket COW";
+            $content = 'Votre demande a bien été prise en compte, vous pouvez consulter le status de votre demande dans la page contact, ou vous serez contacté par mail si vous ne pouvez pas vous connecter.';
+            $link = 'https://newonline.world/all?page=contact&isconnected=1';
+            $link_text = 'Voir mes tickets';
+            $mail->Body = makeMail($content, $link, $link_text);
+            $mail->AltBody = "Votre ticket a bien été envoyé, vous pouvez le voir à cette adresse : " . $link;
+            break;
+        case 'contact_update':
+            $mail->Subject = "Changement de status du ticket COW";
+            $content = "L'un de vos tickets a changé de status à l'instant, vous pouvez retrouver tous vos tickets ici :";
+            $link = 'https://newonline.world/all?page=contact&isconnected=1';
+            $link_text = 'Voir mes tickets';
+            $mail->Body = makeMail($content, $link, $link_text);
+            $mail->AltBody = "Votre ticket a changé de statut à l'instant " . $link;
+            break;
     }
-    if ($type === 'contact'){
-        $mail->Subject = "Confirmation de la reception du ticket COW";
-        $content = 'Votre demande a bien été prise en compte, vous pouvez consulter le status de votre demande dans la page contact, ou vous serez contacté par mail si vous ne pouvez pas vous connecter.';
-        $link = 'https://newonline.world/all?page=contact&isconnected=1';
-        $link_text = 'Voir mes tickets';
-        $mail->Body = makeMail($content, $link, $link_text);
-        $mail->AltBody = "Votre ticket a bien été envoyé, vous pouvez le voir à cette adresse : " . $link;
-    }
-    if ($type === 'contact_update'){
-        $mail->Subject = "Changement de status du ticket COW";
-        $content = "L'un de vos tickets a changé de status à l'instant, vous pouvez retrouver tous vos tickets ici :";
-        $link = 'https://newonline.world/all?page=contact&isconnected=1';
-        $link_text = 'Voir mes tickets';
-        $mail->Body = makeMail($content, $link, $link_text);
-        $mail->AltBody = "Votre ticket a changé de statut à l'instant " . $link;
-    }
-
     try {
-        $mail->send();
-        return true;
+        return $mail->send();
     } catch (Exception $e) {         // @ignore
         return false;
     }

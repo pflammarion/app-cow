@@ -90,3 +90,16 @@ function getAllCows(): array
     }
     return $tmp;
 }
+
+
+function checkUserEmailOrUser(string $email, string $user, int $id = null): bool
+{
+    $sql = "SELECT COUNT(*) FROM user WHERE User_Id != :id AND (User_Email = :email OR User_Username =:user)";
+    $query = $GLOBALS['db']->prepare($sql);
+    $query->execute(array('email' => $email, "user"=>$user, "id"=>$id));
+    $count = $query->fetchColumn();
+    if ($count > 0) {
+        return true;
+    }
+    return false;
+}

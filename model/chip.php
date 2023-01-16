@@ -56,7 +56,8 @@ function getAllChip(): array
     $sql_get_chip = "SELECT chip.Chip_Number, chip.Chip_Id
                     FROM chip 
                     left join chip_cow_user ccu on chip.Chip_Id = ccu.Chip_Id
-                    WHERE ccu.User_Id =:user ;";
+                    WHERE ccu.User_Id =:user 
+                    ORDER BY Chip_Number;";
 
     $query_get_chip = $GLOBALS['db']->prepare($sql_get_chip);
     $query_get_chip->execute(array('user'=> $user));

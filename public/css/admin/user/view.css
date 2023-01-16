@@ -1,0 +1,112 @@
+.view-user-admin {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+.view-user-header {
+    display: flex;
+    margin-top: 90px;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 50px ;
+}
+.view-user-admin fieldset {
+    margin : 0;
+}
+.view-user-admin a {
+    display: flex;
+}
+.view-user-admin input {
+    border-radius: 50px;
+    width: 600px;
+    height: 60px;
+}
+.view-user-admin .btn-blue {
+    margin-left: 20px;
+}
+.view-user-admin .user-box {
+    margin: 25px auto;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 1100px;
+    border-radius: 10px;
+    height: 70px;
+    border : solid 3px var(--dark-blue);
+}
+
+.view-user-admin .user-box.ban{
+    background-color: var(--alert-red);
+}
+
+.view-user-admin .user-box .user{
+    margin-left: 90px;
+    font-size: 28px;
+    font-family: "Arima Madurai", sans-serif;
+    font-weight: bold;
+    display: flex;
+    gap: 12px;
+    width: 350px;
+}
+
+.view-user-admin .user-box .email,
+.view-user-admin .user-box .username{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.view-user-admin .user-box .email{
+    width: 400px;
+}
+.view-user-admin .user-box .username{
+    width: 200px;
+}
+
+.view-user-admin .user-box > div > img{
+    height: 20px;
+    width: auto;
+}
+
+
+.view-user-admin .user-btn-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 8px;
+    margin-right: 16px;
+}
+
+.view-user-admin .user-box .p1{
+    position: absolute;
+    font-size: 12px;
+    top: 8px;
+    left: 8px;
+}
+
+.view-user-admin .user-box .p2{
+    position: absolute;
+    font-size: 12px;
+    bottom: 8px;
+    left: 8px;
+}
+
+.view-user-admin .container {
+
+}
+
+.view-user-admin fieldset {
+    border-radius: 100px;
+    border: solid 3px var(--dark-blue);
+    box-sizing: border-box;
+    position: absolute;
+    width: 600px;
+    height: 50px;
+    left: 420px;
+    top: 273px;
+}
+
+

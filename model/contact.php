@@ -16,12 +16,15 @@ function getAllTags(): array
     return $result;
 }
 
-function getUserEmail(): string
+function getUserEmail(int $user = null): string
 {
+    if ($user === null){
+        $user = $_SESSION['user'];
+    }
     $sql_get_email="SELECT User_Email FROM user WHERE User_Id =:user ;";
     $query_get_email = $GLOBALS['db']->prepare($sql_get_email);
     $query_get_email ->execute(array(
-        'user'=> intval($_SESSION['user'])
+        'user'=> intval($user)
     ));
     $row = $query_get_email->fetch();
     if ($query_get_email->rowcount() === 1){

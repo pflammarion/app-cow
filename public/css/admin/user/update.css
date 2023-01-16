@@ -1,0 +1,45 @@
+
+.user-admin-update{
+    padding: 50px;
+}
+
+.user-admin-update form{
+    flex-direction: column;
+}
+
+.user-admin-update .btn-box-update {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 150px;
+}
+
+.user-admin-update .user{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    width: 632px;
+    margin: 50px auto 100px auto;
+}
+
+.user-admin-update .user input{
+    width: 300px;
+}
+
+.user-admin-update .user select{
+    background-color: white;
+    height: 40px;
+    border-radius: 5px;
+    border: solid 2px var(--dark-blue);
+    width: 300px;
+}
+
+.user-admin-update > h1{
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.user-admin-update .user label{
+    display: flex;
+    flex-direction: column;
+}

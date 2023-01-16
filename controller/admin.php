@@ -123,31 +123,44 @@ if(!empty($page) && !empty($action)){
                 $success = createUser($values);
                 if ($success){
                     phpMailSender(htmlentities($_POST['email']), 'creation', $token);
+                    header("Location: admin?page=user&success=Vous avez bien crée l'utilisateur". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
+                    exit();
                 }
             }
-                if ($_POST['action'] == 'update') {
-                    $values = array(
-                        "lastname" => $_POST['lastname'],
-                        "firstname" => $_POST['firstname'],
-                        "email" => $_POST['email'],
-                        "username" => $_POST['username'],
-                        "role" => $_POST["role"],
-                        "id" => $_POST['id'],
-                    );
-                    $success = updateUser($values);
+            if ($_POST['action'] === 'update' && isset($_POST['lastname'], $_POST['firstname'], $_POST['email'], $_POST['username'], $_POST["role"], $_POST['id'])) {
+                $values = array(
+                    "lastname" => htmlentities($_POST['lastname']),
+                    "firstname" => htmlentities($_POST['firstname']),
+                    "email" => htmlentities($_POST['email']),
+                    "username" => htmlentities($_POST['username']),
+                    "role" => htmlentities($_POST["role"]),
+                    "id" => intval($_POST['id']),
+                );
+                $success = updateUser($values);
+                if ($success){
+                    phpMailSender(htmlentities($_POST['email']), 'update');
+                    header("Location: admin?page=user&success=Vous avez bien modifié l'utilisateur". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
+                    exit();
                 }
-                    if ($_POST['action'] === 'delete') {
-                        $success = deleteUser(intval($_POST['id']));
-                    }
-                    if ($success) {
-                        header("Location: admin?page=user&action=view&success=Reussite");
-                        exit();
-                    }
+            }
 
+            if ($_POST['action'] === 'delete' && isset($_POST['id'])) {
+                $success = deleteUser(intval($_POST['id']));
+                if ($success){
+                    phpMailSender(htmlentities($_POST['email']), 'delete');
+                    header("Location: admin?page=user&success=Vous avez bien supprimé l'utilisateur". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
+                    exit();
+                }
+            }
 
-            if ($success) {
-                header("Location: admin?page=user&action=view&success=Reussite");
-                exit();
+            if ($_POST['action'] === 'ban' && isset($_POST['id'])) {
+                $success = banUser(intval($_POST['id']));
+                if ($success){
+                    phpMailSender(htmlentities($_POST['email']), 'ban');
+                    header("Location: admin?page=user&success=Vous avez bien bani l'utilisateur". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
+                    exit();
+                }
+            }
             }
         }
     }

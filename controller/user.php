@@ -40,7 +40,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                     echo json_encode(['success']);
                 }
                 if (isset($_GET['cow'])){
-                    $cowId = $_GET['cow'];
+                    $cowId = intval($_GET['cow']);
                     $sensors = array(
                         'heart' => getSensorValueByCowBySensor($cowId,1),
                         'air' => getSensorValueByCowBySensor($cowId,2),
@@ -71,6 +71,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                     exit();
                 }
             }
+
             break;
         case 'boitier':
             $view = "user/chip/". $action;
@@ -205,7 +206,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 $sensor= intval(htmlspecialchars($_GET['sensor']));
                 if(isset($_GET['api'], $_GET['average'], $_GET['date'], $_GET['cowId'])){
                     $average = intval($_GET['average']);
-                    $cowId = intval(verifyInt($_GET['cowId']));
+                    $cowId = intval($_GET['cowId']);
                     //filter data from get
                     $date = strtotime($_GET['date']);
                     //for annual
@@ -264,6 +265,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
 
 
             break;
+
         default:
             $view = "error404";
     }

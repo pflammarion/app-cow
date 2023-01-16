@@ -146,7 +146,7 @@ CREATE TABLE `chip_level` (
   PRIMARY KEY (`Chip_Level_Id`),
   KEY `FK_Sensor_ID_Chip_Sensor_Id` (`Sensor_Id`),
   KEY `chip_level_chip_Chip_Id_fk` (`Chip_Id`),
-  CONSTRAINT `chip_level_chip_Chip_Id_fk` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (`Chip_Id`),
+  CONSTRAINT `chip_level_chip_Chip_Id_fk` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (`Chip_Id`) ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT `FK_Sensor_ID_Chip_Sensor_Id` FOREIGN KEY (`Sensor_Id`) REFERENCES `sensor` (`Sensor_Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;

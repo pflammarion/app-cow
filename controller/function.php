@@ -16,7 +16,7 @@ function selectPage(string $default): string
     }
     return $page;
 }
-function verifyInt($valeur)
+function verifyInt($valeur): int
 {
     if (is_int($valeur)) {
         // La valeur est déjà un entier, on ne fait rien
@@ -26,7 +26,6 @@ function verifyInt($valeur)
         return (int)$valeur;
     } else {
         // La valeur n'est pas un entier, on renvoie false
-        echo "erreur";
         return false;
     }
 }

@@ -25,7 +25,7 @@
 .view-user-admin .btn-blue {
     margin-left: 20px;
 }
-.user-box {
+.view-user-admin .user-box {
     margin: 25px auto;
     position: relative;
     display: flex;
@@ -37,8 +37,12 @@
     border : solid 3px var(--dark-blue);
 }
 
+.view-user-admin .user-box.ban{
+    background-color: var(--alert-red);
+}
+
 .view-user-admin .user-box .user{
-    margin-left: 60px;
+    margin-left: 90px;
     font-size: 28px;
     font-family: "Arima Madurai", sans-serif;
     font-weight: bold;
@@ -80,6 +84,13 @@
     position: absolute;
     font-size: 12px;
     top: 8px;
+    left: 8px;
+}
+
+.view-user-admin .user-box .p2{
+    position: absolute;
+    font-size: 12px;
+    bottom: 8px;
     left: 8px;
 }
 

@@ -12,8 +12,13 @@
 
     <?php
     foreach ($data as $box){
-        echo '<div class="user-box">';
+        if ($box['ban'] !== 0){
+            echo '<div class="user-box ban">';
+        }else{
+            echo '<div class="user-box">';
+        }
         echo '<span class="p1">id:'.$box["id"].'</span>';
+        echo '<span class="p2">' . $box['role_name'] . '</span>';
         echo '<div class="user">';
         echo '<span>'.$box["firstname"].'</span>';
         echo '<span>'.$box["lastname"].'</span>';
@@ -26,6 +31,8 @@
         echo '<img src="./public/assets/icon/user.svg" alt="user" />';
         echo '<span>'.$box["username"].'</span>';
         echo '</div>';
+
+        if ($box['ban'] === 0){
         echo '<div class="user-btn-box">';
         echo '<a class="btn-blue" href="admin?page=user&action=update&id='.$box["id"].'" >
                 <img class="img-black" src="./public/assets/icon/modifier.svg" alt="edit">
@@ -36,6 +43,7 @@
                 <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="delete">
               </a>';
         echo '</div>';
+        }
         echo '</div>';
     }
     ?>

@@ -23,13 +23,15 @@ foreach ($data as $chip){
 
         <div class="box-around-btn">
             <div class="btn-cow">
+
+                <a href="user?page=boitier" class="btn-return">
+                    <img src="./public/assets/icon/retour.svg" alt="retour">
+                    Retour
+                </a>
                     <button type="submit" class="btn-valider">
                         Valider
                     </button>
-                    <a href="user?page=boitier" class="btn-return">
-                            <img src="./public/assets/icon/retour.svg" alt="retour">
-                            Retour
-                    </a>
+
             </div>
         </div>
 

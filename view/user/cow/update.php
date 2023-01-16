@@ -44,13 +44,14 @@ foreach ($data as $cow){
         </div>
         <div class="box-around-btn">
             <div class="btn-cow">
-                    <button type="submit" class="btn-valider">
-                        Valider
-                    </button>
+
                     <a href="user?page=vache" class="btn-return">
                             <img src="./public/assets/icon/retour.svg" alt="retour">
                             Retour
                     </a>
+                <button type="submit" class="btn-valider">
+                    Valider
+                </button>
             </div>
         </div>
         <input type="hidden" value="update" name="action">

@@ -74,7 +74,7 @@ function banUser(int $id): bool
 function getUser(): array
 {
     //faire une limite 100 quand on aura la barre de recherche
-    $get_user_sql = "SELECT User_Id,User_FirstName,User_LastName, User_Email, User_Username, Role_Id FROM user";
+    $get_user_sql = "SELECT User_Id,User_FirstName,User_LastName, User_Email, User_Username, Role_Id FROM user where User_Id != 1";
     $get_user_query = $GLOBALS['db']-> prepare($get_user_sql);
     $get_user_query->execute();
     $rows = $get_user_query->fetchAll();

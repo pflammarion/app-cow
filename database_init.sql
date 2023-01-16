@@ -186,7 +186,7 @@ CREATE TABLE `data_sensor` (
   PRIMARY KEY (`Data_Sensor_Id`),
   KEY `FK_Chip_Id_Data_Sensor_Chip` (`Chip_Level_Id`),
   KEY `FK_Average_Id_Data_Sensor_Average` (`Average_Id`),
-  CONSTRAINT `data_sensor_chip_level_Chip_Level_Id_fk` FOREIGN KEY (`Chip_Level_Id`) REFERENCES `chip_level` (`Chip_Level_Id`),
+  CONSTRAINT `data_sensor_chip_level_Chip_Level_Id_fk` FOREIGN KEY (`Chip_Level_Id`) REFERENCES `chip_level` (`Chip_Level_Id`) ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT `FK_Average_Id_Data_Sensor_Average` FOREIGN KEY (`Average_Id`) REFERENCES `average` (`Average_Id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;

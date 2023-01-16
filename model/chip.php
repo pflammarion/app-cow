@@ -3,7 +3,6 @@ function createChip(array $values): bool
 {
     $user = intval($_SESSION['user']);
     $number = htmlspecialchars($values["number"]);
-    $id = intval($values["chiId"]);
     if ($number !== ""){
         $create_chip_sql = "INSERT INTO chip (Chip_Number) VALUES (:number);
                             INSERT INTO chip_cow_user (Chip_Id, User_Id) VALUES ((SELECT Chip_Id FROM chip WHERE Chip_Number = :number),:userId);

@@ -138,10 +138,11 @@
     display: flex;
     border: solid 2px var(--dark-blue);
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-around;
     gap: 32px;
     border-radius: 5px;
     padding: 8px;
+    background-color: var(--light-blue);
 }
 
 .table #selected-cow .crop-img{
@@ -179,11 +180,17 @@
     margin-top: 32px;
 }
 
+.table #herd{
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 175px;
+}
+
 .table #herd .herd-button{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    margin: 3px 6px;
+    margin: 3px 32px;
     border: 2px solid var(--dark-blue);
     border-radius: 5px;
     padding: 5px;
@@ -226,6 +233,18 @@
 
     .table .table-header img{
         width: 30px;
+    }
+
+    .table .container .download-link a img {
+        height: 50px;
+    }
+
+    .table #herd{
+        height: 238px;
+    }
+
+    .table #herd .herd-button{
+        margin: 3px 80px;
     }
 
     .table .container .download-link a img {

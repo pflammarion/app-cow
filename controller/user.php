@@ -73,38 +73,46 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             $content = getAllChip();
             if (isset($_POST['action'], $_POST['number'])) {
                 $number = htmlspecialchars($_POST['number']);
-                if ($_POST['action'] === 'create') {
-                    $values = array(
-                        "number" => $number,
-                    );
-                    $success = createChip($values);
-                    if ($success){
-                        $url = "Location: user?page=boitier&action=view&success=Le boitier " . urlencode($number) . " à été ajouté à votre compte";
-                        header($url);
-                    }else{
-                        header("Location: user?page=boitier&action=create&error=Une erreur s'est produite veuillez rééssayer");
+                if(strlen($number) <= 10) {
+                    $number = strtoupper($number);
+                    if ($_POST['action'] === 'create') {
+                        $values = array(
+                            "number" => $number,
+                        );
+                        $success = createChip($values);
+                        if ($success) {
+                            $url = "Location: user?page=boitier&action=view&success=Le boitier " . urlencode($number) . " à été ajouté à votre compte";
+                            header($url);
+                        } else {
+                            header("Location: user?page=boitier&action=create&error=Une erreur s'est produite veuillez rééssayer");
+                        }
+                        exit();
                     }
+                    if ($_POST['action'] === 'delete' && isset($_POST['chipId'])) {
+                        $success = deleteChip(intval($_POST['chipId']));
+                        if ($success) {
+                            $url = "Location: user?page=boitier&action=view&success=Le boitier " . urlencode($number) . " à été supprimée";
+                            header($url);
+                            exit();
+                        }
+                    }
+                    if ($_POST['action'] === 'update' && isset($_POST['chipId'])) {
+                        $values = array(
+                            "number" => $number,
+                            "id" => intval($_POST['chipId']),
+                        );
+                        $success = updateChip($values);
+                        if ($success) {
+                            $url = "Location: user?page=boitier&action=view&success=Le boitier " . urlencode($number) . " à été modifiée";
+                            header($url);
+                            exit();
+                        }
+                    }
+                }
+                else{
+                    $url = "Location: user?page=boitier&error=Le numéro de boitier n'existe pas";
+                    header($url);
                     exit();
-                }
-                if ($_POST['action'] === 'delete' && isset($_POST['chipId'])) {
-                    $success = deleteChip(intval($_POST['chipId']));
-                    if ($success ){
-                        $url = "Location: user?page=boitier&action=view&success=Le boitier " .urlencode($number). " à été supprimée";
-                        header($url);
-                        exit();
-                    }
-                }
-                if ($_POST['action'] === 'update' && isset($_POST['chipId'])) {
-                    $values = array(
-                        "number" => $number,
-                        "id" => intval($_POST['chipId']),
-                    );
-                    $success = updateChip($values);
-                    if ($success ){
-                        $url = "Location: user?page=boitier&action=view&success=Le boitier " .urlencode($number). " à été modifiée";
-                        header($url);
-                        exit();
-                    }
                 }
             }
             break;

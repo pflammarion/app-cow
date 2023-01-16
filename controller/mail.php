@@ -40,12 +40,36 @@ function phpMailSender(string $email, string $type,  string $token = ''): bool
         $mail->AltBody = "Pour changer de mot de passe merci de cliquer sur ce lien : " . $link;
     }
     if($type === 'create'){
-        $mail->Subject = "Création de compte COW";
+        $mail->Subject = "Création de votre compte COW";
         $content = 'Veuillez cliquer sur ce bouton pour configurer votre nouveau mot de passe :';
         $link = 'https://newonline.world/login?page=newpassword&token=' . $token;
         $link_text = 'Créer mon mot de passe';
         $mail->Body = makeMail($content, $link, $link_text);
         $mail->AltBody = "Pour créer votre mot de passe merci de cliquer sur ce lien : " . $link;
+    }
+    if($type === 'update'){
+        $mail->Subject = "Mise à jour de votre compte COW";
+        $content = 'Un administrateur a mis à jour votre compte, pour aller sur l\'application, vous pouvez cliquer sur ce lien :';
+        $link = 'https://newonline.world';
+        $link_text = 'Application COW';
+        $mail->Body = makeMail($content, $link, $link_text);
+        $mail->AltBody = "Un administrateur a mis à jour votre compte, pour aller sur l'application, vous pouvez cliquer sur ce lien : " . $link;
+    }
+    if($type === 'delete'){
+        $mail->Subject = "Suppression de votre compte COW";
+        $content = 'Un administrateur a supprimé votre compte, pour contacter un administrateur, vous pouvez cliquer sur ce lien :';
+        $link = 'https://newonline.world/all?page=contact';
+        $link_text = 'Contacter un admin';
+        $mail->Body = makeMail($content, $link, $link_text);
+        $mail->AltBody = "Un administrateur a supprimé votre compte, pour contacter un administrateur, vous pouvez cliquer sur ce lien : " . $link;
+    }
+    if($type === 'ban'){
+        $mail->Subject = "Bannissement de votre compte COW";
+        $content = 'Un administrateur a banni votre compte, pour contacter un administrateur, vous pouvez cliquer sur ce lien :';
+        $link = 'https://newonline.world/all?page=contact';
+        $link_text = 'Contacter un admin';
+        $mail->Body = makeMail($content, $link, $link_text);
+        $mail->AltBody = "Un administrateur a banni votre compte, pour contacter un administrateur, vous pouvez cliquer sur ce lien : " . $link;
     }
     if ($type === 'contact'){
         $mail->Subject = "Confirmation de la reception du ticket COW";

@@ -161,7 +161,6 @@ if(!empty($page) && !empty($action)){
                     exit();
                 }
             }
-            }
         }
     }
     elseif($page === 'ticket' && pageAuthorization('admin/ticket')) {

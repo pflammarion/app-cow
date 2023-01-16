@@ -13,12 +13,19 @@
     <?php
     foreach ($data as $box){
         echo '<div class="user-box">';
-        echo '<div class="container">';
         echo '<span class="p1">id:'.$box["id"].'</span>';
+        echo '<div class="user">';
         echo '<span>'.$box["firstname"].'</span>';
         echo '<span>'.$box["lastname"].'</span>';
-        echo '<span>'.$box["email"].'</span>';
+        echo '</div>';
+        echo '<div class="email">';
+        echo '<img src="./public/assets/icon/mail.svg" alt="email" />';
+        echo '<a href="mailto:' . $box['email'] . '">'.$box["email"].'</a>';
+        echo '</div>';
+        echo '<div class="username">';
+        echo '<img src="./public/assets/icon/user.svg" alt="user" />';
         echo '<span>'.$box["username"].'</span>';
+        echo '</div>';
         echo '<div class="user-btn-box">';
         echo '<a class="btn-blue" href="admin?page=user&action=update&id='.$box["id"].'" >
                 <img class="img-black" src="./public/assets/icon/modifier.svg" alt="edit">
@@ -28,7 +35,6 @@
                 <img class="img-black" src="./public/assets/icon/delete.svg" alt="delete">
                 <img class="img-white" src="./public/assets/icon/delete-white.svg" alt="delete">
               </a>';
-        echo '</div>';
         echo '</div>';
         echo '</div>';
     }

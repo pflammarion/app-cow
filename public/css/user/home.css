@@ -104,7 +104,9 @@
     margin: 5px;
 }
 
-.home .cow-info .crop-img{
+.home .cow-info .crop-img,
+.cow-view-page-box .crop-img,
+.cow-vache-add .crop-img{
     height: 70px;
     width: 70px;
     display: flex;
@@ -114,7 +116,9 @@
     overflow: hidden;
 }
 
-.home .cow-info .cow-img{
+.home .cow-info .cow-img,
+.cow-view-page-box .cow-img,
+.cow-vache-add #cow-img{
     width: 100%;
     height: 100%;
     object-fit: cover;

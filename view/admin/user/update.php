@@ -1,7 +1,8 @@
-<?php $roles = $roles ?? [];
+<?php
+$roles = $roles ?? [];
 $data = $content ??  [];
 foreach ($data as $user){
-    if ($user['id']===$_GET['id']){
+    if ($user['id'] === intval($_GET['id'])){
         $box = $user;
     }
 }
@@ -28,6 +29,21 @@ foreach ($data as $user){
                         <label for="username">
                             Nom d'utilisateur
                             <input type="text" name="username" value="<?php if(isset($box))echo $box["username"] ?>">
+                        </label>
+                        <label for="role">
+                            Rôle
+                            <select name="role">
+                                <?php
+                                if (isset($box['role'])){
+                                    foreach ($roles as $role){
+                                        if (intval($role['id']) !== intval($box['role'])){
+                                            echo '<option value="' . $role['id'] . '">' . $role['name'] .'</option>';
+                                        }
+                                        else echo '<option value="' . $role['id'] . '" selected="selected">' . $role['name'] .'</option>';
+                                    }
+                                }
+                            ?>
+                            </select>
                         </label>
                     </div>
                 </div>

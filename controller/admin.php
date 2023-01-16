@@ -115,7 +115,7 @@ if(!empty($page) && !empty($action)){
             if ($_POST['action'] === 'create' && isset($_POST['lastname'], $_POST['firstname'], $_POST['email'], $_POST['username'], $_POST["role"])) {
                 $token = tokenGeneration();
                 //check if user exists
-                if(checkEmail(htmlentities($_POST['email']))){
+                if(true){
                     $values = array(
                         "lastname" => htmlentities($_POST['lastname']),
                         "firstname" => htmlentities($_POST['firstname']),
@@ -147,7 +147,7 @@ if(!empty($page) && !empty($action)){
                 $success = updateUser($values);
                 if ($success){
                     phpMailSender(htmlentities($_POST['email']), 'update');
-                    header("Location: admin?page=user&success=Vous avez bien modifié l'utilisateur". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
+                    header("Location: admin?page=user&success=Vous avez bien modifié l'utilisateur ". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
                     exit();
                 }
             }

@@ -22,9 +22,9 @@ function createCow(array $values): bool
 }
 function updateCow(array $values): bool
 {
-    $name = htmlspecialchars($values["name"]);
-    $number = htmlspecialchars($values["number"]);
-    $id = intval($values["id"]);
+    $name = $values["name"];
+    $number = $values["number"];
+    $id = $values["id"];
     if ($name !== "" && $number !== ""){
         $update_cow_sql = "UPDATE cow SET Cow_Name=:name, Cow_Number=:number WHERE Cow_Id=:id";
         $update_cow_query = $GLOBALS['db']-> prepare($update_cow_sql);

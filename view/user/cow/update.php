@@ -24,9 +24,9 @@ foreach ($data as $cow){
                 <label for="image">
                     <?php
                     if((!is_null($box['img_cow']) && file_exists($box['img_cow']))){
-                        echo '<div class="crop-img"><img src="' . $box['img_cow'] . '" id="profil-img"></div>';
+                        echo '<div class="crop-img"><img src="' . $box['img_cow'] . '" id="cow-img" alt="cow-img"></div>';
                     }
-                    else echo '<div class="crop-img"><img src="./public/assets/icon/profile.svg" id="profil-img"></div>'
+                    else echo '<div class="crop-img"><img src="./public/assets/icon/profile.svg" id="cow-img" alt="cow-img"></div>'
                     ?>
 
                     <input id="upload" type="file" name="file">

@@ -33,7 +33,7 @@
         echo '</div>';
         echo '<div class="cow-view-box">';
         echo '<div class="cow-view-profil">';
-        echo '<img src="./public/assets/icon/boitier.svg" class="chip-img">';
+        echo '<img src="./public/assets/icon/boitier.svg" class="chip-img" alt="chip image">';
         echo '</div>';
         echo '<h1>'.$box["number"].'</h1>';
         echo '</div>';

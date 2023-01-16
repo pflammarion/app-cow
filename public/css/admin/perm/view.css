@@ -37,19 +37,6 @@
     padding: 0 50px;
     margin-bottom: 20px;
 }
-/*change button size*/
-.permission-view .btn-return{
-    width: 80px;
-    height: 40px;
-    font-size: 15px;
-}
-
-.permission-view .btn-valider{
-    width: 120px;
-    height: 40px;
-    font-size: 15px;
-}
-/*end change size*/
 
 .permission-view input[type=checkbox]{
     accent-color: var(--green);
@@ -84,7 +71,7 @@
 
 .role .btn-container{
     top: 80px;
-    right: 50px;
+    right: 350px;
     position: absolute;
     width: fit-content;
 }
@@ -92,8 +79,8 @@
 .role .btn-green{
     margin: 50px 0;
     color: white;
-    width: 250px;
-    height: 80px;
+    width: 120px;
+    height: 40px;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 15px;
 }

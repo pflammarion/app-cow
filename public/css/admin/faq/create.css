@@ -8,14 +8,14 @@
     width: 1500px;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+
 }
 .faq-admin-create .form-create-box,
 .faq-admin-update .form-create-box{
     display: flex;
     flex-direction: column;
-    margin-right: 50px;
-    margin-left: 320px;
+    margin: auto 50px;
 }
 .faq-admin-create .add-question,
 .faq-admin-update .add-question{
@@ -44,4 +44,3 @@
     flex-direction: column;
     gap : 32px;
 }
-

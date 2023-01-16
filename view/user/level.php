@@ -1,5 +1,5 @@
 <?php
-$id = intval(verifyInt($_GET['sensorid']));
+$id = intval($_GET['sensorid']);
 $current_level = $current_level ?? [];
 $level = [];
 foreach ($current_level as $current){

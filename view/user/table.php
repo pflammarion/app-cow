@@ -1,7 +1,7 @@
 <div class="table">
     <div class="container">
         <div class="table-header">
-            <img id="sensor" data-val="<?php echo intval(verifyString($_GET['sensor'])) ?>" src="" alt="icon">
+            <img id="sensor" data-val="<?php echo intval($_GET['sensor']) ?>" src="" alt="icon">
             <div class="changer">
                 <img id="arrow-down" src="./public/assets/icon/arrow.svg" alt="arrow">
                 <input id="datePicker" type="date" name="date">
@@ -9,7 +9,7 @@
             </div>
             <img id="average" data-val="1" src="./public/assets/icon/sorting.svg" alt="sorting">
         </div>
-        <div id="table-content" data-val="<?php echo intval(verifyString($_GET['cow'])) ?>" class="table-content">
+        <div id="table-content" data-val="<?php echo intval($_GET['cow']) ?>" class="table-content">
             <canvas id="graph"></canvas>
         </div>
     </div>

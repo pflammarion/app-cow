@@ -33,7 +33,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             }
             if($action === 'view'){
                 $view = "user/home";
-                if (isset($_GET['js'], $_GET['alertId'])){
+                if (isset($_GET['api'], $_GET['alertId'])){
                     deleteAlertOnClick(intval($_GET['alertId']));
                     echo json_encode(['success']);
                 }
@@ -83,7 +83,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
         case 'tableau':
             if (isset($_GET['sensor'])){
                 $sensor= intval(htmlspecialchars($_GET['sensor']));
-                if(isset($_GET['js'], $_GET['average'], $_GET['date'], $_GET['cowId'])){
+                if(isset($_GET['api'], $_GET['average'], $_GET['date'], $_GET['cowId'])){
                     $average = intval($_GET['average']);
                     $cowId = intval($_GET['cowId']);
                     //filter data from get
@@ -109,7 +109,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 }
                 $view = "user/table";
             }
-            if (isset($_GET['js'], $_GET['herd'])){
+            if (isset($_GET['api'], $_GET['herd'])){
                 $data = dataSorting(getAllCows());
                 if (isset($_GET['recherche'])){
                     $data = recherche($data, $_GET['recherche']);
@@ -120,7 +120,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 $data = getCow(intval($_GET['selectedCow']));
                 echo json_encode($data);
             }
-            if (isset($_GET['exel'], $_GET['js'])){
+            if (isset($_GET['exel'], $_GET['api'])){
                 $cowExel = null;
                 if (isset($_GET['cowId'])){
                     $cowExel = intval($_GET['cowId']);
@@ -147,7 +147,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
         default:
             $view = "error404";
     }
-    if(!isset($_GET['js'])){
+    if(!isset($_GET['api'])){
         include (showPage($view));
     }
 }

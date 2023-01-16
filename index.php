@@ -8,7 +8,7 @@ require_once("./view/function.php");
 require_once("./model/permission.php");
 require_once __DIR__ . '/model/connection.php';
 
-if (!isset($_GET['js'])){
+if (!isset($_GET['api'])){
     include __DIR__ . '/view/header.php';
 }
 
@@ -48,7 +48,7 @@ else{
     else include __DIR__ . '/controller/login.php';
 }
 
-if (!isset($_GET['js'])) {
+if (!isset($_GET['api'])) {
     include __DIR__ . '/view/footer.php';
 }
 

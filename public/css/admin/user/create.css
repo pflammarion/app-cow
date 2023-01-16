@@ -17,8 +17,8 @@
 .user-admin-create .create-user{
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-    width: 616px;
+    gap: 32px;
+    width: 632px;
     margin: 50px auto 100px auto;
 }
 

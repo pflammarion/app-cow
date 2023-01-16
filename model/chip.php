@@ -3,6 +3,8 @@ function createChip(array $values): bool
 {
     $user = intval($_SESSION['user']);
     $number = htmlspecialchars($values["number"]);
+    $id = intval($values["chiId"]);
+    $data = [];
     if ($number !== ""){
         $create_chip_sql = "INSERT INTO chip (Chip_Number) VALUES (:number);
                             INSERT INTO chip_cow_user (Chip_Id, User_Id) VALUES ((SELECT Chip_Id FROM chip WHERE Chip_Number = :number),:userId);
@@ -12,6 +14,20 @@ function createChip(array $values): bool
             array(
                 "userId"=> $user,
                 "number"=> $number,
+            )
+        );
+        $create_chip_lvl_sql = "INSERT INTO chip_level (Chip_Id, Chip_Reference, Chip_First_Level, Chip_Second_Level, Sensor_Id) VALUES (:id, 60, 20, 40, 1);
+                                INSERT INTO chip_level (Chip_Id, Chip_Reference, Chip_First_Level, Chip_Second_Level, Sensor_Id) VALUES (:id, 100, 10, 20, 2);
+                                INSERT INTO chip_level (Chip_Id, Chip_Reference, Chip_First_Level, Chip_Second_Level, Sensor_Id) VALUES (:id, 60, 20, 40, 3);
+                                INSERT INTO chip_level (Chip_Id, Chip_Reference, Chip_First_Level, Chip_Second_Level, Sensor_Id) VALUES (:id, 100, 50, 75, 4)";
+        $create_chip_lvl_query = $GLOBALS['db']-> prepare($create_chip_lvl_sql);
+        $create_chip_lvl_query->execute(
+            array(
+                "chipId" => $id,
+                "sensor"=> $data['sensor'],
+                "reference" => $data['reference'],
+                "firstLevel" => $data['firstLevel'],
+                "secondLevel" => $data['secondLevel'],
             )
         );
         return true;

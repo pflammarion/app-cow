@@ -1,20 +1,19 @@
 <?php
-function createUser(array $values): bool
+function createUser(array $values, string $token): bool
 {
-    $nom = $values['lastname'];
-    $prenom = $values['firstname'];
-    $usname = $values["username"];
+    $lastname = $values['lastname'];
+    $firstname = $values['firstname'];
+    $username = $values["username"];
     $email = $values["email"];
     $role = $values["role"];
-    $token = $values['token'];
-    if ($nom !== "" && $prenom !== "" && $usname !== "" && $email !== "" && $role !== ""){
-        $create_user_sql = "INSERT INTO user (User_FirstName, User_LastName, User_Username, User_Email, Role_Id, User_Password, User_Token) VALUES (:firstName, :lastName, :username, :email, :role, :password, :token) ";
+    if ($lastname !== "" && $firstname !== "" && $username !== "" && $email !== "" && $role !== ""){
+        $create_user_sql = "INSERT INTO user (User_FirstName, User_LastName, User_Username, User_Email, Role_Id, User_Password, User_Token) VALUES (:firstname, :lastname, :username, :email, :role, :password, :token) ";
         $create_user_query = $GLOBALS['db']-> prepare($create_user_sql);
         $create_user_query->execute(
             array(
-                "lastname"=> $nom,
-                "firstname"=> $prenom,
-                "username"=> $usname,
+                "lastname"=> $lastname,
+                "firstname"=> $firstname,
+                "username"=> $username,
                 "email"=> $email,
                 "role"=> $role,
                 "password" => $token,

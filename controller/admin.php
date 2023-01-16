@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../model/faq.php';
 require_once __DIR__ . '/../model/contact.php';
 require_once __DIR__ . '/../model/login.php';
+require_once __DIR__ . '/../model/admin/user.php';
 require_once __DIR__ . '/mail.php';
 
 $page = selectPage("accueil");
@@ -117,13 +118,12 @@ if(!empty($page) && !empty($action)){
                     "firstname" => htmlentities($_POST['firstname']),
                     "email" => htmlentities($_POST['email']),
                     "username" => htmlentities($_POST['username']),
-                    "role" => htmlentities($_POST["role"]),
-                    'token'=> $token,
+                    "role" => intval($_POST["role"]),
                 );
-                $success = createUser($values);
+                $success = createUser($values, $token);
                 if ($success){
                     phpMailSender(htmlentities($_POST['email']), 'creation', $token);
-                    header("Location: admin?page=user&success=Vous avez bien crée l'utilisateur". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
+                    header("Location: admin?page=user&success=Vous avez bien crée l'utilisateur ". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
                     exit();
                 }
             }

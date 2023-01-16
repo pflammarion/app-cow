@@ -23,11 +23,11 @@
                                 <input type="email" name="email"
                             </label>
                         <label for="role">
-                            Rôle<br>
+                            Rôle
                             <select name="role">
                                 <?php
                                 foreach ($roles as $role){
-                                        echo '<option>' . $role['name'] .'</option>';
+                                        echo '<option value="' . $role['id'] . '">' . $role['name'] .'</option>';
                                 } ?>
                             </select>
                         </label>

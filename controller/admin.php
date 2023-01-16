@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../model/faq.php';
 require_once __DIR__ . '/../model/contact.php';
 require_once __DIR__ . '/../model/login.php';
+require_once __DIR__ . '/../model/function.php';
 require_once __DIR__ . '/../model/admin/user.php';
 require_once __DIR__ . '/mail.php';
 
@@ -113,17 +114,24 @@ if(!empty($page) && !empty($action)){
             $success = False;
             if ($_POST['action'] === 'create' && isset($_POST['lastname'], $_POST['firstname'], $_POST['email'], $_POST['username'], $_POST["role"])) {
                 $token = tokenGeneration();
-                $values = array(
-                    "lastname" => htmlentities($_POST['lastname']),
-                    "firstname" => htmlentities($_POST['firstname']),
-                    "email" => htmlentities($_POST['email']),
-                    "username" => htmlentities($_POST['username']),
-                    "role" => intval($_POST["role"]),
-                );
-                $success = createUser($values, $token);
-                if ($success){
-                    phpMailSender(htmlentities($_POST['email']), 'creation', $token);
-                    header("Location: admin?page=user&success=Vous avez bien crée l'utilisateur ". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
+                //check if user exists
+                if(checkEmail(htmlentities($_POST['email']))){
+                    $values = array(
+                        "lastname" => htmlentities($_POST['lastname']),
+                        "firstname" => htmlentities($_POST['firstname']),
+                        "email" => htmlentities($_POST['email']),
+                        "username" => htmlentities($_POST['username']),
+                        "role" => intval($_POST["role"]),
+                    );
+                    $success = createUser($values, $token);
+                    if ($success){
+                        phpMailSender(htmlentities($_POST['email']), 'creation', $token);
+                        header("Location: admin?page=user&success=Vous avez bien crée l'utilisateur ". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
+                        exit();
+                    }
+                }
+                else{
+                    header("Location: admin?page=user&action=create&error=L'email ou l'utilisateur existe déjà");
                     exit();
                 }
             }

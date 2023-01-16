@@ -13,7 +13,7 @@ foreach ($data as $chip){
         <div class="cow-view-setting-box">
             <div class="cow-view-box">
                 <div class="cow-view-profil">
-                    <img src="./public/assets/icon/profile.svg" class="profil-img">
+                    <img src="./public/assets/icon/chip.svg" class="profil-img">
                 </div>
                 <?php
                 echo '<h1>'.$box["number"].'</h1>';

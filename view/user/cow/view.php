@@ -12,7 +12,7 @@
                 </div>
                 <h1 class="font-arima" style="font-weight: bold">Ajouter une vache</h1>
                 <div class="cow-view-profil">
-                    <img src="./public/assets/icon/cow.svg">
+                    <img src="./public/assets/icon/cow.svg" alt="cow">
                 </div>
             </div>
         </a>
@@ -36,7 +36,7 @@
         if(!is_null($box['img_cow'])){
             echo '<div class="crop-img"><img src="' . $box['img_cow'] . '" class="cow-img" alt="Cow"></div>';
         }
-        else echo '<div class="crop-img"><img class="cow-img" src="./public/assets/icon/cow.svg" alt="Cow"></div>';
+        else echo '<div class="crop-img default"><img class="cow-img" src="./public/assets/icon/cow.svg" alt="Cow"></div>';
         echo '</div>';
         echo '<h1>'.$box["name"].'<br>'
              .$box["number"].'</h1>';

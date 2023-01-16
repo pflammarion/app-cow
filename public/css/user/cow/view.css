@@ -67,6 +67,11 @@
     height: 55px;
 }
 
+.cow-view-page-box .crop-img.default{
+    height: 35px;
+    width: auto;
+}
+
 @media screen and (min-width: 800px) {
     .cow-view-page-box {
         flex-direction: row;

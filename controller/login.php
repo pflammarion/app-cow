@@ -52,8 +52,8 @@ if(!empty($page)){
             $view = "login/lostPassword";
             if(isset($_POST['email'])){
                 $token = tokenGeneration();
-                $success = phpMailSender($_POST['email'],'psw', $token);
-                $insert = addToken($token, $_POST['email']);
+                $success = phpMailSender(htmlspecialchars($_POST['email']),'psw', $token);
+                $insert = addToken($token, htmlspecialchars($_POST['email']));
                 if ($success && $insert){
                     header("Location: login?page=login&success=Vous recevrez un mail d'ici quelques instants" );
                     exit();

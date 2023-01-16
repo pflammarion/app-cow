@@ -126,7 +126,8 @@ if(!empty($page) && !empty($action)){
                     $success = createUser($values, $token);
                     if ($success){
                         $mail = phpMailSender(htmlspecialchars($_POST['email']), 'creation', $token);
-                        if ($mail){
+                        $success = phpMailSender(htmlspecialchars($_POST['email']), 'contact');
+                        if ($mail && $success){
                             echo 'passé';
                             //header("Location: admin?page=user&success=Vous avez bien crée l'utilisateur ". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
                             //exit();

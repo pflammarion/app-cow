@@ -1,26 +1,23 @@
 <?php $roles = $roles ??  []; ?>
 <div class="user-admin-create">
-    <div class="box-user">
-        <div class="add-user">
             <h1>Nouvel utilisateur</h1>
             <form action="" method="post">
-                <div class="form-create-box">
                         <div class="create-user">
-                            <label for="user">
+                            <label for="lastname">
                                 Nom
                                 <input type="text" name="lastname">
                             </label>
-                            <label for="user">
+                            <label for="firstname">
                                 Prénom
-                                <input type="text" name="firstname"
+                                <input type="text" name="firstname">
                             </label>
-                            <label for="user">
+                            <label for="username">
                                 Nom d'utilisateur
-                                <input type="text" name="username"
+                                <input type="text" name="username">
                             </label>
-                            <label for ="user">
+                            <label for ="email">
                                 Adresse mail
-                                <input type="email" name="email"
+                                <input type="email" name="email">
                             </label>
                         <label for="role">
                             Rôle
@@ -32,27 +29,20 @@
                             </select>
                         </label>
                     </div>
-                </div>
 
                 <div class="btn-box-create">
-                    <div>
+                    <a href="admin?page=user">
+                        <div class="btn-return">
+                            <img src="./public/assets/icon/retour.svg" alt="retour">
+                            Retour
+                        </div>
+                    </a>
                         <button type="submit" class="btn-valider">
                             Valider
                         </button>
-                    </div>
-                    <div>
-                        <a href="admin?page=user">
-                            <div class="btn-return">
-                                <img src="./public/assets/icon/retour.svg" alt="retour">
-                                Retour
-                            </div>
-                        </a>
-                    </div>
+
                 </div>
                 <input type="hidden" value="create" name="action">
 
             </form>
-        </div>
-
-    </div>
 </div>

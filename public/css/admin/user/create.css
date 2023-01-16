@@ -1,1 +1,45 @@
 
+.user-admin-create{
+    padding: 50px;
+}
+
+.user-admin-create form{
+    flex-direction: column;
+}
+
+.user-admin-create .btn-box-create {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 150px;
+}
+
+.user-admin-create .create-user{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 616px;
+    margin: 50px auto 100px auto;
+}
+
+.user-admin-create .create-user input{
+    width: 300px;
+}
+
+.user-admin-create .create-user select{
+    background-color: white;
+    height: 40px;
+    border-radius: 5px;
+    border: solid 2px var(--dark-blue);
+    width: 300px;
+}
+
+.user-admin-create > h1{
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.user-admin-create .create-user label{
+    display: flex;
+    flex-direction: column;
+}

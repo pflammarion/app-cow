@@ -11,6 +11,10 @@
     align-items: center;
     flex-direction: column;
 }
+.cow-vache-delete .cow-view-box img{
+    height: 30px;
+    width: auto;
+}
 .btn-cow {
     display: flex;
     justify-content: center;

@@ -13,7 +13,7 @@ if(!empty($page)){
             $view = "login/login";
             if (isset($_POST['username']) and isset($_POST['password'])) {
                 $values = [
-                    'username' => $_POST['username'],
+                    'username' => htmlentities($_POST['username']),
                     'password' => $_POST['password'],
                 ];
                 $error = login($values);
@@ -27,6 +27,15 @@ if(!empty($page)){
                     else{
                         if ($_SESSION['role'] === 1){
                             header("Location: user?page=accueil&success=Vous êtes connecté en temps qu'utilisateur");
+                        }
+                        if($_SESSION['role'] === 3){
+                            $not_init = isAdminNotInit();
+                            if ($not_init){
+                                header("Location: admin?page=init");
+                            }
+                            else{
+                                header("Location: admin?page=accueil");
+                            }
                         }
                         else{
                             header("Location: admin?page=accueil");

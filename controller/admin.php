@@ -114,20 +114,20 @@ if(!empty($page) && !empty($action)){
             $success = False;
             if ($_POST['action'] === 'create' && isset($_POST['lastname'], $_POST['firstname'], $_POST['email'], $_POST['username'], $_POST["role"])) {
                 $token = tokenGeneration();
-                //check if user exists
-                if(true){
+                $username = htmlentities($_POST['username']);
+                $email = htmlentities($_POST['email']);
+                if(!checkUserEmailOrUser($email, $username)){
                     $values = array(
                         "lastname" => htmlentities($_POST['lastname']),
                         "firstname" => htmlentities($_POST['firstname']),
-                        "email" => htmlentities($_POST['email']),
-                        "username" => htmlentities($_POST['username']),
+                        "email" => $email,
+                        "username" => $username,
                         "role" => intval($_POST["role"]),
                     );
                     $success = createUser($values, $token);
                     if ($success){
                         $mail = phpMailSender(htmlspecialchars($_POST['email']), 'creation', $token);
-                        $success = phpMailSender(htmlspecialchars($_POST['email']), 'contact');
-                        if ($mail && $success){
+                        if ($mail){
                             header("Location: admin?page=user&success=Vous avez bien crée l'utilisateur ". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
                             exit();
                         }
@@ -139,22 +139,30 @@ if(!empty($page) && !empty($action)){
                 }
             }
             if ($_POST['action'] === 'update' && isset($_POST['lastname'], $_POST['firstname'], $_POST['email'], $_POST['username'], $_POST["role"], $_POST['id'])) {
-                $values = array(
-                    "lastname" => htmlentities($_POST['lastname']),
-                    "firstname" => htmlentities($_POST['firstname']),
-                    "email" => htmlentities($_POST['email']),
-                    "username" => htmlentities($_POST['username']),
-                    "role" => htmlentities($_POST["role"]),
-                    "id" => intval($_POST['id']),
-                );
-                $success = updateUser($values);
-                if ($success){
-                    $mail = phpMailSender(htmlspecialchars($_POST['email']), 'update');
-                    if ($mail){
-                        header("Location: admin?page=user&success=Vous avez bien modifié l'utilisateur ". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
-                        exit();
+                $username = htmlentities($_POST['username']);
+                $email = htmlentities($_POST['email']);
+                if (!checkUserEmailOrUser($email, $username)) {
+                    $values = array(
+                        "lastname" => htmlentities($_POST['lastname']),
+                        "firstname" => htmlentities($_POST['firstname']),
+                        "email" => htmlentities($_POST['email']),
+                        "username" => htmlentities($_POST['username']),
+                        "role" => htmlentities($_POST["role"]),
+                        "id" => intval($_POST['id']),
+                    );
+                    $success = updateUser($values);
+                    if ($success) {
+                        $mail = phpMailSender(htmlspecialchars($_POST['email']), 'update');
+                        if ($mail) {
+                            header("Location: admin?page=user&success=Vous avez bien modifié l'utilisateur " . urlencode(htmlentities($_POST['firstname'])) . " " . urlencode(htmlentities($_POST['lastname'])));
+                            exit();
+                        }
                     }
                 }
+               else{
+                   header("Location: admin?page=user&action=create&error=L'email ou l'utilisateur existe déjà");
+                   exit();
+               }
             }
 
             if ($_POST['action'] === 'delete' && isset($_POST['id'])) {

@@ -125,9 +125,11 @@ if(!empty($page) && !empty($action)){
                     );
                     $success = createUser($values, $token);
                     if ($success){
-                        phpMailSender(htmlentities($_POST['email']), 'creation', $token);
-                        header("Location: admin?page=user&success=Vous avez bien crée l'utilisateur ". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
-                        exit();
+                        $mail = phpMailSender(htmlentities($_POST['email']), 'creation', $token);
+                        if ($mail){
+                            header("Location: admin?page=user&success=Vous avez bien crée l'utilisateur ". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
+                            exit();
+                        }
                     }
                 }
                 else{
@@ -146,27 +148,33 @@ if(!empty($page) && !empty($action)){
                 );
                 $success = updateUser($values);
                 if ($success){
-                    phpMailSender(htmlentities($_POST['email']), 'update');
-                    header("Location: admin?page=user&success=Vous avez bien modifié l'utilisateur ". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
-                    exit();
+                    $mail = phpMailSender(htmlentities($_POST['email']), 'update');
+                    if ($mail){
+                        header("Location: admin?page=user&success=Vous avez bien modifié l'utilisateur ". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
+                        exit();
+                    }
                 }
             }
 
             if ($_POST['action'] === 'delete' && isset($_POST['id'])) {
                 $success = deleteUser(intval($_POST['id']));
                 if ($success){
-                    phpMailSender(htmlentities($_POST['email']), 'delete');
-                    header("Location: admin?page=user&success=Vous avez bien supprimé l'utilisateur". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
-                    exit();
+                    $mail = phpMailSender(htmlentities($_POST['email']), 'delete');
+                    if ($mail){
+                        header("Location: admin?page=user&success=Vous avez bien supprimé l'utilisateur". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
+                        exit();
+                    }
                 }
             }
 
             if ($_POST['action'] === 'ban' && isset($_POST['id'])) {
                 $success = banUser(intval($_POST['id']));
                 if ($success){
-                    phpMailSender(htmlentities($_POST['email']), 'ban');
-                    header("Location: admin?page=user&success=Vous avez bien bani l'utilisateur". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
-                    exit();
+                    $mail = phpMailSender(htmlentities($_POST['email']), 'ban');
+                    if ($mail){
+                        header("Location: admin?page=user&success=Vous avez bien bani l'utilisateur". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
+                        exit();
+                    }
                 }
             }
         }
@@ -179,11 +187,16 @@ if(!empty($page) && !empty($action)){
             if(isset($_GET['change'], $_GET['email'])){
                 $success = updateTicketStatus(intval($_GET['change']), intval($_GET['ticket']));
                 if ($success){
-                    phpMailSender(htmlentities($_GET['email']), 'contact_update');
-                    header("Location: admin?page=ticket&action=update&ticket=" . intval($_GET['ticket']) . "&success=Vous avez bien mis à jour le status");
+                    $mail = phpMailSender(htmlentities($_GET['email']), 'contact_update');
+                    if ($mail){
+                        header("Location: admin?page=ticket&action=update&ticket=" . intval($_GET['ticket']) . "&success=Vous avez bien mis à jour le status");
+                        exit();
+                    }
                 }
-                else header("Location: admin?page=ticket&action=update&ticket=" . intval($_GET['ticket']) . "&error=Une erreur s'est produite pendant la mise à jour du status mis à jour le status");
-                exit();
+                else{
+                    header("Location: admin?page=ticket&action=update&ticket=" . intval($_GET['ticket']) . "&error=Une erreur s'est produite pendant la mise à jour du status mis à jour le status");
+                    exit();
+                }
             }
         }
     }

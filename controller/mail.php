@@ -39,7 +39,7 @@ function phpMailSender(string $email, string $type,  string $token = ''): bool
         $mail->Body = makeMail($content, $link, $link_text);
         $mail->AltBody = "Pour changer de mot de passe merci de cliquer sur ce lien : " . $link;
     }
-    if($type === 'create'){
+    if($type === 'creation'){
         $mail->Subject = "Création de votre compte COW";
         $content = 'Veuillez cliquer sur ce bouton pour configurer votre nouveau mot de passe :';
         $link = 'https://newonline.world/login?page=newpassword&token=' . $token;

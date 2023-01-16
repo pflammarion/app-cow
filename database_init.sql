@@ -38,7 +38,7 @@ CREATE TABLE `alert` (
   KEY `Alert_alert_type_null_fk` (`Alert_Type_Id`),
   KEY `alert_sensor_null_fk` (`Chip_Level_Id`),
   CONSTRAINT `Alert_alert_type_null_fk` FOREIGN KEY (`Alert_Type_Id`) REFERENCES `alert_type` (`Alert_Type_Id`),
-  CONSTRAINT `alert_sensor_null_fk` FOREIGN KEY (`Chip_Level_Id`) REFERENCES `chip_level` (`Chip_Level_Id`)
+  CONSTRAINT `alert_sensor_null_fk` FOREIGN KEY (`Chip_Level_Id`) REFERENCES `chip_level` (`Chip_Level_Id`) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

@@ -118,66 +118,75 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 if ($_POST['action'] === 'create') {
                     $name = htmlspecialchars($_POST['name']);
                     $values = array(
-                        "name" => $_POST['name'],
+                        "name" => $name,
                         "number" => $_POST['number'],
                     );
                     $success = createCow($values);
                     if ($success ){
-                        $url = "Location: user?page=vache&action=view&success=La vache " . $name . " à été ajouté à votre compte";
+                        $url = "Location: user?page=vache&action=view&success=La vache " . urlencode($name) . " a été ajouté à votre compte";
                         header($url);
-                        exit();
                     }else{
-                        header("Location: user?page=vache&action=create&error=Une erreur s'est produite veuillez rééssayer");
-                        exit();
+                        header("Location: user?page=vache&action=create&error=Une erreur s'est produite veuillez réessayer");
                     }
+                    exit();
                 }
                 if ($_POST['action'] === 'delete' && isset($_POST['cowId'], $_POST['name'])) {
                     $name = htmlspecialchars($_POST['name']);
                     $success = deleteCow(intval($_POST['cowId']));
                     if ($success ){
-                        $url = "Location: user?page=vache&action=view&success=La vache " .$name. " à été supprimée";
+                        $url = "Location: user?page=vache&action=view&success=La vache " . urlencode($name). " à été supprimée";
                         header($url);
                         exit();
                     }
                 }
                 if ($_POST['action'] === 'update') {
+                    $name = htmlspecialchars($_POST['name']);
                     $values = array(
-                        "name" => $_POST['name'],
-                        "number" => $_POST['number'],
-                        "id" => $_POST['cowId'],
+                        "name" => $name,
+                        "number" => htmlentities($_POST['number']),
+                        "id" => intval($_POST['cowId']),
                     );
-                    $success = updateCow($values);
-                    if ($success ){
-                        $url = "Location: user?page=vache&action=view&success=La vache " .$name. " à été modifiée";
-                        header($url);
-                        exit();
+
+                    $update = updateCow($values);
+                    if(isset($_POST['delete-img'], $_POST['cowId'])){
+                        $update = removeImage('cow', intval($_POST['cowId']));
+                    }
+                    if (isset( $_FILES["file"] ) && !empty( $_FILES["file"]["name"] ) && $update){
+                        $filename   = uniqid() . "-" . time();
+                        $extension  = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION );
+                        $basename   = $filename . "." . $extension;
+                        $source       = $_FILES["file"]["tmp_name"];
+                        $destination  = "./uploads/{$basename}";
+                        $upload = True;
+                        if($extension != "jpg" && $extension != "png" && $extension!= "jpeg") {
+                            $upload = False;
+                            $update= False;
+                        }
+                        if ($_FILES["file"]["size"] > 5000000) {
+                            $upload = False;
+                            $update= False;
+                        }
+                        if($upload){
+                            $update = updateImage("cow", $destination, intval($_POST['cowId']));
+                            if ($update){
+                                move_uploaded_file( $source, $destination );
+                                $url = "Location: user?page=vache&action=view&success=La vache " .urlencode($name). " à été modifiée";
+                                header($url);
+                                exit();
+                            }
+                            else{
+                                $url = "Location: user?page=vache&action=update&error=Une erreur s'est produite pendant la modification";
+                                header($url);
+                                exit();
+                            }
+                        }
+                        else{
+                            $url = "Location: user?page=vache&action=update&error=L'extension ou la taille de l'image ne sont pas conformes";
+                            header($url);
+                            exit();
+                        }
                     }
 
-                            if(isset($_POST['delete-img'])){
-                                $update = removeImage('user', $_SESSION['user']);
-                            }
-                            if (isset( $_FILES["file"] ) && !empty( $_FILES["file"]["name"] ) && $update){
-                                $filename   = uniqid() . "-" . time();
-                                $extension  = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION );
-                                $basename   = $filename . "." . $extension;
-                                $source       = $_FILES["file"]["tmp_name"];
-                                $destination  = "./uploads/{$basename}";
-                                $upload = True;
-                                if($extension != "jpg" && $extension != "png" && $extension!= "jpeg") {
-                                    $upload = False;
-                                    $update= False;
-                                }
-                                if ($_FILES["file"]["size"] > 5000000) {
-                                    $upload = False;
-                                    $update= False;
-                                }
-                                if($upload){
-                                    $update = updateImage("user", $destination, $_SESSION['user']);
-                                    if ($update){
-                                        move_uploaded_file( $source, $destination );
-                                    }
-                                }
-                            }
                 }
             }
             break;

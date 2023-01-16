@@ -16,20 +16,20 @@
     justify-content: center;
     align-items: center;
     margin: 50px 0 50px 0;
-    gap: 100px;
+    gap: 20px;
 }
 
 .btn-cow > * {
     padding: 5px 20px;
 }
-@media screen and (max-width: 800px) {
-    .cow-view-setting-box-delete> h1 {
-        font-size: 26px;
-        margin-bottom: 50px;
-        margin-top: 50px;
-    }
 
+.cow-view-setting-box-delete > h1 {
+    font-size: 26px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+@media screen and (min-width: 800px) {
     .btn-cow {
-        gap: 20px;
+        gap: 100px;
     }
 }

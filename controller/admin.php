@@ -60,6 +60,7 @@ if(!empty($page) && !empty($action)){
                     "role" => $_POST["role"],
                 );
                 $success = createUser($values);
+            }
                 if ($_POST['action'] == 'update') {
                     $values = array(
                         "lastname" => $_POST['lastname'],
@@ -70,6 +71,7 @@ if(!empty($page) && !empty($action)){
                         "id" => $_POST['id'],
                     );
                     $success = updateUser($values);
+                }
                     if ($_POST['action'] === 'delete') {
                         $success = deleteUser(intval($_POST['id']));
                     }
@@ -77,8 +79,8 @@ if(!empty($page) && !empty($action)){
                         header("Location: admin?page=user&action=view&success=Reussite");
                         exit();
                     }
-                }
-                }
+
+
             if ($success) {
                 header("Location: admin?page=user&action=view&success=Reussite");
                 exit();

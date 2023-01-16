@@ -46,5 +46,3 @@
     ?>
 
 </div>
-
-<?php print_r($affiche);

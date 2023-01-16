@@ -1,9 +1,4 @@
-<?php $data = $content ??  [];
-
-usort($data, function ($item1, $item2) {
-    return $item1['name'] <=> $item2['name'];
-});
-?>
+<?php $data = $content ??  [] ?>
 
 <div class="cow-view-page-box">
 

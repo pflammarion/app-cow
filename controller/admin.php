@@ -107,6 +107,45 @@ if(!empty($page) && !empty($action)){
     elseif($page === 'user' && pageAuthorization('admin/user')){
         $roles = getRoles();
         $view = "admin/user/" . $action;
+        $content = getuser();
+        $roles = getRoles();
+        if (isset($_POST['action'])) {
+            $success = False;
+            if ($_POST['action'] == 'create') {
+                $values = array(
+                    "lastname" => $_POST['lastname'],
+                    "firstname" => $_POST['firstname'],
+                    "email" => $_POST['email'],
+                    "username" => $_POST['username'],
+                    "role" => $_POST["role"],
+                );
+                $success = createUser($values);
+            }
+                if ($_POST['action'] == 'update') {
+                    $values = array(
+                        "lastname" => $_POST['lastname'],
+                        "firstname" => $_POST['firstname'],
+                        "email" => $_POST['email'],
+                        "username" => $_POST['username'],
+                        "role" => $_POST["role"],
+                        "id" => $_POST['id'],
+                    );
+                    $success = updateUser($values);
+                }
+                    if ($_POST['action'] === 'delete') {
+                        $success = deleteUser(intval($_POST['id']));
+                    }
+                    if ($success) {
+                        header("Location: admin?page=user&action=view&success=Reussite");
+                        exit();
+                    }
+
+
+            if ($success) {
+                header("Location: admin?page=user&action=view&success=Reussite");
+                exit();
+            }
+        }
     }
     elseif($page === 'ticket' && pageAuthorization('admin/ticket')) {
         $view = "admin/ticket/" . $action;

@@ -10,13 +10,19 @@
     margin-top: 30px;
     display: flex;
     justify-content: space-around;
-    gap : 100px;
+    gap: 100px;
 }
 .faq-admin-delete .btn-delete-space {
     display: flex;
-    gap : 100px
+    gap: 100px
 }
 .faq-admin-delete .btn-delete{
-    width: 250px;
+    width: 200px;
+    font-size: 32px;
+}
+
+.faq-admin-delete .btn-valider{
+    width: 200px;
+    height: 65px;
     font-size: 32px;
 }

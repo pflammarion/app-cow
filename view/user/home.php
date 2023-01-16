@@ -32,7 +32,7 @@ $chipId = $chipId ?? 0;
                     $img_url = '';
                     $val = '';
                     $sensor_id = 1;
-                    $url = '/user?page=accueil';
+                    $url = 'user?page=accueil';
                     if (isset($sensor['value'])){
                         $val = $sensor['value'];
                         $class = '';

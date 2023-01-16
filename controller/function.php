@@ -12,40 +12,11 @@ function selectPage(string $default): string
         $page = $default;
     }
     else {
-        $page = verifyString($_GET['page']);
+        $page = dataCleaner($_GET['page']);
     }
     return $page;
 }
-function verifyInt($valeur): int
-{
-    if (is_int($valeur)) {
-        // La valeur est déjà un entier, on ne fait rien
-        return $valeur;
-    } elseif (is_string($valeur) && ctype_digit($valeur)) {
-        // La valeur est une chaîne de caractères qui ne contient que des chiffres, on la convertit en entier
-        return (int)$valeur;
-    } else {
-        // La valeur n'est pas un entier, on renvoie false
-        return false;
-    }
-}
-function verifyString($str)
-{
-    if (is_string($str)){
-        // La valeur est déjà un string, on ne fait rien
-        #echo gettype($str);
-        return $str;
-    }
-    elseif (!is_string($str)){
 
-        $st= "\"" . $str . "\"";
-        #gettype($st)
-        return $st;
-    }
-    else {
-        return false;
-    }
-}
 
 function selectAction(string $default): string
 {
@@ -53,7 +24,7 @@ function selectAction(string $default): string
         $action = $default;
     }
     else {
-        $action = $_GET['action'];
+        $action = dataCleaner($_GET['action']);
     }
     return $action;
 }
@@ -84,5 +55,42 @@ function tokenGeneration(): string
 function validateDate($date, $format = 'Y-m-d H:i:s'): bool
 {
     $d = DateTime::createFromFormat($format, $date);
-    return $d && $d->format($format) == $date;
+    return $d && $d->format($format) === $date;
+}
+
+function dataChecker($data, string $validation_type): bool
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+
+    switch ($validation_type) {
+        case "email":
+            if (!filter_var($data, FILTER_VALIDATE_EMAIL)) {
+                return false;
+            }
+            break;
+        case "int":
+            if (!filter_var($data, FILTER_VALIDATE_INT)) {
+                return false;
+            }
+            break;
+        case "string":
+            if (!filter_var($data, FILTER_SANITIZE_STRING)) {
+                return false;
+            }
+            break;
+
+        default:
+            return true;
+    }
+    return true;
+}
+
+function dataCleaner($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }

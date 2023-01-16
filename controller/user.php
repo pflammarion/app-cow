@@ -34,7 +34,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             if($action === 'view'){
                 $view = "user/home";
                 if (isset($_GET['cow'])){
-                    $cowId = verifyInt($_GET['cow']);
+                    $cowId = intval($_GET['cow']);
                     $sensors = array(
                         'heart' => getSensorValueByCowBySensor($cowId,1),
                         'air' => getSensorValueByCowBySensor($cowId,2),
@@ -77,11 +77,11 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
 
         case 'tableau':
             if (isset($_GET['sensor'])){
-                $sensor= intval(verifyString($_GET['sensor']));
+                $sensor= intval($_GET['sensor']);
                 //user?page=tableau&type=air&js=1&average=3&date=2022-01-04&sensor=1&cowId=1
                 if(isset($_GET['js'], $_GET['average'], $_GET['date'], $_GET['cowId'])){
                     $average = intval($_GET['average']);
-                    $cowId = intval(verifyInt($_GET['cowId']));
+                    $cowId = intval($_GET['cowId']);
                     //filter data from get
                     $date = strtotime($_GET['date']);
                     //for annual

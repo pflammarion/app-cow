@@ -138,10 +138,11 @@
     display: flex;
     border: solid 2px var(--dark-blue);
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 32px;
     border-radius: 5px;
     padding: 8px;
+    background-color: var(--light-blue);
 }
 
 .table #selected-cow .crop-img{
@@ -163,7 +164,7 @@
 .table #selected-cow .content{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .table #selected-cow .content span:nth-child(1){
@@ -179,11 +180,17 @@
     margin-top: 32px;
 }
 
+.table #herd{
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 175px;
+}
+
 .table #herd .herd-button{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    margin: 3px 6px;
+    margin: 3px 32px;
     border: 2px solid var(--dark-blue);
     border-radius: 5px;
     padding: 5px;
@@ -198,6 +205,26 @@
     width: calc((100%/2) + 40px);
 }
 
+.table .container .download-link{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 2px dashed var(--dark-blue);
+    padding-bottom: 20px;
+    margin-bottom: 16px ;
+}
+
+.table .container .download-link a img{
+    height: 30px;
+    width: auto;
+    margin-top: 16px;
+}
+
+.table .container > span{
+    font-size: 12px;
+    font-style: italic;
+}
+
 @media screen and (min-width: 800px) {
     .table .container{
         width: 600px;
@@ -206,5 +233,17 @@
 
     .table .table-header img{
         width: 30px;
+    }
+
+    .table .container .download-link a img {
+        height: 50px;
+    }
+
+    .table #herd{
+        height: 238px;
+    }
+
+    .table #herd .herd-button{
+        margin: 3px 80px;
     }
 }

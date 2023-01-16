@@ -1,19 +1,19 @@
-.text{
+.err-404{
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 80px 0;
 }
 
-h1{
+.err-404 h1{
     font-size: 40px !important;
 }
 
 @media screen and (min-width: 800px) {
-    h1{
+    .err-404 h1{
         font-size: 50px !important;
     }
-    img{
+    .err-404 img{
         width: 100px;
     }
 }

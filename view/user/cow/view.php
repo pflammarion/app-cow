@@ -33,7 +33,10 @@
         echo '</div>';
         echo '<div class="cow-view-box">';
         echo '<div class="cow-view-profil">';
-        echo '<img src="./public/assets/icon/profile.svg" class="profil-img">';
+        if(!is_null($box['img_cow'])){
+            echo '<div class="crop-img"><img src="' . $box['img_cow'] . '" class="cow-img" alt="Cow"></div>';
+        }
+        else echo '<div class="crop-img"><img class="cow-img" src="./public/assets/icon/cow.svg" alt="Cow"></div>';
         echo '</div>';
         echo '<h1>'.$box["name"].'<br>'
              .$box["number"].'</h1>';

@@ -7,7 +7,7 @@ function createUser(array $values): bool
     $email = $values["email"];
     $role = $values["role"];
     $token = $values['token'];
-    if ($nom != "" && $prenom != "" && $usname != "" && $email != "" && $role = ""){
+    if ($nom !== "" && $prenom !== "" && $usname !== "" && $email !== "" && $role !== ""){
         $create_user_sql = "INSERT INTO user (User_FirstName, User_LastName, User_Username, User_Email, Role_Id, User_Password, User_Token) VALUES (:firstName, :lastName, :username, :email, :role, :password, :token) ";
         $create_user_query = $GLOBALS['db']-> prepare($create_user_sql);
         $create_user_query->execute(
@@ -33,7 +33,7 @@ function updateUser(array $values): bool
     $email = $values["email"];
     $role = $values["role"];
     $id = $values["id"];
-    if ($nom != "" && $prenom != "" && $usname != "" && $email != "" && $role != "" && $id != ""){
+    if ($nom !== "" && $prenom !== "" && $usname !== "" && $email !== "" && $role !== "" && $id !== ""){
         $update_user_sql = "UPDATE user SET User_FirstName=:firstname, User_LastName=:lastname, User_Username=:username, User_Email=:email WHERE User_Id=:id";
         $update_user_query = $GLOBALS['db']-> prepare($update_user_sql);
         $update_user_query->execute(

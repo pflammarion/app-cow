@@ -37,26 +37,20 @@ foreach ($data as $cow){
                 </label>
                 <?php
                 if(!is_null($box['img_cow'])){
-                    echo '<label for="delete-img">Supprimer ma photo<input type="checkbox" name="delete-img"></label>';
+                    echo '<label for="delete-img" class="cow-img-delete">Supprimer la photo<input type="checkbox" name="delete-img"></label>';
                 }?>
 
             </div>
         </div>
         <div class="box-around-btn">
             <div class="btn-cow">
-                <div>
                     <button type="submit" class="btn-valider">
                         Valider
                     </button>
-                </div>
-                <div>
-                    <a href="user?page=vache">
-                        <div class="btn-return">
+                    <a href="user?page=vache" class="btn-return">
                             <img src="./public/assets/icon/retour.svg" alt="retour">
                             Retour
-                        </div>
                     </a>
-                </div>
             </div>
         </div>
         <input type="hidden" value="update" name="action">

@@ -16,21 +16,13 @@
 
         <div class="box-around-btn">
             <div class="btn-cow">
-                <div>
-                    <a href="user?page=vache">
                         <button type="submit" class="btn-valider">
                             Valider
                         </button>
-                    </a>
-                </div>
-                <div>
-                    <a href="user?page=vache">
-                        <div class="btn-return">
+                    <a href="user?page=vache" class="btn-return">
                             <img src="./public/assets/icon/retour.svg" alt="retour">
                             Retour
-                        </div>
                     </a>
-                </div>
             </div>
         </div>
         <input type="hidden" value="create" name="action">

@@ -27,13 +27,15 @@ foreach ($data as $chip){
                 <input type="hidden" value="<?php echo htmlspecialchars($_GET['number']) ?>" name="number">
                 <input type="hidden" value="<?php echo intval($_GET["chipId"]) ?>" name="chipId">
                 <div class="btn-cow">
+
+                    <a href="user?page=boitier" class="btn-return">
+                        <img src="./public/assets/icon/retour.svg" alt="retour">
+                        Retour
+                    </a>
                     <button type="submit" class="btn-delete">
                         Supprimer
                     </button>
-                        <a href="user?page=boitier" class="btn-return">
-                            <img src="./public/assets/icon/retour.svg" alt="retour">
-                            Retour
-                        </a>
+
                 </div>
             </form>
         </div>

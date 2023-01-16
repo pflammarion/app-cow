@@ -27,13 +27,14 @@ foreach ($data as $cow){
                 <input type="hidden" value="<?php echo htmlspecialchars($_GET['name']) ?>" name="name">
                 <input type="hidden" value="<?php echo intval($_GET["cowId"]) ?>" name="cowId">
                 <div class="btn-cow">
+                    <a href="user?page=vache" class="btn-return">
+                        <img src="./public/assets/icon/retour.svg" alt="retour">
+                        Retour
+                    </a>
                     <button type="submit" class="btn-delete">
                         Supprimer
                     </button>
-                        <a href="user?page=vache" class="btn-return">
-                            <img src="./public/assets/icon/retour.svg" alt="retour">
-                            Retour
-                        </a>
+
                 </div>
             </form>
         </div>

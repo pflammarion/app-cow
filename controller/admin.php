@@ -186,6 +186,11 @@ if(!empty($page) && !empty($action)){
                         header("Location: admin?page=user&success=Vous avez bien bani l'utilisateur". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
                         exit();
                     }
+                    else echo 'erreur';
+                }
+                else{
+                    header("Location: admin?page=user&error=Une erreur s'est produite merci de réessayer");
+                    exit();
                 }
             }
         }

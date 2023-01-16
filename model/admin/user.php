@@ -50,7 +50,7 @@ function updateUser(array $values): bool
 }
 function deleteUser(int $id): bool
 {
-    $delete_user_sql = "DELETE FROM user WHERE User_Id = :id;";
+    $delete_user_sql = "DELETE FROM user WHERE User_Id = :id AND User_Id != 1";
     $delete_user_query = $GLOBALS['db']-> prepare($delete_user_sql);
     $delete_user_query->execute(
         array(
@@ -62,7 +62,7 @@ function deleteUser(int $id): bool
 
 function banUser(int $id): bool
 {
-    $ban_user_sql = "UPDATE user SET User_Ban = 1 WHERE User_Id=:id";
+    $ban_user_sql = "UPDATE user SET User_Ban = 1 WHERE User_Id=:id AND User_Id != 1";
     $ban_user_query = $GLOBALS['db']-> prepare($ban_user_sql);
     $ban_user_query->execute(
         array(

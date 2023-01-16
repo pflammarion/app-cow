@@ -12,9 +12,9 @@ foreach ($data as $user){
         <?php if(isset($box))echo '<p>'.$box["firstname"]." ".$box["lastname"].'</p>' ?>
         <div class="btn-box-delete">
             <form action="" method="post">
-                <select id="select">
-                    <option value="delete" name="action" selected="selected">Supprimer</option>
-                    <option value="ban" name="action">Bannir</option>
+                <select id="select" name="action">
+                    <option value="delete" selected="selected">Supprimer</option>
+                    <option value="ban">Bannir</option>
                 </select>
                 <input type="hidden" value="<?php echo $_GET["id"] ?>" name="id">
                 <div class="btn-delete-space">

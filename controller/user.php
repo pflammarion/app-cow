@@ -121,11 +121,11 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             $view = "user/cow/". $action;
             $content = getAllCow();
             if (isset($_POST['action'])) {
-                if ($_POST['action'] === 'create') {
+                if ($_POST['action'] === 'create' && isset($_POST['name'], $_POST['number'])) {
                     $name = htmlspecialchars($_POST['name']);
                     $values = array(
                         "name" => $name,
-                        "number" => $_POST['number'],
+                        "number" => htmlentities(strtoupper($_POST['number'])),
                     );
                     $success = createCow($values);
                     if ($success ){
@@ -145,11 +145,11 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                         exit();
                     }
                 }
-                if ($_POST['action'] === 'update') {
+                if ($_POST['action'] === 'update' && isset($_POST['name'], $_POST['cowId'], $_POST['number'])) {
                     $name = htmlspecialchars($_POST['name']);
                     $values = array(
                         "name" => $name,
-                        "number" => htmlentities($_POST['number']),
+                        "number" => htmlentities(strtoupper($_POST['number'])),
                         "id" => intval($_POST['cowId']),
                     );
 
@@ -188,7 +188,10 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                         header($url);
                         exit();
                     }
-
+                    if ($update) {
+                        header("Location: user?page=vache&success=La vache  " . urlencode($name) . " a bien été mise à jour");
+                        exit();
+                    }
                 }
             }
             break;

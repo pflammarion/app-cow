@@ -71,39 +71,37 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
         case 'boitier':
             $view = "user/chip/". $action;
             $content = getAllChip();
-            if (isset($_POST['action'])) {
+            if (isset($_POST['action'], $_POST['number'])) {
+                $number = htmlspecialchars($_POST['number']);
                 if ($_POST['action'] === 'create') {
-                    $number = htmlspecialchars($_POST['number']);
                     $values = array(
-                        "number" => $_POST['number'],
+                        "number" => $number,
                     );
                     $success = createChip($values);
-                    if ($success ){
-                        $url = "Location: user?page=boitier&action=view&success=Le boitier " . $number . " à été ajouté à votre compte";
+                    if ($success){
+                        $url = "Location: user?page=boitier&action=view&success=Le boitier " . urlencode($number) . " à été ajouté à votre compte";
                         header($url);
-                        exit();
                     }else{
                         header("Location: user?page=boitier&action=create&error=Une erreur s'est produite veuillez rééssayer");
-                        exit();
                     }
+                    exit();
                 }
-                if ($_POST['action'] === 'delete' && isset($_POST['chipId'], $_POST['number'])) {
-                    $number = htmlspecialchars($_POST['number']);
+                if ($_POST['action'] === 'delete' && isset($_POST['chipId'])) {
                     $success = deleteChip(intval($_POST['chipId']));
                     if ($success ){
-                        $url = "Location: user?page=boitier&action=view&success=Le boitier " .$number. " à été supprimée";
+                        $url = "Location: user?page=boitier&action=view&success=Le boitier " .urlencode($number). " à été supprimée";
                         header($url);
                         exit();
                     }
                 }
-                if ($_POST['action'] === 'update' && isset($_POST['chipId'], $_POST['number'])) {
+                if ($_POST['action'] === 'update' && isset($_POST['chipId'])) {
                     $values = array(
-                        "number" => $_POST['number'],
-                        "id" => $_POST['chipId'],
+                        "number" => $number,
+                        "id" => intval($_POST['chipId']),
                     );
                     $success = updateChip($values);
                     if ($success ){
-                        $url = "Location: user?page=boitier&action=view&success=Le boitier " .$number. " à été modifiée";
+                        $url = "Location: user?page=boitier&action=view&success=Le boitier " .urlencode($number). " à été modifiée";
                         header($url);
                         exit();
                     }
@@ -171,20 +169,16 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                             if ($update){
                                 move_uploaded_file( $source, $destination );
                                 $url = "Location: user?page=vache&action=view&success=La vache " .urlencode($name). " à été modifiée";
-                                header($url);
-                                exit();
                             }
                             else{
                                 $url = "Location: user?page=vache&action=update&error=Une erreur s'est produite pendant la modification";
-                                header($url);
-                                exit();
                             }
                         }
                         else{
                             $url = "Location: user?page=vache&action=update&error=L'extension ou la taille de l'image ne sont pas conformes";
-                            header($url);
-                            exit();
                         }
+                        header($url);
+                        exit();
                     }
 
                 }

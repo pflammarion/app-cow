@@ -141,7 +141,7 @@ if(!empty($page) && !empty($action)){
             if ($_POST['action'] === 'update' && isset($_POST['lastname'], $_POST['firstname'], $_POST['email'], $_POST['username'], $_POST["role"], $_POST['id'])) {
                 $username = htmlentities($_POST['username']);
                 $email = htmlentities($_POST['email']);
-                if (!checkUserEmailOrUser($email, $username)) {
+                if (!checkUserEmailOrUser($email, $username, intval($_POST['id']))) {
                     $values = array(
                         "lastname" => htmlentities($_POST['lastname']),
                         "firstname" => htmlentities($_POST['firstname']),

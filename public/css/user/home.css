@@ -106,7 +106,7 @@
 
 .home .cow-info .crop-img,
 .cow-view-page-box .crop-img,
-.cow-vache-add{
+.cow-vache-add .crop-img{
     height: 70px;
     width: 70px;
     display: flex;

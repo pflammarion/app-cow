@@ -30,12 +30,10 @@ foreach ($data as $chip){
                     <button type="submit" class="btn-delete">
                         Supprimer
                     </button>
-                    <div>
                         <a href="user?page=boitier" class="btn-return">
                             <img src="./public/assets/icon/retour.svg" alt="retour">
                             Retour
                         </a>
-                    </div>
                 </div>
             </form>
         </div>

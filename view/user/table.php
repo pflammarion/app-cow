@@ -103,7 +103,7 @@
                         }
                         let id = herd[i]['id'];
                         //faire onclick js plutot qu'un lien mais pas grave pour l'instant
-                        $('#herd').append('<a href="/user?page=tableau&sensor=2&cow=' + id +'" class="herd-button"><span>' + name +'</span><span>' + number + '</span></a>')
+                        $('#herd').append('<a href="user?page=tableau&sensor=2&cow=' + id +'" class="herd-button"><span>' + name +'</span><span>' + number + '</span></a>')
                     }
                 }
             }

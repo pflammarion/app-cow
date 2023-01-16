@@ -16,9 +16,12 @@ $email = $email ?? '';
         <div class="list">
             <?php
             foreach ($tickets as $ticket){
-                 if ($ticket['status_id'] === 1) echo '<div class="ticket open">';
-                else if ($ticket['status_id'] === 2) echo '<div class="ticket progress">';
-                else if ($ticket['status_id'] === 3) echo '<div class="ticket closed">';
+                if (isset($ticket['status_id'])){
+                    if ($ticket['status_id'] === 1) echo '<div class="ticket open">';
+                    else if ($ticket['status_id'] === 2) echo '<div class="ticket progress">';
+                    else if ($ticket['status_id'] === 3) echo '<div class="ticket closed">';
+                    else echo '<div class="container">';
+                }
                 else echo '<div class="container">';
                 if(isset($ticket['content'])){
                     echo '<a title="Supprimer" href="all?page=contact&delete=1&ticket=' . $ticket['id'] .'" class="btn-blue">

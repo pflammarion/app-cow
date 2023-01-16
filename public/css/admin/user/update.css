@@ -1,17 +1,45 @@
-.faq-admin-update .box-question {
+
+.user-admin-update{
+    padding: 50px;
+}
+
+.user-admin-update form{
+    flex-direction: column;
+}
+
+.user-admin-update .btn-box-update {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap : 150px;
 }
-.faq-admin-update .update-faq-admin-title {
+
+.user-admin-update .user{
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 616px;
+    margin: 50px auto 100px auto;
 }
-.faq-admin-update .btn-box-update {
-    margin-top: 32px;
-    margin-left: 0;
-    margin-right: 16px;
+
+.user-admin-update .user input{
+    width: 300px;
+}
+
+.user-admin-update .user select{
+    background-color: white;
+    height: 40px;
+    border-radius: 5px;
+    border: solid 2px var(--dark-blue);
+    width: 300px;
+}
+
+.user-admin-update > h1{
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.user-admin-update .user label{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap : 32px;
 }

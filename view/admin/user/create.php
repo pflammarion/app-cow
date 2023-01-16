@@ -37,7 +37,7 @@
                             Retour
                         </div>
                     </a>
-                        <button type="submit" class="btn-valider">
+                        <button id="env" type="submit" class="btn-valider">
                             Valider
                         </button>
 
@@ -46,3 +46,20 @@
 
             </form>
 </div>
+
+<div id="overlay">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>
+
+<script>
+    $(document).ready(() => {
+
+        $('#env').on('click', function (e){
+            e.preventDefault();
+            $("#overlay").fadeIn(300);
+            $('form').submit();
+        })
+    });
+</script>

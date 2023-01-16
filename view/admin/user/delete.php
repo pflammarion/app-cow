@@ -15,7 +15,7 @@ foreach ($data as $user){
                 <input type="hidden" value="delete" name="action" >
                 <input type="hidden" value="<?php echo $_GET["id"] ?>" name="id">
                 <div class="btn-delete-space">
-                    <button type="submit" class="btn-valider" style="background:var(--red)">
+                    <button id="env" type="submit" class="btn-delete">
                         Supprimer
                     </button>
                         <a href="admin?page=user" class="btn-valider">
@@ -28,6 +28,23 @@ foreach ($data as $user){
         </div>
     </div>
 </div>
+
+<div id="overlay">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>
+
+<script>
+    $(document).ready(() => {
+
+        $('#env').on('click', function (e){
+            e.preventDefault();
+            $("#overlay").fadeIn(300);
+            $('form').submit();
+        })
+    });
+</script>
 
 
 

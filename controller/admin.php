@@ -127,8 +127,9 @@ if(!empty($page) && !empty($action)){
                     if ($success){
                         $mail = phpMailSender(htmlspecialchars($_POST['email']), 'creation', $token);
                         if ($mail){
-                            header("Location: admin?page=user&success=Vous avez bien crée l'utilisateur ". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
-                            exit();
+                            echo 'passé';
+                            //header("Location: admin?page=user&success=Vous avez bien crée l'utilisateur ". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
+                            //exit();
                         }
                     }
                 }
@@ -157,9 +158,10 @@ if(!empty($page) && !empty($action)){
             }
 
             if ($_POST['action'] === 'delete' && isset($_POST['id'])) {
+                $email = getUserEmail(intval($_POST['id']));
                 $success = deleteUser(intval($_POST['id']));
                 if ($success){
-                    $mail = phpMailSender(htmlspecialchars($_POST['email']), 'delete');
+                    $mail = phpMailSender(htmlspecialchars($email), 'delete');
                     if ($mail){
                         header("Location: admin?page=user&success=Vous avez bien supprimé l'utilisateur". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
                         exit();
@@ -168,9 +170,10 @@ if(!empty($page) && !empty($action)){
             }
 
             if ($_POST['action'] === 'ban' && isset($_POST['id'])) {
+                $email = getUserEmail(intval($_POST['id']));
                 $success = banUser(intval($_POST['id']));
                 if ($success){
-                    $mail = phpMailSender(htmlspecialchars($_POST['email']), 'ban');
+                    $mail = phpMailSender(htmlspecialchars($email), 'ban');
                     if ($mail){
                         header("Location: admin?page=user&success=Vous avez bien bani l'utilisateur". urlencode(htmlentities($_POST['firstname'])) . " " . urlencode( htmlentities($_POST['lastname'])));
                         exit();

@@ -89,8 +89,7 @@ function phpMailSender(string $email, string $type,  string $token = ''): bool
     }
 
     try {
-        $mail->send();
-        return true;
+        return $mail->send();
     } catch (Exception $e) {         // @ignore
         return false;
     }

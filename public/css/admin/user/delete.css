@@ -1,18 +1,26 @@
-.faq-admin-delete .delete-container {
+.user-admin-delete {
     display: flex;
-    margin: 0 auto;
-    width: 1100px;
-    height: 400px;
+    justify-content: center;
     flex-direction: column;
+    padding: 50px;
+    text-align: center;
+}
+
+.btn-delete-space {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    margin: 100px 0 50px 0;
+    gap: 20px;
 }
-.faq-admin-delete .btn-box-delete {
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-around;
-    gap : 100px;
+
+.btn-delete-space > * {
+    padding: 5px 20px;
 }
-.faq-admin-delete .btn-delete-space {
-    display: flex;
-    gap : 100px
+
+
+@media screen and (min-width: 800px) {
+    .btn-delete-space {
+        gap: 100px;
+    }
 }

@@ -18,12 +18,10 @@ foreach ($data as $user){
                     <button type="submit" class="btn-valider" style="background:var(--red)">
                         Supprimer
                     </button>
-                    <div>
                         <a href="admin?page=user" class="btn-valider">
                             <img src="./public/assets/icon/retour.svg" alt="retour">
                             Retour
                         </a>
-                    </div>
                 </div>
             </form>
 

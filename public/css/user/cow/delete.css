@@ -1,0 +1,36 @@
+.cow-vache-delete {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.cow-view-setting-box-delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.btn-cow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0 50px 0;
+    gap: 20px;
+}
+
+.btn-cow > * {
+    padding: 5px 20px;
+}
+
+.cow-view-setting-box-delete > h1 {
+    font-size: 26px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+@media screen and (min-width: 800px) {
+    .btn-cow {
+        gap: 100px;
+    }
+}

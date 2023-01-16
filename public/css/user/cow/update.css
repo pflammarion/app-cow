@@ -1,0 +1,67 @@
+.cow-vache-add {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cow-vache-add > h1 {
+    font-size: 26px;
+    margin: 50px auto;
+}
+.cow-vache-add .form-cow-box {
+    display: flex;
+    justify-content: center;
+}
+.cow-vache-add .create-question {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    gap: 10px;
+}
+.cow-vache-add .box-around-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.cow-vache-add .crop-img{
+    margin: 20px auto;
+}
+
+.cow-vache-add input[type=checkbox]{
+    height: 20px;
+    width: 20px;
+}
+
+.cow-vache-add .cow-img-delete{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.cow-vache-add #upload{
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.cow-vache-add #hidden-file-input{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+.cow-vache-add .file{
+    display: flex;
+    margin-top: 20px ;
+    gap: 15px;
+}
+
+.cow-vache-add .crop-img{
+    height: 100px;
+    width: 100px;
+}
+

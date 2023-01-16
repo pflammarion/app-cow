@@ -1,6 +1,5 @@
 <?php $data = $content ??  []; ?>
 
-
 <div class="view-faq-admin">
     <div class="view-faq-header">
         <input>

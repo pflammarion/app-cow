@@ -1,0 +1,26 @@
+.cow-vache-add {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cow-vache-add > h1 {
+    font-size: 26px;
+    margin: 50px auto;
+}
+.cow-vache-add .form-cow-box {
+    display: flex;
+    justify-content: center;
+}
+.cow-vache-add .create-question {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    gap: 10px;
+}
+.cow-vache-add .box-around-btn {
+    display: flex;
+    justify-content: center;
+}
+
+

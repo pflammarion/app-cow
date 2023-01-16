@@ -27,12 +27,16 @@ button{
 }
 
 .btn-delete{
-    background-color: var(--red);
-    border-radius: 5px;
     display: flex;
+    width: 125px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--red);
     justify-content: center;
+    font-weight: bold;
+    font-size: 22px;
+    gap: 30px;
     align-items: center;
-    font-weight: 700;
     color: white;
 }
 .btn-blue {
@@ -60,32 +64,32 @@ button{
 }
 .btn-valider {
     display: flex;
-    width: 250px;
-    height: 80px;
+    width: 125px;
+    height: 40px;
     border-radius: 5px;
     background-color: var(--green);
     justify-content: center;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 22px;
     gap: 30px;
     align-items: center;
     color: white;
 }
 .btn-return {
     display: flex;
-    width: 250px;
-    height: 80px;
+    width: 125px;
+    height: 40px;
     border-radius: 5px;
     background-color: var(--grey);
     justify-content: center;
     font-weight: bold;
-    font-size: 32px;
-    gap: 30px;
+    font-size: 22px;
+    gap: 10px;
     align-items: center;
     color: white;
 }
 .btn-return > img{
-    height: 30px;
+    height: 20px;
     width: auto;
 }
 

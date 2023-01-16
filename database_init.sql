@@ -38,19 +38,10 @@ CREATE TABLE `alert` (
   KEY `Alert_alert_type_null_fk` (`Alert_Type_Id`),
   KEY `alert_sensor_null_fk` (`Chip_Level_Id`),
   CONSTRAINT `Alert_alert_type_null_fk` FOREIGN KEY (`Alert_Type_Id`) REFERENCES `alert_type` (`Alert_Type_Id`),
-  CONSTRAINT `alert_sensor_null_fk` FOREIGN KEY (`Chip_Level_Id`) REFERENCES `chip_level` (`Chip_Level_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+  CONSTRAINT `alert_sensor_null_fk` FOREIGN KEY (`Chip_Level_Id`) REFERENCES `chip_level` (`Chip_Level_Id`) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `alert`
---
-
-LOCK TABLES `alert` WRITE;
-/*!40000 ALTER TABLE `alert` DISABLE KEYS */;
-INSERT INTO `alert` VALUES (1,2,'Niveau cardiaque trop élevé',0,12,'2022-10-31 23:00:00'),(2,4,'Niveau cardiaque a atteint le niveau critique',1,12,'2022-11-12 23:00:00'),(3,1,'Niveau cardiaque normal',0,12,'2022-11-13 23:00:00'),(4,1,'Air non polluée',0,13,'2022-11-14 23:00:00'),(5,3,'Le niveau sonore a dépassé le seuil moyen',1,14,'2022-11-16 23:00:00'),(6,3,'Niveau faible de batterie',1,16,'2022-11-30 23:00:00'),(7,4,'Batterie à plat',0,16,'2022-12-03 23:00:00'),(8,3,'Fréquence cardiaque élevée',1,17,'2022-12-03 23:00:00');
-/*!40000 ALTER TABLE `alert` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `alert_type`
@@ -111,18 +102,9 @@ CREATE TABLE `chip` (
   `Chip_Id` int NOT NULL AUTO_INCREMENT,
   `Chip_Number` char(10) NOT NULL,
   PRIMARY KEY (`Chip_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `chip`
---
-
-LOCK TABLES `chip` WRITE;
-/*!40000 ALTER TABLE `chip` DISABLE KEYS */;
-INSERT INTO `chip` VALUES (1,'QFLS34FLG3'),(2,'QDOF59DJKT'),(3,'QPLENI95JR'),(4,'QPLENI90PD'),(5,'QPLENP03LS'),(6,'QPLENJ90JS'),(7,'QPLEJH37IS'),(8,'QSDJFI58OS'),(9,'SDFQJQSD85');
-/*!40000 ALTER TABLE `chip` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `chip_cow_user`
@@ -143,18 +125,9 @@ CREATE TABLE `chip_cow_user` (
   CONSTRAINT `FK_Chip_Id_CCU_Chip` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (`Chip_Id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `FK_Cow_Id_CCU_Cow` FOREIGN KEY (`Cow_Id`) REFERENCES `cow` (`Cow_Id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `FK_User_Id_CCU_User` FOREIGN KEY (`User_Id`) REFERENCES `user` (`User_Id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `chip_cow_user`
---
-
-LOCK TABLES `chip_cow_user` WRITE;
-/*!40000 ALTER TABLE `chip_cow_user` DISABLE KEYS */;
-INSERT INTO `chip_cow_user` VALUES (10,9,1,1),(11,9,2,2),(12,9,3,3),(13,9,4,4),(14,9,5,5),(15,9,6,6),(16,9,7,7),(17,9,8,8),(18,9,9,9);
-/*!40000 ALTER TABLE `chip_cow_user` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `chip_level`
@@ -173,20 +146,11 @@ CREATE TABLE `chip_level` (
   PRIMARY KEY (`Chip_Level_Id`),
   KEY `FK_Sensor_ID_Chip_Sensor_Id` (`Sensor_Id`),
   KEY `chip_level_chip_Chip_Id_fk` (`Chip_Id`),
-  CONSTRAINT `chip_level_chip_Chip_Id_fk` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (`Chip_Id`),
+  CONSTRAINT `chip_level_chip_Chip_Id_fk` FOREIGN KEY (`Chip_Id`) REFERENCES `chip` (`Chip_Id`) ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT `FK_Sensor_ID_Chip_Sensor_Id` FOREIGN KEY (`Sensor_Id`) REFERENCES `sensor` (`Sensor_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `chip_level`
---
-
-LOCK TABLES `chip_level` WRITE;
-/*!40000 ALTER TABLE `chip_level` DISABLE KEYS */;
-INSERT INTO `chip_level` VALUES (12,1,72,18,43,1),(13,1,100,10,20,2),(14,1,60,20,40,3),(15,1,100,50,75,4),(16,2,60,20,40,1),(17,2,100,10,20,2),(18,2,60,20,40,3),(19,2,100,50,75,4),(20,3,60,20,40,1),(21,3,100,10,20,2),(22,3,60,20,40,3),(23,3,100,50,75,4),(24,4,60,20,40,1),(25,4,100,10,20,2),(26,4,60,20,40,3),(27,4,100,50,75,4),(28,5,60,20,40,1),(29,5,100,10,20,2),(30,5,60,20,40,3),(31,5,100,50,75,4),(32,6,60,20,40,1),(33,6,100,10,20,2),(34,6,60,20,40,3),(35,6,100,50,75,4),(36,7,60,20,40,1),(37,7,100,10,20,2),(38,7,60,20,40,3),(39,7,100,50,75,4),(40,8,60,20,40,1),(41,8,100,10,20,2),(42,8,60,20,40,3),(43,8,100,50,75,4),(44,9,60,20,40,1),(45,9,100,10,20,2),(46,9,60,20,40,3),(47,9,100,50,75,4);
-/*!40000 ALTER TABLE `chip_level` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `cow`
@@ -201,18 +165,9 @@ CREATE TABLE `cow` (
   `Cow_Number` char(10) DEFAULT NULL,
   `Cow_Img_Url` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`Cow_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `cow`
---
-
-LOCK TABLES `cow` WRITE;
-/*!40000 ALTER TABLE `cow` DISABLE KEYS */;
-INSERT INTO `cow` VALUES (1,'Guillemette','g2015',NULL),(2,'Marguerite','m2022',NULL),(3,'Josette','j2019',NULL),(4,'Mike','k2020',NULL),(5,'Paquerette','a2018',NULL),(6,'Capucine','c2011',NULL),(7,'Brigitte','b2010',NULL),(8,'Eglantine','c2017',NULL),(9,'Framboise','j2020',NULL);
-/*!40000 ALTER TABLE `cow` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `data_sensor`
@@ -231,20 +186,11 @@ CREATE TABLE `data_sensor` (
   PRIMARY KEY (`Data_Sensor_Id`),
   KEY `FK_Chip_Id_Data_Sensor_Chip` (`Chip_Level_Id`),
   KEY `FK_Average_Id_Data_Sensor_Average` (`Average_Id`),
-  CONSTRAINT `data_sensor_chip_level_Chip_Level_Id_fk` FOREIGN KEY (`Chip_Level_Id`) REFERENCES `chip_level` (`Chip_Level_Id`),
+  CONSTRAINT `data_sensor_chip_level_Chip_Level_Id_fk` FOREIGN KEY (`Chip_Level_Id`) REFERENCES `chip_level` (`Chip_Level_Id`) ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT `FK_Average_Id_Data_Sensor_Average` FOREIGN KEY (`Average_Id`) REFERENCES `average` (`Average_Id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1014 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `data_sensor`
---
-
-LOCK TABLES `data_sensor` WRITE;
-/*!40000 ALTER TABLE `data_sensor` DISABLE KEYS */;
-INSERT INTO `data_sensor` VALUES (2,12,4,60,'2022-12-02 10:37:39',1),(3,13,4,70,'2022-12-02 10:37:39',1),(4,14,4,80,'2022-12-02 10:37:39',1),(5,15,4,90,'2022-12-02 10:37:39',1);
-/*!40000 ALTER TABLE `data_sensor` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `faq`
@@ -258,18 +204,9 @@ CREATE TABLE `faq` (
   `FAQ_Title` varchar(256) NOT NULL,
   `FAQ_Answer` text NOT NULL,
   PRIMARY KEY (`FAQ_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `faq`
---
-
-LOCK TABLES `faq` WRITE;
-/*!40000 ALTER TABLE `faq` DISABLE KEYS */;
-INSERT INTO `faq` VALUES (1,'Comment connecter ma vache à l\'application ?','Pour connecter ma vache à l\'application, il suffit de l\'ajouter dans l\'onglet \"Mes vaches\" et d\'y remplir ses informations. L\'image est facultative mais toujours appréciée.'),(2,'Je voudrais ajouter un image à mon profil','Vous pouvez vous rendre à votre profil dans l\'onglet \"Mon profil\" lorsque vous êtes connecté. Vous pourrez ainsi modifier votre profil et y ajouter une image.'),(3,'Les données ne parviennent plus à l\'application ?','Ce type de problème peut être dû à une mauvaise configuration. Veuillez contacter le service client dans l\'onglet \"Contact\".');
-/*!40000 ALTER TABLE `faq` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `page`
@@ -282,7 +219,7 @@ CREATE TABLE `page` (
   `Page_Id` int NOT NULL AUTO_INCREMENT,
   `Page_Name` varchar(100) NOT NULL,
   PRIMARY KEY (`Page_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -291,7 +228,7 @@ CREATE TABLE `page` (
 
 LOCK TABLES `page` WRITE;
 /*!40000 ALTER TABLE `page` DISABLE KEYS */;
-INSERT INTO `page` VALUES (5,'user'),(6,'admin'),(7,'admin/user'),(8,'admin/faq'),(9,'admin/permission'),(10,'admin/ticket');
+INSERT INTO `page` VALUES (1,'user'),(2,'admin'),(3,'admin/user'),(4,'admin/faq'),(5,'admin/permission'),(6,'admin/ticket');
 /*!40000 ALTER TABLE `page` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -311,7 +248,7 @@ CREATE TABLE `permission` (
   KEY `FK_Role_Id_Permission_Role` (`Role_Id`),
   CONSTRAINT `FK_Page_Id_Permission_Page` FOREIGN KEY (`Page_Id`) REFERENCES `page` (`Page_Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_Role_Id_Permission_Role` FOREIGN KEY (`Role_Id`) REFERENCES `role` (`Role_Id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -320,7 +257,7 @@ CREATE TABLE `permission` (
 
 LOCK TABLES `permission` WRITE;
 /*!40000 ALTER TABLE `permission` DISABLE KEYS */;
-INSERT INTO `permission` VALUES (7,5,1),(8,6,2),(9,8,3),(10,7,2),(11,9,2);
+INSERT INTO `permission` VALUES (1,1,1),(2,2,2),(3,4,3),(4,3,2),(5,5,2);
 /*!40000 ALTER TABLE `permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -443,18 +380,9 @@ CREATE TABLE `ticket` (
   CONSTRAINT `FK_Status_Id_Ticket_Status` FOREIGN KEY (`Status_Id`) REFERENCES `status` (`Status_Id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_Tag_Id_Ticket_Tag` FOREIGN KEY (`Tag_Id`) REFERENCES `tag` (`Tag_Id`) ON UPDATE CASCADE,
   CONSTRAINT `FK_User_Id_Ticket_User` FOREIGN KEY (`User_Id`) REFERENCES `user` (`User_Id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `ticket`
---
-
-LOCK TABLES `ticket` WRITE;
-/*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (1,9,3,3,'Allez vous ajouter une nouvelle fonctionnalité','2022-10-27 22:00:00','user@user.com','2022-12-01 23:00:00'),(2,9,1,2,'Mon identifiant ne fonctionne plus...','2022-09-27 22:00:00','user@user.com','2022-12-06 23:00:00'),(3,9,2,1,'Mon capteur je fonctionne plus','2022-10-26 22:00:00','user@user.com',NULL),(4,NULL,2,2,'Mon capteur je fonctionne plus','2022-10-26 22:00:00','ext@cow.com','2022-11-08 23:00:00'),(5,NULL,3,2,'Allez vous ajouter une nouvelle fonctionnalité','2022-09-25 22:00:00','ext2@cow.com','2022-12-05 23:00:00');
-/*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `user`
@@ -474,10 +402,11 @@ CREATE TABLE `user` (
   `User_FirstName` varchar(50) NOT NULL,
   `User_LastName` varchar(50) NOT NULL,
   `User_Token` varchar(512) DEFAULT NULL,
+  `Admin_Init` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`User_Id`),
   KEY `FK_Role_Id_User_Role` (`Role_Id`),
   CONSTRAINT `FK_Role_Id_User_Role` FOREIGN KEY (`Role_Id`) REFERENCES `role` (`Role_Id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -486,7 +415,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (7,1,'paul@flammarion.eu','$2y$10$JM41Tvy9WN/A68M2gbRUVuO0HP0TojvYiW2IDm2BZHwBiEn7N8vIi','pipaul',NULL,0,'Paul','Flammarion',NULL),(8,3,'admin@admin.fr','$2y$10$cit9RGgKP5aOf/lELH5uqeS3.1uyrE341Jb434r32xu7KUOhy6uPy','admin',NULL,0,'Admin','Admin',NULL),(9,1,'user@user.fr','$2y$10$552s3Y.mEfhPRW2cH4ckC.Qoehlb.Hb1dTDYOqavY5hr7S3Lr9J82','user',NULL,0,'User','User',NULL),(10,2,'gest@gest.com','$2y$10$tHUcWAS9FzYTregozGtxYOPunZE9VLHkUsEVu3.1x4.tOd7LHqZ/W','gest',NULL,0,'Gest','Gest',NULL);
+INSERT INTO `user` VALUES (1,3,'admin@admin.fr','$2y$10$cit9RGgKP5aOf/lELH5uqeS3.1uyrE341Jb434r32xu7KUOhy6uPy','admin',NULL,0,'Admin','Admin',NULL, 0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

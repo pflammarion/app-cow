@@ -31,3 +31,15 @@
 .admin-home .card:hover{
     background-color: var(--light-blue);
 }
+
+
+.admin-init{
+    width: 1200px!important;
+}
+
+.admin-init > p{
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: -10px;
+}

@@ -39,6 +39,14 @@ function phpMailSender(string $email, string $type,  string $token = ''): bool
         $mail->Body = makeMail($content, $link, $link_text);
         $mail->AltBody = "Pour changer de mot de passe merci de cliquer sur ce lien : " . $link;
     }
+    if($type === 'create'){
+        $mail->Subject = "Création de compte COW";
+        $content = 'Veuillez cliquer sur ce bouton pour configurer votre nouveau mot de passe :';
+        $link = 'https://newonline.world/login?page=newpassword&token=' . $token;
+        $link_text = 'Créer mon mot de passe';
+        $mail->Body = makeMail($content, $link, $link_text);
+        $mail->AltBody = "Pour créer votre mot de passe merci de cliquer sur ce lien : " . $link;
+    }
     if ($type === 'contact'){
         $mail->Subject = "Confirmation de la reception du ticket COW";
         $content = 'Votre demande a bien été prise en compte, vous pouvez consulter le status de votre demande dans la page contact, ou vous serez contacté par mail si vous ne pouvez pas vous connecter.';

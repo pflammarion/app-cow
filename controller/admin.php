@@ -107,19 +107,23 @@ if(!empty($page) && !empty($action)){
     elseif($page === 'user' && pageAuthorization('admin/user')){
         $roles = getRoles();
         $view = "admin/user/" . $action;
-        $content = getuser();
-        $roles = getRoles();
+        $content = getUser();
         if (isset($_POST['action'])) {
             $success = False;
-            if ($_POST['action'] == 'create') {
+            if ($_POST['action'] === 'create' && isset($_POST['lastname'], $_POST['firstname'], $_POST['email'], $_POST['username'], $_POST["role"])) {
+                $token = tokenGeneration();
                 $values = array(
-                    "lastname" => $_POST['lastname'],
-                    "firstname" => $_POST['firstname'],
-                    "email" => $_POST['email'],
-                    "username" => $_POST['username'],
-                    "role" => $_POST["role"],
+                    "lastname" => htmlentities($_POST['lastname']),
+                    "firstname" => htmlentities($_POST['firstname']),
+                    "email" => htmlentities($_POST['email']),
+                    "username" => htmlentities($_POST['username']),
+                    "role" => htmlentities($_POST["role"]),
+                    'token'=> $token,
                 );
                 $success = createUser($values);
+                if ($success){
+                    phpMailSender(htmlentities($_POST['email']), 'creation', $token);
+                }
             }
                 if ($_POST['action'] == 'update') {
                     $values = array(

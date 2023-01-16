@@ -6,8 +6,9 @@ function createUser(array $values): bool
     $usname = $values["username"];
     $email = $values["email"];
     $role = $values["role"];
+    $token = $values['token'];
     if ($nom != "" && $prenom != "" && $usname != "" && $email != "" && $role = ""){
-        $create_user_sql = "INSERT INTO user (User_FirstName, User_LastName, User_Username, User_Email) VALUES (:firstName, :lastName, :username, :email) ";
+        $create_user_sql = "INSERT INTO user (User_FirstName, User_LastName, User_Username, User_Email, Role_Id, User_Password, User_Token) VALUES (:firstName, :lastName, :username, :email, :role, :password, :token) ";
         $create_user_query = $GLOBALS['db']-> prepare($create_user_sql);
         $create_user_query->execute(
             array(
@@ -16,6 +17,8 @@ function createUser(array $values): bool
                 "username"=> $usname,
                 "email"=> $email,
                 "role"=> $role,
+                "password" => $token,
+                "token" => $token,
             )
         );
         return true;
@@ -61,8 +64,9 @@ function deleteUser(int $id): bool
     return false;
 }
 
-function getuser(): array
+function getUser(): array
 {
+    //faire une limite 100 quand on aura la barre de recherche
     $get_user_sql = "SELECT User_Id,User_FirstName,User_LastName, User_Email, User_Username FROM user";
     $get_user_query = $GLOBALS['db']-> prepare($get_user_sql);
     $get_user_query->execute();

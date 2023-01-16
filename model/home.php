@@ -161,7 +161,7 @@ function getChip (int $cow): int
     $sql_get_chip="
                 SELECT chip_cow_user.Chip_Id
                 FROM chip_cow_user
-                WHERE chip_cow_user.Cow_Id =:cow AND chip_cow_user.User_Id =:user;
+                WHERE chip_cow_user.Cow_Id =:cow AND chip_cow_user.User_Id =:user AND Chip_Id IS NOT NULL;
     ";
     $query_get_chip = $GLOBALS['db']->prepare($sql_get_chip);
     $query_get_chip->execute(array('cow'=>$cow, "user"=>$user));

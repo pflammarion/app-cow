@@ -18,7 +18,7 @@
             echo '<div class="user-box">';
         }
         echo '<span class="p1">id:'.$box["id"].'</span>';
-        echo '<span class="p2">' . $box['role_name'] . '</span>';
+        echo '<a href="admin?page=permission" class="p2">' . $box['role_name'] . '</a>';
         echo '<div class="user">';
         echo '<span>'.$box["firstname"].'</span>';
         echo '<span>'.$box["lastname"].'</span>';

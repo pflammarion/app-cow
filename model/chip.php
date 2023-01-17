@@ -57,9 +57,10 @@ function getAllChip(): array
 {
     $tmp = [];
     $user = $_SESSION['user'];
-    $sql_get_chip = "SELECT chip.Chip_Number, chip.Chip_Id
+    $sql_get_chip = "SELECT c.Cow_Name ,chip.Chip_Number, chip.Chip_Id
                     FROM chip 
                     left join chip_cow_user ccu on chip.Chip_Id = ccu.Chip_Id
+                    left join cow c on c.Cow_Id = ccu.Cow_Id
                     WHERE ccu.User_Id =:user 
                     ORDER BY Chip_Number;";
 
@@ -70,6 +71,7 @@ function getAllChip(): array
         $tmp[]= array(
             'number' => $row['Chip_Number'],
             'id' => $row['Chip_Id'],
+            'cow' => $row['Cow_Name'] ?? null,
         );
     }
     return $tmp;

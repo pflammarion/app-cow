@@ -57,9 +57,10 @@ function getAllCow(): array
 {
     $tmp = [];
     $user = $_SESSION['user'];
-    $sql_get_cow = "SELECT cow.Cow_Number, cow.Cow_Img_Url, cow.Cow_Name, cow.Cow_Id
+    $sql_get_cow = "SELECT c.Chip_Number, cow.Cow_Number, cow.Cow_Img_Url, cow.Cow_Name, cow.Cow_Id
                     FROM cow 
                     left join chip_cow_user ccu on cow.Cow_Id = ccu.Cow_Id
+                    LEFT JOIN chip c on c.Chip_Id = ccu.Chip_Id
                     WHERE ccu.User_Id =:user 
                     ORDER BY Cow_Name;";
 
@@ -72,6 +73,7 @@ function getAllCow(): array
             'img_cow' => $row['Cow_Img_Url'],
             'name' => $row['Cow_Name'],
             'id' => $row['Cow_Id'],
+            'chip_num'=> $row['Chip_Number'] ?? null,
         );
     }
         return $tmp;

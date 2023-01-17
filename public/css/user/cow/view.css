@@ -73,6 +73,25 @@
     margin: 0 10px;
 }
 
+.cow-view-page-box .cow-view-box{
+    position: relative;
+}
+
+.cow-view-page-box .cow-view-box .status{
+    font-size: 10px;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    font-style: italic;
+}
+
+.cow-view-page-box .cow-view-box .status.not-connected{
+    width: 15px;
+    height: 15px;
+    border-radius: 9999px;
+    background-color: var(--alert-red);
+}
+
 @media screen and (min-width: 800px) {
     .cow-view-page-box {
         flex-direction: row;

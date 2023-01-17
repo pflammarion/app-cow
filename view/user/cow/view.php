@@ -32,6 +32,10 @@
             </a>';
         echo '</div>';
         echo '<div class="cow-view-box">';
+        if (isset($box['chip_num'])){
+            echo '<div class="status connected">' .$box['chip_num'] . '</div>';
+        }
+        else echo  '<div class="status not-connected"></div>';
         echo '<div class="cow-view-profil">';
         if(!is_null($box['img_cow'])){
             echo '<div class="crop-img"><img src="' . $box['img_cow'] . '" class="cow-img" alt="Cow"></div>';

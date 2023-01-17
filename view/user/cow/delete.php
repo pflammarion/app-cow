@@ -12,7 +12,7 @@ foreach ($data as $cow){
         <div class="cow-view-setting-box">
             <div class="cow-view-box">
                 <div class="cow-view-profil">
-                    <img src="./public/assets/icon/profile.svg" class="profil-img">
+                    <img src="./public/assets/icon/cow.svg" class="profil-img">
                 </div>
                 <?php
                 echo '<h1>'.$box["name"].'<br>

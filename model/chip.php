@@ -102,12 +102,13 @@ function getAvailableChip(): array
 function linkChip(int $chip, int $cow): bool
 {
     $update_user_sql = "UPDATE chip_cow_user SET Cow_Id =:cow WHERE User_Id=:id AND Chip_Id = :chip AND Cow_Id IS NULL;
-                        DELETE FROM chip_cow_user WHERE Chip_Id IS NULL AND User_Id = :user AND Cow_Id = :cow";
+                        DELETE FROM chip_cow_user WHERE Chip_Id IS NULL AND User_Id = :id AND Cow_Id = :cow";
     $update_user_query = $GLOBALS['db']-> prepare($update_user_sql);
     $update_user_query->execute(
         array(
             "chip" => $chip,
             "cow" => $cow,
+            "id"=> intval($_SESSION['user']),
         )
     );
     return true;

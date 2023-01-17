@@ -277,14 +277,14 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 if (htmlentities($_POST['type']) === 'cow'){
                     $success = linkChip(intval($_POST['chip']), intval($_POST['cow']));
                     if ($success){
-                        header("Location: user?page=vache&error=Le lien s'est bien effectué");
+                        header("Location: user?page=vache&success=Le lien s'est bien effectué");
                         exit();
                     }
                 }
-                if (htmlentities($_POST['type']) === 'cow'){
+                if (htmlentities($_POST['type']) === 'chip'){
                     $success = linkCow(intval($_POST['chip']), intval($_POST['cow']));
                     if ($success){
-                        header("Location: user?page=vache&error=Le lien s'est bien effectué");
+                        header("Location: user?page=boitier&success=Le lien s'est bien effectué");
                         exit();
                     }
                 }

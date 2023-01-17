@@ -34,6 +34,7 @@
     width: 260px;
     border: solid 3px var(--dark-blue);
     border-radius:  10px;
+    height: 100%;
 }
 .cow-view-add-box {
     display: flex;

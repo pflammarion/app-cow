@@ -105,12 +105,13 @@ function getAvailableCow(): array
 function linkCow(int $chip, int $cow): bool
 {
     $update_user_sql = "UPDATE chip_cow_user SET Chip_Id =:chip WHERE User_Id=:id AND Cow_Id = :cow AND Chip_Id IS NULL;
-                        DELETE FROM chip_cow_user WHERE chip_cow_user.Cow_Id IS NULL AND User_Id = :user AND Chip_Id = :chip";
+                        DELETE FROM chip_cow_user WHERE chip_cow_user.Cow_Id IS NULL AND User_Id = :id AND Chip_Id = :chip";
     $update_user_query = $GLOBALS['db']-> prepare($update_user_sql);
     $update_user_query->execute(
         array(
             "chip" => $chip,
             "cow" => $cow,
+            "id"=> intval($_SESSION['user']),
         )
     );
     return true;

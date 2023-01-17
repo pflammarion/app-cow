@@ -23,7 +23,7 @@ deploy:
     - ssh $SERVER "chmod g+w $DEPLOY_PATH/uploads"
   environment:
     name: production
-    url: https://app-cow.flaminfo.fr
+    url: https://newonline.world
   only:
     - master
 

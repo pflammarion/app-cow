@@ -143,9 +143,10 @@ if(!empty($page)){
                         }
                     }
                 }
-                header("Location: ?page=register&error=Ce nom d'utilisateur ou cette adresse email ne sont plus disponibles");
-                exit();
+                else{
+                    header("Location: ?page=register&error=Ce nom d'utilisateur ou cette adresse email ne sont plus disponibles");
 
+                }
             }
             break;
         case 'emailvalidate':

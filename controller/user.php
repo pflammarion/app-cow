@@ -265,7 +265,13 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
 
 
             break;
-
+        case 'link':
+            if (isset($_GET['chip']) || isset($_GET['cow'])){
+                $view = 'user/chip_cow_link.php';
+                $available_chip = getAvailableChip(intval($_GET['chip']));
+                $available_cow = getAvailableCow(intval($_GET['cow']));
+            }
+            break;
         default:
             $view = "error404";
     }

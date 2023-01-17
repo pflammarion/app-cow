@@ -76,3 +76,25 @@ function getAllChip(): array
     }
     return $tmp;
 }
+
+function getAvailableChip(): array
+{
+    $tmp = [];
+    $user = $_SESSION['user'];
+    $sql_get_chip = "SELECT chip.Chip_Number, chip.Chip_Id
+                    FROM chip 
+                    left join chip_cow_user ccu on chip.Chip_Id = ccu.Chip_Id
+                    WHERE ccu.User_Id =:user AND ccu.Cow_Id IS NULL
+                    ORDER BY Chip_Number;";
+
+    $query_get_chip = $GLOBALS['db']->prepare($sql_get_chip);
+    $query_get_chip->execute(array('user'=> $user));
+    $rows = $query_get_chip->fetchAll();
+    foreach ($rows as $row){
+        $tmp[]= array(
+            'number' => $row['Chip_Number'],
+            'id' => $row['Chip_Id'],
+        );
+    }
+    return $tmp;
+}

@@ -88,17 +88,6 @@ function recherche(array $list,string $recherche): array
     return $affiche;
 }
 
-function dataSorting(array $list): array
-{
-    //fonctionne que pour les listes avec un objet qui a un attribut 'name'
-    usort($list, function ($item1, $item2) {
-        return $item1['name'] <=> $item2['name'];
-    });
-    return $list;
-}
-
-
-
 function dataChecker($data, string $validation_type): bool
 {
     $data = trim($data);

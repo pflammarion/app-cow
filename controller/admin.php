@@ -110,6 +110,14 @@ if(!empty($page) && !empty($action)){
         $roles = getRoles();
         $view = "admin/user/" . $action;
         $content = getUser();
+        if (isset($_GET['api'], $_GET['user'])) {
+            $data = getUser();
+            if (isset($_GET['recherche'])) {
+                $data = recherche($data, htmlentities($_GET['recherche']));
+            }
+            echo json_encode($data);
+            exit();
+        }
         if (isset($_POST['action'])) {
             $success = False;
             if ($_POST['action'] === 'create' && isset($_POST['lastname'], $_POST['firstname'], $_POST['email'], $_POST['username'], $_POST["role"])) {

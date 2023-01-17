@@ -20,7 +20,10 @@
 .view-user-admin input {
     border-radius: 50px;
     width: 600px;
-    height: 60px;
+    height: 54px;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 15px;
 }
 .view-user-admin .btn-blue {
     margin-left: 20px;

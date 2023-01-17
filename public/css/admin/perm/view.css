@@ -51,9 +51,7 @@
 }
 /*end change size*/
 
-.permission-view input[type=checkbox]{
-    accent-color: var(--green);
-}
+
 
 .role{
     padding: 50px;

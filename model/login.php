@@ -146,7 +146,7 @@ function initAdmin(string $password): bool
 function validateUser(string $token): bool
 {
 
-    $sql = "UPDATE user SET  User_Init = 1 WHERE user.User_Token = :tokent";
+    $sql = "UPDATE user SET  User_Init = 1 WHERE user.User_Token = :token";
     $query = $GLOBALS['db']->prepare($sql);
     $query->execute(
         array(

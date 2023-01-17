@@ -32,6 +32,10 @@
             </a>';
         echo '</div>';
         echo '<div class="cow-view-box">';
+        if (isset($box['cow'])){
+            echo '<div class="status connected">' .$box['cow'] . '</div>';
+        }
+        else echo  '<div class="status not-connected"></div>';
         echo '<div class="cow-view-profil">';
         echo '<img src="./public/assets/icon/boitier.svg" class="chip-img" alt="chip image">';
         echo '</div>';

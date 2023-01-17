@@ -31,6 +31,7 @@ function register(array $value) : bool
     $lastname = $value['lastname'];
     $firstname = $value['firstname'];
     $password = $value['password'];
+    $token = $value['token'];
 
     if (checkEmail($email)) {
         $register_errors[] = "Your email address is associated with another account.";
@@ -45,7 +46,7 @@ function register(array $value) : bool
     }
     if (!$register_errors)
     {
-        $create_account_sql = "INSERT INTO user (User_Username, User_Email, User_FirstName, User_LastName, User_Password ) VALUES (:username, :email, :firstname, :lastname, :password)";
+        $create_account_sql = "INSERT INTO user (User_Username, User_Email, User_FirstName, User_LastName, User_Password, User_Token ) VALUES (:username, :email, :firstname, :lastname, :password, :token)";
         $create_account_query = $GLOBALS['db']->prepare($create_account_sql);
         $create_account_query->execute(
             array(
@@ -54,6 +55,7 @@ function register(array $value) : bool
                 "password"=>$password,
                 "firstname"=>htmlentities($firstname),
                 "lastname"=>htmlentities($lastname),
+                'token' => $token,
             ));
 
         return true;
@@ -118,7 +120,7 @@ function deleteToken(string $token): void
 
 function isAdminNotInit(): bool
 {
-    $sql = "SELECT User_Id FROM user WHERE User_Id = 1 AND Admin_Init = 0";
+    $sql = "SELECT User_Id FROM user WHERE User_Id = 1 AND User_Init = 0";
     $query = $GLOBALS['db']->prepare($sql);
     $query->execute();
     if ($query->rowCount() === 1){
@@ -129,13 +131,28 @@ function isAdminNotInit(): bool
 
 function initAdmin(string $password): bool
 {
-    $update_password_sql = "UPDATE user SET User_Password = :password, Admin_Init = 1 WHERE user.User_Id = 1";
+    $update_password_sql = "UPDATE user SET User_Password = :password, User_Init = 1 WHERE user.User_Id = 1";
     $update_password_query = $GLOBALS['db']->prepare($update_password_sql);
     $update_password_query->execute(
         array(
             "password"=> $password,
         ));
     if ($update_password_query->rowCount() === 1){
+        return true;
+    }
+    else return false;
+}
+
+function validateUser(string $token): bool
+{
+
+    $sql = "UPDATE user SET  User_Init = 1 WHERE user.User_Token = :token";
+    $query = $GLOBALS['db']->prepare($sql);
+    $query->execute(
+        array(
+            "token"=> $token,
+        ));
+    if ($query->rowCount() === 1){
         return true;
     }
     else return false;

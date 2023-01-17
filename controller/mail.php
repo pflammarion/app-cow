@@ -32,6 +32,14 @@ function phpMailSender(string $email, string $type,  string $token = ''): bool
     $mail->setFrom('cow@newonline.world', 'noreply');
     $mail->addAddress($email);
     switch ($type){
+        case 'register':
+            $mail->Subject = "Validation de l'adresse email COW";
+            $content = 'Veuillez cliquer sur ce bouton pour valider la création de votre compte';
+            $link = 'https://newonline.world/login?page=emailvalidate&token=' . $token;
+            $link_text = 'Valider mon compte';
+            $mail->Body = makeMail($content, $link, $link_text);
+            $mail->AltBody = "Veuillez cliquer sur ce bouton pour valider la création de votre compte : " . $link;
+            break;
         case 'psw':
             $mail->Subject = "Récupération de mot de passe COW";
             $content = 'Veuillez cliquer sur ce bouton pour configurer un nouveau mot de passe :';

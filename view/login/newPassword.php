@@ -1,5 +1,5 @@
 <div class="new-password">
-    <h1>Réinitialisation de mon mot de passe</h1>
+    <h1>Création de mon mot de passe</h1>
     <form action="" method="post">
         <div class="input-container">
             <label for="password">

@@ -49,7 +49,7 @@ function phpMailSender(string $email, string $type,  string $token = ''): bool
             $mail->AltBody = "Pour changer de mot de passe merci de cliquer sur ce lien : " . $link;
             break;
         case 'creation':
-            $mail->Subject = "Création de votre compte COW";
+            $mail->Subject = "Création COW";
             $content = 'Veuillez cliquer sur ce bouton pour configurer votre nouveau mot de passe :';
             $link = 'https://newonline.world/login?page=newpassword&token=' . $token;
             $link_text = 'Créer mon mot de passe';
@@ -57,15 +57,15 @@ function phpMailSender(string $email, string $type,  string $token = ''): bool
             $mail->AltBody = "Pour créer votre mot de passe merci de cliquer sur ce lien : " . $link;
             break;
         case 'update':
-            $mail->Subject = "Mise à jour de votre compte COW";
-            $content = 'Un administrateur a mis à jour votre compte, pour aller sur l\'application, vous pouvez cliquer sur ce lien :';
+            $mail->Subject = "COW";
+            $content = "Un administrateur a mis à jour votre compte, pour aller sur l'application, vous pouvez cliquer sur ce lien :";
             $link = 'https://newonline.world';
             $link_text = 'Application COW';
             $mail->Body = makeMail($content, $link, $link_text);
             $mail->AltBody = "Un administrateur a mis à jour votre compte, pour aller sur l'application, vous pouvez cliquer sur ce lien : " . $link;
             break;
         case 'delete':
-            $mail->Subject = "Suppression de votre compte COW";
+            $mail->Subject = "Suppression COW";
             $content = 'Un administrateur a supprimé votre compte, pour contacter un administrateur, vous pouvez cliquer sur ce lien :';
             $link = 'https://newonline.world/all?page=contact';
             $link_text = 'Contacter un admin';
@@ -73,7 +73,7 @@ function phpMailSender(string $email, string $type,  string $token = ''): bool
             $mail->AltBody = "Un administrateur a supprimé votre compte, pour contacter un administrateur, vous pouvez cliquer sur ce lien : " . $link;
             break;
         case 'ban':
-            $mail->Subject = "Bannissement de votre compte COW";
+            $mail->Subject = "Bannissement COW";
             $content = 'Un administrateur a banni votre compte, pour contacter un administrateur, vous pouvez cliquer sur ce lien :';
             $link = 'https://newonline.world/all?page=contact';
             $link_text = 'Contacter un admin';

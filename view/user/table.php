@@ -37,21 +37,27 @@
         let cowId =  $('#table-content').data('val');
         let cowName = "";
         let title = "";
+        let abscisse = "";
+        let type = "";
         let cow = [];
         let herd = [];
         //change to empty date
         document.getElementById('datePicker').valueAsDate = new Date('2022-01-01');
         if (sensor ===1){
             $('#sensor').attr('src', './public/assets/icon/heart.svg')
+            type = 'BPM';
         }
         if (sensor ===2){
             $('#sensor').attr('src', './public/assets/icon/air.svg')
+            type = '%';
         }
         if (sensor ===3){
             $('#sensor').attr('src', './public/assets/icon/sound.svg')
+            type = 'dB'
         }
         if (sensor ===4){
             $('#sensor').attr('src', './public/assets/icon/battery.svg')
+            type = '%';
         }
 
         const getCow = async () =>{
@@ -117,13 +123,30 @@
         getHerd();
 
         const getData =  async () => {
+            if (sensor ===1){
+                type = 'BPM';
+            }
+            if (sensor ===2){
+                type = '%';
+            }
+            if (sensor ===3){
+                type = 'dB'
+            }
+            if (sensor ===4){
+                type = '%';
+            }
             if ($('#average').data("val") === 2){
                 title = "Données sur 7 jours";
+                abscisse = "Jours";
             }
             else if ($('#average').data("val") === 3){
                 title = "Données annuelles";
+                abscisse = "Mois";
             }
-            else title = "Données journalières";
+            else{
+                title = "Données journalières";
+                abscisse = "Heures"
+            }
             let data = await getDataFromController('user?page=tableau&average=' + average + '&sensor=' + sensor + '&cowId=' + cowId +'&date=' + $('#datePicker').val())
             cow = [];
             herd = [];
@@ -173,6 +196,8 @@
             mixedChart.data.datasets[0].label = cowName;
             mixedChart.data.datasets[1].data = herd;
             mixedChart.data.labels = label;
+            mixedChart.options.scales.y.title.text = type;
+            mixedChart.options.scales.x.title.text = abscisse;
             mixedChart.options.plugins.title.text = title;
             mixedChart.update();
         }
@@ -287,7 +312,22 @@
                                 bottom: 10
                             }
                         },
+                    },
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: type,
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: abscisse,
+                            }
+                        }
                     }
+
                 },
             });
     });

@@ -120,7 +120,7 @@ function deleteToken(string $token): void
 
 function isAdminNotInit(): bool
 {
-    $sql = "SELECT User_Id FROM user WHERE User_Id = 1 AND Admin_Init = 0";
+    $sql = "SELECT User_Id FROM user WHERE User_Id = 1 AND User_Init = 0";
     $query = $GLOBALS['db']->prepare($sql);
     $query->execute();
     if ($query->rowCount() === 1){

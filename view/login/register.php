@@ -31,17 +31,25 @@
                 <input id="password" type="password" name="password" required="required">
             </label>
         </div>
+
+        <div id="html_element"></div>
+
         <div class="input-container">
             <label for="password_confirm">
                 Confirmation du mot de passe
                 <input id="password_confirm" type="password" name="password_confirm" required="required">
             </label>
         </div>
-        <div class="g-recaptcha" data-sitekey="6Lc-_gEkAAAAALd4j8w-7K-zTvw6yES4LnAqYW7l" data-action="register"</div>
+
+        <div class="g-recaptcha" data-sitekey="6Lc-_gEkAAAAALd4j8w-7K-zTvw6yES4LnAqYW7l" data-action="register"></div>
 
         <button type="submit" class="btn-green">
             <p>Je crée mon profil</p>
             <img src="./public/assets/icon/login.svg" alt="Enter icon">
         </button>
     </form>
+<script src="https://www.google.com/recaptcha/enterprise.js?onload=onloadCallback&render=explicit"
+        async defer>
+</script>
+
 </div>

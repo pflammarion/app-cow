@@ -120,30 +120,34 @@ if(!empty($page)){
                     header("Location: ?page=register&error=Les mots de passe que vous avez saisis ne correspondent pas");
                     break;
                 }
+                $email = htmlentities($_POST['email']);
+                $username= htmlentities($_POST['username']);
+                    if (!$register_errors) {
+                        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                        $token = tokenGeneration();
+                        $success = false;
+                        if(!checkUserEmailOrUser($email, $username)) {
+                                $values = [
+                                    'username' => $username,
+                                    'password' => $password,
+                                    'email' => $email,
+                                    'firstname' => htmlentities($_POST['firstname']),
+                                    'lastname' => htmlentities($_POST['lastname']),
+                                    'token' => $token,
+                                ];
 
-                if (!$register_errors){
-                    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                    $email =  htmlentities($_POST['email']);
-                    $token = tokenGeneration();
-
-                    $values = [
-                        'username' => htmlentities($_POST['username']),
-                        'password' => $password,
-                        'email' => $email,
-                        'firstname' => htmlentities($_POST['firstname']),
-                        'lastname' => htmlentities($_POST['lastname']),
-                        'token'=> $token,
-                    ];
-
-                    $register = register($values);
-
-                    if ($register) {
-                        phpMailSender($email, 'register', $token);
-                        header("Location: login?page=login&success=Inscription réussite ! Veuillez consulter vos mails pour valider l'adresse email");
+                                $register = register($values);
+                        }else{
+                        header("Location: ?page=register&error=Ce nom d'utilisateur ou cette adresse email ne sont plus disponibles");
                         exit();
+                        }
+                        if ($register) {
+                            phpMailSender($email, 'register', $token);
+                            header("Location: login?page=login&success=Inscription réussite ! Veuillez consulter vos mails pour valider l'adresse email");
+                            exit();
+                        }
                     }
                 }
-            }
             break;
         case 'emailvalidate':
             if (isset($_GET['token'])) {

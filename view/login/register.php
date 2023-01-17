@@ -37,9 +37,25 @@
                 <input id="password_confirm" type="password" name="password_confirm" required="required">
             </label>
         </div>
-        <button type="submit" class="btn-green">
+        <button id="env" type="submit" class="btn-green">
             <p>Je crée mon profil</p>
             <img src="./public/assets/icon/login.svg" alt="Enter icon">
         </button>
     </form>
 </div>
+<div id="overlay">
+    <div class="cv-spinner">
+        <span class="spinner"></span>
+    </div>
+</div>
+
+<script>
+    $(document).ready(() => {
+
+        $('#env').on('click', function (e){
+            e.preventDefault();
+            $("#overlay").fadeIn(300);
+            $('form').submit();
+        })
+    });
+</script>

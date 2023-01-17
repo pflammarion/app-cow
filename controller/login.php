@@ -145,6 +145,23 @@ if(!empty($page)){
                 }
             }
             break;
+        case 'emailvalidate':
+            if (isset($_GET['token'])) {
+                $token = $_GET['token'];
+                $user = getUserByToken($token);
+                if ($user !== '' ){
+                    $success = validateUser($token);
+                    if ($success){
+                        deleteToken($user);
+                        header("Location: login?page=login&success=Votre email a bien été validé !");
+                    }
+                    else{
+                        header("Location: login?page=login&error=Une erreur s'est produite pendant la validation de l'email, veuillez contacter un administrateur");
+                    }
+                    exit();
+                }
+            }
+            break;
         default:
             $view = "error404";
     }

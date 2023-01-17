@@ -205,12 +205,12 @@ if(!empty($page) && !empty($action)){
                 if ($success){
                     $mail = phpMailSender(htmlentities($_GET['email']), 'contact_update');
                     if ($mail){
-                        header("Location: admin?page=ticket&action=update&ticket=" . intval($_GET['ticket']) . "&success=Vous avez bien mis à jour le status");
+                        header("Location: admin?page=ticket&action=update&ticket=" . urlencode(intval($_GET['ticket'])) . "&success=Vous avez bien mis à jour le status");
                         exit();
                     }
                 }
                 else{
-                    header("Location: admin?page=ticket&action=update&ticket=" . intval($_GET['ticket']) . "&error=Une erreur s'est produite pendant la mise à jour du status mis à jour le status");
+                    header("Location: admin?page=ticket&action=update&ticket=" . urlencode(intval($_GET['ticket'])) . "&error=Une erreur s'est produite pendant la mise à jour du status mis à jour le status");
                     exit();
                 }
             }

@@ -265,7 +265,36 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
 
 
             break;
+        case 'link':
+            $view = 'user/chip_cow_link';
+            if (isset($_GET['chip'])){
+                $select = getAvailableCow();
+            }
+            if(isset($_GET['cow'])){
+                $select = getAvailableChip();
+            }
+            if (isset($_POST['chip'], $_POST['cow'], $_POST['type']) && !empty($_POST['cow']) && !empty($_POST['chip'])){
+                if (htmlentities($_POST['type']) === 'cow'){
+                    $success = linkChip(intval($_POST['chip']), intval($_POST['cow']));
+                    if ($success){
+                        header("Location: user?page=vache&success=Le lien s'est bien effectué");
+                        exit();
+                    }
+                }
+                if (htmlentities($_POST['type']) === 'chip'){
+                    $success = linkCow(intval($_POST['chip']), intval($_POST['cow']));
+                    if ($success){
+                        header("Location: user?page=boitier&success=Le lien s'est bien effectué");
+                        exit();
+                    }
+                }
+                else{
+                    header("Location: user?page=vache&error=Une erreur s'est produite veuillez réessayer");
+                    exit();
+                }
 
+            }
+            break;
         default:
             $view = "error404";
     }

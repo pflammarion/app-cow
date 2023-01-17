@@ -57,10 +57,34 @@ function getAllChip(): array
 {
     $tmp = [];
     $user = $_SESSION['user'];
+    $sql_get_chip = "SELECT c.Cow_Name ,chip.Chip_Number, chip.Chip_Id
+                    FROM chip 
+                    left join chip_cow_user ccu on chip.Chip_Id = ccu.Chip_Id
+                    left join cow c on c.Cow_Id = ccu.Cow_Id
+                    WHERE ccu.User_Id =:user 
+                    ORDER BY Chip_Number;";
+
+    $query_get_chip = $GLOBALS['db']->prepare($sql_get_chip);
+    $query_get_chip->execute(array('user'=> $user));
+    $rows = $query_get_chip->fetchAll();
+    foreach ($rows as $row){
+        $tmp[]= array(
+            'number' => $row['Chip_Number'],
+            'id' => $row['Chip_Id'],
+            'cow' => $row['Cow_Name'] ?? null,
+        );
+    }
+    return $tmp;
+}
+
+function getAvailableChip(): array
+{
+    $tmp = [];
+    $user = $_SESSION['user'];
     $sql_get_chip = "SELECT chip.Chip_Number, chip.Chip_Id
                     FROM chip 
                     left join chip_cow_user ccu on chip.Chip_Id = ccu.Chip_Id
-                    WHERE ccu.User_Id =:user 
+                    WHERE ccu.User_Id =:user AND ccu.Cow_Id IS NULL
                     ORDER BY Chip_Number;";
 
     $query_get_chip = $GLOBALS['db']->prepare($sql_get_chip);
@@ -73,4 +97,19 @@ function getAllChip(): array
         );
     }
     return $tmp;
+}
+
+function linkChip(int $chip, int $cow): bool
+{
+    $update_user_sql = "UPDATE chip_cow_user SET Cow_Id =:cow WHERE User_Id=:id AND Chip_Id = :chip AND Cow_Id IS NULL;
+                        DELETE FROM chip_cow_user WHERE Chip_Id IS NULL AND User_Id = :id AND Cow_Id = :cow";
+    $update_user_query = $GLOBALS['db']-> prepare($update_user_sql);
+    $update_user_query->execute(
+        array(
+            "chip" => $chip,
+            "cow" => $cow,
+            "id"=> intval($_SESSION['user']),
+        )
+    );
+    return true;
 }

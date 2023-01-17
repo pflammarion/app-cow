@@ -60,7 +60,7 @@ foreach ($data as $user){
                     </div>
                 </div>
                 <input type="hidden" value="update" name="action">
-                <input type="hidden" value="<?php echo $_GET["id"] ?>" name="id">
+                <input type="hidden" value="<?php echo intval($_GET["id"]) ?>" name="id">
             </form>
 </div>
 <div id="overlay">

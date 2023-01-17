@@ -12,7 +12,7 @@ function selectPage(string $default): string
         $page = $default;
     }
     else {
-        $page = $_GET['page'];
+        $page = htmlentities($_GET['page']);
     }
     return $page;
 }
@@ -24,7 +24,7 @@ function selectAction(string $default): string
         $action = $default;
     }
     else {
-        $action = $_GET['action'];
+        $action = htmlentities($_GET['action']);
     }
     return $action;
 }

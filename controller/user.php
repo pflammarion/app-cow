@@ -27,7 +27,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                     $values = array($new_sensor);
                     $update = changeLevel($_GET['chipid'], $values);
                     if ($update){
-                        header("Location: user?page=accueil&cow=" . $_GET['cow']);
+                        header("Location: user?page=accueil&cow=" . urlencode(intval($_GET['cow'])));
                         exit();
                     }
 

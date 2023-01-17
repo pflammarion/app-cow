@@ -137,15 +137,15 @@
             }
             if ($('#average').data("val") === 2){
                 title = "Données sur 7 jours";
-                abscisse = "jours";
+                abscisse = "Jours";
             }
             else if ($('#average').data("val") === 3){
                 title = "Données annuelles";
-                abscisse = "mois";
+                abscisse = "Mois";
             }
             else{
                 title = "Données journalières";
-                abscisse = "heures"
+                abscisse = "Heures"
             }
             let data = await getDataFromController('user?page=tableau&average=' + average + '&sensor=' + sensor + '&cowId=' + cowId +'&date=' + $('#datePicker').val())
             cow = [];

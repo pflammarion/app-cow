@@ -10,7 +10,7 @@ $action = selectAction("view");
 if(pageAuthorization('user') && !empty($page) && !empty($action)){
     switch ($page) {
         case 'accueil':
-            if($action === 'level_selector' && isset($_GET['chipid']) && isset($_GET['cow'])){
+            if($action === 'level_selector' && isset($_GET['chipid'], $_GET['cow']) && dataChecker($_GET['chipid'], 'int') && dataChecker($_GET['cow'], 'int')){
                 $view = "user/level_selector";
             }
             if($action === 'level' && isset($_GET['chipid'], $_GET['cow'], $_GET['sensorid'])){
@@ -39,7 +39,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                     deleteAlertOnClick(intval($_GET['alertId']));
                     echo json_encode(['success']);
                 }
-                if (isset($_GET['cow'])){
+                if (isset($_GET['cow']) && dataChecker($_GET['cow'], 'int')){
                     $cowId = intval($_GET['cow']);
                     $sensors = array(
                         'heart' => getSensorValueByCowBySensor($cowId,1),

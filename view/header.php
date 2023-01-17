@@ -12,6 +12,13 @@
     <script src="./public/js/jquery-ui.min.js"></script>
     <script src="./public/js/index.js"></script>
     <script src="./node_modules/chart.js/dist/chart.umd.js"></script>
+    <script type="text/javascript">
+    let onloadCallback = function() {
+        grecaptcha.enterprise.render('html_element', {
+        'sitekey' : '6Lc-_gEkAAAAALd4j8w-7K-zTvw6yES4LnAqYW7l',
+        });
+    };
+    </script>
 
     <?php
     if (isset($_SESSION['auth']) && $_SESSION['auth']){

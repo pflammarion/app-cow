@@ -102,44 +102,56 @@ if(!empty($page)){
             break;
         case 'register' :
             $view = "login/register";
-            if (isset($_POST['username']) and isset($_POST['password']) and isset($_POST['password_confirm']) and isset($_POST['firstname']) and isset($_POST['lastname']) and isset($_POST['email'])) {
-                $register_errors = [];
+            if(!empty($_POST['recaptcha-response'])){
+                $url = "https://www.google.com/recaptcha/api/siteverify?secret=6Lc-_gEkAAAAALd4j8w-7K-zTvw6yES4LnAqYW7l&response={$_POST['recaptcha-response']}";
+                $response = file_get_contents($url);
+                if(!empty($response)){
+                    $data = json_decode($response);
+                    if($data->success) {
 
-                if ($_POST['password'] !== $_POST['password_confirm']){
-                    $register_errors[] = "Passwords don't match";
-                    if (strlen($_POST['password']) < 4) {
-                        $register_errors[] = "Password not long enough! Must be at least 8 characters long";
-                        if ($_POST['username'] === $_POST['password']) {
-                            $register_errors[]= "Your name cannot be your password!";
-                            header("Location: ?page=register&error=Votre mot de passe ne peut pas être votre nom d'utilisateur");
-                            break;
+                        if (isset($_POST['username']) and isset($_POST['password']) and isset($_POST['password_confirm']) and isset($_POST['firstname']) and isset($_POST['lastname']) and isset($_POST['email'])) {
+                            $register_errors = [];
+
+                            if ($_POST['password'] !== $_POST['password_confirm']) {
+                                $register_errors[] = "Passwords don't match";
+                                if (strlen($_POST['password']) < 4) {
+                                    $register_errors[] = "Password not long enough! Must be at least 8 characters long";
+                                    if ($_POST['username'] === $_POST['password']) {
+                                        $register_errors[] = "Your name cannot be your password!";
+                                        header("Location: ?page=register&error=Votre mot de passe ne peut pas être votre nom d'utilisateur");
+                                        break;
+                                    }
+                                    header("Location: ?page=register&error=Le mot de passe nécessite plus de 4 caractères");
+                                    break;
+                                }
+                                header("Location: ?page=register&error=Les mots de passe que vous avez saisis ne correspondent pas");
+                                break;
+                            }
+
+                            if (!$register_errors) {
+                                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+                                $values = [
+                                    'username' => $_POST['username'],
+                                    'password' => $password,
+                                    'email' => $_POST['email'],
+                                    'firstname' => $_POST['firstname'],
+                                    'lastname' => $_POST['lastname'],
+                                ];
+
+                                $register = register($values);
+
+                                if ($register) {
+                                    header("Location: login?page=login&success=Inscription réussite !");
+                                    exit();
+                                }
+                            }
                         }
-                        header("Location: ?page=register&error=Le mot de passe nécessite plus de 4 caractères");
-                        break;
-                    }
-                    header("Location: ?page=register&error=Les mots de passe que vous avez saisis ne correspondent pas");
-                    break;
-                }
-
-                if (!$register_errors){
-                    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-                    $values = [
-                        'username' => $_POST['username'],
-                        'password' => $password,
-                        'email' => $_POST['email'],
-                        'firstname' => $_POST['firstname'],
-                        'lastname' => $_POST['lastname'],
-                    ];
-
-                    $register = register($values);
-
-                    if ($register) {
-                        header("Location: login?page=login&success=Inscription réussite !");
-                        exit();
                     }
                 }
+
             }
+
             break;
         default:
             $view = "error404";

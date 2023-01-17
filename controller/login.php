@@ -123,19 +123,23 @@ if(!empty($page)){
 
                 if (!$register_errors){
                     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                    $email =  htmlentities($_POST['email']);
+                    $token = tokenGeneration();
 
                     $values = [
-                        'username' => $_POST['username'],
+                        'username' => htmlentities($_POST['username']),
                         'password' => $password,
-                        'email' => $_POST['email'],
-                        'firstname' => $_POST['firstname'],
-                        'lastname' => $_POST['lastname'],
+                        'email' => $email,
+                        'firstname' => htmlentities($_POST['firstname']),
+                        'lastname' => htmlentities($_POST['lastname']),
+                        'token'=> $token,
                     ];
 
                     $register = register($values);
 
                     if ($register) {
-                        header("Location: login?page=login&success=Inscription réussite !");
+                        phpMailSender($email, 'register', $token);
+                        header("Location: login?page=login&success=Inscription réussite ! Veuillez consulter vos mails pour valider l'adresse email");
                         exit();
                     }
                 }

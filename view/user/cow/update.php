@@ -26,7 +26,7 @@ foreach ($data as $cow){
                     if((!is_null($box['img_cow']) && file_exists($box['img_cow']))){
                         echo '<div class="crop-img"><img src="' . $box['img_cow'] . '" id="cow-img" alt="cow-img"></div>';
                     }
-                    else echo '<div class="crop-img"><img src="./public/assets/icon/profile.svg" id="cow-img" alt="cow-img"></div>'
+                    else echo '<div class="crop-img"><img src="./public/assets/icon/cow.svg" id="cow-img" alt="cow-img"></div>'
                     ?>
 
                     <input id="upload" type="file" name="file">
@@ -65,7 +65,7 @@ foreach ($data as $cow){
             if (file) {
                 let reader = new FileReader();
                 reader.onload = function (event) {
-                    $("#profil-img").attr("src", event.target.result);
+                    $("#cow-img").attr("src", event.target.result);
                 };
                 reader.readAsDataURL(file);
             }
@@ -73,9 +73,9 @@ foreach ($data as $cow){
 
         $('input[name="delete-img"]').change(function () {
             if($('input[name="delete-img"]').prop("checked")){
-                $("#profil-img").css('opacity', '0.3')
+                $("#cow-img").css('opacity', '0.3')
             }
-            else $("#profil-img").css('opacity', '1')
+            else $("#cow-img").css('opacity', '1')
         });
         $('#hidden-file-input').on('click', function(e) {
             e.preventDefault();

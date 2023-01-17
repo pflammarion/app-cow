@@ -12,8 +12,9 @@
     flex-direction: column;
 }
 .cow-vache-delete .cow-view-box img{
-    height: 30px;
+    height: 35px;
     width: auto;
+    margin: 0 15px;
 }
 .btn-cow {
     display: flex;

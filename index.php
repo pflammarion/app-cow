@@ -1,12 +1,16 @@
 
 <?php
-ini_set('display_errors', 1);
-
-require_once ('./config.inc.php');
+if (file_exists('../config.php')) {
+    require_once '../config.php';
+}
+else require_once ('./config.inc.php');
 require_once("./controller/function.php");
 require_once("./view/function.php");
 require_once("./model/permission.php");
 require_once __DIR__ . '/model/connection.php';
+
+ini_set('display_errors', config::$display_errors);
+
 
 if (!isset($_GET['api'])){
     include __DIR__ . '/view/header.php';

@@ -75,7 +75,8 @@ function getAllCows(): array
     $sql_get_cow = "SELECT cow.Cow_Number, cow.Cow_Img_Url, cow.Cow_Name, cow.Cow_Id
                     FROM cow 
                     left join chip_cow_user ccu on cow.Cow_Id = ccu.Cow_Id
-                    WHERE ccu.User_Id =:user";
+                    WHERE ccu.User_Id =:user
+                    ORDER BY cow.Cow_Name";
 
     $query_get_cow = $GLOBALS['db']->prepare($sql_get_cow);
     $query_get_cow->execute(array('user' => $user));

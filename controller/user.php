@@ -231,9 +231,9 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 $view = "user/table";
             }
             if (isset($_GET['api'], $_GET['herd'])){
-                $data = dataSorting(getAllCows());
+                $data = getAllCows();
                 if (isset($_GET['recherche'])){
-                    $data = recherche($data, $_GET['recherche']);
+                    $data = recherche($data, htmlentities($_GET['recherche']));
                 }
                 echo json_encode($data);
             }

@@ -2,7 +2,8 @@
 
 use JetBrains\PhpStorm\NoReturn;
 
-function consoleLog(string $var){
+function consoleLog(string $var): void
+{
     echo("<script>console.log('PHP: " . $var . "');</script>");
 }
 
@@ -62,12 +63,14 @@ function recherche(array $list,string $recherche): array
 {
     $affiche = [];
     if ($recherche !== ""){
-        if ( !preg_match('/[^A-Za-z0-9]/', $recherche)) {
+        if (!preg_match('/[^A-Za-z0-9]/', $recherche)) {
             $query = $recherche;
             foreach ($list as $item) {
-                if (isset($item['name'])) {
-                    if (str_contains(strtolower($item['name']), strtolower($query))) {
-                        $affiche[] = $item;
+                foreach ($item as $value) {
+                    if (is_string($value) && str_contains(strtolower($value), strtolower($query))) {
+                        if(!in_array($item, $affiche)){
+                            $affiche[] = $item;
+                        }
                     }
                 }
             }
@@ -84,17 +87,6 @@ function recherche(array $list,string $recherche): array
     }
     return $affiche;
 }
-
-function dataSorting(array $list): array
-{
-    //fonctionne que pour les listes avec un objet qui a un attribut 'name'
-    usort($list, function ($item1, $item2) {
-        return $item1['name'] <=> $item2['name'];
-    });
-    return $list;
-}
-
-
 
 function dataChecker($data, string $validation_type): bool
 {

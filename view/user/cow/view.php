@@ -31,7 +31,15 @@
                 <img class="img-white" src="./public/assets/icon/modifier-white.svg" alt="edit">
             </a>';
         echo '</div>';
-        echo '<div class="cow-view-box">';
+        if (isset($box['chip_num'])){
+            echo '<div class="cow-view-box">';
+            echo '<div class="status connected">' .$box['chip_num'] . '</div>';
+        }
+        else {
+            echo '<a href="user?page=link&cow=' . $box['id'] .'">';
+            echo '<div class="cow-view-box">';
+            echo  '<div class="status not-connected"></div>';
+        }
         echo '<div class="cow-view-profil">';
         if(!is_null($box['img_cow'])){
             echo '<div class="crop-img"><img src="' . $box['img_cow'] . '" class="cow-img" alt="Cow"></div>';
@@ -41,6 +49,9 @@
         echo '<h1>'.$box["name"].'<br>'
              .$box["number"].'</h1>';
         echo '</div>';
+        if (!isset($box['chip_num'])){
+            echo '</a>';
+        }
         echo '</div>';
     }
     ?>

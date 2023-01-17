@@ -115,8 +115,8 @@ switch ($level['sensor']) {
 
 
         <div class="button-container">
-            <?php echo '<a class="btn-edit" href="user?page=accueil&action=level_selector&chipid='.$_GET['chipid'].'&cow=' . $_GET['cow'] . '">Retour</a>'; ?>
-            <?php echo '<a class="btn-delete" href="user?page=accueil&action=level&chipid='. $_GET['chipid'].'&cow=' . $_GET['cow'] . '&sensorid='.$_GET['sensorid'].'" > Reset</a>'; ?>
+            <?php echo '<a class="btn-edit" href="user?page=accueil&action=level_selector&chipid='.intval($_GET['chipid']).'&cow=' . intval($_GET['cow']) . '">Retour</a>'; ?>
+            <?php echo '<a class="btn-delete" href="user?page=accueil&action=level&chipid='. intval($_GET['chipid']).'&cow=' . intval($_GET['cow']) . '&sensorid='.intval($_GET['sensorid']).'" > Reset</a>'; ?>
             <div class="btn-green" id="level-button">Valider</div>
         </div>
 

@@ -16,7 +16,7 @@ foreach ($data as $user){
                     <option value="delete" selected="selected">Supprimer</option>
                     <option value="ban">Bannir</option>
                 </select>
-                <input type="hidden" value="<?php echo $_GET["id"] ?>" name="id">
+                <input type="hidden" value="<?php echo intval($_GET["id"]) ?>" name="id">
                 <div class="btn-delete-space">
                     <button id="env" type="submit" class="btn-delete">
                         Supprimer

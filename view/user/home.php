@@ -13,7 +13,7 @@ $chipId = $chipId ?? 0;
                     <h2>Dernières données</h2>
                     <?php
                     if($chipId !== 0){
-                        echo '<a class="btn-blue" href="user?page=accueil&action=level_selector&chipid='.$chipId.'&cow=' . $_GET['cow'] . '" ><img src="./public/assets/icon/setting.svg" alt="Edit Level"></a>';
+                        echo '<a class="btn-blue" href="user?page=accueil&action=level_selector&chipid='.$chipId.'&cow=' . intval($_GET['cow']). '" ><img src="./public/assets/icon/setting.svg" alt="Edit Level"></a>';
                     }
                 echo '</div>';
                 foreach ($sensors as $key => $sensor){
@@ -125,7 +125,7 @@ $chipId = $chipId ?? 0;
             <div class="cow-scroller">
                 <?php
                 foreach ($herd as $cow){
-                    if ($cow['id'] != $_GET['cow']){
+                    if ($cow['id'] !== $_GET['cow']){
                         if (isset($cow['level'])) echo '<a href="user?page=accueil&cow=' . $cow['id'] . '"><div class="herd alert alert' . $cow['level'] .'"><div class="herd-name"><img src="./public/assets/icon/cow.svg" alt="cow">' . $cow['name'] . '</div><img src="./public/assets/icon/alert' . $cow['level'] . '.svg" alt="alert"></div></a>';
                         else echo '<a href="user?page=accueil&cow=' . $cow['id'] . '"><div class="herd alert"><div class="herd-name"><img src="./public/assets/icon/cow.svg" alt="cow">' . $cow['name'] . '</div></div></a>';
                     }

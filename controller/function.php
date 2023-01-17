@@ -12,10 +12,11 @@ function selectPage(string $default): string
         $page = $default;
     }
     else {
-        $page = $_GET['page'];
+        $page = htmlentities($_GET['page']);
     }
     return $page;
 }
+
 
 function selectAction(string $default): string
 {
@@ -23,7 +24,7 @@ function selectAction(string $default): string
         $action = $default;
     }
     else {
-        $action = $_GET['action'];
+        $action = htmlentities($_GET['action']);
     }
     return $action;
 }
@@ -54,7 +55,7 @@ function tokenGeneration(): string
 function validateDate($date, $format = 'Y-m-d H:i:s'): bool
 {
     $d = DateTime::createFromFormat($format, $date);
-    return $d && $d->format($format) == $date;
+    return $d && $d->format($format) === $date;
 }
 
 function recherche(array $list,string $recherche): array
@@ -93,3 +94,40 @@ function dataSorting(array $list): array
     return $list;
 }
 
+
+
+function dataChecker($data, string $validation_type): bool
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+
+    switch ($validation_type) {
+        case "email":
+            if (!filter_var($data, FILTER_VALIDATE_EMAIL)) {
+                return false;
+            }
+            break;
+        case "int":
+            if (!filter_var($data, FILTER_VALIDATE_INT)) {
+                return false;
+            }
+            break;
+        case "string":
+            if (!filter_var($data, FILTER_SANITIZE_STRING)) {
+                return false;
+            }
+            break;
+
+        default:
+            return true;
+    }
+    return true;
+}
+
+function dataCleaner($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    return htmlspecialchars($data);
+}

@@ -1,7 +1,7 @@
 <?php
 $data = $content ??  [];
 foreach ($data as $faq){
-    if ($faq['id']==$_GET['id']){
+    if ($faq['id']===intval($_GET['id'])){
         $box = $faq;
     }
 }
@@ -42,7 +42,7 @@ foreach ($data as $faq){
                     </div>
                 </div>
                 <input type="hidden" value="update" name="action">
-                <input type="hidden" value="<?php echo $_GET["id"] ?>" name="id">
+                <input type="hidden" value="<?php echo intval( $_GET["id"]) ?>" name="id">
             </form>
         </div>
 

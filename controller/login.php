@@ -112,13 +112,13 @@ if(!empty($page)){
                         if ($_POST['username'] === $_POST['password']) {
                             $register_errors[]= "Your name cannot be your password!";
                             header("Location: ?page=register&error=Votre mot de passe ne peut pas être votre nom d'utilisateur");
-                            exit();
+                            break;
                         }
                         header("Location: ?page=register&error=Le mot de passe nécessite plus de 4 caractères");
-                        exit();
+                        break;
                     }
                     header("Location: ?page=register&error=Les mots de passe que vous avez saisis ne correspondent pas");
-                    exit();
+                    break;
                 }
                 $email = htmlentities($_POST['email']);
                 $username= htmlentities($_POST['username']);

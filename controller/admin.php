@@ -116,6 +116,7 @@ if(!empty($page) && !empty($action)){
                 $data = recherche($data, htmlentities($_GET['recherche']));
             }
             echo json_encode($data);
+            exit();
         }
         if (isset($_POST['action'])) {
             $success = False;

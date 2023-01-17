@@ -78,7 +78,7 @@
 }
 
 .cow-view-page-box .cow-view-box .status{
-    font-size: 11px;
+    font-size: 9px;
     position: absolute;
     top: 6px;
     right: 6px;
@@ -121,6 +121,9 @@
     .cow-view-page-box .crop-img.default{
         margin: 0 17px;
     }
+    .cow-view-page-box .cow-view-box .status {
+        font-size: 10px;
+    }
 }
 @media screen and (min-width: 1200px) {
     .cow-view-setting-box {
@@ -159,5 +162,8 @@
 
     .cow-view-page-box .crop-img.default{
         margin: 0 22px;
+    }
+    .cow-view-page-box .cow-view-box .status {
+        font-size: 11px;
     }
 }

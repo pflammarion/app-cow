@@ -273,7 +273,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             if(isset($_GET['cow'])){
                 $select = getAvailableChip();
             }
-            if (isset($_POST['chip'], $_POST['cow'], $_POST['type'])){
+            if (isset($_POST['chip'], $_POST['cow'], $_POST['type']) && !empty($_POST['cow']) && !empty($_POST['chip'])){
                 if (htmlentities($_POST['type']) === 'cow'){
                     $success = linkChip(intval($_POST['chip']), intval($_POST['cow']));
                     if ($success){

@@ -102,17 +102,10 @@ if(!empty($page)){
             break;
         case 'register' :
             $view = "login/register";
-            if(empty($_POST['recaptcha-response'])){
-                header('Location: login?page=register');
-                exit();
-            }
-            else{
+            if(!empty($_POST['recaptcha-response'])){
                 $url = "https://www.google.com/recaptcha/api/siteverify?secret=6Lc-_gEkAAAAALd4j8w-7K-zTvw6yES4LnAqYW7l&response={$_POST['recaptcha-response']}";
                 $response = file_get_contents($url);
-                if(empty($response)){
-                    header('Location: login?page=register');
-                    exit();
-                }else{
+                if(!empty($response)){
                     $data = json_decode($response);
                     if($data->success) {
 
@@ -156,6 +149,7 @@ if(!empty($page)){
                         }
                     }
                 }
+
             }
 
             break;

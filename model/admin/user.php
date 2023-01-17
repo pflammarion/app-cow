@@ -7,7 +7,7 @@ function createUser(array $values, string $token): bool
     $email = $values["email"];
     $role = $values["role"];
     if ($lastname !== "" && $firstname !== "" && $username !== "" && $email !== "" && $role !== ""){
-        $create_user_sql = "INSERT INTO user (User_FirstName, User_LastName, User_Username, User_Email, Role_Id, User_Password, User_Token, Admin_Init) VALUES (:firstname, :lastname, :username, :email, :role, :password, :token, 1) ";
+        $create_user_sql = "INSERT INTO user (User_FirstName, User_LastName, User_Username, User_Email, Role_Id, User_Password, User_Token, User_Init) VALUES (:firstname, :lastname, :username, :email, :role, :password, :token, 1) ";
         $create_user_query = $GLOBALS['db']-> prepare($create_user_sql);
         $create_user_query->execute(
             array(

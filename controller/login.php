@@ -44,7 +44,7 @@ if(!empty($page)){
                     }
                 }
                 else{
-                    header("Location: ?page=login&error=". $error);
+                    header("Location: ?page=login&error=". urlencode($error));
                 }
             }
             break;

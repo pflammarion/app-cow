@@ -67,7 +67,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 else{
                     $cowId = getCowsNonViewedAlert();
                     $view = '';
-                    header("Location: user?page=accueil&cow=" . $cowId);
+                    header("Location: user?page=accueil&cow=" . urlencode($cowId));
                     exit();
                 }
             }

@@ -13,15 +13,7 @@
     <script src="./public/js/index.js"></script>
     <script src="./node_modules/chart.js/dist/chart.umd.js"></script>
 
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lc-_gEkAAAAALd4j8w-7K-zTvw6yES4LnAqYW7l"></script>
-    <script>
-        grecaptcha.enterprise.ready(function() {
-            grecaptcha.enterprise.execute('6Lc-_gEkAAAAALd4j8w-7K-zTvw6yES4LnAqYW7l', {action: 'register'}).then(function(token) {
-                document.getElementById('recaptchaResponse').value = token
-            });
-        });
-    </script>
-
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
     <?php
     if (isset($_SESSION['auth']) && $_SESSION['auth']){
         if($_SESSION['role'] === 1 ){

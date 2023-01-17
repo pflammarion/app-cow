@@ -37,6 +37,8 @@
                 <input id="password_confirm" type="password" name="password_confirm" required="required">
             </label>
         </div>
+        <div class="g-recaptcha" data-sitekey="6Lc-_gEkAAAAALd4j8w-7K-zTvw6yES4LnAqYW7l" data-action="register"</div>
+
         <button type="submit" class="btn-green">
             <p>Je crée mon profil</p>
             <img src="./public/assets/icon/login.svg" alt="Enter icon">

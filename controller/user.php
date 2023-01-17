@@ -273,7 +273,27 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             if(isset($_GET['cow'])){
                 $select = getAvailableChip();
             }
+            if (isset($_POST['chip'], $_POST['cow'], $_POST['type'])){
+                if (htmlentities($_POST['type']) === 'cow'){
+                    $success = linkChip(intval($_POST['chip']), intval($_POST['cow']));
+                    if ($success){
+                        header("Location: user?page=vache&error=Le lien s'est bien effectué");
+                        exit();
+                    }
+                }
+                if (htmlentities($_POST['type']) === 'cow'){
+                    $success = linkCow(intval($_POST['chip']), intval($_POST['cow']));
+                    if ($success){
+                        header("Location: user?page=vache&error=Le lien s'est bien effectué");
+                        exit();
+                    }
+                }
+                else{
+                    header("Location: user?page=vache&error=Une erreur s'est produite veuillez réessayer");
+                    exit();
+                }
 
+            }
             break;
         default:
             $view = "error404";

@@ -402,7 +402,7 @@ CREATE TABLE `user` (
   `User_FirstName` varchar(50) NOT NULL,
   `User_LastName` varchar(50) NOT NULL,
   `User_Token` varchar(512) DEFAULT NULL,
-  `Admin_Init` tinyint(1) NOT NULL DEFAULT '0',
+  `User_Init` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`User_Id`),
   KEY `FK_Role_Id_User_Role` (`Role_Id`),
   CONSTRAINT `FK_Role_Id_User_Role` FOREIGN KEY (`Role_Id`) REFERENCES `role` (`Role_Id`) ON UPDATE CASCADE

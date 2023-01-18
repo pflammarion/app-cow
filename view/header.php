@@ -38,7 +38,7 @@
 
 <div class="header">
     <a href="root" class="logo-link">
-        <img class="img-header" src="./public/assets/img/LogoCOW.svg" alt="Logo Cow">
+        <img class="img-header" src="./public/assets/img/LogoCOW.png" alt="Logo Cow">
         <?php
         //winter code
         /*if(date('i') % 2 == 0){

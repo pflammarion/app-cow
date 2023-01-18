@@ -8,8 +8,8 @@
     display: flex;
     margin-top: 90px;
     width: 100%;
-    height: 210px;
     justify-content: center;
+    margin-bottom: 50px;
 }
 .view-faq-admin fieldset {
     margin : 0;
@@ -20,7 +20,10 @@
 .view-faq-admin input {
     border-radius: 50px;
     width: 600px;
-    height: 60px;
+    height: 54px;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 15px;
 }
 .view-faq-admin .btn-blue {
     margin-left: 20px;

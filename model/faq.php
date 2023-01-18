@@ -50,7 +50,7 @@ function deleteFaq(int $id): bool
     return false;
 }
 
-function getfaq(): array
+function getFaq(): array
 {
     $get_faq_sql = "SELECT FAQ_Id,FAQ_Title,FAQ_Answer FROM faq;";
     $get_faq_query = $GLOBALS['db']-> prepare($get_faq_sql);

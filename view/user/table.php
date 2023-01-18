@@ -67,7 +67,7 @@
             let number = '';
             if (!selectedCow.length){
                 if (selectedCow['img'] !== null && selectedCow['img'] !== "" && selectedCow['img'] !== undefined){
-                    src = '/uploads/' + selectedCow['img'];
+                    src = selectedCow['img'];
                 }
                 else{
                     src = './public/assets/icon/cow.svg'

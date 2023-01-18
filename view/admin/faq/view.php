@@ -1,5 +1,3 @@
-<?php $data = $content ??  []; ?>
-
 <div class="view-faq-admin">
     <div class="view-faq-header">
         <input type="search">
@@ -37,7 +35,7 @@
                     html += '<a class="btn-blue" href="admin?page=faq&action=update&id'+ faq[i]['id']+'" ><img class="img-black" src="./public/assets/icon/modifier.svg" alt="edit"><img class="img-white" src="./public/assets/icon/modifier-white.svg" alt="edit"></a><a class="btn-blue" href="admin?page=faq&action=delete&id=='+ faq[i]['id']+'" ><img class="img-black" src="./public/assets/icon/delete.svg" alt="delete"><img class="img-white" src="./public/assets/icon/delete-white.svg" alt="delete"></a>';
                     html += '</div>';
                     html += '</div>'
-                    $('#user').append(html)
+                    $('#faq').append(html)
                 }
             }
         }

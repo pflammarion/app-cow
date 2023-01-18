@@ -38,14 +38,15 @@
 
 <div class="header">
     <a href="root" class="logo-link">
-        <img class="img-header" src="./public/assets/img/LogoCOW.png" alt="Logo Cow">
+        <img class="img-header" src="./public/assets/img/LogoCOW2023.svg" alt="Logo Cow">
         <?php
         //winter code
         /*if(date('i') % 2 == 0){
             $file = "LogoCOWSanta.svg";
         }
         else $file = "LogoCOWSanta2.svg";*/
-        echo '<img class="img-header-santa" src="./public/assets/img/LogoCOW2023.svg" alt="Logo Cow Santa">';
+
+        echo '<img class="img-header-santa" src="./public/assets/img/LogoCOW.png" alt="Logo Cow Santa">';
         ?>
     </a>
 

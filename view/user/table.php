@@ -22,7 +22,7 @@
         <input type="search" placeholder="Rechercher par nom ou n°">
         <div id="selected-cow">
             <!-- voir le cas ou la vache est null (empecher le lien de la page d'accueil ?) -->
-            <div class="crop-img"><img src="" alt="cow"></div>
+            <div class="crop-img"><img src="./public/assets/icon/cow.svg" alt="cow"></div>
             <div class="content"></div>
         </div>
         <div id="herd"></div>

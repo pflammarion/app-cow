@@ -4,7 +4,7 @@ function login(array $value): string
 {
     $object = htmlentities($value['username']);
     $password = $value['password'];
-    $sql = "SELECT user.Role_Id, user.User_Ban, user.User_Password, user.User_Id FROM `user` WHERE  user.User_Username = :username OR User_Email=:email LIMIT 1";
+    $sql = "SELECT user.Role_Id, user.User_Ban, user.User_Password, user.User_Id FROM `user` WHERE  (user.User_Username = :username OR User_Email=:email) AND User_Init != 0  LIMIT 1";
     $query = $GLOBALS['db']->prepare($sql);
     $query->execute(array('username'=>$object, 'email'=> $object));
     $row = $query->fetch();
@@ -16,11 +16,11 @@ function login(array $value): string
                 $_SESSION['role'] = $row['Role_Id'];
                 return "";
             }
-            else return "Le nom d'utisateur ou le mot de passe est invalide";
+            else return "Le nom d'utilisateur ou le mot de passe est invalide";
         }
         else return "L'utilisateur a été bani de notre service";
     }
-    else return "Le nom d'utisateur ou le mot de passe est invalide";
+    else return "Le nom d'utilisateur ou le mot de passe est invalide. Pensez à activer votre compte par mail si cela n'a pas été fait";
 }
 
 function register(array $value) : bool

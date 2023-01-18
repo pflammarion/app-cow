@@ -28,7 +28,7 @@ if(!empty($page)){
                         if ($_SESSION['role'] === 1){
                             header("Location: user?page=accueil&success=Vous êtes connecté en temps qu'utilisateur");
                         }
-                        if($_SESSION['role'] === 3){
+                        elseif($_SESSION['role'] === 3){
                             $not_init = isAdminNotInit();
                             if ($not_init){
                                 header("Location: admin?page=init");
@@ -45,6 +45,7 @@ if(!empty($page)){
                 }
                 else{
                     header("Location: ?page=login&error=". urlencode($error));
+                    exit();
                 }
             }
             break;

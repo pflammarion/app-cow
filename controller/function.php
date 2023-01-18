@@ -90,10 +90,7 @@ function recherche(array $list,string $recherche): array
 
 function dataChecker($data, string $validation_type): bool
 {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-
+    $data = dataCleaner($data);
     switch ($validation_type) {
         case "email":
             if (!filter_var($data, FILTER_VALIDATE_EMAIL)) {
@@ -117,7 +114,7 @@ function dataChecker($data, string $validation_type): bool
     return true;
 }
 
-function dataCleaner($data)
+function dataCleaner($data): int | string
 {
     $data = trim($data);
     $data = stripslashes($data);

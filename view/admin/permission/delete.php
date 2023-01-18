@@ -21,7 +21,7 @@ foreach ($roles as $r){
                         Supprimer
                     </button>
                     <div>
-                        <a href="admin?page=permission&action=role" class="btn-valider">
+                        <a href="admin?page=permission&action=role" class="btn-return">
                             <img src="./public/assets/icon/retour.svg" alt="retour">
                             Retour
                         </a>

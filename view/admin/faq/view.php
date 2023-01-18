@@ -43,9 +43,7 @@
         getFaq();
 
         $("input[type=search").on('input', async function(){
-            setTimeout(async function(){
-                await getFaq();
-            }, 200);
+            await getFaq();
         })
     });
 </script>

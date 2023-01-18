@@ -39,7 +39,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                     deleteAlertOnClick(intval($_GET['alertId']));
                     echo json_encode(['success']);
                 }
-                if (isset($_GET['cow']) && dataChecker($_GET['cow'], 'int')){
+                if (isset($_GET['cow'])){
                     $cowId = intval($_GET['cow']);
                     $sensors = array(
                         'heart' => getSensorValueByCowBySensor($cowId,1),

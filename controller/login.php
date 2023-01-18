@@ -157,7 +157,7 @@ if(!empty($page)){
                 if ($user !== '' ){
                     $success = validateUser($token);
                     if ($success){
-                        deleteToken($user);
+                        deleteToken($token);
                         header("Location: login?page=login&success=Votre email a bien été validé !");
                     }
                     else{

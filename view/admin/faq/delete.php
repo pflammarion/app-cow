@@ -20,7 +20,7 @@ foreach ($data as $faq){
                         Supprimer
                     </button>
                     <div>
-                        <a href="admin?page=faq" class="btn-valider">
+                        <a href="admin?page=faq" class="btn-return">
                             <img src="./public/assets/icon/retour.svg" alt="retour">
                             Retour
                         </a>

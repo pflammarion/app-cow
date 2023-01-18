@@ -73,7 +73,7 @@ button{
 }
 .btn-return {
     display: flex;
-    width: 100px;
+    width: 120px;
     height: 40px;
     border-radius: 5px;
     background-color: var(--grey);
@@ -85,6 +85,6 @@ button{
     color: white;
 }
 .btn-return > img{
-    height: 20px;
+    height: 18px;
     width: auto;
 }

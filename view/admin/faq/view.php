@@ -2,7 +2,7 @@
 
 <div class="view-faq-admin">
     <div class="view-faq-header">
-        <input>
+        <input type="search">
             <a class="btn-blue" href="admin?page=faq&action=create" >
                 <img class="img-black" src="./public/assets/icon/addquestion.svg" alt="add question">
                 <img class="img-white" src="./public/assets/icon/addquestion-white.svg" alt="add question">

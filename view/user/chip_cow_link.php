@@ -34,7 +34,7 @@ $select = $select ?? [];
 
     <div class="btn-cow">
         <?php
-        if ($type === 'cow') echo '<a href="user?page=cow" class="btn-return">';
+        if ($type === 'cow') echo '<a href="user?page=vache" class="btn-return">';
         else echo '<a href="user?page=boitier" class="btn-return">';
         ?>
             <img src="./public/assets/icon/retour.svg" alt="retour">

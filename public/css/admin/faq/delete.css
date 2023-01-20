@@ -12,9 +12,5 @@
 }
 .faq-admin-delete .btn-delete-space {
     display: flex;
-    gap: 400px
-}
-.faq-admin-delete .btn-delete{
-    width: 200px;
-    height: 60px;
+    gap: 150px
 }

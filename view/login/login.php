@@ -19,7 +19,7 @@
         </div>
         <button type="submit" class="btn-green">
             <p>Connexion</p>
-            <img src="./public/assets/icon/login.svg" alt="Enter icon">
+            <img src="./public/assets/icon/login.svg" alt="Enter icon" style="height: 40px; width: auto">
         </button>
         <input type="hidden" name="redirect" value="<?php if (isset($_GET['redirect'])) echo htmlentities($_GET['redirect'])?>">
     </form>

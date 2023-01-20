@@ -11,11 +11,7 @@
     justify-content: center;
     align-items: center;
     margin: 100px 0 50px 0;
-    gap: 100px;
-}
-
-.user-admin-delete .btn-delete-space > * {
-    padding: 5px 20px;
+    gap: 150px;
 }
 
 .user-admin-delete select{

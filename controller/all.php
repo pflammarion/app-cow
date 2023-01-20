@@ -66,7 +66,7 @@ if(!empty($page) && $page !== ""){
 
         case 'faq':
             $view = "all/faq";
-            $content = getfaq();
+            $content = getFaq();
             break;
 
         case 'legal':

@@ -24,7 +24,15 @@ if(!empty($page) && !empty($action)){
     }
     elseif($page === 'faq' && pageAuthorization('admin/faq')) {
         $view = "admin/faq/" . $action;
-        $content = getfaq();
+        $content = getFaq();
+        if (isset($_GET['api'], $_GET['faq'])) {
+            $data = getFaq();
+            if (isset($_GET['recherche'])) {
+                $data = recherche($data, htmlentities($_GET['recherche']));
+            }
+            echo json_encode($data);
+            exit();
+        }
         if (isset($_POST['action'])) {
             $success = False;
             if ($_POST['action'] === 'create') {

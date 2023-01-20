@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./public/css/index.css">
     <link rel="stylesheet" href="./public/css/jquery-ui.min.css">
     <link href='https://fonts.googleapis.com/css?family=Arima Madurai' rel='stylesheet'>
-    <script src="./public/js/jquery-3.6.1.min.js" async></script>
+    <script src="./public/js/jquery-3.6.1.min.js"></script>
     <script src="./public/js/jquery-ui.min.js"></script>
     <script src="./public/js/index.js"></script>
     <script src="./node_modules/chart.js/dist/chart.umd.js" async></script>

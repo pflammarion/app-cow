@@ -6,6 +6,18 @@
     text-align: center;
 }
 
+.user-admin-delete .btn-return{
+    font-size: 22px;
+    width: 125px;
+    height: 40px;
+}
+
+.user-admin-delete .btn-delete{
+    width: 150px;
+    font-size: 22px;
+    height: 40px;
+}
+
 .user-admin-delete .btn-delete-space {
     display: flex;
     justify-content: center;

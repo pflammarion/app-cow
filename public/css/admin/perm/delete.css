@@ -16,10 +16,16 @@
     gap: 150px
 }
 
-.perm-admin-delete .btn-return{
+.perm-admin-delete .btn-delete{
     width: 150px;
-    font-size: 20px;
-    height: 60px;
+    font-size: 22px;
+    height: 40px;
+}
+
+.perm-admin-delete .btn-return{
+    width: 125px;
+    font-size: 22px;
+    height: 40px;
 }
 
 .btn-return > img{

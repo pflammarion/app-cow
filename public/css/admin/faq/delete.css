@@ -18,14 +18,3 @@
     width: 200px;
     height: 60px;
 }
-
-.faq-admin-delete .btn-return{
-    width: 150px;
-    font-size: 20px;
-    height: 60px;
-}
-
-.btn-return > img{
-    height: 20px;
-    margin-left: 0px ;
-}

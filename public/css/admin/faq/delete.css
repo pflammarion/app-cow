@@ -10,6 +10,19 @@
     display: flex;
     margin: 75px auto;
 }
+
+.faq-admin-delete .btn-return{
+    font-size: 22px;
+    width: 125px;
+    height: 40px;
+}
+
+.faq-admin-delete .btn-delete{
+    width: 150px;
+    font-size: 22px;
+    height: 40px;
+}
+
 .faq-admin-delete .btn-delete-space {
     display: flex;
     gap: 150px

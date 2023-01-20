@@ -37,7 +37,6 @@
     padding: 0 50px;
     margin-bottom: 20px;
 }
-
 /*change button size*/
 .permission-view .btn-return{
     width: 80px;
@@ -51,7 +50,6 @@
     font-size: 15px;
 }
 /*end change size*/
-
 
 
 
@@ -84,7 +82,7 @@
 
 .role .btn-container{
     top: 80px;
-    right: 350px;
+    right: 50px;
     position: absolute;
     width: fit-content;
 }
@@ -92,8 +90,8 @@
 .role .btn-green{
     margin: 50px 0;
     color: white;
-    width: 120px;
+    width: 125px;
     height: 40px;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 22px;
 }

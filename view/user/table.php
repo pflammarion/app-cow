@@ -19,7 +19,7 @@
             <a href="user?page=tableau&api=1&exel=1&cowId=<?php echo intval(($_GET['cow']))?>" title="Vache sélectionnée"><img src="./public/assets/icon/cow_download.svg" alt="Download cow data"></a>
             <a href="user?page=tableau&api=1&exel=1" title="Tout votre troupeau"><img src="./public/assets/icon/herd_download.svg" alt="Download cow data"></a>
         </div>
-        <input type="search" placeholder="Rechercher">
+        <input type="search" placeholder="Rechercher par nom ou n°">
         <div id="selected-cow">
             <!-- voir le cas ou la vache est null (empecher le lien de la page d'accueil ?) -->
             <div class="crop-img"><img src="" alt="cow"></div>

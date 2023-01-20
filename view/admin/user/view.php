@@ -1,6 +1,6 @@
 <div class="view-user-admin">
     <div class="view-user-header">
-        <input type="search">
+        <input type="search" placeholder="Rechercher un utilisateur">
         <a class="btn-blue" href="admin?page=user&action=create" >
             <img class="img-black" src="./public/assets/icon/add_user_black.svg" alt="add user">
             <img class="img-white" src="./public/assets/icon/add_user_white.svg" alt="add user">

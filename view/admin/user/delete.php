@@ -21,7 +21,7 @@ foreach ($data as $user){
                     <button id="env" type="submit" class="btn-delete">
                         Supprimer
                     </button>
-                        <a href="admin?page=user" class="btn-valider">
+                        <a href="admin?page=user" class="btn-return">
                             <img src="./public/assets/icon/retour.svg" alt="retour">
                             Retour
                         </a>

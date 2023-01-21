@@ -7,16 +7,23 @@
     align-items: center;
 }
 .faq-admin-delete .btn-box-delete {
-    margin-top: 30px;
     display: flex;
-    justify-content: space-around;
-    gap : 100px;
+    margin: 75px auto;
 }
+
+.faq-admin-delete .btn-return{
+    font-size: 22px;
+    width: 150px;
+    height: 40px;
+}
+
+.faq-admin-delete .btn-delete{
+    width: 150px;
+    font-size: 22px;
+    height: 40px;
+}
+
 .faq-admin-delete .btn-delete-space {
     display: flex;
-    gap : 100px
-}
-.faq-admin-delete .btn-delete{
-    width: 250px;
-    font-size: 32px;
+    gap: 150px
 }

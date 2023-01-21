@@ -58,7 +58,8 @@
 }
 
 .profil .btn-delete{
-    padding: 5px;
+    width: 100px;
+    height: 20px;
 }
 
 .profil .btn-edit{

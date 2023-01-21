@@ -7,17 +7,28 @@
     align-items: center;
 }
 .perm-admin-delete .btn-box-delete {
-    margin-top: 30px;
     display: flex;
-    justify-content: space-around;
-    gap : 100px;
+    margin: 75px auto;
 }
+
 .perm-admin-delete .btn-delete-space {
     display: flex;
-    gap : 100px
+    gap: 150px
 }
 
 .perm-admin-delete .btn-delete{
-    width: 250px;
-    font-size: 32px;
+    width: 150px;
+    font-size: 22px;
+    height: 40px;
+}
+
+.perm-admin-delete .btn-return{
+    width: 125px;
+    font-size: 22px;
+    height: 40px;
+}
+
+.btn-return > img{
+    height: 20px;
+    margin-left: 0px ;
 }

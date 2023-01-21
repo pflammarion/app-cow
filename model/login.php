@@ -4,7 +4,7 @@ function login(array $value): string
 {
     $object = htmlentities($value['username']);
     $password = $value['password'];
-    $sql = "SELECT user.Role_Id, user.User_Ban, user.User_Password, user.User_Id FROM `user` WHERE  (user.User_Username = :username OR User_Email=:email) AND User_Init != 0  LIMIT 1";
+    $sql = "SELECT user.Role_Id, user.User_Ban, user.User_Password, user.User_Id FROM `user` WHERE  (user.User_Username = :username OR User_Email=:email) AND IF(User_Id = 1, true, User_Init != 0 ) LIMIT 1";
     $query = $GLOBALS['db']->prepare($sql);
     $query->execute(array('username'=>$object, 'email'=> $object));
     $row = $query->fetch();

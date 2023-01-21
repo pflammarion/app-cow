@@ -77,7 +77,7 @@ $select = 'class="selected-link"';
                     </a>
                 <?php }?>
                 <?php if (pageAuthorization('admin/user')){?>
-                    <a <?php if(isset($page) && $page === 'utilisateur') echo $select?> href="admin?page=user" >
+                    <a <?php if(isset($page) && $page === 'user') echo $select?> href="admin?page=user" >
                         <img src="./public/assets/icon/user.svg">
                         Utilisateur
                     </a>

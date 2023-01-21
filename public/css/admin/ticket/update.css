@@ -30,6 +30,7 @@
     width: 140px;
     height: 40px;
     gap: 16px;
+    font-size: 15px;
 }
 
 .ticket-update .btn-edit img{

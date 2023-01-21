@@ -19,7 +19,7 @@
             </div>
         </a>
         <div class="profil-footer">
-            <a href="profil?action=delete"><div class="btn-delete">Supprimer</div></a>
+            <a href="profil?action=delete"><div style="<?php if($_SESSION['role'] === 3 && $_SESSION['user'] !== 'idir') echo 'opacity: 0' ?>" class="btn-delete">Supprimer</div></a>
             <p>Rôle : <?php echo $data['role'];?></p>
         </div>
     </div>

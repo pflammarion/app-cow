@@ -23,7 +23,7 @@
             <li>Membre : l'utilisateur devient membre lorsqu'il est identifié sur le site.</li>
             <li>Identifiant et mot de passe : c'est l'ensemble des informations nécessaires à l'identification d'un utilisateur
                 sur le site. L'identifiant et le mot de passe permettent à l'utilisateur d'accéder à des services réservés aux membres du site.
-                Le mote de passe est confidentiel.</li>
+                Le mot de passe est confidentiel.</li>
         </ul>
     </div>
 </div>

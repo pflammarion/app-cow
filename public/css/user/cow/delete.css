@@ -10,6 +10,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
 }
 .cow-vache-delete .cow-view-box img{
     height: 35px;
@@ -25,7 +26,13 @@
 }
 
 .btn-cow > * {
-    padding: 5px 20px;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 15px;
+}
+
+.cow-vache-delete .btn-cow > *{
+    width: unset;
 }
 
 .cow-view-setting-box-delete > h1 {

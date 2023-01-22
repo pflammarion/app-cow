@@ -5,11 +5,11 @@ function createChip(array $values): bool
     $number = htmlspecialchars($values["number"]);
     if ($number !== ""){
         $create_chip_sql = "INSERT INTO chip (Chip_Number) VALUES (:number);
-INSERT INTO chip_cow_user (Chip_Id, User_Id) VALUES ((SELECT Chip_Id FROM chip WHERE Chip_Number = :number AND Chip_Id = last_insert_id()),:userId);
-INSERT INTO chip_level (Chip_Id, Chip_Reference, Chip_First_Level, Chip_Second_Level, Sensor_Id) VALUES ((SELECT Chip_Id FROM chip WHERE Chip_Number = :number AND Chip_Id = last_insert_id()), 60, 20, 40, 1);
-INSERT INTO chip_level (Chip_Id, Chip_Reference, Chip_First_Level, Chip_Second_Level, Sensor_Id) VALUES ((SELECT Chip_Id FROM chip WHERE Chip_Number = :number AND Chip_Id = last_insert_id()), 100, 10, 20, 2);
-INSERT INTO chip_level (Chip_Id, Chip_Reference, Chip_First_Level, Chip_Second_Level, Sensor_Id) VALUES ((SELECT Chip_Id FROM chip WHERE Chip_Number = :number AND Chip_Id = last_insert_id()), 60, 20, 40, 3);
-INSERT INTO chip_level (Chip_Id, Chip_Reference, Chip_First_Level, Chip_Second_Level, Sensor_Id) VALUES ((SELECT Chip_Id FROM chip WHERE Chip_Number = :number AND Chip_Id = last_insert_id()), 100, 50, 75, 4);
+                            INSERT INTO chip_cow_user (Chip_Id, User_Id) VALUES ((SELECT Chip_Id FROM chip WHERE Chip_Number = :number AND Chip_Id = last_insert_id()),:userId);
+                            INSERT INTO chip_level (Chip_Id, Chip_Reference, Chip_First_Level, Chip_Second_Level, Sensor_Id) VALUES ((SELECT Chip_Id FROM chip WHERE Chip_Number = :number), 60, 20, 40, 1);
+                            INSERT INTO chip_level (Chip_Id, Chip_Reference, Chip_First_Level, Chip_Second_Level, Sensor_Id) VALUES ((SELECT Chip_Id FROM chip WHERE Chip_Number = :number), 100, 10, 20, 2);
+                            INSERT INTO chip_level (Chip_Id, Chip_Reference, Chip_First_Level, Chip_Second_Level, Sensor_Id) VALUES ((SELECT Chip_Id FROM chip WHERE Chip_Number = :number), 60, 20, 40, 3);
+                            INSERT INTO chip_level (Chip_Id, Chip_Reference, Chip_First_Level, Chip_Second_Level, Sensor_Id) VALUES ((SELECT Chip_Id FROM chip WHERE Chip_Number = :number), 100, 50, 75, 4);
 ";
         $create_chip_query = $GLOBALS['db']-> prepare($create_chip_sql);
         $create_chip_query->execute(

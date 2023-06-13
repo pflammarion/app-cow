@@ -299,11 +299,13 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             $view = 'user/passerelle';
             $data = file_get_contents('http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=G05E');
             $data_tab = str_split($data,33);
-            print_r($data_tab);
             $dict = [];
             foreach ($data_tab as $trame){
                 list($t,$o,$r,$c,$n,$v,$a,$x,$year,$month,$day,$hour,$min,$sec) = sscanf($trame,"%1d%4x%1s%1s%2x%4x%4s%2s%4d%2d%2d%2d%2d%2d");
                 $date = $hour . " h " . $min . " min " . $sec . " sec " . $day . " d " . $month  . " mois " . $year . " année" ;
+
+                print_r($trame);
+
                 $dict += array(
                   "trame" => $t,
                   "groupe" => $o,

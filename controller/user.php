@@ -295,6 +295,11 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
 
             }
             break;
+        case 'passerelle':
+            $view = 'user/passerelle';
+            $data = file_get_contents('http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=G05E');
+            $data_tab = str_split($data,33);
+            break;
         default:
             $view = "error404";
     }

@@ -3,5 +3,9 @@ $data_tab = $data_tab ?? [];
 ?>
 
 <div class="passerelle">
-    <?php echo $data_tab ?>
+    <?php
+    foreach ($data_tab as $d){
+        echo $d;
+    }
+    ?>
 </div>

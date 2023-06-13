@@ -304,7 +304,8 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 list($t,$o,$r,$c,$n,$v,$a,$x,$year,$month,$day,$hour,$min,$sec) = sscanf($trame,"%1d%4x%1s%1s%2x%4x%4s%2s%4d%2d%2d%2d%2d%2d");
                 $date = $hour . " h " . $min . " min " . $sec . " sec " . $day . " d " . $month  . " mois " . $year . " année" ;
 
-                print_r($trame);
+                print_r($v);
+                print_r($sec);
 
                 $dict += array(
                   "trame" => $t,

@@ -302,8 +302,8 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             $dict = [];
 
             foreach ($data_tab as $trame) {
-                print_r($trame);
                 $values = sscanf($trame, "%1d%4x%1s%1s%2x%4x%4s%2s%4d%2d%2d%2d%2d%2d");
+                print_r($values);
                 list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) = $values;
 
                 $date = $hour . " h " . $min . " min " . $sec . " sec " . $day . " d " . $month . " mois " . $year . " année";

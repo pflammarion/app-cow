@@ -1,11 +1,14 @@
 <?php
-$data_tab = $data_tab ?? [];
+$dict = $dict ?? [];
 ?>
 
 <div class="passerelle">
     <?php
-    foreach ($data_tab as $d){
-        echo $d;
+    foreach ($dict as $d){
+        echo "Type : " . $d["type"];
+        echo "<br />";
+        echo "Valeur : " . $d["valeur"];
+        echo "<br />";
         echo "<br />";
     }
     ?>

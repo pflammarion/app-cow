@@ -3,13 +3,13 @@ $dict = $dict ?? [];
 ?>
 
 <div class="passerelle">
+    <p>Les dernieres valeurs du micro</p>
     <?php
     foreach ($dict as $d){
-        echo "Type : " . $d["type"];
-        echo "<br />";
-        echo "Valeur : " . $d["valeur"];
-        echo "<br />";
-        echo "<br />";
+        if($d['type'] == 5){
+            echo "Valeur : " . $d["valeur"];
+            echo "<br />";
+        }
     }
     ?>
 </div>

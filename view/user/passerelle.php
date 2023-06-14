@@ -81,7 +81,8 @@ $data_trame = $data_trame ?? [];
             // Filter data for Sensor 2
             let sensor2Data = dataPasserelle.filter(
                 item =>
-                    item.log_capteur === 6
+                    item.log_capteur === 6 &&
+                    item.log_valeur > 0
             );
             sensor2Data = sensor2Data.slice(-100);
             dataFiltered2 = sensor2Data.map(item => item.log_valeur);
@@ -90,7 +91,8 @@ $data_trame = $data_trame ?? [];
             // Filter data for Sensor 3
             let sensor3Data = dataPasserelle.filter(
                 item =>
-                    item.log_capteur === 7
+                    item.log_capteur === 7 &&
+                    item.log_valeur > 0
             );
             sensor3Data = sensor3Data.slice(-100);
             dataFiltered3 = sensor3Data.map(item => item.log_valeur);

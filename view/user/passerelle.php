@@ -17,9 +17,8 @@ $data_trame = $data_trame ?? [];
         let dataFiltered = [];
         let labelFiltered = [];
 
-        const getData = async () => {
+        const updateGraph = async () => {
             let dataPasserelle = await getDataFromController('user?page=passerelle');
-
             dataFiltered = [];
             labelFiltered = [];
 
@@ -84,7 +83,11 @@ $data_trame = $data_trame ?? [];
             },
         });
 
-        getData();
+        // Call updateGraph initially
+        updateGraph();
+
+        // Call updateGraph every second
+        setInterval(updateGraph, 1000);
     });
 
 

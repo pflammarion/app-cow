@@ -23,6 +23,7 @@ $data_trame = $data_trame ?? [];
             labelFiltered = [];
 
             dataPasserelle.sort((a, b) => a.log_date - b.log_date);
+            dataPasserelle = dataPasserelle.slice(-100);
 
             for (let i = 0; i < dataPasserelle.length; i++) {
                 if (

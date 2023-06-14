@@ -17,7 +17,7 @@ function addDataFromGateway(string $trame): bool
     $datetime = DateTime::createFromFormat("Y-m-d H:i:s", $dateString);
 
     if ($datetime) {
-        $get_value_sql = "SELECT log_id FROM log WHERE log_capteur = :capteur AND DATE(log_date) = DATE(:date)";
+        $get_value_sql = "SELECT log_id FROM log WHERE log_capteur = :capteur AND log_date = :date";
         $get_value_sql = $GLOBALS['db']->prepare($get_value_sql);
         $get_value_sql->execute(
             array(

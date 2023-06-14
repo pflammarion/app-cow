@@ -5,16 +5,16 @@ $data_trame = $data_trame ?? [];
 <div class="passerelle">
     <div class="table">
         <div class="container" style="padding: 20px">
-            <div id="table-content" class="table-content">
-                <canvas id="graph1"></canvas>
-            </div>
-        </div>
-        <div class="container" style="padding: 20px">
             <label for="rating">Taux de rafraichissement</label>
             <select name="rating" id="refresh-rate">
                 <option value="60000" selected="selected">Min</option>
                 <option value="1000">Sec</option>
             </select>
+            <div id="table-content" class="table-content">
+                <canvas id="graph1"></canvas>
+            </div>
+        </div>
+        <div class="container" style="padding: 20px; margin: 20px">
             <div id="table-content" class="table-content">
                 <canvas id="graph2"></canvas>
             </div>
@@ -33,7 +33,7 @@ $data_trame = $data_trame ?? [];
         height: 40px;
         border-radius: 5px;
         border: solid 2px var(--dark-blue);
-        width: 20px;
+        width: 50px;
     }
 </style>
 
@@ -147,7 +147,7 @@ $data_trame = $data_trame ?? [];
                     },
                     title: {
                         display: true,
-                        text: 'Sensor 1',
+                        text: 'Microphone',
                         font: {
                             size: 15,
                         },
@@ -172,8 +172,8 @@ $data_trame = $data_trame ?? [];
             data: {
                 datasets: [{
                     data: dataFiltered2,
-                    borderColor: '#ADE194',
-                    backgroundColor: '#ADE194',
+                    borderColor: '#94b5e1',
+                    backgroundColor: '#94a1e1',
                     lineTension: 0.4,
                     label: 'Valeur',
                 }],
@@ -186,7 +186,7 @@ $data_trame = $data_trame ?? [];
                     },
                     title: {
                         display: true,
-                        text: 'Sensor 2',
+                        text: 'Humidité',
                         font: {
                             size: 15,
                         },
@@ -199,7 +199,7 @@ $data_trame = $data_trame ?? [];
                     y: {
                         title: {
                             display: true,
-                            text: 'dB',
+                            text: '%',
                         },
                     },
                 },
@@ -211,8 +211,8 @@ $data_trame = $data_trame ?? [];
             data: {
                 datasets: [{
                     data: dataFiltered3,
-                    borderColor: '#ADE194',
-                    backgroundColor: '#ADE194',
+                    borderColor: '#ce94e1',
+                    backgroundColor: '#dc94e1',
                     lineTension: 0.4,
                     label: 'Valeur',
                 }],
@@ -225,7 +225,7 @@ $data_trame = $data_trame ?? [];
                     },
                     title: {
                         display: true,
-                        text: 'Sensor 3',
+                        text: 'Température',
                         font: {
                             size: 15,
                         },
@@ -238,7 +238,7 @@ $data_trame = $data_trame ?? [];
                     y: {
                         title: {
                             display: true,
-                            text: 'dB',
+                            text: '°C',
                         },
                     },
                 },

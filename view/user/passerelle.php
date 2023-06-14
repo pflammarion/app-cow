@@ -29,7 +29,7 @@ $data_trame = $data_trame ?? [];
                         data: [20, 10],
                     }],
                     labels: ['a', 'b']
-                }
+                },
                 options: {
                     plugins: {
                         legend: {

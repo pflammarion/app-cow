@@ -12,21 +12,17 @@ $data_trame = $data_trame ?? [];
     </div>
 </div>
 
-
-
 <script>
     $(document).ready(() => {
-
         let ctx = $('#graph');
         const mixedChart = new Chart(ctx, {
+            type: 'line',
             data: {
                 datasets: [{
-                    type: 'line',
-                    data: <?php echo $data_trame?>,
+                    data: <?php echo json_encode($data_trame) ?>,
                     borderColor: '#ADE194',
                     backgroundColor: '#ADE194',
                     lineTension: 0.4,
-
                 }],
             },
             options: {
@@ -53,8 +49,8 @@ $data_trame = $data_trame ?? [];
                         }
                     },
                 }
-
             },
         });
     });
 </script>
+

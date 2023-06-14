@@ -4,15 +4,23 @@ $data_trame = $data_trame ?? [];
 
 <div class="passerelle">
     <div class="table">
-        <div class="container" style="padding: 20px; width: 1200px; height: 600px">
+        <div class="container" style="padding: 20px">
+            <div id="table-content" class="table-content">
+                <canvas id="graph1"></canvas>
+            </div>
+        </div>
+        <div class="container" style="padding: 20px">
             <label for="rating">Taux de rafraichissement</label>
             <select name="rating" id="refresh-rate">
                 <option value="60000" selected="selected">Min</option>
                 <option value="1000">Sec</option>
             </select>
             <div id="table-content" class="table-content">
-                <canvas id="graph1"></canvas>
                 <canvas id="graph2"></canvas>
+            </div>
+        </div>
+        <div class="container" style="padding: 20px">
+            <div id="table-content" class="table-content">
                 <canvas id="graph3"></canvas>
             </div>
         </div>

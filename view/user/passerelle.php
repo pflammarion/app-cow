@@ -18,7 +18,7 @@ $data_trame = $data_trame ?? [];
         let dataPasserelle = <?php echo json_encode($data_trame) ?>;
         let dataFiltered = []
         for(let i = 0; i < dataPasserelle.length; i++){
-            dataFiltered.add(dataPasserelle[i]["log_valeur"])
+            dataFiltered.push(dataPasserelle[i]["log_valeur"])
         }
         console.log(dataFiltered);
         const mixedChart = new Chart(ctx, {

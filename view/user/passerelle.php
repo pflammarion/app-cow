@@ -13,6 +13,8 @@ $data_trame = $data_trame ?? [];
             echo "<br />";
             echo "---------------";
             echo "<br />";
+            echo "<br />";
+            echo "<br />";
         }
     }
     ?>

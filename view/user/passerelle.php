@@ -81,16 +81,16 @@ $data_trame = $data_trame ?? [];
         i = 0
 
         $('#button-led').on('click', function () {
-            if (isLight){
+            if (!isLight){
                 $('#button-led').html("Éteindre la led verte");
-                $(".popup-container").append('<div class="popup" id="number' + i + '">Trame envoyée à la carte</div>');
+                $(".popup-container").append('<div class="popup" id="number' + i + '">Trame "allumer" envoyée à la carte</div>');
                 $('#number' + i).addClass('success');
                 $('.popup').delay(5000).fadeOut('slow');
                 i++
                 isLight = false
             } else {
                 $('#button-led').html("Allumer la led verte");
-                $(".popup-container").append('<div class="popup" id="number' + i + '">Trame envoyée à la carte</div>');
+                $(".popup-container").append('<div class="popup" id="number' + i + '">Trame "éteindre" envoyée à la carte</div>');
                 $('#number' + i).addClass('success');
                 $('.popup').delay(5000).fadeOut('slow');
                 i++

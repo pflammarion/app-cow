@@ -14,32 +14,34 @@ $data_trame = $data_trame ?? [];
 
 <script>
     $(document).ready(() => {
+        let dataFiltered = [];
+        let labelFiltered = [];
 
-
-        let dataFiltered = []
-        let labelFiltered = []
-
-        const getData =  async () => {
-
+        const getData = async () => {
             let dataPasserelle = await getDataFromController('user?page=passerelle');
 
-            dataFiltered = []
-            labelFiltered = []
+            dataFiltered = [];
+            labelFiltered = [];
 
-            dataPasserelle.sort((a, b) => a["log_date"] - b["log_date"]);
-            for(let i = 0; i < dataPasserelle.length; i++){
-                if (dataPasserelle[i]["log_capteur"] == 5 && dataPasserelle[i]["log_valeur"] < 100 && dataPasserelle[i]["log_valeur"] > 20){
-                    dataFiltered.push(dataPasserelle[i]["log_valeur"])
-                    labelFiltered.push(dataPasserelle[i]["log_date"])
+            dataPasserelle.sort((a, b) => a.log_date - b.log_date);
+
+            for (let i = 0; i < dataPasserelle.length; i++) {
+                if (
+                    dataPasserelle[i].log_capteur == 5 &&
+                    dataPasserelle[i].log_valeur < 100 &&
+                    dataPasserelle[i].log_valeur > 20
+                ) {
+                    dataFiltered.push(dataPasserelle[i].log_valeur);
+                    labelFiltered.push(dataPasserelle[i].log_date);
                 }
             }
 
-            console.log(dataFiltered)
-            mixedChart.data.datasets.data = dataFiltered;
-            mixedChart.data.label = labelFiltered;
-            mixedChart.update();
-        }
+            console.log(dataFiltered);
 
+            mixedChart.data.datasets[0].data = dataFiltered;
+            mixedChart.data.labels = labelFiltered;
+            mixedChart.update();
+        };
 
         let ctx = $('#graph');
 
@@ -51,41 +53,40 @@ $data_trame = $data_trame ?? [];
                     borderColor: '#ADE194',
                     backgroundColor: '#ADE194',
                     lineTension: 0.4,
-                    label: "Valeur",
+                    label: 'Valeur',
                 }],
-                labels: labelFiltered
+                labels: labelFiltered,
             },
             options: {
                 plugins: {
                     legend: {
-                        position: 'bottom'
+                        position: 'bottom',
                     },
                     title: {
                         display: true,
-                        text: "Valeur du micro en fonction du temps",
+                        text: 'Valeur du micro en fonction du temps',
                         font: {
-                            size: 15
+                            size: 15,
                         },
                         padding: {
-                            bottom: 10
-                        }
+                            bottom: 10,
+                        },
                     },
                 },
                 scales: {
                     y: {
                         title: {
                             display: true,
-                            text: "dB",
-                            }
+                            text: 'dB',
                         },
-                    }
+                    },
                 },
-            });
-
+            },
+        });
 
         getData();
+    });
 
-        });
 
 </script>
 

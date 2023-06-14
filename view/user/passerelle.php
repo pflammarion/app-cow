@@ -19,7 +19,7 @@ $data_trame = $data_trame ?? [];
 
         const getData =  async () => {
 
-            let dataPasserelle = await getDataFromController('user?page=passerelle)
+            let dataPasserelle = await getDataFromController('user?page=passerelle');
 
             dataPasserelle.sort((a, b) => a["log_date"] - b["log_date"]);
             let dataFiltered = []

@@ -4,6 +4,7 @@ require __DIR__ . '/../model/home.php';
 require __DIR__ . '/../model/cow.php';
 require __DIR__ . '/../model/chip.php';
 require __DIR__ . '/../model/function.php';
+require __DIR__ . '/../model/passerelle.php';
 
 $page = selectPage("accueil");
 $action = selectAction("view");
@@ -301,23 +302,18 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             $data_tab = str_split($data, 33);
             $dict = [];
 
-            foreach ($data_tab as $trame) {
-                $values = sscanf($trame, "%1d%4s%1s%1s%2x%4x%4s%2s%4d%2d%2d%2d%2d%2d");
-                list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) = $values;
+            /*$ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,"http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=0011");
+            curl_setopt($ch, CURLOPT_HEADER, FALSE);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            $data = curl_exec($ch);
+            curl_close($ch);*/
 
-                $date = $hour . " h " . $min . " min " . $sec . " sec " . $day . " d " . $month . " mois " . $year . " année";
-                $dict[] = array(
-                    "trame" => $t,
-                    "groupe" => $o,
-                    "requete" => $r,
-                    "type" => $c,
-                    "numero" => $n,
-                    "valeur" => $v,
-                    "unknown_1" => $a,
-                    "unknown_2" => $x,
-                    "date" => $date,
-                );
+            foreach ($data_tab as $trame) {
+                addDataFromGateway($trame);
             }
+            $data_trame = getTrameFromDatabase();
+
             break;
         default:
             $view = "error404";

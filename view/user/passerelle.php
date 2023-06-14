@@ -2,6 +2,8 @@
 $data_trame = $data_trame ?? [];
 ?>
 
+<div class="popup-container" id="popup_passerelle"  onclick="hide(this)"></div>
+
 <div class="passerelle">
     <div class="table">
 
@@ -39,6 +41,13 @@ $data_trame = $data_trame ?? [];
         border-radius: 5px;
         border: solid 2px var(--dark-blue);
         width: 50px;
+    }
+
+    .passerelle .btn-valider{
+        color: black;
+        margin: 0 auto;
+        padding: 5px;
+        width: 200px;
     }
 </style>
 
@@ -261,6 +270,22 @@ $data_trame = $data_trame ?? [];
 
         // Start the initial interval
         intervalId = setInterval(updateGraph, interval);
+
+
+            let i=0;
+
+            $(".popup-container").append('<div class="popup" id="number' + i + '">Trame envoyée à la carte</div>');
+            $('#number' + i).addClass('success');
+            i++;
+            $('.popup').delay(5000).fadeOut('slow');
+        });
+
+            function hide(e){
+            e.style.display = "none";
+        }
+
+
+
     });
 </script>
 

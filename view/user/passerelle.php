@@ -16,14 +16,17 @@ $data_trame = $data_trame ?? [];
     $(document).ready(() => {
 
 
+        let dataFiltered = []
+        let labelFiltered = []
 
         const getData =  async () => {
 
             let dataPasserelle = await getDataFromController('user?page=passerelle');
 
+            dataFiltered = []
+            labelFiltered = []
+
             dataPasserelle.sort((a, b) => a["log_date"] - b["log_date"]);
-            let dataFiltered = []
-            let labelFiltered = []
             for(let i = 0; i < dataPasserelle.length; i++){
                 if (dataPasserelle[i]["log_capteur"] == 5 && dataPasserelle[i]["log_valeur"] < 100 && dataPasserelle[i]["log_valeur"] > 20){
                     dataFiltered.push(dataPasserelle[i]["log_valeur"])
@@ -35,49 +38,52 @@ $data_trame = $data_trame ?? [];
             mixedChart.data.datasets[0].label = labelFiltered;
             mixedChart.update();
         }
-        getData();
 
 
         let ctx = $('#graph');
 
-            const mixedChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    datasets: [{
-                        data: dataFiltered,
-                        borderColor: '#ADE194',
-                        backgroundColor: '#ADE194',
-                        lineTension: 0.4,
-                        label: "Valeur",
-                    }],
-                    labels: labelFiltered
-                },
-                options: {
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
+        const mixedChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                datasets: [{
+                    data: dataFiltered,
+                    borderColor: '#ADE194',
+                    backgroundColor: '#ADE194',
+                    lineTension: 0.4,
+                    label: "Valeur",
+                }],
+                labels: labelFiltered
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    title: {
+                        display: true,
+                        text: "Valeur du micro en fonction du temps",
+                        font: {
+                            size: 15
                         },
+                        padding: {
+                            bottom: 10
+                        }
+                    },
+                },
+                scales: {
+                    y: {
                         title: {
                             display: true,
-                            text: "Valeur du micro en fonction du temps",
-                            font: {
-                                size: 15
-                            },
-                            padding: {
-                                bottom: 10
-                            }
-                        },
-                    },
-                    scales: {
-                        y: {
-                            title: {
-                                display: true,
-                                text: "dB",
+                            text: "dB",
                             }
                         },
                     }
                 },
             });
+
+
+        getData();
+
         });
 
 </script>

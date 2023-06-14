@@ -15,11 +15,13 @@ $data_trame = $data_trame ?? [];
 <script>
     $(document).ready(() => {
         let ctx = $('#graph');
+        let data = <?php echo json_encode($data_trame) ?>;
+        console.log(data);
         const mixedChart = new Chart(ctx, {
             type: 'line',
             data: {
                 datasets: [{
-                    data: <?php echo json_encode($data_trame['log_valeur']) ?>,
+                    data: data,
                     borderColor: '#ADE194',
                     backgroundColor: '#ADE194',
                     lineTension: 0.4,

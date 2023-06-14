@@ -24,6 +24,9 @@ if(isset($_GET['page'])){
         case 'faq':
             $paginer = 'FAQ';
             break;
+        case 'passerelle':
+            $paginer = 'Passerelle';
+            break;
     }
 }
 $select = 'class="selected-link"';
@@ -55,6 +58,10 @@ $select = 'class="selected-link"';
                 <a <?php if(isset($page) && $page === 'vache') echo $select?> href="user?page=vache" >
                     <img src="./public/assets/icon/cow.svg">
                     Mes vaches
+                </a>
+                <a <?php if(isset($page) && $page === 'passerelle') echo $select?> href="user?page=passerelle" >
+                    <img src="./public/assets/icon/boitier.svg">
+                    Passerelle
                 </a>
             <?php }
             else{

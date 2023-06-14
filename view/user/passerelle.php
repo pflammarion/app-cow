@@ -17,17 +17,23 @@ $data_trame = $data_trame ?? [];
         let ctx = $('#graph');
         let dataPasserelle = <?php echo json_encode($data_trame) ?>;
         let dataFiltered = []
+        let labelFiltered = []
         for(let i = 0; i < dataPasserelle.length; i++){
             if (dataPasserelle[i]["log_capteur"] == 5){
                 dataFiltered.push(dataPasserelle[i]["log_valeur"])
+                labelFiltered.push(dataPasserelle[i]["log_date"])
             }
         }
             const mixedChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     datasets: [{
-                        data: [20, 10],
+                        data: dataFiltered,
+                        borderColor: '#ADE194',
+                        backgroundColor: '#ADE194',
+                        lineTension: 0.4;
                     }],
+                    labels: labelFiltered
                 },
                 options: {
                     plugins: {

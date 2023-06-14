@@ -11,7 +11,9 @@ $data_trame = $data_trame ?? [];
                 <option value="1000">Sec</option>
             </select>
             <div id="table-content" class="table-content">
-                <canvas id="graph"></canvas>
+                <canvas id="graph1"></canvas>
+                <canvas id="graph2"></canvas>
+                <canvas id="graph3"></canvas>
             </div>
         </div>
     </div>
@@ -23,14 +25,20 @@ $data_trame = $data_trame ?? [];
         height: 40px;
         border-radius: 5px;
         border: solid 2px var(--dark-blue);
-        width: 250px;
+        width: 20px;
     }
 </style>
 
 <script>
     $(document).ready(() => {
-        let dataFiltered = [];
-        let labelFiltered = [];
+        let dataFiltered1 = [];
+        let labelFiltered1 = [];
+
+        let dataFiltered2 = [];
+        let labelFiltered2 = [];
+
+        let dataFiltered3 = [];
+        let labelFiltered3 = [];
 
         let interval = 60000;
         let intervalId = null;
@@ -48,43 +56,81 @@ $data_trame = $data_trame ?? [];
 
         const updateGraph = async () => {
             let dataPasserelle = await getDataFromController('user?page=passerelle');
-            dataFiltered = [];
-            labelFiltered = [];
 
-            dataPasserelle.sort((a, b) => a.log_date - b.log_date);
-            dataPasserelle = dataPasserelle.slice(-100);
-
-            for (let i = 0; i < dataPasserelle.length; i++) {
-                if (
-                    dataPasserelle[i].log_capteur === 5 &&
-                    dataPasserelle[i].log_valeur < 100 &&
-                    dataPasserelle[i].log_valeur > 20
-                ) {
-                    dataFiltered.push(dataPasserelle[i].log_valeur);
-                    labelFiltered.push(dataPasserelle[i].log_date);
-                }
+            // Filter data for Sensor 1
+            let dataFiltered1 = [];
+            let labelFiltered1 = [];
+            let sensor1Data = dataPasserelle.filter(
+                item =>
+                    item.log_capteur === 1 &&
+                    item.log_valeur < 100 &&
+                    item.log_valeur > 20
+            );
+            for (let i = 0; i < sensor1Data.length; i++) {
+                dataFiltered1.push(sensor1Data[i].log_valeur);
+                labelFiltered1.push(sensor1Data[i].log_date);
             }
 
-            console.log(dataFiltered);
+            // Filter data for Sensor 2
+            let dataFiltered2 = [];
+            let labelFiltered2 = [];
+            let sensor2Data = dataPasserelle.filter(
+                item =>
+                    item.log_capteur === 2 &&
+                    item.log_valeur < 100 &&
+                    item.log_valeur > 20
+            );
+            for (let i = 0; i < sensor2Data.length; i++) {
+                dataFiltered2.push(sensor2Data[i].log_valeur);
+                labelFiltered2.push(sensor2Data[i].log_date);
+            }
 
-            mixedChart.data.datasets[0].data = dataFiltered;
-            mixedChart.data.labels = labelFiltered;
-            mixedChart.update();
+            // Filter data for Sensor 3
+            let dataFiltered3 = [];
+            let labelFiltered3 = [];
+            let sensor3Data = dataPasserelle.filter(
+                item =>
+                    item.log_capteur === 3 &&
+                    item.log_valeur < 100 &&
+                    item.log_valeur > 20
+            );
+            for (let i = 0; i < sensor3Data.length; i++) {
+                dataFiltered3.push(sensor3Data[i].log_valeur);
+                labelFiltered3.push(sensor3Data[i].log_date);
+            }
+
+            console.log(dataFiltered1);
+            console.log(dataFiltered2);
+            console.log(dataFiltered3);
+
+            mixedChart1.data.datasets[0].data = dataFiltered1;
+            mixedChart1.data.labels = labelFiltered1;
+            mixedChart1.update();
+
+            mixedChart2.data.datasets[0].data = dataFiltered2;
+            mixedChart2.data.labels = labelFiltered2;
+            mixedChart2.update();
+
+            mixedChart3.data.datasets[0].data = dataFiltered3;
+            mixedChart3.data.labels = labelFiltered3;
+            mixedChart3.update();
         };
 
-        let ctx = $('#graph');
+        let ctx1 = $('#graph1');
+        let ctx2 = $('#graph2');
+        let ctx3 = $('#graph3');
 
-        const mixedChart = new Chart(ctx, {
+        const mixedChart1 = new Chart(ctx1, {
             type: 'line',
             data: {
                 datasets: [{
-                    data: dataFiltered,
+                    data: dataFiltered1,
                     borderColor: '#ADE194',
                     backgroundColor: '#ADE194',
                     lineTension: 0.4,
                     label: 'Valeur',
                 }],
-                labels: labelFiltered,
+                labels: labelFiltered1,
             },
             options: {
                 plugins: {
@@ -93,7 +139,85 @@ $data_trame = $data_trame ?? [];
                     },
                     title: {
                         display: true,
-                        text: 'Valeur du micro en fonction du temps',
+                        text: 'Sensor 1',
+                        font: {
+                            size: 15,
+                        },
+                        padding: {
+                            bottom: 10,
+                        },
+                    },
+                },
+                scales: {
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'dB',
+                        },
+                    },
+                },
+            },
+        });
+
+        const mixedChart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                datasets: [{
+                    data: dataFiltered2,
+                    borderColor: '#ADE194',
+                    backgroundColor: '#ADE194',
+                    lineTension: 0.4,
+                    label: 'Valeur',
+                }],
+                labels: labelFiltered2,
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Sensor 2',
+                        font: {
+                            size: 15,
+                        },
+                        padding: {
+                            bottom: 10,
+                        },
+                    },
+                },
+                scales: {
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'dB',
+                        },
+                    },
+                },
+            },
+        });
+
+        const mixedChart3 = new Chart(ctx3, {
+            type: 'line',
+            data: {
+                datasets: [{
+                    data: dataFiltered3,
+                    borderColor: '#ADE194',
+                    backgroundColor: '#ADE194',
+                    lineTension: 0.4,
+                    label: 'Valeur',
+                }],
+                labels: labelFiltered3,
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Sensor 3',
                         font: {
                             size: 15,
                         },
@@ -116,10 +240,9 @@ $data_trame = $data_trame ?? [];
         // Call updateGraph initially
         updateGraph();
 
-        // Call updateGraph every second
+        // Start the initial interval
         intervalId = setInterval(updateGraph, interval);
     });
-
-
 </script>
+
 

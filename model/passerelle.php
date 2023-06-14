@@ -14,7 +14,7 @@ function addDataFromGateway(string $trame) : bool
     $values = sscanf($trame, "%1d%4s%1s%1s%2x%4x%4s%2s%4d%2d%2d%2d%2d%2d");
     list($t, $o, $r, $capteur, $n, $value, $a, $x, $year, $month, $day, $hour, $min, $sec) = $values;
 
-    $dateString = sprintf("%s-%s-%s %s:%s:%s", $year, $month, $day, $hour, $min, $sec);
+    $dateString = sprintf("%d-%d-%d %d:%d:%d", $year, $month, $day, $hour, $min, $sec);
     print_r($dateString);
     $datetime = DateTime::createFromFormat("Y-m-d H:i:s", $dateString);
     print_r($datetime);

@@ -330,5 +330,6 @@
 
                 },
             });
+        mixedChart.update();
     });
 </script>

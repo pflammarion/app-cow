@@ -8,8 +8,10 @@ $data_trame = $data_trame ?? [];
     foreach ($data_trame as $d){
         if($d['log_capteur'] == 5){
             echo "Valeur : " . $d["log_valeur"];
+            echo "<br />";
             echo "Date : " . $d["log_date"];
             echo "<br />";
+            echo "---------------";
         }
     }
     ?>

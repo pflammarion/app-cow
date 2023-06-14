@@ -33,7 +33,7 @@ function addDataFromGateway(string $trame) : bool
             array(
                 "capteur" => $capteur,
                 "valeur"=> $value,
-                "date"=> $datetime,
+                "date"=> $datetime->format("Y-m-d H:i:s"),
             )
         );
         return true;

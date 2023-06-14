@@ -6,7 +6,7 @@ $data_trame = $data_trame ?? [];
     <div class="table">
         <div class="container" style="padding: 20px; width: 1200px; height: 600px">
             <label for="rating">Taux de rafraichissement</label>
-            <select name="rating" id="refresh-rate">
+            <select name="rating" id="refresh-rate" class="select">
                 <option value="60000">Min</option>
                 <option value="1000" selected="selected">Sec</option>
             </select>
@@ -24,12 +24,11 @@ $data_trame = $data_trame ?? [];
 
 
 
-        let interval = 60000;
+        let interval = 1000;
 
         // Event listener for the refresh rate selection
         $('#refresh-rate').on('change', function () {
             interval = $(this).val();
-            updateGraph();
         });
 
         const updateGraph = async () => {

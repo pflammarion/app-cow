@@ -22,7 +22,7 @@ function addDataFromGateway(string $trame) : bool
         $get_value_sql = $GLOBALS['db']->prepare($get_value_sql);
         $get_value_sql->execute(
             array(
-                "date" => $datetime->format("Y-m-d H:i:s"),
+                "date" => $datetime->getTimestamp(),
                 "capteur" => $capteur,
             )
         );
@@ -34,7 +34,7 @@ function addDataFromGateway(string $trame) : bool
                 array(
                     "capteur" => $capteur,
                     "valeur"=> $value,
-                    "date"=> $datetime->format("Y-m-d H:i:s"),
+                    "date"=> $datetime->getTimestamp(),
                 )
             );
             return true;
@@ -46,17 +46,21 @@ function addDataFromGateway(string $trame) : bool
 function getTrameFromDatabase(): array
 {
     $get_value_sql = "SELECT * FROM log";
-    $get_value_sql = $GLOBALS['db']-> prepare($get_value_sql);
+    $get_value_sql = $GLOBALS['db']->prepare($get_value_sql);
+    $get_value_sql->execute();
     $rows = $get_value_sql->fetchAll();
+
     $result = [];
-    foreach ($rows as $row){
+    foreach ($rows as $row) {
+        $timestamp = $row['log_date'];
+        $date = date('Y-m-d H:i:s', $timestamp);
         $result[] = array(
-            'log_capteur'=> $row['log_capteur'],
-            'log_valeur'=>$row['log_valeur'],
-            'log_date'=>$row['log_date'],
+            'log_capteur' => $row['log_capteur'],
+            'log_valeur' => $row['log_valeur'],
+            'log_date' => $date,
         );
     }
-    return $result;
 
+    return $result;
 }
 

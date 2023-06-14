@@ -34,7 +34,8 @@ $data_trame = $data_trame ?? [];
                 }
             }
 
-            mixedChart.data.datasets[0].data = dataFiltered;
+            console.log(dataFiltered)
+            mixedChart.data.datasets.data = dataFiltered;
             mixedChart.data.label = labelFiltered;
             mixedChart.update();
         }

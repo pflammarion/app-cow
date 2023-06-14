@@ -52,12 +52,10 @@ function getTrameFromDatabase(): array
 
     $result = [];
     foreach ($rows as $row) {
-        $timestamp = $row['log_date'];
-        $date = date('Y-m-d H:i:s', $timestamp);
         $result[] = array(
             'log_capteur' => $row['log_capteur'],
             'log_valeur' => $row['log_valeur'],
-            'log_date' => $date,
+            'log_date' => $row['log_date'],
         );
     }
 

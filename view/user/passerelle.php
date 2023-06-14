@@ -86,15 +86,15 @@ $data_trame = $data_trame ?? [];
                 $(".popup-container").append('<div class="popup" id="number' + i + '">Trame "allumer" envoyée à la carte</div>');
                 $('#number' + i).addClass('success');
                 $('.popup').delay(5000).fadeOut('slow');
-                i++
-                isLight = false
+                i++;
+                isLight = true;
             } else {
                 $('#button-led').html("Allumer la led verte");
                 $(".popup-container").append('<div class="popup" id="number' + i + '">Trame "éteindre" envoyée à la carte</div>');
                 $('#number' + i).addClass('success');
                 $('.popup').delay(5000).fadeOut('slow');
-                i++
-                isLight = true
+                i++;
+                isLight = false;
             }
 
             //send the trame to passerelle

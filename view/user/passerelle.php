@@ -51,6 +51,7 @@ $data_trame = $data_trame ?? [];
                 }
             },
         });
+        mixedChart.update();
     });
 </script>
 

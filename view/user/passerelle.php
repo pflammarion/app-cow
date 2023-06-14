@@ -35,7 +35,7 @@ $data_trame = $data_trame ?? [];
             }
 
             mixedChart.data.datasets[0].data = dataFiltered;
-            mixedChart.data.datasets.label = labelFiltered;
+            mixedChart.data.label = labelFiltered;
             mixedChart.update();
         }
 

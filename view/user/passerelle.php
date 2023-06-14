@@ -4,7 +4,7 @@ $data_trame = $data_trame ?? [];
 
 <div class="passerelle">
     <div class="table">
-        <div class="container">
+        <div class="container" style="padding: 20px">
             <div id="table-content" class="table-content">
                 <canvas id="graph"></canvas>
             </div>

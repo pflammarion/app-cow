@@ -14,17 +14,32 @@ $data_trame = $data_trame ?? [];
 
 <script>
     $(document).ready(() => {
-        let ctx = $('#graph');
-        let dataPasserelle = <?php echo json_encode($data_trame) ?>;
-        dataPasserelle.sort((a, b) => a["log_date"] - b["log_date"]);
-        let dataFiltered = []
-        let labelFiltered = []
-        for(let i = 0; i < dataPasserelle.length; i++){
-            if (dataPasserelle[i]["log_capteur"] == 5 && dataPasserelle[i]["log_valeur"] < 100 && dataPasserelle[i]["log_valeur"] > 20){
-                dataFiltered.push(dataPasserelle[i]["log_valeur"])
-                labelFiltered.push(dataPasserelle[i]["log_date"])
+
+
+
+        const getData =  async () => {
+
+            let dataPasserelle = await getDataFromController('user?page=passerelle)
+
+            dataPasserelle.sort((a, b) => a["log_date"] - b["log_date"]);
+            let dataFiltered = []
+            let labelFiltered = []
+            for(let i = 0; i < dataPasserelle.length; i++){
+                if (dataPasserelle[i]["log_capteur"] == 5 && dataPasserelle[i]["log_valeur"] < 100 && dataPasserelle[i]["log_valeur"] > 20){
+                    dataFiltered.push(dataPasserelle[i]["log_valeur"])
+                    labelFiltered.push(dataPasserelle[i]["log_date"])
+                }
             }
+
+            mixedChart.data.datasets[0].data = dataFiltered;
+            mixedChart.data.datasets[0].label = labelFiltered;
+            mixedChart.update();
         }
+        getData();
+
+
+        let ctx = $('#graph');
+
             const mixedChart = new Chart(ctx, {
                 type: 'line',
                 data: {

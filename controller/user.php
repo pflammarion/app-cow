@@ -298,9 +298,16 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             break;
         case 'passerelle':
             $view = 'user/passerelle';
-            $data = file_get_contents('http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=G05E');
-            $data_tab = str_split($data, 33);
-            $dict = [];
+            if (isset($_GET['api'])){
+                $data = file_get_contents('http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=G05E');
+                $data_tab = str_split($data, 33);
+                $dict = [];
+                foreach ($data_tab as $trame) {
+                    addDataFromGateway($trame);
+                }
+                $data_trame = getTrameFromDatabase();
+                echo json_encode($data_trame);
+            }
 
             /*$ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,"http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=0011");
@@ -308,11 +315,6 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             $data = curl_exec($ch);
             curl_close($ch);*/
-
-            foreach ($data_tab as $trame) {
-                addDataFromGateway($trame);
-            }
-            $data_trame = getTrameFromDatabase();
 
             break;
         default:

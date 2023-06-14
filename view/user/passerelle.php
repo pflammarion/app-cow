@@ -43,7 +43,7 @@ $data_trame = $data_trame ?? [];
                         },
                         title: {
                             display: true,
-                            text: "test",
+                            text: "Valeur du micro en fonction du temps",
                             font: {
                                 size: 15
                             },
@@ -59,6 +59,12 @@ $data_trame = $data_trame ?? [];
                                 text: "dB",
                             }
                         },
+                        x: {
+                            title: {
+                                display: true,
+                                text: "Temps",
+                            }
+                        }
                     }
                 },
             });

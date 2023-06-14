@@ -62,7 +62,7 @@ $data_trame = $data_trame ?? [];
             let labelFiltered1 = [];
             let sensor1Data = dataPasserelle.filter(
                 item =>
-                    item.log_capteur === 1 &&
+                    item.log_capteur === 5 &&
                     item.log_valeur < 100 &&
                     item.log_valeur > 20
             );
@@ -76,7 +76,7 @@ $data_trame = $data_trame ?? [];
             let labelFiltered2 = [];
             let sensor2Data = dataPasserelle.filter(
                 item =>
-                    item.log_capteur === 2 &&
+                    item.log_capteur === 6 &&
                     item.log_valeur < 100 &&
                     item.log_valeur > 20
             );
@@ -90,7 +90,7 @@ $data_trame = $data_trame ?? [];
             let labelFiltered3 = [];
             let sensor3Data = dataPasserelle.filter(
                 item =>
-                    item.log_capteur === 3 &&
+                    item.log_capteur === 7 &&
                     item.log_valeur < 100 &&
                     item.log_valeur > 20
             );

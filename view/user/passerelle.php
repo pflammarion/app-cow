@@ -6,9 +6,9 @@ $data_trame = $data_trame ?? [];
     <div class="table">
         <div class="container" style="padding: 20px; width: 1200px; height: 600px">
             <label for="rating">Taux de rafraichissement</label>
-            <select name="rating" id="refresh-rate" class="select">
-                <option value="60000">Min</option>
-                <option value="1000" selected="selected">Sec</option>
+            <select name="rating" id="refresh-rate" class="chip-cow-link select">
+                <option value="60000" selected="selected">Min</option>
+                <option value="1000">Sec</option>
             </select>
             <div id="table-content" class="table-content">
                 <canvas id="graph"></canvas>
@@ -22,13 +22,18 @@ $data_trame = $data_trame ?? [];
         let dataFiltered = [];
         let labelFiltered = [];
 
-
-
-        let interval = 1000;
+        let interval = 60000;
+        let intervalId = null;
 
         // Event listener for the refresh rate selection
         $('#refresh-rate').on('change', function () {
-            interval = $(this).val();
+            interval = Number($(this).val());
+
+            // Clear the previous interval
+            clearInterval(intervalId);
+
+            // Start a new interval with the updated value
+            intervalId = setInterval(updateGraph, interval);
         });
 
         const updateGraph = async () => {
@@ -102,7 +107,7 @@ $data_trame = $data_trame ?? [];
         updateGraph();
 
         // Call updateGraph every second
-        setInterval(updateGraph, interval);
+        intervalId = setInterval(updateGraph, interval);
     });
 
 

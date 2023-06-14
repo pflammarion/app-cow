@@ -78,12 +78,22 @@ $data_trame = $data_trame ?? [];
             intervalId = setInterval(updateGraph, interval);
         });
 
+        i = 0
+
         $('#button-led').on('click', function () {
             if (isLight){
                 $('#button-led').html("Éteindre la led verte");
+                $(".popup-container").append('<div class="popup" id="number' + i + '">Trame envoyée à la carte</div>');
+                $('#number' + i).addClass('success');
+                $('.popup').delay(5000).fadeOut('slow');
+                i++
                 isLight = false
             } else {
                 $('#button-led').html("Allumer la led verte");
+                $(".popup-container").append('<div class="popup" id="number' + i + '">Trame envoyée à la carte</div>');
+                $('#number' + i).addClass('success');
+                $('.popup').delay(5000).fadeOut('slow');
+                i++
                 isLight = true
             }
 
@@ -271,22 +281,10 @@ $data_trame = $data_trame ?? [];
         // Start the initial interval
         intervalId = setInterval(updateGraph, interval);
 
-
-            let i=0;
-
-            $(".popup-container").append('<div class="popup" id="number' + i + '">Trame envoyée à la carte</div>');
-            $('#number' + i).addClass('success');
-            i++;
-            $('.popup').delay(5000).fadeOut('slow');
-        });
-
-            function hide(e){
-            e.style.display = "none";
-        }
-
-
-
     });
+    function hide(e){
+        e.style.display = "none";
+    }
 </script>
 
 

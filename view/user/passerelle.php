@@ -22,12 +22,11 @@ $data_trame = $data_trame ?? [];
                 dataFiltered.push(dataPasserelle[i]["log_valeur"])
             }
         }
-        console.log(dataFiltered);
         const mixedChart = new Chart(ctx, {
             type: 'line',
             data: {
                 datasets: [{
-                    data: dataFiltered,
+                    data: [12,23],
                     borderColor: '#ADE194',
                     backgroundColor: '#ADE194',
                     lineTension: 0.4,

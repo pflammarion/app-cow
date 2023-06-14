@@ -6,7 +6,7 @@ $data_trame = $data_trame ?? [];
     <div class="table">
         <div class="container" style="padding: 20px; width: 1200px; height: 600px">
             <label for="rating">Taux de rafraichissement</label>
-            <select name="rating" id="refresh-rate" class="chip-cow-link select">
+            <select name="rating" id="refresh-rate">
                 <option value="60000" selected="selected">Min</option>
                 <option value="1000">Sec</option>
             </select>
@@ -16,6 +16,16 @@ $data_trame = $data_trame ?? [];
         </div>
     </div>
 </div>
+
+<style>
+    .passerelle select{
+        background-color: white;
+        height: 40px;
+        border-radius: 5px;
+        border: solid 2px var(--dark-blue);
+        width: 250px;
+    }
+</style>
 
 <script>
     $(document).ready(() => {

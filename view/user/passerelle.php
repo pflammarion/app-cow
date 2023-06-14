@@ -20,7 +20,7 @@ $data_trame = $data_trame ?? [];
         let dataFiltered = []
         let labelFiltered = []
         for(let i = 0; i < dataPasserelle.length; i++){
-            if (dataPasserelle[i]["log_capteur"] == 5 && dataPasserelle[i]["log_valeur"] < 100){
+            if (dataPasserelle[i]["log_capteur"] == 5 && dataPasserelle[i]["log_valeur"] < 100 && dataPasserelle[i]["log_valeur"] > 20){
                 dataFiltered.push(dataPasserelle[i]["log_valeur"])
                 labelFiltered.push(dataPasserelle[i]["log_date"])
             }

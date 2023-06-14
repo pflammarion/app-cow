@@ -29,6 +29,7 @@ $data_trame = $data_trame ?? [];
         // Event listener for the refresh rate selection
         $('#refresh-rate').on('change', function () {
             interval = $(this).val();
+            updateGraph();
         });
 
         const updateGraph = async () => {

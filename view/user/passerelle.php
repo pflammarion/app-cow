@@ -3,21 +3,58 @@ $data_trame = $data_trame ?? [];
 ?>
 
 <div class="passerelle">
-    <p>Les dernieres valeurs du micro</p>
-    <?php
-    foreach ($data_trame as $d){
-        if($d['log_capteur'] == 5){
-
-            echo "Valeur : " . $d["log_valeur"];
-            echo "<br />";
-            echo "Date : " . $d["log_date"];
-            echo "<br />";
-            echo "<br />";
-            echo "<br />";
-            echo "---------------";
-            echo "<br />";
-            echo "<br />";
-        }
-    }
-    ?>
+    <div class="table">
+        <div class="container">
+            <div id="table-content" class="table-content">
+                <canvas id="graph"></canvas>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+<script>
+    $(document).ready(() => {
+
+        let ctx = $('#graph');
+        const mixedChart = new Chart(ctx, {
+            data: {
+                datasets: [{
+                    type: 'line',
+                    data: <?php echo $data_trame?>,
+                    borderColor: '#ADE194',
+                    backgroundColor: '#ADE194',
+                    lineTension: 0.4,
+
+                }],
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    title: {
+                        display: true,
+                        text: "test",
+                        font: {
+                            size: 15
+                        },
+                        padding: {
+                            bottom: 10
+                        }
+                    },
+                },
+                scales: {
+                    y: {
+                        title: {
+                            display: true,
+                            text: "dB",
+                        }
+                    },
+                }
+
+            },
+        });
+    });
+</script>

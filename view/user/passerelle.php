@@ -4,6 +4,11 @@ $data_trame = $data_trame ?? [];
 
 <div class="passerelle">
     <div class="table">
+
+        <button id="button-led" class="btn-valider">
+            Allumer la led verte
+        </button>
+
         <div class="container" style="padding: 20px">
             <label for="rating">Taux de rafraichissement</label>
             <select name="rating" id="refresh-rate">
@@ -51,6 +56,8 @@ $data_trame = $data_trame ?? [];
         let interval = 60000;
         let intervalId = null;
 
+        let isLight = false;
+
         // Event listener for the refresh rate selection
         $('#refresh-rate').on('change', function () {
             interval = Number($(this).val());
@@ -60,6 +67,18 @@ $data_trame = $data_trame ?? [];
 
             // Start a new interval with the updated value
             intervalId = setInterval(updateGraph, interval);
+        });
+
+        $('#button-led').on('click', function () {
+            if (isLight){
+                $('#button-led').html("Éteindre la led verte");
+                isLight = false
+            } else {
+                $('#button-led').html("Allumer la led verte");
+                isLight = true
+            }
+
+            //send the trame to passerelle
         });
 
         const updateGraph = async () => {

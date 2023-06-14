@@ -16,6 +16,7 @@ $data_trame = $data_trame ?? [];
     $(document).ready(() => {
         let ctx = $('#graph');
         let dataPasserelle = <?php echo json_encode($data_trame) ?>;
+        dataPasserelle.sort((a, b) => a["log_date"] - b["log_date"]);
         let dataFiltered = []
         let labelFiltered = []
         for(let i = 0; i < dataPasserelle.length; i++){

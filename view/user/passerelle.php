@@ -66,7 +66,6 @@ $data_trame = $data_trame ?? [];
             let dataPasserelle = await getDataFromController('user?page=passerelle');
 
             dataPasserelle.sort((a, b) => a.log_date - b.log_date);
-            dataPasserelle = dataPasserelle.slice(-100);
 
 
             // Filter data for Sensor 1
@@ -90,8 +89,6 @@ $data_trame = $data_trame ?? [];
             let sensor2Data = dataPasserelle.filter(
                 item =>
                     item.log_capteur === 6 &&
-                    item.log_valeur < 100 &&
-                    item.log_valeur > 20
             );
             sensor2Data = sensor2Data.slice(-100);
             for (let i = 0; i < sensor2Data.length; i++) {
@@ -105,8 +102,6 @@ $data_trame = $data_trame ?? [];
             let sensor3Data = dataPasserelle.filter(
                 item =>
                     item.log_capteur === 7 &&
-                    item.log_valeur < 100 &&
-                    item.log_valeur > 20
             );
             sensor3Data = sensor3Data.slice(-100);
             for (let i = 0; i < sensor3Data.length; i++) {

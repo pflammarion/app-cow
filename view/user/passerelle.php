@@ -14,7 +14,7 @@ $data_trame = $data_trame ?? [];
                 <canvas id="graph1"></canvas>
             </div>
         </div>
-        <div class="container" style="padding: 20px; margin: 20px">
+        <div class="container" style="padding: 20px; margin-bottom: 20px">
             <div id="table-content" class="table-content">
                 <canvas id="graph2"></canvas>
             </div>

@@ -5,6 +5,11 @@ $data_trame = $data_trame ?? [];
 <div class="passerelle">
     <div class="table">
         <div class="container" style="padding: 20px; width: 1200px; height: 600px">
+            <label for="rating">Taux de rafraichissement</label>
+            <select name="rating" id="refresh-rate">
+                <option value="60000">Min</option>
+                <option value="1000" selected="selected">Sec</option>
+            </select>
             <div id="table-content" class="table-content">
                 <canvas id="graph"></canvas>
             </div>
@@ -17,6 +22,15 @@ $data_trame = $data_trame ?? [];
         let dataFiltered = [];
         let labelFiltered = [];
 
+
+
+        let interval = 60000;
+
+        // Event listener for the refresh rate selection
+        $('#refresh-rate').on('change', function () {
+            interval = $(this).val();
+        });
+
         const updateGraph = async () => {
             let dataPasserelle = await getDataFromController('user?page=passerelle');
             dataFiltered = [];
@@ -27,7 +41,7 @@ $data_trame = $data_trame ?? [];
 
             for (let i = 0; i < dataPasserelle.length; i++) {
                 if (
-                    dataPasserelle[i].log_capteur == 5 &&
+                    dataPasserelle[i].log_capteur === 5 &&
                     dataPasserelle[i].log_valeur < 100 &&
                     dataPasserelle[i].log_valeur > 20
                 ) {
@@ -88,7 +102,7 @@ $data_trame = $data_trame ?? [];
         updateGraph();
 
         // Call updateGraph every second
-        setInterval(updateGraph, 1000);
+        setInterval(updateGraph, interval);
     });
 
 

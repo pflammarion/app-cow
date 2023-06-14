@@ -19,7 +19,7 @@ $data_trame = $data_trame ?? [];
             type: 'line',
             data: {
                 datasets: [{
-                    data: <?php echo json_encode($data_trame) ?>,
+                    data: <?php echo json_encode($data_trame['log_valeur']) ?>,
                     borderColor: '#ADE194',
                     backgroundColor: '#ADE194',
                     lineTension: 0.4,

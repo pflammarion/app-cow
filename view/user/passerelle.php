@@ -23,15 +23,13 @@ $data_trame = $data_trame ?? [];
             }
         }
             const mixedChart = new Chart(ctx, {
-                type: 'line',
+                type: 'bar',
                 data: {
                     datasets: [{
-                        data: [12, 23],
-                        borderColor: '#ADE194',
-                        backgroundColor: '#ADE194',
-                        lineTension: 0.4,
+                        data: [20, 10],
                     }],
-                },
+                    labels: ['a', 'b']
+                }
                 options: {
                     plugins: {
                         legend: {

@@ -67,47 +67,34 @@ $data_trame = $data_trame ?? [];
 
             dataPasserelle.sort((a, b) => a.log_date - b.log_date);
 
-
             // Filter data for Sensor 1
-            let dataFiltered1 = [];
-            let labelFiltered1 = [];
             let sensor1Data = dataPasserelle.filter(
                 item =>
                     item.log_capteur === 5 &&
-                    item.log_valeur < 100 &&
-                    item.log_valeur > 20
+                    item.log_valeur > 0 &&
+                    item.log_valeur < 100
             );
             sensor1Data = sensor1Data.slice(-100);
-            for (let i = 0; i < sensor1Data.length; i++) {
-                dataFiltered1.push(sensor1Data[i].log_valeur);
-                labelFiltered1.push(sensor1Data[i].log_date);
-            }
+            dataFiltered1 = sensor1Data.map(item => item.log_valeur);
+            labelFiltered1 = sensor1Data.map(item => item.log_date);
 
             // Filter data for Sensor 2
-            let dataFiltered2 = [];
-            let labelFiltered2 = [];
             let sensor2Data = dataPasserelle.filter(
                 item =>
                     item.log_capteur === 6
             );
             sensor2Data = sensor2Data.slice(-100);
-            for (let i = 0; i < sensor2Data.length; i++) {
-                dataFiltered2.push(sensor2Data[i].log_valeur);
-                labelFiltered2.push(sensor2Data[i].log_date);
-            }
+            dataFiltered2 = sensor2Data.map(item => item.log_valeur);
+            labelFiltered2 = sensor2Data.map(item => item.log_date);
 
             // Filter data for Sensor 3
-            let dataFiltered3 = [];
-            let labelFiltered3 = [];
             let sensor3Data = dataPasserelle.filter(
                 item =>
                     item.log_capteur === 7
             );
             sensor3Data = sensor3Data.slice(-100);
-            for (let i = 0; i < sensor3Data.length; i++) {
-                dataFiltered3.push(sensor3Data[i].log_valeur);
-                labelFiltered3.push(sensor3Data[i].log_date);
-            }
+            dataFiltered3 = sensor3Data.map(item => item.log_valeur);
+            labelFiltered3 = sensor3Data.map(item => item.log_date);
 
             console.log(dataFiltered1);
             console.log(dataFiltered2);
@@ -125,6 +112,7 @@ $data_trame = $data_trame ?? [];
             mixedChart3.data.labels = labelFiltered3;
             mixedChart3.update();
         };
+
 
         let ctx1 = $('#graph1');
         let ctx2 = $('#graph2');

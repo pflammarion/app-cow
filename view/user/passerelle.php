@@ -22,43 +22,43 @@ $data_trame = $data_trame ?? [];
                 dataFiltered.push(dataPasserelle[i]["log_valeur"])
             }
         }
-        const mixedChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                datasets: [{
-                    data: [12,23],
-                    borderColor: '#ADE194',
-                    backgroundColor: '#ADE194',
-                    lineTension: 0.4,
-                }],
-            },
-            options: {
-                plugins: {
-                    legend: {
-                        position: 'bottom'
-                    },
-                    title: {
-                        display: true,
-                        text: "test",
-                        font: {
-                            size: 15
-                        },
-                        padding: {
-                            bottom: 10
-                        }
-                    },
+            const mixedChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        data: [12, 23],
+                        borderColor: '#ADE194',
+                        backgroundColor: '#ADE194',
+                        lineTension: 0.4,
+                    }],
                 },
-                scales: {
-                    y: {
+                options: {
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
                         title: {
                             display: true,
-                            text: "dB",
-                        }
+                            text: "test",
+                            font: {
+                                size: 15
+                            },
+                            padding: {
+                                bottom: 10
+                            }
+                        },
                     },
-                }
-            },
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: "dB",
+                            }
+                        },
+                    }
+                },
+            });
         });
-        mixedChart.update();
-    });
+
 </script>
 

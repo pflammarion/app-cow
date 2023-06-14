@@ -12,6 +12,7 @@ $data_trame = $data_trame ?? [];
             echo "Date : " . $d["log_date"];
             echo "<br />";
             echo "---------------";
+            echo "<br />";
         }
     }
     ?>

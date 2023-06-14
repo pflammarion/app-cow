@@ -33,6 +33,7 @@ $data_trame = $data_trame ?? [];
                         borderColor: '#ADE194',
                         backgroundColor: '#ADE194',
                         lineTension: 0.4,
+                        label: "Valeur",
                     }],
                     labels: labelFiltered
                 },
@@ -59,12 +60,6 @@ $data_trame = $data_trame ?? [];
                                 text: "dB",
                             }
                         },
-                        x: {
-                            title: {
-                                display: true,
-                                text: "Temps",
-                            }
-                        }
                     }
                 },
             });

@@ -23,12 +23,11 @@ $data_trame = $data_trame ?? [];
             }
         }
             const mixedChart = new Chart(ctx, {
-                type: 'bar',
+                type: 'line',
                 data: {
                     datasets: [{
                         data: [20, 10],
                     }],
-                    labels: ['a', 'b']
                 },
                 options: {
                     plugins: {

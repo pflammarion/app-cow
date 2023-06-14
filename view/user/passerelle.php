@@ -11,7 +11,7 @@ $data_trame = $data_trame ?? [];
             Allumer la led verte
         </button>
 
-        <div class="container" style="padding: 20px">
+        <div class="container" style="padding: 20px; margin-bottom: 20px">
             <label for="rating">Taux de rafraichissement</label>
             <select name="rating" id="refresh-rate">
                 <option value="60000" selected="selected">Min</option>

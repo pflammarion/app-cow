@@ -31,7 +31,7 @@ $data_trame = $data_trame ?? [];
                         data: dataFiltered,
                         borderColor: '#ADE194',
                         backgroundColor: '#ADE194',
-                        lineTension: 0.4;
+                        lineTension: 0.4,
                     }],
                     labels: labelFiltered
                 },

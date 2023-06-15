@@ -83,6 +83,23 @@ $data_trame = $data_trame ?? [];
     .passerelle .red {
         background-color: var(--alert-red);
     }
+
+    .passerelle .border-green{
+        border: 2px solid var(--green);
+    }
+
+    .passerelle .border-orange{
+        border: 2px solid var(--alert-orange);
+    }
+
+    .passerelle .border-red{
+        border: 2px solid var(--alert-red);
+    }
+
+    .passerelle .border-black{
+        border: 2px solid var(--dark);
+    }
+
     .passerelle .btn-container{
         display: flex;
         gap: 20px;
@@ -126,28 +143,33 @@ $data_trame = $data_trame ?? [];
 
         $('.btn-led').on('click', async function(){
             let trame = "";
-            let command = ""
+            let command = "";
+            let classe = "";
             switch ($(this).data("val")){
                 case "reset" :
                     trame = "1G05E24010000000";
                     command = "éteindre la LED";
+                    classe = "border-reset";
                     break;
                 case "green" :
                     trame = "1G05E24010001000";
                     command = "allumer en vert la LED";
+                    classe = "border-green";
                     break;
                 case "orange" :
                     trame = "1G05E24010002000";
                     command = "allumer en orange la LED";
+                    classe = "border-orange";
                     break;
                 case "red" :
                     trame = "1G05E24010003000";
                     command = "allumer en rouge la LED";
+                    classe = "border-red";
                     break;
             }
             let sendCommand = await getDataFromController('user?page=passerelle&action=post&trame=' + trame);
             //changer le bg du btn ?
-            $(".popup-container").append('<div class="popup" id="number' + i + '"><p>La commande : <strong>' + command + '</strong> a été envoyée à la carte. Etat : ' + sendCommand + '</p></div>');
+            $(".popup-container").append('<div class="popup ' + classe +'" id="number' + i + '"><p>La commande : <strong>' + command + '</strong> a été envoyée à la carte. Etat : ' + sendCommand + '</p></div>');
             $('#number' + i).addClass('success');
             $('.popup').delay(5000).fadeOut('slow');
             i++;

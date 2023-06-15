@@ -59,7 +59,6 @@ $data_trame = $data_trame ?? [];
 
     .passerelle .btn-led{
         color: black;
-        margin: 0 auto;
         padding: 5px;
         width: 200px;
         display: flex;
@@ -70,6 +69,7 @@ $data_trame = $data_trame ?? [];
         font-size: 15px;
         gap: 30px;
         align-items: center;
+        border: solid 2px black;
     }
 
     .passerelle .green {
@@ -82,6 +82,11 @@ $data_trame = $data_trame ?? [];
 
     .passerelle .red {
         background-color: var(--alert-red);
+    }
+    .passerelle .btn-container{
+        display: flex;
+        gap: 20px;
+        margin: 0 auto;
     }
 
 

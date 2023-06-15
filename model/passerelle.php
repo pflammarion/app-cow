@@ -13,18 +13,17 @@ function addDataFromGateway(string $trame): bool
     $values = sscanf($trame, "%1d%4s%1s%1s%2x%4x%4s%2s%4d%2d%2d%2d%2d%2d");
     list($t, $o, $r, $capteur, $n, $value, $a, $x, $year, $month, $day, $hour, $min, $sec) = $values;
 
-    $dateString = sprintf("%s-%s-%s %s:%s:%s", $year, $month, $day, $hour, $min, $sec);
-    $datetime = DateTime::createFromFormat("Y-m-d H:i:s", $dateString);
+    $dateString = "$year-$month-$day $hour:$min:$sec";
+    $timestamp = strtotime($dateString);
+    $datetime = date("Y-m-d H:i:s", $timestamp);
 
     if ($datetime) {
-        print_r($capteur);
-        print_r($datetime);
         $get_value_sql = "SELECT log_id FROM log WHERE log_capteur = :capteur AND log_date = :date";
         $get_value_sql = $GLOBALS['db']->prepare($get_value_sql);
         $get_value_sql->execute(
             array(
                 "capteur" => $capteur,
-                "date" => $datetime->format("Y-m-d H:i:s"),
+                "date" => $datetime,
             )
         );
 
@@ -35,7 +34,7 @@ function addDataFromGateway(string $trame): bool
                 array(
                     "capteur" => $capteur,
                     "valeur" => $value,
-                    "date" => $datetime->format("Y-m-d H:i:s"),
+                    "date" => $datetime,
                 )
             );
             return true;

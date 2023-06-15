@@ -33,19 +33,19 @@
     background-color: var(--alert-red);
 }
 
-.passerelle .border-green{
+#popup_passerelle .border-green{
     border: 2px solid var(--green);
 }
 
-.passerelle .border-orange{
+#popup_passerelle .border-orange{
     border: 2px solid var(--alert-orange);
 }
 
-.passerelle .border-red{
+#popup_passerelle .border-red{
     border: 2px solid var(--alert-red);
 }
 
-.passerelle .border-black{
+#popup_passerelle .border-black{
     border: 2px solid var(--dark);
 }
 
@@ -55,6 +55,6 @@
     margin: 0 auto;
     width: fit-content;
 }
-.passerelle .popup p {
+#popup_passerelle .popup p {
     margin: 0;
 }

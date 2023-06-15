@@ -34,7 +34,7 @@
 }
 
 #popup_passerelle .border-green{
-    border: 4px solid green;
+    border: 4px solid var(--green);
 }
 
 #popup_passerelle .border-orange{

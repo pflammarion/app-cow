@@ -97,10 +97,18 @@ $data_trame = $data_trame ?? [];
         $('.btn-led').on('click', async function(){
             let trame = "";
             switch ($(this).data("val")){
-                case "reset" -> trame = "1G05E24010000000";
-                case "green" -> trame = "1G05E24010001000";
-                case "orange" -> trame = "1G05E24010002000";
-                case "red" -> trame = "1G05E24010003000";
+                case "reset" :
+                    trame = "1G05E24010000000";
+                    break;
+                case "green" :
+                    trame = "1G05E24010001000";
+                    break;
+                case "orange" :
+                    trame = "1G05E24010002000";
+                    break;
+                case "red" :
+                    trame = "1G05E24010003000";
+                    break;
             }
             let sendCommand = await getDataFromController('user?page=passerelle&action=post&trame=' + trame);
             //changer le bg du btn ?

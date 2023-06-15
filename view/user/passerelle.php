@@ -89,6 +89,9 @@ $data_trame = $data_trame ?? [];
         margin: 0 auto;
         width: fit-content;
     }
+    .passerelle .popup p {
+        margin: 0;
+    }
 
 
 </style>

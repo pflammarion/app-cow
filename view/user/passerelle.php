@@ -7,19 +7,19 @@ $data_trame = $data_trame ?? [];
 <div class="passerelle">
     <div class="table">
         <div class="btn-container">
-            <button id="button-led-green" data-val="green" class="btn-led btn-valider">
+            <button data-val="green" class="btn-led green">
                 Allumer la led verte
             </button>
 
-            <button id="button-led-orange" data-val="orange" class="btn-led btn-warning">
+            <button data-val="orange" class="btn-led orange">
                 Allumer la led orange
             </button>
 
-            <button id="button-led-red" data-val="red" class="btn-led btn-error">
+            <button data-val="red" class="btn-led red">
                 Allumer la led rouge
             </button>
 
-            <button id="button-led-reset" data-val="reset" class="btn-led btn-reset">
+            <button data-val="reset" class="btn-led reset">
                 Éteindre la led la led verte
             </button>
         </div>
@@ -62,7 +62,28 @@ $data_trame = $data_trame ?? [];
         margin: 0 auto;
         padding: 5px;
         width: 200px;
+        display: flex;
+        height: 40px;
+        border-radius: 5px;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 15px;
+        gap: 30px;
+        align-items: center;
     }
+
+    .passerelle .green {
+        background-color: var(--alert-green);
+    }
+
+    .passerelle .orange {
+        background-color: var(--alert-orange);
+    }
+
+    .passerelle .red {
+        background-color: var(--alert-red);
+    }
+
 
 </style>
 
@@ -96,23 +117,28 @@ $data_trame = $data_trame ?? [];
 
         $('.btn-led').on('click', async function(){
             let trame = "";
+            let command = ""
             switch ($(this).data("val")){
                 case "reset" :
                     trame = "1G05E24010000000";
+                    command = "éteindre la LED";
                     break;
                 case "green" :
                     trame = "1G05E24010001000";
+                    command = "allumer en vert la LED";
                     break;
                 case "orange" :
                     trame = "1G05E24010002000";
+                    command = "allumer en orange la LED";
                     break;
                 case "red" :
                     trame = "1G05E24010003000";
+                    command = "allumer en rouge la LED";
                     break;
             }
             let sendCommand = await getDataFromController('user?page=passerelle&action=post&trame=' + trame);
             //changer le bg du btn ?
-            $(".popup-container").append('<div class="popup" id="number' + i + '">État de la commande envoyée à la carte : ' + sendCommand + '</div>');
+            $(".popup-container").append('<div class="popup" id="number' + i + '">La commande : <stong>' + command + '</strong> a été envoyée à la carte. Etat : ' + sendCommand + '</div>');
             $('#number' + i).addClass('success');
             $('.popup').delay(5000).fadeOut('slow');
             i++;

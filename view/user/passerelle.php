@@ -28,8 +28,8 @@ $data_trame = $data_trame ?? [];
         <div class="container" style="padding: 20px; margin-bottom: 20px">
             <label for="rating">Taux de rafraichissement</label>
             <select name="rating" id="refresh-rate">
-                <option value="60000" selected="selected">Min</option>
-                <option value="1000">Sec</option>
+                <option value="60000" selected="selected">1 min</option>
+                <option value="5000">5 sec</option>
             </select>
             <div id="table-content" class="table-content">
                 <canvas id="graph1"></canvas>

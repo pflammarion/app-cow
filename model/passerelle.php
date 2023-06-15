@@ -45,7 +45,7 @@ function addDataFromGateway(string $trame): bool
 
 function getTrameFromDatabase(): array
 {
-    $get_value_sql = "SELECT * FROM log";
+    $get_value_sql = "SELECT * FROM log LIMIT 500";
     $get_value_sql = $GLOBALS['db']->prepare($get_value_sql);
     $get_value_sql->execute();
     $rows = $get_value_sql->fetchAll();

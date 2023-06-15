@@ -89,7 +89,7 @@ $data_trame = $data_trame ?? [];
                 let sendCommand = await getDataFromController('user?page=passerelle&action=post&trame=' + trameAllume);
 
                 $('#button-led').html("Éteindre la led verte");
-                $(".popup-container").append('<div class="popup" id="number' + i + '">"Allumer" ' + sendCommand + ' à la carte</div>');
+                $(".popup-container").append('<div class="popup" id="number' + i + '">État de la commande "Allumer" à la carte : ' + sendCommand + '</div>');
                 $('#number' + i).addClass('success');
                 $('.popup').delay(5000).fadeOut('slow');
                 i++;
@@ -102,7 +102,7 @@ $data_trame = $data_trame ?? [];
                 let sendCommand = await getDataFromController('user?page=passerelle&action=post&trame=' + trameEteindre);
 
                 $('#button-led').html("Allumer la led verte");
-                $(".popup-container").append('<div class="popup" id="number' + i + '">"Éteindre" ' + sendCommand +' à la carte</div>');
+                $(".popup-container").append('<div class="popup" id="number' + i + '">État de la commande "Éteindre" à la carte : ' + sendCommand + '</div>');
                 $('#number' + i).addClass('success');
                 $('.popup').delay(5000).fadeOut('slow');
                 i++;

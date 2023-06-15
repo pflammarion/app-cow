@@ -48,71 +48,6 @@ $data_trame = $data_trame ?? [];
     </div>
 </div>
 
-<style>
-    .passerelle select{
-        background-color: white;
-        height: 40px;
-        border-radius: 5px;
-        border: solid 2px var(--dark-blue);
-        width: 50px;
-    }
-
-    .passerelle .btn-led{
-        color: black;
-        padding: 5px;
-        width: 200px;
-        display: flex;
-        height: 40px;
-        border-radius: 5px;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 15px;
-        gap: 30px;
-        align-items: center;
-        border: solid 2px black;
-    }
-
-    .passerelle .green {
-        background-color: var(--alert-green);
-    }
-
-    .passerelle .orange {
-        background-color: var(--alert-orange);
-    }
-
-    .passerelle .red {
-        background-color: var(--alert-red);
-    }
-
-    .passerelle .border-green{
-        border: 2px solid var(--green);
-    }
-
-    .passerelle .border-orange{
-        border: 2px solid var(--alert-orange);
-    }
-
-    .passerelle .border-red{
-        border: 2px solid var(--alert-red);
-    }
-
-    .passerelle .border-black{
-        border: 2px solid var(--dark);
-    }
-
-    .passerelle .btn-container{
-        display: flex;
-        gap: 20px;
-        margin: 0 auto;
-        width: fit-content;
-    }
-    .passerelle .popup p {
-        margin: 0;
-    }
-
-
-</style>
-
 <script>
     $(document).ready(() => {
         let dataFiltered1 = [];
@@ -169,8 +104,7 @@ $data_trame = $data_trame ?? [];
             }
             let sendCommand = await getDataFromController('user?page=passerelle&action=post&trame=' + trame);
             //changer le bg du btn ?
-            $(".popup-container").append('<div class="popup" id="number' + i + '"><p>La commande : <strong>' + command + '</strong> a été envoyée à la carte. Etat : ' + sendCommand + '</p></div>');
-            $('#number' + i).addClass(classe);
+            $(".popup-container").append('<div class="popup ' + classe +'" id="number' + i + '"><p>La commande : <strong>' + command + '</strong> a été envoyée à la carte. Etat : ' + sendCommand + '</p></div>');
             $('#number' + i).addClass('success');
             //$('.popup').delay(5000).fadeOut('slow');
             i++;

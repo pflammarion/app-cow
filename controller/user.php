@@ -299,14 +299,22 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
         case 'passerelle':
             $view = 'user/passerelle';
             if (isset($_GET['api'])){
-                $data = file_get_contents('http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=G05E');
-                $data_tab = str_split($data, 33);
-                $dict = [];
-                foreach ($data_tab as $trame) {
-                    addDataFromGateway($trame);
+                if($action === "get"){
+                    $data = file_get_contents('http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=G05E');
+                    $data_tab = str_split($data, 33);
+                    $dict = [];
+                    foreach ($data_tab as $trame) {
+                        addDataFromGateway($trame);
+                    }
+                    $data_trame = getTrameFromDatabase();
+                    echo json_encode($data_trame);
                 }
-                $data_trame = getTrameFromDatabase();
-                echo json_encode($data_trame);
+                if ($action === "post" && isset($_GET['trame'])){
+                    $trame = $_GET['trame'];
+                    $data = file_get_contents('http://projets-tomcat.isep.fr:8080/appService?ACTION=COMMAND&TEAM=G05E&TRAME=' . $trame);
+                    echo json_encode($data);
+                }
+
             }
 
             /*$ch = curl_init();

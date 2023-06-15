@@ -80,17 +80,29 @@ $data_trame = $data_trame ?? [];
 
         i = 0
 
-        $('#button-led').on('click', function () {
+        $('#button-led').on('click', async function () {
             if (!isLight){
+                // 5 -> 2 -> écriture
+                // 6 -> 4 -> capteur
+                // 12 -> 1 -> allumer la led
+                let trameAllume = "1G05E24010001000";
+                let sendCommand = await getDataFromController('user?page=passerelle&action=post&trame=' + trameAllume);
+
                 $('#button-led').html("Éteindre la led verte");
-                $(".popup-container").append('<div class="popup" id="number' + i + '">Trame "allumer" envoyée à la carte</div>');
+                $(".popup-container").append('<div class="popup" id="number' + i + '">"Allumer" ' + sendCommand + ' à la carte</div>');
                 $('#number' + i).addClass('success');
                 $('.popup').delay(5000).fadeOut('slow');
                 i++;
                 isLight = true;
             } else {
+                // 5 -> 2 -> écriture
+                // 6 -> 4 -> capteur
+                // 12 -> 0 -> éteindre la led
+                let trameEteindre = "1G05E24010000000";
+                let sendCommand = await getDataFromController('user?page=passerelle&action=post&trame=' + trameEteindre);
+
                 $('#button-led').html("Allumer la led verte");
-                $(".popup-container").append('<div class="popup" id="number' + i + '">Trame "éteindre" envoyée à la carte</div>');
+                $(".popup-container").append('<div class="popup" id="number' + i + '">"Éteindre" ' + sendCommand +' à la carte</div>');
                 $('#number' + i).addClass('success');
                 $('.popup').delay(5000).fadeOut('slow');
                 i++;
@@ -101,7 +113,7 @@ $data_trame = $data_trame ?? [];
         });
 
         const updateGraph = async () => {
-            let dataPasserelle = await getDataFromController('user?page=passerelle');
+            let dataPasserelle = await getDataFromController('user?page=passerelle&action=get');
 
             dataPasserelle.sort((a, b) => a.log_date - b.log_date);
 

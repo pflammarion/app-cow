@@ -114,8 +114,6 @@ $data_trame = $data_trame ?? [];
         const updateGraph = async () => {
             let dataPasserelle = await getDataFromController('user?page=passerelle&action=get');
 
-            dataPasserelle.sort((a, b) => a.log_date - b.log_date);
-
             // Filter data for Sensor 1
             let sensor1Data = dataPasserelle.filter(
                 item =>

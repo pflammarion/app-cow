@@ -308,6 +308,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                         addDataFromGateway($trame);
                     }
                     $data_trame = getTrameFromDatabase();
+                    $data_trame = array_reverse($data_trame);
                     echo json_encode($data_trame);
                 }
                 if ($action === "post" && isset($_GET['trame'])){

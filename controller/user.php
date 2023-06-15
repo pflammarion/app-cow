@@ -302,6 +302,7 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 if($action === "get"){
                     $data = file_get_contents('http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=G05E');
                     $data_tab = str_split($data, 33);
+                    $data_tab = array_slice($data_tab, -400);
                     $dict = [];
                     foreach ($data_tab as $trame) {
                         addDataFromGateway($trame);

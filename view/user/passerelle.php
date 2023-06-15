@@ -87,6 +87,7 @@ $data_trame = $data_trame ?? [];
         display: flex;
         gap: 20px;
         margin: 0 auto;
+        width: fit-content;
     }
 
 

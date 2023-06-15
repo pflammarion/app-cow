@@ -106,7 +106,7 @@ $data_trame = $data_trame ?? [];
             //changer le bg du btn ?
             $("#popup_passerelle").append('<div class="popup ' + classe +'" id="number' + i + '"><p>La commande : <strong>' + command + '</strong> a été envoyée à la carte. Etat : ' + sendCommand + '</p></div>');
             $('#number' + i).addClass('success');
-            //$('.popup').delay(5000).fadeOut('slow');
+            $('.popup').delay(5000).fadeOut('slow');
             i++;
 
         })

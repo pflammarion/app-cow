@@ -14,33 +14,32 @@ function addDataFromGateway(string $trame): bool
     list($t, $o, $r, $capteur, $n, $value, $a, $x, $year, $month, $day, $hour, $min, $sec) = $values;
 
     $dateString = "$year-$month-$day $hour:$min:$sec";
-    print_r($dateString);
     $timestamp = strtotime($dateString);
-    print_r($timestamp);
     $date = date('Y-m-d H:i:s', $timestamp);
-    print_r($date);
-
-    $get_value_sql = "SELECT log_id FROM log WHERE log_capteur = :capteur AND log_date = :date";
-    $get_value_sql = $GLOBALS['db']->prepare($get_value_sql);
-    $get_value_sql->execute(
-        array(
-            "capteur" => $capteur,
-            "date" => $date,
-        )
-    );
-
-    if ($get_value_sql->rowCount() === 0) {
-        $add_value_sql = "INSERT INTO log (log_capteur, log_valeur, log_date) VALUES (:capteur, :valeur, :date)";
-        $add_value_sql = $GLOBALS['db']->prepare($add_value_sql);
-        $add_value_sql->execute(
+    if ($timestamp >0){
+        $get_value_sql = "SELECT log_id FROM log WHERE log_capteur = :capteur AND log_date = :date";
+        $get_value_sql = $GLOBALS['db']->prepare($get_value_sql);
+        $get_value_sql->execute(
             array(
                 "capteur" => $capteur,
-                "valeur" => $value,
                 "date" => $date,
             )
         );
-        return true;
+
+        if ($get_value_sql->rowCount() === 0) {
+            $add_value_sql = "INSERT INTO log (log_capteur, log_valeur, log_date) VALUES (:capteur, :valeur, :date)";
+            $add_value_sql = $GLOBALS['db']->prepare($add_value_sql);
+            $add_value_sql->execute(
+                array(
+                    "capteur" => $capteur,
+                    "valeur" => $value,
+                    "date" => $date,
+                )
+            );
+            return true;
+        }
     }
+
     return false;
 }
 

@@ -149,7 +149,7 @@ $data_trame = $data_trame ?? [];
                 case "reset" :
                     trame = "1G05E24010000000";
                     command = "éteindre la LED";
-                    classe = "border-reset";
+                    classe = "border-black";
                     break;
                 case "green" :
                     trame = "1G05E24010001000";
@@ -169,7 +169,8 @@ $data_trame = $data_trame ?? [];
             }
             let sendCommand = await getDataFromController('user?page=passerelle&action=post&trame=' + trame);
             //changer le bg du btn ?
-            $(".popup-container").append('<div class="popup ' + classe +'" id="number' + i + '"><p>La commande : <strong>' + command + '</strong> a été envoyée à la carte. Etat : ' + sendCommand + '</p></div>');
+            $(".popup-container").append('<div class="popup" id="number' + i + '"><p>La commande : <strong>' + command + '</strong> a été envoyée à la carte. Etat : ' + sendCommand + '</p></div>');
+            $('#number' + i).addClass(classe);
             $('#number' + i).addClass('success');
             $('.popup').delay(5000).fadeOut('slow');
             i++;

@@ -34,19 +34,19 @@
 }
 
 #popup_passerelle .border-green{
-    border: 2px solid var(--green);
+    border: 4px solid green;
 }
 
 #popup_passerelle .border-orange{
-    border: 2px solid var(--alert-orange);
+    border: 4px solid var(--alert-orange);
 }
 
 #popup_passerelle .border-red{
-    border: 2px solid var(--alert-red);
+    border: 4px solid var(--alert-red);
 }
 
 #popup_passerelle .border-black{
-    border: 2px solid var(--dark);
+    border: 4px solid var(--dark);
 }
 
 .passerelle .btn-container{

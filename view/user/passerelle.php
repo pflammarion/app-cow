@@ -6,10 +6,24 @@ $data_trame = $data_trame ?? [];
 
 <div class="passerelle">
     <div class="table">
+        <div class="btn-container">
+            <button id="button-led-green" data-val="green" class="btn-led btn-valider">
+                Allumer la led verte
+            </button>
 
-        <button id="button-led" class="btn-valider">
-            Allumer la led verte
-        </button>
+            <button id="button-led-orange" data-val="orange" class="btn-led btn-warning">
+                Allumer la led orange
+            </button>
+
+            <button id="button-led-red" data-val="red" class="btn-led btn-error">
+                Allumer la led rouge
+            </button>
+
+            <button id="button-led-reset" data-val="reset" class="btn-led btn-reset">
+                Éteindre la led la led verte
+            </button>
+        </div>
+
 
         <div class="container" style="padding: 20px; margin-bottom: 20px">
             <label for="rating">Taux de rafraichissement</label>
@@ -43,12 +57,13 @@ $data_trame = $data_trame ?? [];
         width: 50px;
     }
 
-    .passerelle .btn-valider{
+    .passerelle .btn-led{
         color: black;
         margin: 0 auto;
         padding: 5px;
         width: 200px;
     }
+
 </style>
 
 <script>
@@ -65,7 +80,6 @@ $data_trame = $data_trame ?? [];
         let interval = 60000;
         let intervalId = null;
 
-        let isLight = false;
 
         // Event listener for the refresh rate selection
         $('#refresh-rate').on('change', function () {
@@ -80,37 +94,22 @@ $data_trame = $data_trame ?? [];
 
         i = 0
 
-        $('#button-led').on('click', async function () {
-            if (!isLight){
-                // 5 -> 2 -> écriture
-                // 6 -> 4 -> capteur
-                // 12 -> 1 -> allumer la led
-                let trameAllume = "1G05E24010001000";
-                let sendCommand = await getDataFromController('user?page=passerelle&action=post&trame=' + trameAllume);
-
-                $('#button-led').html("Éteindre la led verte");
-                $(".popup-container").append('<div class="popup" id="number' + i + '">État de la commande "Allumer" à la carte : ' + sendCommand + '</div>');
-                $('#number' + i).addClass('success');
-                $('.popup').delay(5000).fadeOut('slow');
-                i++;
-                isLight = true;
-            } else {
-                // 5 -> 2 -> écriture
-                // 6 -> 4 -> capteur
-                // 12 -> 0 -> éteindre la led
-                let trameEteindre = "1G05E24010000000";
-                let sendCommand = await getDataFromController('user?page=passerelle&action=post&trame=' + trameEteindre);
-
-                $('#button-led').html("Allumer la led verte");
-                $(".popup-container").append('<div class="popup" id="number' + i + '">État de la commande "Éteindre" à la carte : ' + sendCommand + '</div>');
-                $('#number' + i).addClass('success');
-                $('.popup').delay(5000).fadeOut('slow');
-                i++;
-                isLight = false;
+        $('.btn-led').on('click', async function(){
+            let trame = "";
+            switch ($(this).data("val")){
+                case "reset" -> trame = "1G05E24010000000";
+                case "green" -> trame = "1G05E24010001000";
+                case "orange" -> trame = "1G05E24010002000";
+                case "red" -> trame = "1G05E24010003000";
             }
+            let sendCommand = await getDataFromController('user?page=passerelle&action=post&trame=' + trame);
+            //changer le bg du btn ?
+            $(".popup-container").append('<div class="popup" id="number' + i + '">État de la commande envoyée à la carte : ' + sendCommand + '</div>');
+            $('#number' + i).addClass('success');
+            $('.popup').delay(5000).fadeOut('slow');
+            i++;
 
-            //send the trame to passerelle
-        });
+        })
 
         const updateGraph = async () => {
             let dataPasserelle = await getDataFromController('user?page=passerelle&action=get');

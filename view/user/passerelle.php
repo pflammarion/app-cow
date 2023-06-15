@@ -172,7 +172,7 @@ $data_trame = $data_trame ?? [];
             $(".popup-container").append('<div class="popup" id="number' + i + '"><p>La commande : <strong>' + command + '</strong> a été envoyée à la carte. Etat : ' + sendCommand + '</p></div>');
             $('#number' + i).addClass(classe);
             $('#number' + i).addClass('success');
-            $('.popup').delay(5000).fadeOut('slow');
+            //$('.popup').delay(5000).fadeOut('slow');
             i++;
 
         })

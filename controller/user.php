@@ -4,6 +4,7 @@ require __DIR__ . '/../model/home.php';
 require __DIR__ . '/../model/cow.php';
 require __DIR__ . '/../model/chip.php';
 require __DIR__ . '/../model/function.php';
+require __DIR__ . '/../model/passerelle.php';
 
 $page = selectPage("accueil");
 $action = selectAction("view");
@@ -294,6 +295,36 @@ if(pageAuthorization('user') && !empty($page) && !empty($action)){
                 }
 
             }
+            break;
+        case 'passerelle':
+            $view = 'user/passerelle';
+            if (isset($_GET['api'])){
+                if($action === "get"){
+                    $data = file_get_contents('http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=G05E');
+                    $data_tab = str_split($data, 33);
+                    $data_tab = array_slice($data_tab, -1000);
+                    foreach ($data_tab as $trame) {
+                        addDataFromGateway($trame);
+                    }
+                    $data_trame = getTrameFromDatabase();
+                    $data_trame = array_reverse($data_trame);
+                    echo json_encode($data_trame);
+                }
+                if ($action === "post" && isset($_GET['trame'])){
+                    $trame = $_GET['trame'];
+                    $data = file_get_contents('http://projets-tomcat.isep.fr:8080/appService?ACTION=COMMAND&TEAM=G05E&TRAME=' . $trame);
+                    echo json_encode($data);
+                }
+
+            }
+
+            /*$ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,"http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=0011");
+            curl_setopt($ch, CURLOPT_HEADER, FALSE);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            $data = curl_exec($ch);
+            curl_close($ch);*/
+
             break;
         default:
             $view = "error404";

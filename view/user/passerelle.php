@@ -20,7 +20,7 @@ $data_trame = $data_trame ?? [];
             </button>
 
             <button data-val="reset" class="btn-led reset">
-                Éteindre la led la led verte
+                Éteindre la led
             </button>
         </div>
 
@@ -63,14 +63,9 @@ $data_trame = $data_trame ?? [];
         let intervalId = null;
 
 
-        // Event listener for the refresh rate selection
         $('#refresh-rate').on('change', function () {
             interval = Number($(this).val());
-
-            // Clear the previous interval
             clearInterval(intervalId);
-
-            // Start a new interval with the updated value
             intervalId = setInterval(updateGraph, interval);
         });
 
@@ -286,10 +281,8 @@ $data_trame = $data_trame ?? [];
             },
         });
 
-        // Call updateGraph initially
         updateGraph();
 
-        // Start the initial interval
         intervalId = setInterval(updateGraph, interval);
 
     });

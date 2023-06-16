@@ -16,7 +16,7 @@ function addDataFromGateway(string $trame): bool
     $dateString = "$year-$month-$day $hour:$min:$sec";
     $timestamp = strtotime($dateString);
     $date = date('Y-m-d H:i:s', $timestamp);
-    if ($timestamp >0){
+    if ($timestamp > 0 && $capteur != 4){
         $get_value_sql = "SELECT log_id FROM log WHERE log_capteur = :capteur AND log_date = :date";
         $get_value_sql = $GLOBALS['db']->prepare($get_value_sql);
         $get_value_sql->execute(
